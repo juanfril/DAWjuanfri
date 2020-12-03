@@ -1,0 +1,45 @@
+Console.Write("Introduce el tamaño del cuadrado: ");
+    int tamaño = int.Parse(Console.ReadLine());    
+    int rellenoInverso = tamaño - 2;
+    
+    //Línea superior
+    for (int i = 1; i <= tamaño; i++)
+    {
+      Console.Write("*");
+    }
+    Console.WriteLine();
+    //triángulos
+    for (int n = 1; n <= tamaño - 2; n++)
+    {      
+      for (int m =1; m <= tamaño - 2; m++)
+      {
+        if (m == 1)
+        {
+          Console.Write("*");
+        }
+        if(m == n)
+        {
+          Console.Write("*");          
+        }        
+        else if (m == rellenoInverso)
+        {          
+          Console.Write("*");
+          rellenoInverso--;                   
+        }
+        else
+        {
+          Console.Write(" ");
+        }
+        if (m == tamaño - 2)
+        {
+          Console.Write("*");
+        }
+      }      
+    Console.WriteLine();   
+    }
+    //última línea
+    for (int l = 1; l <= tamaño; l++)
+      {
+        Console.Write("*");
+      }
+    Console.WriteLine();

@@ -1,0 +1,913 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0081)https://sites.google.com/site/cop4331tankwars/software-requirements-specification -->
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/WebPage" style="height: auto;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<script type="text/javascript">/* Copyright 2008 Google. */ (function() { /*
+
+Copyright The Closure Library Authors.
+SPDX-License-Identifier: Apache-2.0
+*/
+(function(){function e(g){this.t={};this.tick=function(h,k,f){this.t[h]=[void 0!=f?f:(new Date).getTime(),k];if(void 0==f)try{window.console.timeStamp("CSI/"+h)}catch(m){}};this.getStartTickTime=function(){return this.t.start[0]};this.tick("start",null,g)}var a;if(window.performance)var d=(a=window.performance.timing)&&a.responseStart;var l=0<d?new e(d):new e;window.jstiming={Timer:e,load:l};if(a){var b=a.navigationStart;0<b&&d>=b&&(window.jstiming.srt=d-b)}if(a){var c=window.jstiming.load;0<b&&d>=
+b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",d),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(g){}})(); })()
+</script>
+<link rel="shortcut icon" type="image/x-icon" href="https://www.google.com/images/icons/product/sites-16.ico">
+<link rel="apple-touch-icon" href="https://ssl.gstatic.com/sites/p/227e76/system/app/images/apple-touch-icon.png" type="image/png">
+<script type="text/javascript">/* Copyright 2008 Google. */ (function() { function d(a){return document.getElementById(a)}window.byId=d;function g(a){return a.replace(/^\s+|\s+$/g,"")}window.trim=g;var h=[],k=0;window.JOT_addListener=function(a,b,c){var f=new String(k++);a={eventName:a,handler:b,compId:c,key:f};h.push(a);return f};window.JOT_removeListenerByKey=function(a){for(var b=0;b<h.length;b++)if(h[b].key==a){h.splice(b,1);break}};window.JOT_removeAllListenersForName=function(a){for(var b=0;b<h.length;b++)h[b].eventName==a&&h.splice(b,1)};
+window.JOT_postEvent=function(a,b,c){var f={eventName:a,eventSrc:b||{},payload:c||{}};if(window.JOT_fullyLoaded)for(b=h.length,c=0;c<b&&c<h.length;c++){var e=h[c];e&&e.eventName==a&&(f.listenerCompId=e.compId||"",(e="function"==typeof e.handler?e.handler:window[e.handler])&&e(f))}else window.JOT_delayedEvents.push({eventName:a,eventSrc:b,payload:c})};window.JOT_delayedEvents=[];window.JOT_fullyLoaded=!1;
+window.JOT_formatRelativeToNow=function(a,b){a=((new Date).getTime()-a)/6E4;if(1440<=a||0>a)return null;var c=0;60<=a&&(a/=60,c=2);2<=a&&c++;return b?window.JOT_siteRelTimeStrs[c].replace("__duration__",Math.floor(a)):window.JOT_userRelTimeStrs[c].replace("__duration__",Math.floor(a))}; })()
+</script>
+<script>
+
+  
+
+  var breadcrumbs = [{"path":"/site/cop4331tankwars/software-requirements-specification","deleted":false,"title":"Software Requirements Specification","dir":"ltr"}];
+  var JOT_clearDotPath = 'https://ssl.gstatic.com/sites/p/227e76/system/app/images/cleardot.gif';
+
+  
+  var JOT_userRelTimeStrs = ["hace un minuto","hace __duration__ minutos","hace una hora","hace __duration__ horas"];
+
+  
+  
+
+  
+
+  var webspace = {"gvizGstaticVersion":"current","enableAnalytics":false,"pageSharingId":"jotspot_page","codeembeds":{"outerIframeSrc":"https://www.gstatic.com/jotspot/embeds/code/0f08d42392f2000e7e3f3daf5b427a43/outer_iframe.html","innerIframeSrc":"https://1550030249-jotspot-embeds.googleusercontent.com/code/8d87fa64604b2a11fae2ed06104c58d3/inner_iframe.html"},"enableUniversalAnalytics":false,"sharingPolicy":"OPENED","siteTitle":"TankWars","jot2atari":{"eligibility":"ineligible"},"onepickUrl":"https://docs.google.com/picker","adsensePublisherId":null,"features":{"moreMobileStyleImprovements":null,"disableGroups":true,"subscriptionDataMigrationInProgress":null,"plusBadge":false},"isPublic":true,"newSitesBaseUrl":"https://sites.google.com","isConsumer":true,"serverFlags":{"jot2AtariLearnMoreUrl":"https://support.google.com/sites/answer/7035197"},"domainAnalyticsAccountId":"","plusPageId":"","signInUrl":"https://accounts.google.com/AccountChooser?continue\u003dhttps://sites.google.com/site/cop4331tankwars/software-requirements-specification\u0026service\u003djotspot","analyticsAccountId":"","scottyUrl":"/_/upload","homePath":"/","siteNoticeUrlEnabled":null,"plusPageUrl":"","adsensePromoClickedOrSiteIneligible":true,"csiReportUri":"https://gg.google.com/csi","sharingId":"jotspot","termsUrl":"//www.google.com/intl/es/policies/terms/","gvizVersion":1,"editorResources":{"sitelayout":["https://ssl.gstatic.com/sites/p/227e76/system/app/css/sitelayouteditor.css"],"text":["https://ssl.gstatic.com/sites/p/227e76/system/js/codemirror.js","https://ssl.gstatic.com/sites/p/227e76/system/app/css/codemirror_css.css","https://ssl.gstatic.com/sites/p/227e76/system/js/trog_edit__es.js","https://ssl.gstatic.com/sites/p/227e76/system/app/css/trogedit.css","/site/cop4331tankwars/_/rsrc/1602746982000/system/app/css/editor.css","https://ssl.gstatic.com/sites/p/227e76/system/app/css/codeeditor.css","/site/cop4331tankwars/_/rsrc/1602746982000/system/app/css/camelot/editor-jfk.css"]},"sharingUrlPrefix":"/_/sharing","isAdsenseEnabled":true,"domain":"defaultdomain","baseUri":"/site/cop4331tankwars","name":"cop4331tankwars","siteTemplateId":false,"siteNoticeRevision":null,"siteNoticeUrlAddress":null,"siteNoticeMessage":null,"page":{"isRtlLocale":false,"canDeleteWebspace":false,"isPageDraft":null,"parentPath":null,"parentWuid":null,"siteLocale":"en","timeZone":"America/Los_Angeles","type":"text","title":"Software Requirements Specification","locale":"es","wuid":"wuid:gx:5cfdb616877bc2a0","revision":44,"path":"/software-requirements-specification","isSiteRtlLocale":false,"pageInheritsPermissions":null,"name":"software-requirements-specification","canChangePath":true,"state":"","properties":{},"bidiEnabled":false,"currentTemplate":{"path":"/system/app/pagetemplates/text","title":"P\u00e1gina web"}},"canPublishScriptToAnyone":true,"user":{"keyboardShortcuts":true,"sessionIndex":0,"onePickToken":"000770F20389EA06B5C475B5AC65451F1BBB64A76030A1617A::1603453316943","guest_":false,"displayNameOrEmail":"juanfri losa","userName":"juanfril","uid":"17962464016828416996","domainUser":false,"renderMobile":false,"domain":null,"namespace":"","hasWriteAccess":false,"namespaceUser":false,"primaryEmail":"juanfril@gmail.com","hasAdminAccess":false},"gadgets":{"baseUri":"/site/cop4331tankwars/system/app/pages/gadgets"}};
+  webspace.page.breadcrumbs = breadcrumbs;
+
+  
+  var JOT_siteRelTimeStrs = ["a minute ago","__duration__ minutes ago","an hour ago","__duration__ hours ago"];
+
+</script>
+<script type="text/javascript">
+                window.jstiming.load.tick('scl');
+              </script>
+<meta name="title" content="Software Requirements Specification - TankWars">
+<meta itemprop="name" content="Software Requirements Specification - TankWars">
+<meta property="og:title" content="Software Requirements Specification - TankWars">
+<style type="text/css">
+</style>
+<link rel="stylesheet" type="text/css" href="./Software Requirements Specification - TankWars_files/standard-css-iceberg-ltr-ltr.css">
+<link rel="stylesheet" type="text/css" href="./Software Requirements Specification - TankWars_files/overlay.css">
+<link rel="stylesheet" type="text/css" href="./Software Requirements Specification - TankWars_files/allthemes-view.css">
+<!--[if IE]>
+          <link rel="stylesheet" type="text/css" href="/site/cop4331tankwars/system/app/css/camelot/allthemes%2die.css" />
+        <![endif]-->
+<title>Software Requirements Specification - TankWars</title>
+<meta itemprop="image" content="https://sites.google.com/site/cop4331tankwars/_/rsrc/1359323038753/software-requirements-specification/Use%20Case.png?height=600&amp;width=900">
+<meta property="og:image" content="https://sites.google.com/site/cop4331tankwars/_/rsrc/1359323038753/software-requirements-specification/Use%20Case.png?height=600&amp;width=900">
+<script type="text/javascript">
+                window.jstiming.load.tick('cl');
+              </script>
+<script src="./Software Requirements Specification - TankWars_files/ga.js.descarga"></script><script src="./Software Requirements Specification - TankWars_files/f.txt"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./Software Requirements Specification - TankWars_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./Software Requirements Specification - TankWars_files/main_es.js.descarga"></script><script type="text/javascript" charset="UTF-8" src="./Software Requirements Specification - TankWars_files/element_main.js.descarga"></script><style>.goog-te-ftab-float {z-index:9999999; overflow:visible; position:fixed; _position:absolute;top:auto;left:auto;bottom:0px; _top:expression((-0-document.getElementById('\3a 0.floatContainer').offsetHeight+(hack3=document.documentElement.clientHeight||document.body.clientHeight)+(hack4=document.documentElement.scrollTop||document.body.scrollTop))+'px');right:20px; _left:expression((-20-document.getElementById('\3a 0.floatContainer').offsetWidth+(hack5=document.documentElement.clientWidth||document.body.clientWidth)+(hack6=document.documentElement.scrollLeft||document.body.scrollLeft))+'px');}</style></head>
+<body xmlns="http://www.google.com/ns/jotspot" id="body" class=" en            " style="position: relative; min-height: 100%; top: 0px;">
+<div id="sites-page-toolbar" class="sites-header-divider">
+<div xmlns="http://www.w3.org/1999/xhtml" id="sites-status" class="sites-status" style="display:none;"><div id="sites-notice" class="sites-notice" role="status" aria-live="assertive"> </div></div>
+</div>
+<div id="sites-chrome-everything-scrollbar">
+<div id="sites-chrome-everything" class="">
+<div id="sites-chrome-page-wrapper" style="direction: ltr">
+<div id="sites-chrome-page-wrapper-inside">
+<div xmlns="http://www.w3.org/1999/xhtml" id="sites-chrome-header-wrapper" style="">
+<table id="sites-chrome-header" class="sites-layout-hbox" cellspacing="0" style="">
+<tbody><tr class="sites-header-primary-row" id="sites-chrome-userheader">
+<td id="sites-header-title" class="" role="banner"><div class="sites-header-cell-buffer-wrapper"><h2><a href="https://sites.google.com/site/cop4331tankwars/" dir="ltr" id="sites-chrome-userheader-title">TankWars</a></h2></div></td><td class="sites-layout-searchbox  "><div class="sites-header-cell-buffer-wrapper"><form id="sites-searchbox-form" action="https://sites.google.com/site/cop4331tankwars/system/app/pages/search" role="search"><input type="hidden" id="sites-searchbox-scope" name="scope" value="search-site"><input type="text" id="jot-ui-searchInput" name="q" size="20" value="" aria-label="Search this site"><div id="sites-searchbox-button-set" class="goog-inline-block"><div role="button" id="sites-searchbox-search-button" class="goog-inline-block jfk-button jfk-button-standard" tabindex="0" style="user-select: none;">Search this site</div></div></form></div></td>
+</tr>
+<tr class="sites-header-secondary-row" id="sites-chrome-horizontal-nav">
+<td colspan="2" id="sites-chrome-header-horizontal-nav-container" role="navigation">
+</td>
+</tr>
+</tbody></table>
+</div>
+<div id="sites-chrome-main-wrapper">
+<div id="sites-chrome-main-wrapper-inside">
+<table id="sites-chrome-main" class="sites-layout-hbox" cellspacing="0" cellpadding="{scmCellpadding}" border="0">
+<tbody><tr>
+<td id="sites-chrome-sidebar-left" class="sites-layout-sidebar-left initial" style="width:150px">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sites-embed-align-left-wrapping-off" id="COMP_14199363626539707" role="complementary"><div class="sites-embed-border-on sites-embed sites-embed-full-width" style="width:100%;"><div class="sites-embed-content sites-embed-type-countdown"><div aria-label="2747 days since Deliverables #3" class="sites-embed-countdown sites-embed-countdown-fromdateutc-2013-4-16"><span jotid="content"><p style="text-align: center"><strong aria-hidden="true" class="sites-embed-countdown-daysapart">2747</strong><span aria-hidden="true">days since </span><br aria-hidden="true"><strong aria-hidden="true">Deliverables #3</strong></p></span></div></div></div></div>
+<div xmlns="http://www.w3.org/1999/xhtml" id="COMP_8825515185017139" class="sites-embed" role="navigation"><div class="sites-embed-content sites-sidebar-nav"><ul role="navigation" jotid="navList" class="has-expander"><li class="topLevel nav-first "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/home" jotid="wuid:gx:5e8c22bc2e58e430" class="sites-navigation-link topLevel">Home</a></div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/timeline" jotid="wuid:gx:272b5a2557850a55" class="sites-navigation-link topLevel">Action Items</a></div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/build-instructions" jotid="wuid:gx:734ab2fe9af0de76" class="sites-navigation-link topLevel">Build Instructions</a></div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/concept-of-operations" jotid="wuid:gx:15fcc57697db0359" class="sites-navigation-link topLevel">Concept of Operations</a></div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/deliverables" jotid="wuid:gx:604e89bc887c142c" class="sites-navigation-link topLevel">Deliverables</a></div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/detailed-design" jotid="wuid:gx:6d1d5a63752a7ac4" class="sites-navigation-link topLevel">Detailed Design</a></div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/high-level-design" jotid="wuid:gx:319de355eb444db4" class="sites-navigation-link topLevel">High-Level Design</a></div></li><li class="topLevel parent " wuid="gx:6b458e52c9b2953b"><div dir="ltr" style="padding-left: 0px;"><div class="expander"></div><a href="https://sites.google.com/site/cop4331tankwars/individual-web-pages" jotid="wuid:gx:6b458e52c9b2953b" class="sites-navigation-link topLevel">Individual Web Pages</a></div><ul role="navigation" class="has-expander"><li class=""><div dir="ltr" style="padding-left: 38px;"><a href="https://sites.google.com/site/cop4331tankwars/individual-web-pages/christopher-linton" jotid="wuid:gx:1b0bbf0cf59956dd" class="sites-navigation-link">Christopher Linton</a></div></li><li class=""><div dir="ltr" style="padding-left: 38px;"><a href="https://sites.google.com/site/cop4331tankwars/individual-web-pages/jay-davila" jotid="wuid:gx:41e5dc72087a589" class="sites-navigation-link">Jay Davila</a></div></li><li class=""><div dir="ltr" style="padding-left: 38px;"><a href="https://sites.google.com/site/cop4331tankwars/individual-web-pages/katherine-rodriguez" jotid="wuid:gx:276ab75e60d8702a" class="sites-navigation-link">Katherine Rodriguez</a></div></li><li class=""><div dir="ltr" style="padding-left: 38px;"><a href="https://sites.google.com/site/cop4331tankwars/individual-web-pages/meng-tsi-lee" jotid="wuid:gx:6f07e05f9be3a113" class="sites-navigation-link">Meng-Tse Li</a></div></li><li class=""><div dir="ltr" style="padding-left: 38px;"><a href="https://sites.google.com/site/cop4331tankwars/individual-web-pages/william-orem" jotid="wuid:gx:40543e6f15034377" class="sites-navigation-link">William Orem</a></div></li><li class=""><div dir="ltr" style="padding-left: 38px;"><a href="https://sites.google.com/site/cop4331tankwars/individual-web-pages/yuksel-hocalar" jotid="wuid:gx:5da037bf6d44d437" class="sites-navigation-link">Yuksel Hocalar</a></div></li></ul></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/project-legacy" jotid="wuid:gx:28ccdc2c9d6237cd" class="sites-navigation-link topLevel">Project Legacy</a></div></li><li class="topLevel parent " wuid="gx:6f6693d6677b811b"><div dir="ltr" style="padding-left: 0px;"><div class="expander"></div><a href="https://sites.google.com/site/cop4331tankwars/project-management-plan" jotid="wuid:gx:6f6693d6677b811b" class="sites-navigation-link topLevel">Project Management Plan</a></div><ul role="navigation" class="has-expander"><li class=""><div dir="ltr" style="padding-left: 38px;"><a href="https://sites.google.com/site/cop4331tankwars/project-management-plan/artifact" jotid="wuid:gx:1a27a050001b7c5" class="sites-navigation-link">Artifact Size Metric Standard</a></div></li><li class=""><div dir="ltr" style="padding-left: 38px;"><a href="https://sites.google.com/site/cop4331tankwars/project-management-plan/document-standards" jotid="wuid:gx:5fb836daf3de93f5" class="sites-navigation-link">Document Standards</a></div></li></ul></li><li class="topLevel "><div class="current-bg" jotid="wuid:gx:5cfdb616877bc2a0" dir="ltr" style="padding-left: 19px;">Software Requirements Specification</div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/team-web-pages" jotid="wuid:gx:1eb8cdb3a028be1b" class="sites-navigation-link topLevel">Team Web Pages</a></div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/test-plan" jotid="wuid:gx:3a8aa31156fd3e03" class="sites-navigation-link topLevel">Test Plan</a></div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/test-results" jotid="wuid:gx:7a19e858f8e3f2ac" class="sites-navigation-link topLevel">Test Results</a></div></li><li class="topLevel "><div dir="ltr" style="padding-left: 19px;"><a href="https://sites.google.com/site/cop4331tankwars/users-manual" jotid="wuid:gx:5bc41104227cc8de" class="sites-navigation-link topLevel">Users Manual</a></div></li></ul></div></div>
+</td>
+<td id="sites-canvas-wrapper">
+<div id="sites-canvas" role="main">
+<div id="goog-ws-editor-toolbar-container"> </div>
+<div xmlns="http://www.w3.org/1999/xhtml" id="title-crumbs" style="">
+</div>
+<h3 xmlns="http://www.w3.org/1999/xhtml" id="sites-page-title-header" style="" align="left">
+<span id="sites-page-title" dir="ltr" tabindex="-1" style="outline: none">Software Requirements Specification</span>
+</h3>
+<div id="sites-canvas-main" class="sites-canvas-main">
+<div id="sites-canvas-main-content">
+<table xmlns="http://www.w3.org/1999/xhtml" cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr"><div style="vertical-align:top;padding:6px 25px 10px 1em;min-width:64em;border:1px solid rgb(204,204,204)">
+<p style="line-height:1.25em;max-width:64em">Modification history</p>
+<table style="border-spacing:0px;border:1px solid rgb(204,204,204)">
+<tbody>
+<tr>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:44px;height:20px">Version</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:57px;height:20px">Date</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:79px;height:20px">Who</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:122px;height:20px">Comment</td>
+</tr>
+<tr>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:44px;height:20px">&nbsp;0.0</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:57px;height:20px">1/17/2013</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:79px;height:20px">William Orem</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:122px;height:20px">initial</td>
+</tr>
+<tr>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:44px;height:40px">&nbsp;1.0<span>&nbsp;&nbsp; &nbsp;</span></td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:57px;height:40px">1/27/2013</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:79px;height:40px">William Orem</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:122px;height:40px">Use Case<br>
+</td>
+</tr>
+<tr>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:44px;height:40px">&nbsp;2.0<span>&nbsp;&nbsp; &nbsp;</span></td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:57px;height:40px">2/1/2013</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:79px;height:40px">Christopher Linton<br>
+</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px;width:122px;height:40px">Assumptions and Stakeholders<br>
+</td>
+</tr>
+<tr>
+<td style="border:1px solid rgb(204,204,204);padding:5px">&nbsp;3.0</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px">&nbsp;2/1/2013</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px">&nbsp;Katherine Rodriguez</td>
+<td style="border:1px solid rgb(204,204,204);padding:5px">Software to be Produced, Reference Documents, Applicable Standards, Definitions, Supporting Material&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p style="line-height:1.25em;max-width:64em"><b>Team Name:</b>&nbsp;Tank Wars</p>
+<p style="line-height:1.25em;max-width:64em"><b>Team Members:</b></p>
+<ul style="padding-left:25px;max-width:62em"><li style="margin-bottom:0.3em">William Orem (william.orem@knights.ucf.edu)</li>
+<li style="margin-bottom:0.3em">Yuksel Hocalar (Yuksel_Hocalar@knights.ucf.edu)</li>
+<li style="margin-bottom:0.3em">Katherine Rodriguez	(kat.r.2010@knights.ucf.edu)</li>
+<li style="margin-bottom:0.3em">Christopher Linton	(clintonucf@knights.ucf.edu)</li>
+<li style="margin-bottom:0.3em">Jay Davila	 (DJay2011@knights.ucf.edu)</li>
+<li style="margin-bottom:0.3em">Meng-Tse Li	 (henry55819842@knights.ucf.edu)</li></ul>
+<hr style="width:839.890625px">
+<h2 style="font-size:large;background-image:none;border:0px;padding-left:0px;max-width:700px;background-repeat:initial initial"><a name="Contents_of_this_Document"></a>Contents of this Document</h2>
+<dir style="color:rgb(0,0,0);font-family:Times New Roman;font-size:medium;line-height:normal">
+<p><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#Introduction"><font size="2">Introduction</font></a></p>
+</dir>
+<ul style="color:rgb(0,0,0);font-family:Times New Roman;font-size:medium;line-height:normal">
+<ul><li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#SoftwareToBeProduced"><font size="2">Software to be Produced</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#ReferenceDocuments"><font size="2">Reference Documents</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#ApplicableStandards"><font size="2">Applicable Standards</font></a></li></ul></ul>
+<dir style="color:rgb(0,0,0);font-family:Times New Roman;font-size:medium;line-height:normal">
+<p><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#DefinitionsAcronymsAbbreviations"><font size="2">Definition, Acronyms, and Abbreviations</font></a></p>
+<p><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#ProductOverview"><font size="2">Product Overview</font></a></p>
+</dir>
+<ul style="color:rgb(0,0,0);font-family:Times New Roman;font-size:medium;line-height:normal">
+<ul><li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#Assumptions"><font size="2">Assumptions</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#StakeHolders"><font size="2">Stakeholders</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#EventTable"><font size="2">Event Table</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#UseCaseDiagram"><font size="2">Use Case Diagram</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#UseCaseDescriptions"><font size="2">Use Case Descriptions</font></a></li></ul></ul>
+<dir style="color:rgb(0,0,0);font-family:Times New Roman;font-size:medium;line-height:normal">
+<p><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#SpecificRequirements"><font size="2">Specific Requirements</font></a></p>
+</dir>
+<ul style="color:rgb(0,0,0);font-family:Times New Roman;font-size:medium;line-height:normal">
+<ul><li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#FunctionalRequirements"><font size="2">Functional Requirements</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#InterfaceRequirements"><font size="2">Interface Requirements</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#PhysicalEnvironmentRequirements"><font size="2">Physical Environment Requirements</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#UsersHumanFactorsRequirements"><font size="2">Users and Human Factors Requirements</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#DocumentationRequirements"><font size="2">Documentation Requirements</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#DataRequirements"><font size="2">Data Requirements</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#ResourceRequirements"><font size="2">Resource Requirements</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#SecurityRequirements"><font size="2">Security Requirements</font></a></li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#QualityAssuranceRequirements"><font size="2">Quality Assurance Requirements</font></a></li></ul></ul>
+<dir style="color:rgb(0,0,0);font-family:Times New Roman;font-size:medium;line-height:normal">
+<p><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification#SupportingMaterials"><font size="2">Supporting Material</font></a></p>
+</dir>
+<hr style="color:rgb(0,0,0);font-family:Times New Roman;font-size:medium;line-height:normal">
+<font size="2" style="color:rgb(0,0,0);font-family:Times New Roman;line-height:normal">
+<p><a name="Introduction">SECTION 1: Introduction</a></p>
+<u>
+<p><a name="SoftwareToBeProduced">Software to be Produced:</a></p>
+</u>
+<ul><li>
+<p><span style="font-family:Arial,sans-serif;background-repeat:initial initial">The software to be produced is a two-dimensional tank game
+application. The software provides a tank to be controlled by the user. The
+game will feature a multiplayer function. The software includes the
+functionality of an independently rotating, controllable turret head that fires
+at enemy tanks. Also included are premade maps.</span></p>
+</li></ul>
+<u>
+<p><a name="ReferenceDocuments">Reference Documents:</a></p>
+</u>
+<ul><li><a href="https://sites.google.com/site/cop4331tankwars/concept-of-operations">Concept of Operations</a><br>
+</li>
+<li><a href="https://sites.google.com/site/cop4331tankwars/project-management-plan">Project Management Plan</a></li></ul>
+<u>
+<p><a name="ApplicableStandards">Applicable Standards:</a></p>
+</u>
+</font>
+<ul><li>iOS 6.1</li>
+<li>Android OS 4.0</li>
+<li>Current
+generation web browsers</li></ul>
+<font face="arial, sans-serif"><font size="2" style="color:rgb(0,0,0);line-height:normal">
+<p>&nbsp;<a name="DefinitionsAcronymsAbbreviations"></a><u>Definitions, Acronyms, and Abbreviations:</u></p>
+<ul><li>None</li></ul>
+</font>
+</font>
+<hr style="color:rgb(0,0,0);font-size:medium;line-height:normal">
+<font face="arial, sans-serif"><font size="2" style="color:rgb(0,0,0);line-height:normal">
+<p><a name="ProductOverview">SECTION 2:&nbsp;Product Overview</a></p>
+<u>
+<p><a name="Assumptions">Assumptions:</a></p>
+</u></font>
+</font>
+<ul><li><font size="2"><font face="arial, sans-serif" style="color:rgb(0,0,0);line-height:normal">The application will run on an android phone with the current OS or newer.</font></font></li>
+<li><font size="2"><font face="arial, sans-serif" style="color:rgb(0,0,0);line-height:normal">The application will run on an Apple iPhone with the current version of iOS or newer.</font></font></li>
+<li><font size="2"><font face="arial, sans-serif" style="color:rgb(0,0,0);line-height:normal">The application will be virtually be bug free and it will be stable.</font></font></li>
+<li><font size="2"><font face="arial, sans-serif" style="color:rgb(0,0,0);line-height:normal">We assume the user will have the correct devices to play the game; which will be either a smart phone for the applications or a computer with a keyboard for the web version.</font></font></li>
+<li><font size="2" style="color:rgb(0,0,0);line-height:normal"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font face="arial, sans-serif" size="2"><font size="2">We assume the user will have sufficient system requirements on which to run the application.</font><br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></li></ul>
+<font face="arial, sans-serif"><font size="2" style="color:rgb(0,0,0);line-height:normal"><u>
+<p><a name="StakeHolders">Stakeholders:</a></p>
+</u>
+</font>
+</font>
+<ul><font face="arial, sans-serif"><font size="2" style="color:rgb(0,0,0);line-height:normal"><li>Professor and TAs</li>
+</font>
+</font>
+<ul><li><font face="arial, sans-serif" size="2" style="color:rgb(0,0,0);line-height:normal">These stakeholders will be analyzing the group information and development process throughout the course. They will also be grading us based upon said documentation and through presentations of the Tank Wars game.</font></li></ul>
+<li><font face="arial, sans-serif" size="2"><span style="color:rgb(0,0,0)">Software Developers</span></font></li>
+<ul><li><font face="arial, sans-serif" size="2"><span style="color:rgb(0,0,0)">These stakeholders will be responsible for the maintenance and handling of any problems, bugs, or fixes that will be needed before, during, or after the release of the Tank Wars game on the internet, current Android OS, and iOS.</span></font></li></ul>
+<li><font face="arial, sans-serif" size="2"><span style="color:rgb(0,0,0)">Users</span></font></li>
+<ul><li><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><font size="2"><span style="color:rgb(0,0,0)"><font size="2"><font size="2"><font size="2"><font size="2"><font face="arial, sans-serif" size="2">These stakeholders will be responsible for playing the game through their investments of time, be it short or long, and immersing themselves in the enjoyment of Tank Wars.</font><br>
+</font></font></font></font></span></font></font></font></font></font></font></font></li></ul></ul>
+<font size="2">
+<u>
+<p style="color:rgb(0,0,0);font-family:Times New Roman;line-height:normal"><a name="EventTable">Event Table</a>:</p>
+</u></font>
+<table align="left" border="0" cellpadding="0" cellspacing="0" style="width:589.25pt;border-collapse:collapse;margin-left:.1in;margin-right:.1in" width="982">
+<tbody>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">Event</span></p>
+</td>
+<td style="width:148.75pt;border:solid windowtext 1.0pt;border-left:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">External Stimuli</span></p>
+</td>
+<td style="width:153.0pt;border:solid windowtext 1.0pt;border-left:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">External Responses</span></p>
+</td>
+<td style="width:175.25pt;border:solid windowtext 1.0pt;border-left:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">Internal data and state</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">move left</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">keystroke 'a'</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank moves left</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank is moving left</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">move forward</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">keystroke 'w'</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank moves forward</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank is moving forward</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">move right</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">keystroke 'd'</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank moves right</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank is moving right</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">move back</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">keystroke 's'</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank moves backward</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank is moving backward</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">rotate turret clockwise</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">keystroke 'right arrow'</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">turret rotates clockwise</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">turret is rotating
+  clockwise</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">rotate turret
+  counter-clockwise</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">keystroke 'left'</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">turret rotates
+  counterclockwise</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">turret is rotating
+  counter-clockwise</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">shoot projectile</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">keystroke 'space'</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank shoots projectile</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank is shooting
+  projectile at a certain rate</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">activate shield</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">keystroke 'v'</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank is immune to
+  projectiles</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank damage is static as
+  long as the key is pressed</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">activate boost</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">keystroke 'b'</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank moves faster</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank speed is increased
+  as long as key is pressed</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">choose menu game mode</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user mouseclicks game
+  mode button</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user enters game mode
+  menu</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0.0001pt"><span style="line-height:normal;color:black">game mode menu is visible
+  while all other menus are&nbsp;</span><font color="#000000"><span style="line-height:normal">invisible</span></font></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">choose single player mode</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user mouseclicks single
+  player button</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user enters single player
+  menu</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">single player menu is
+  visible while all other menus are invisible</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">choose multiplayer mode</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user mouseclicks
+  multiplayer button</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user enters multiplayer
+  menu</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">multiplayer menu is
+  visible while all other menus are invisible</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">choose puzzle mode</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user mouseclicks puzzle
+  button</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user enters puzzle menu</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">puzzle menu is visible
+  while all other menus are invisible</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">choose start game</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user mouseclicks start
+  game button</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user begins game</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0.0001pt"><font color="#000000"><span style="line-height:normal">all menus are invisible
+  and all tank objects are&nbsp;visible&nbsp;and active</span></font></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">choose tank skin</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user mouseclicks on skins
+  on screen</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank is updated to skin
+  clicked</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">tank object skins is
+  changed to skin chosen</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">raise volume</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user mouseclicks volume
+  up button</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">volume is raised</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">game volume is 1% higher</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">lower volume</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user mouseclicks volume
+  down button</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">volume is lowered</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">game volume is 1% lower</span></p>
+</td>
+</tr>
+<tr style="height:.2in">
+<td style="width:112.25pt;border:solid windowtext 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="187">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">mute volume</span></p>
+</td>
+<td style="width:148.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="248">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">user mouseclicks mute
+  button</span></p>
+</td>
+<td style="width:153.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="255">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">volume is muted</span></p>
+</td>
+<td style="width:175.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:.2in" valign="bottom" width="292">
+<p style="margin-bottom:0in;margin-bottom:.0001pt;line-height:normal"><span style="color:black">game volume is set to 0%</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<font size="2" style="color:rgb(0,0,0);font-family:Times New Roman;line-height:normal">
+<p>&nbsp;</p>
+<u>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram"><br>
+</a></p>
+<p><a name="UseCaseDiagram">Use Case Diagram:</a></p>
+</u>
+</font><a href="https://sites.google.com/site/cop4331tankwars/software-requirements-specification/Use%20Case.png?attredirects=0" imageanchor="1" style="font-family:Times New Roman;line-height:normal;font-size:small"><img border="0" height="600" src="./Software Requirements Specification - TankWars_files/Use Case.png" width="900"></a><font size="2" style="color:rgb(0,0,0);line-height:normal"><br>
+<u style="font-family:Times New Roman">
+<p><a name="UseCaseDescriptions">Use Case Descriptions:</a></p>
+</u>
+<ul><li><font face="arial, sans-serif">Menu - user start screen</font></li>
+<li><font face="arial, sans-serif">Mode - user picks mode of play or joins game</font></li>
+<li><font face="arial, sans-serif">choose map - user picks a map</font></li>
+<li><font face="arial, sans-serif">choose tank - user picks a tank to use</font></li>
+<li><font face="arial, sans-serif">start game - game starts</font></li>
+<li><font face="arial, sans-serif">join game - player two joins game</font></li>
+<li><font face="arial, sans-serif">controls - users interaction with tank</font></li>
+<li><font face="arial, sans-serif">key entered - control entered</font></li>
+<li><font face="arial, sans-serif">fire weapon - weapon fired&nbsp;</font></li>
+<li><font face="arial, sans-serif">move turret - rotates turret</font></li>
+<li><font face="arial, sans-serif">move tank - moves tank</font></li>
+<li><font face="arial, sans-serif">end - user wins or loses</font></li>
+<li><font face="arial, sans-serif">hit wall - wall hit stop motion in that direction</font></li></ul>
+</font><font face="arial, sans-serif">
+</font>
+<hr style="color:rgb(0,0,0);font-size:medium;line-height:normal">
+<font face="arial, sans-serif"><font size="2" style="color:rgb(0,0,0);line-height:normal">
+<p><a name="SpecificRequirements">SECTION 3: Specific Requirements</a></p>
+<p><a name="FunctionalRequirements"><u>3.1 Functional Requirements:</u></a></p>
+</font></font><font face="arial, sans-serif" size="2">
+<ul><li><span style="line-height:normal;color:rgb(0,0,0)">Number: 1. (GUI)</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Statement: The system shall to have GUI</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Source: To see/view the game</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Conflicts: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Supporting Materials: none</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Evaluation Method: The game should show on the screen</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<ul><li><span style="line-height:normal;color:rgb(0,0,0)">Number: 2. (Menu)</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Statement: The system shall have menu system</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Source: Easy and simple options to choose the way you want to play</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: 1</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Conflicts: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Supporting Materials: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Evaluation Method: We will test the menu to ensure system works the way it should.</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<ul><li><span style="line-height:normal;color:rgb(0,0,0)">Number: 3. (Game environment/maps)</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Statement: The system shall have environment/maps system.</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Source: So user can play the game</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: 1, 2</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Conflicts: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Supporting Materials: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Evaluation Method: Testing the game eniveronment</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<ul><li><span style="line-height:normal;color:rgb(0,0,0)">Number: 4. (Gameplays)</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Statement: The system shall have different gameplays</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Source: Different game plays every game</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: 1, 2</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Conflicts: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Supporting Materials: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Evaluation Method: Testing the gameplays</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<ul><li><span style="line-height:normal;color:rgb(0,0,0)">Number: 5. (Website)</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Statement: The system shall have website.</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Source: So user can check the updates of the game</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: 1, 2</span></li></ul>
+<span style="color:rgb(0,0,0);line-height:normal">
+<p style="text-decoration:underline"><br>
+</p>
+<p style="text-decoration:underline"><a name="InterfaceRequirements">3.2 Interface Requirements:</a></p>
+<ul style="color:rgb(68,68,68);line-height:20px">
+<li><span style="color:rgb(0,0,0);line-height:normal">Number: 1</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Statement: Respond to keyboard input given by user</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Source: Concept of Operations</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Conflicts: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Supporting Materials: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Evaluation Method: Test system to ensure accuracy and functionality</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<p style="text-decoration:underline"><br>
+</p>
+</span>
+<p style="color:rgb(0,0,0);line-height:normal;text-decoration:underline"><a name="PhysicalEnvironmentRequirements">3.3Physical Environment Requirements:</a></p>
+<ul>
+<li><span style="color:rgb(0,0,0);line-height:normal">Number: 1</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Statement: The system must have a screen for visual output.</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Source: Concept of Operations</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Conflicts: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Supporting Materials: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Evaluation Method:Test multiple systems that have screens</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<ul><li><span style="color:rgb(0,0,0);line-height:normal">Number: 2</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Statement: The system must have a keyboard for keystroke input.</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Source: Concept of Operations</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Dependency: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Conflicts: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Supporting Materials: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Evaluation Method:Test multiple systems that have a keyboard attachment.</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<p style="color:rgb(0,0,0);line-height:normal;text-decoration:underline"><a name="UsersHumanFactorsRequirements">3.4 Users and Human Factors Requirements:</a></p>
+<ul>
+<li><span style="color:rgb(0,0,0);line-height:normal">Number: 1</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Statement: Human user must have usable fingers to operate the game.</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Source: Concept of Operations</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Conflicts: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Supporting Materials: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Evaluation Method: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<ul><li><span style="line-height:normal;color:rgb(0,0,0)">Number: 2</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Statement: Gameplay will be simple enough to grasp without tutorial if user has played a similar game before.</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Source: Concept of Operations</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Conflicts: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<p style="color:rgb(0,0,0);line-height:normal">&nbsp;</p>
+<span style="color:rgb(0,0,0);line-height:normal">
+<p style="text-decoration:underline"><a name="DocumentationRequirements">3.5 Documentation Requirements:</a></p>
+<ul style="color:rgb(68,68,68);line-height:20px">
+<li><span style="color:rgb(0,0,0);line-height:normal">Number: 1</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Statement: No documentation is required for gameplay. (A brief tutorial may be added in later versions of the software in a walkthrough format.)</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Source: Concept of Operations&nbsp;</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Conflicts: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Supporting Materials: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Evaluation Method: Members of the team will peer review and edit documentation as needed.</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+</span>
+<p style="color:rgb(0,0,0);line-height:normal;text-decoration:underline"><a name="DataRequirements">3.6 Data Requirements:</a></p>
+<ul><li><span style="line-height:normal;color:rgb(0,0,0)">Number: 1. (Gameplay Stats)</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Statement: The game shall keep tracing player stats</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Source: User will know his/her current stats (wining/losing)</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Conflicts: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Supporting Materials: none</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Evaluation Method: : We will have test subjects read our manual and play our game providing feedback along the way.</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<font color="#000000"><span style="line-height:normal">
+</span></font>
+<p><a name="ResourceRequirements">3.7 Resource Requirements:</a></p>
+<ul><li><span style="line-height:normal;color:rgb(0,0,0)">Number: 1.&nbsp;</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Statement: Team members shall able to program the game in unity and test the system.</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Source: Basic program requirement</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Conflicts: None</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Supporting Materials: none</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Evaluation Method: Class project description.</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Revision History: Initial Creation: 2/1/2013</span></li></ul>
+<p style="color:rgb(0,0,0);line-height:normal;text-decoration:underline"><a name="SecurityRequirements">3.8 Security Requirements:</a></p>
+<ul>
+<li><span style="color:rgb(0,0,0);line-height:normal">Number: &nbsp;1</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Statement:&nbsp;Due to the nature of our program, no restricted access will be necessary. However, we will make sure there is no way to cheat.</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Source: &nbsp;Basic program requirement</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Conflicts: None&nbsp;</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Supporting Materials: None&nbsp;</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Evaluation Method: &nbsp;Programmer and player testing.</span></li>
+<li><font color="#000000"><span style="line-height:normal">Revision History: &nbsp;</span></font><font color="#000000" style="line-height:1.6"><span style="line-height:normal">Initial Creation: 2/2/2013</span></font></li></ul>
+<p style="color:rgb(0,0,0);line-height:normal">&nbsp;</p>
+<p style="color:rgb(0,0,0);line-height:normal;text-decoration:underline"><a name="QualityAssuranceRequirements">3.9 Quality Assurance Requirements:</a></p>
+<ul>
+<li><span style="color:rgb(0,0,0);line-height:normal">Number: 1 (Levels)</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Statement: The level is beatable and different maps every games.&nbsp;</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Source:&nbsp;Levels must be beatable and the maps are different to ensure game enjoyment of the game.</span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)">Dependency: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Conflicts: None&nbsp;</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Supporting Materials: None</span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal">Evaluation Method: None&nbsp;</span></li>
+<li><font color="#000000"><span style="line-height:normal">Revision History:&nbsp;</span></font><span style="color:rgb(0,0,0);line-height:normal">Initial Creation: 2/2/201</span><span style="line-height:normal;color:rgb(0,0,0)">&nbsp; &nbsp;</span><span style="line-height:normal;color:rgb(0,0,0)">&nbsp; &nbsp; &nbsp;&nbsp;</span></li></ul>
+</font>
+<ul style="font-size:small;line-height:20px"><li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Number: 2 (Good Framerate)</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Statement:&nbsp;Game must have at least 20 FPS while playing.</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Source:&nbsp;Game must be smooth to ensure game enjoyment&nbsp;</font></span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)"><font face="arial, sans-serif">Dependency: None</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Conflicts: None&nbsp;</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Supporting Materials: None</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Evaluation Method: None&nbsp;</font></span></li>
+<li><font face="arial, sans-serif"><font color="#000000"><span style="line-height:normal">Revision History:&nbsp;</span></font><span style="color:rgb(0,0,0);line-height:normal">Initial Creation: 2/2/2013</span><span style="color:rgb(0,0,0);line-height:normal">&nbsp;&nbsp;</span></font></li></ul>
+<ul style="font-size:small;line-height:20px"><li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Number: 3 (Bug Free)</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Statement: Game must not have bugs.</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Source:&nbsp;Game must be smooth to ensure game enjoyment.</font></span></li>
+<li><span style="line-height:normal;color:rgb(0,0,0)"><font face="arial, sans-serif">Dependency: None</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Conflicts: None&nbsp;</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Supporting Materials: None</font></span></li>
+<li><span style="color:rgb(0,0,0);line-height:normal"><font face="arial, sans-serif">Evaluation Method: None&nbsp;</font></span></li>
+<li><font face="arial, sans-serif"><font color="#000000"><span style="line-height:normal">Revision History:&nbsp;</span></font><span style="color:rgb(0,0,0);line-height:normal">Initial Creation: 2/2/201</span><span style="line-height:normal;color:rgb(0,0,0)">&nbsp; &nbsp;</span><span style="line-height:normal;color:rgb(0,0,0)">&nbsp;</span></font></li></ul>
+<div><font color="#000000" face="arial, sans-serif" size="2"><span style="line-height:normal"><span>&nbsp;&nbsp; &nbsp;<span>&nbsp;&nbsp; &nbsp;<span>&nbsp;&nbsp; &nbsp;<span>&nbsp;&nbsp; &nbsp;<span>&nbsp;&nbsp; &nbsp;<span>&nbsp;&nbsp;</span></span></span></span></span></span></span></font></div>
+<font face="arial, sans-serif"><u style="font-size:small;color:rgb(0,0,0);line-height:normal">
+<p><a name="SupportingMaterials">SECTION 4: Supporting Material</a></p>
+</u>
+</font>
+<ul><li>
+<p style="color:rgb(0,0,0);font-size:small;line-height:normal"><span style="font-size:10pt"><font face="arial, sans-serif">The
+requirements described above were discussed in detail with the instructor and
+teaching assistant of the course. The developers also discussed among
+themselves about the requirements they wanted to include in the initial launch
+of the software. &nbsp;Also see Reference
+Documents above.</font></span></p>
+<p><font face="arial, sans-serif"><font color="#000000"><span style="line-height:normal">Check the three documents from our site "Concept of Operations,</span></font><font color="#000000" style="line-height:1.6;font-size:10pt"><span style="line-height:normal">&nbsp;Project Plan,&nbsp;</span></font><span style="font-size:10pt;line-height:normal;color:rgb(0,0,0)">Project Management Plan."</span></font></p>
+</li></ul>
+<hr style="width:839.890625px">
+</div>
+<br></div></td></tr></tbody></table>
+</div> 
+</div> 
+<div id="sites-canvas-bottom-panel">
+<div xmlns="http://www.w3.org/1999/xhtml" id="COMP_page-subpages"> </div>
+<div id="sites-attachments-container">
+</div>
+</div>
+</div> 
+</td> 
+</tr>
+</tbody></table> 
+</div> 
+</div> 
+<div id="sites-chrome-footer-wrapper">
+<div id="sites-chrome-footer-wrapper-inside">
+<div id="sites-chrome-footer">
+</div>
+</div>
+</div>
+</div> 
+</div> 
+<div id="sites-chrome-adminfooter-container">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sites-adminfooter" role="navigation"><p><a class="sites-system-link" href="https://accounts.google.com/AddSession?continue=https://sites.google.com/site/cop4331tankwars/software-requirements-specification&amp;service=jotspot">Iniciar sesión</a><span aria-hidden="true">|</span><a class="sites-system-link" href="https://sites.google.com/site/cop4331tankwars/system/app/pages/recentChanges">Actividad reciente del sitio</a><span aria-hidden="true">|</span><a class="sites-system-link" href="https://sites.google.com/site/cop4331tankwars/system/app/pages/reportAbuse" target="_blank">Notificar uso inadecuado</a><span aria-hidden="true">|</span><a class="sites-system-link" href="javascript:;" onclick="window.open(webspace.printUrl)">Imprimir página</a><span aria-hidden="true">|</span><span class="sites-system-link">Con la tecnología de</span> <b class="powered-by"><a href="http://sites.google.com/site">Google Sites</a></b></p></div>
+</div>
+</div> 
+</div> 
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+    window.jstiming.load.tick('sjl');
+  </script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="./Software Requirements Specification - TankWars_files/jot_min_view__en.js.descarga"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+    window.jstiming.load.tick('jl');
+  </script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+                    sites.Searchbox.initialize(
+                        'sites-searchbox-search-button',
+                        {"object":[]}['object'],
+                        'search-site',
+                        {"label":"Configure search options...","url":"/site/cop4331tankwars/system/app/pages/admin/settings"});
+                  </script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+      gsites.HoverPopupMenu.createSiteDropdownMenus('sites-header-nav-dropdown', false);
+    </script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" defer="true">
+            JOT_setupNav("8825515185017139", "Navigation", true);
+            JOT_addListener('titleChange', 'JOT_NAVIGATION_titleChange', 'COMP_8825515185017139');
+          </script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+  setTimeout(function() {
+    var fingerprint = gsites.date.TimeZone.getFingerprint([1109635200000, 1128902400000, 1130657000000, 1143333000000, 1143806400000, 1145000000000, 1146380000000, 1152489600000, 1159800000000, 1159500000000, 1162095000000, 1162075000000, 1162105500000]);
+    gsites.Xhr.send('https://sites.google.com/site/cop4331tankwars/_/tz', null, null, 'GET', null, null, { afjstz: fingerprint });
+  }, 500);
+</script>
+<script xmlns="http://www.w3.org/1999/xhtml">
+                    window.onload = function() {
+                      if (false) {
+                        JOT_setMobilePreview();
+                      }
+                      var loadTimer = window.jstiming.load;
+                      loadTimer.tick("ol");
+                      loadTimer["name"] = "load," + webspace.page.type + ",user_page";
+                      window.jstiming.report(loadTimer, {}, 'https://gg.google.com/csi');
+                    }
+                  </script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+        JOT_insertAnalyticsCode(false,
+            false);
+      </script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+    var maestroRunner = new gsites.pages.view.SitesMaestroRunner(
+        webspace, "en");
+    maestroRunner.initListeners();
+    maestroRunner.installEditRender();
+  </script>
+<script xmlns="http://www.w3.org/1999/xhtml">
+        JOT_insertTranslateCode('es', 'en');
+      </script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" defer="true">
+  //<![CDATA[
+    // Decorate any fastUI buttons on the page with a class of 'goog-button'.
+    if (webspace.user.hasWriteAccess) {
+      JOT_decorateButtons();
+    }
+
+    // Fires delayed events.
+    (function() {
+      JOT_fullyLoaded = true;
+      var delayedEvents = JOT_delayedEvents;
+      for (var x = 0; x < delayedEvents.length; x++) {
+        var event = delayedEvents[x];
+        JOT_postEvent(event.eventName, event.eventSrc, event.payload);
+      }
+      JOT_delayedEvents = null;
+      JOT_postEvent('pageLoaded');
+    })();
+  //]]>
+</script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+    JOT_postEvent('decorateGvizCharts');
+  </script>
+<script type="text/javascript">
+          JOT_setupPostRenderingManager();
+        </script>
+<script type="text/javascript">
+          JOT_postEvent('renderPlus', null, 'sites-chrome-main');
+        </script>
+<script type="text/javascript">
+          sites.codeembed.init();
+        </script>
+<div id="server-timer-div" style="display:none"> </div>
+<script type="text/javascript">
+          window.jstiming.load.tick('render');
+          JOT_postEvent('usercontentrendered', this);
+        </script><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Software Requirements Specification - TankWars_files/translate_24dp.png" width="20" height="20" alt="Google Traductor de Google"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugiere una traducción mejor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><div id=":0.floatContainer" class=" goog-te-ftab-float" style="box-sizing: content-box; width: 86px; height: 24px;"><iframe id=":0.container" frameborder="0" src="javascript:&#39;&#39;" class="goog-te-ftab-frame skiptranslate" style="visibility: visible; box-sizing: content-box; width: 86px; height: 24px;" src="./Software Requirements Specification - TankWars_files/saved_resource.html"></iframe></div></body></html>

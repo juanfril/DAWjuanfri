@@ -1,0 +1,155 @@
+/*******************************/
+/*********** GENERAL ***********/
+/*******************************/
+body{
+	background-image: url(../img/fondoSW.jpg);
+}
+
+/*** FONTFACE LLena los huecos(Exercise 3 point 2.b) ***/
+	{
+
+}
+
+#allcontent{
+	width: 1000px;	
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #a7cece;
+}
+
+
+/*******************************/
+/**********MENU RULES***********/
+/*******************************/
+
+div#links{
+	/*3 propiedades (Ejercicio 2 punto 1)*/
+}
+
+XXXXXXX a{	
+	/*** LLena los huecos y substituye las XXXXXXX por un elemento (Ejercicio 2 punto 6) ***/
+	padding: ;
+	margin: ;	
+	border: ;
+}
+
+/* LINK VISITADO Y NO VISITADO EN EL MENÚ */
+	{
+		/*** 2 propiedades (Ejercicio 2 punto 2) ***/
+}
+
+/* LIGHT SIDE */
+	{
+	/*** LLena los huecos (Ejercicio 2 punto 5) ***/
+	color:#0101DF;
+	: bold;
+}
+
+/* DARK SIDE */
+	{
+	/*** LLena los huecos (Ejercicio 2 punto 5) ***/
+	color:red;
+	: bold;
+}
+
+/* Marcas el link de la pantalla en la que estamos*/
+	{
+	/*** LLena los huecos (Ejercicio 2 puntos 3 y 4) ***/		
+	background-color: maroon;
+	color: white;
+}
+
+/*******************************/
+/********* LIST RULES **********/
+/*******************************/
+div#list {
+	/*** LLena los huecos (Ejercicio 3 punto 2.a) ***/	
+	width: ;
+	margin: ;
+	border: ;
+	background-color: #a4a4a4;
+}
+
+/* REGLAS PARA EL CSS DE LISTAS*/
+/*** LLena los huecos (Ejercicio 3 punto 1) ***/
+#romanList{
+	:   ;
+}
+#originalList {
+	:   ;
+}
+#sequelList{
+	:   ;
+}
+
+/* FONT FOR LISTS */
+	{
+	/*** LLena los huecos (Ejercicio 3 punto 2.b) ***/		
+	font-family: "Star Wars";
+	: ;
+}
+
+	{
+	/*** LLena los huecos (Ejercicio 3 punto 2.c) ***/		
+	font-family: ;
+	: ;
+}
+
+/*******************************/
+/******** TABLE RULES **********/
+/*******************************/
+div#table{
+	/*** 7 propiedades (Ejercicio 4 puntos 2 y 3) ***/
+	background-color: #B18904;
+	
+}
+
+div#table table {
+	/*** 4 propiedades (Ejercicio 4 punto 4) ***/
+	margin-right: 30px;
+	margin-bottom: 20px;
+	background-color: silver;
+}
+
+/* Borde para las celdas de la tabla en INDEX.HTML*/
+	{
+	/*** LLena los huecos (Ejercicio 4 punto 5) ***/		
+	border: 1px solid black;
+}
+
+/* LINK VISITADO Y NO VISITADO DE LA TABLA */
+	{
+	/*** LLena los huecos (Ejercicio 4 punto 7) ***/		
+	color: maroon;
+}
+
+/* AL DEJAR PULSADO EL LINK DE LA TABLA */
+	{
+	/*** LLena los huecos (Ejercicio 4 punto 7) ***/		
+	color: green;
+}
+
+
+/*******************************/
+/************ PIE **************/
+/*******************************/
+#back{
+/*** 4 propiedades (Ejercicio 1 puntos 5) ***/	
+	border: 1px solid black;
+}
+
+/*******************************/
+/******** FILMS.HTML ***********/
+/*******************************/
+#films{
+	/* SEPARACIÓN DE CELDAS */
+	/*** LLena los huecos (Ejercicio 6 punto 3) ***/	
+	: 20px;
+}
+
+#films td.cuadro{
+	border: 2px inset red;
+	padding: 5px;
+}
+
+

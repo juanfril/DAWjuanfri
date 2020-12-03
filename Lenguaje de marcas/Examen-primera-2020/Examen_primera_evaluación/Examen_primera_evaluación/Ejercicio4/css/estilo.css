@@ -1,0 +1,38 @@
+
+table{
+    border-collapse: collapse;
+    text-align: center;
+    border: 3px black solid;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+}
+td[rowspan*="5"]{
+    border: 3px black solid;
+    font-weight: bold;
+}
+caption{
+    border-top: 3px black solid;
+    border-right: 3px black solid;
+    border-left: 3px black solid;
+    padding: 5px;
+    font-weight: bold;
+}
+tr:nth-child(1){
+    border: 3px black solid;
+    font-weight: bold;
+}
+td{
+    padding: 2px;
+}
+tr:nth-child(3){
+    background-color: gray;
+}
+tr:nth-child(5){
+    background-color: gray;
+    border-bottom:  3px black solid;
+}
+footer tr td{
+    color: green;
+    border: none;
+    margin-top: 10px;
+}

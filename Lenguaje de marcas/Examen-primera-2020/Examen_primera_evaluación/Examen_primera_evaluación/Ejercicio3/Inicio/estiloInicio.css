@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+*{margin: 0px; padding: 0px;}
+
+body{
+    font-family: 'Nerko One', cursive;
+    margin: 50px;
+}
+nav{
+    font-size: x-large;
+    color: #333;
+    float: left;
+    border-bottom: #788 solid 2px;
+}
+li{
+    float: left;
+    margin-left: 10px;
+}
+ul{
+    list-style: none;
+}
+li:nth-child(1){
+    background: #f8f8f8;
+    border-top: #788 solid 2px;
+    border-left: #788 solid 2px;
+    border-right: #788 solid 2px;
+}
+li:nth-child(2){
+    background: #dedede;
+    border-top: #788 solid 2px;
+    border-left: #788 solid 2px;
+    border-right: #788 solid 2px;
+}
+li:nth-child(3){
+    background: #dedede;
+    border-top: #788 solid 2px;
+    border-left: #788 solid 2px;
+    border-right: #788 solid 2px;
+}
+li:nth-child(4){
+    background: #dedede;border-top: #788 solid 2px;
+    border-left: #788 solid 2px;
+    border-right: #788 solid 2px;
+}
+li:nth-child(5){
+    color: #3c3c3c;
+    background: #dedede;
+    border-top: #788 solid 2px;
+    border-left: #788 solid 2px;
+    border-right: #788 solid 2px;
+}
+li:hover{
+    background-color: #3fce9a;
+    border-color: #2334ed;
+}
