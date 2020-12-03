@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form2</title>
+    <style>
+        input[src*="enviar"]{
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin-left: 250px;
+            border-radius: 50px;
+            background-color:black;
+        }
+        #contrasenya{
+            font-size: small;
+        }
+        input[name*="contrasenya"]{
+            width: 40px;
+            margin: 10px 0px 5px 0px;
+        }
+        form{
+            width: 377px;
+            margin: 20px 0px 0px 400px;
+            background: linear-gradient(140deg, green, transparent);
+            border-radius: 10px;
+        }
+        fieldset{
+            border-radius: 10px;
+        }
+        span{
+            padding: 10px 0px 5px 0px;
+        }
+        h1{
+            font-size: larger;
+            color: darkturquoise;
+            margin-left: 200px;
+        }
+        h2{
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="mailto: juanfril@gmail.com"
+     enctype="application/x-www-form-urlencoded">
+
+     <fieldset>
+
+        <h1>Hoteles el Paraíso</h1>
+        <h2>Sistema de reserva de habitaciones:</h2>
+        <span>Introduzca su nombre:</span>
+        <input type="text" name="nombre" id="nombre">
+        <span id= "contrasenya">Introduzca una clave para su identificación (4 letras):</span>
+        <input type="password" name="contrasenya" id="password">
+        <p>Tipo de habitación:</p>
+        <input type="radio" name="grupo" value="1">
+        <span>Individual</span>
+        <input type="radio" name="grupo" value="2">
+        <span>Doble</span>
+        <p>Opciones extra:</p>
+        <input type="checkbox" name="activado">
+        <span>Desayuno en la cama</span>
+        <input type="checkbox" name="activado">
+        <span>Jacuzzi</span>
+        <input type="checkbox" name="activado">
+        <span>Climatizador</span>
+        <input type="image" name="enviar" src="enviar.png" alt="Botón enviar">
+
+     </fieldset>
+
+    </form>
+</body>
+</html>

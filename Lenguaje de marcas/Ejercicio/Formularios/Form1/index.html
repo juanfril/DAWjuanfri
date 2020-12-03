@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        form{
+            width: 300px;
+            margin: 100px 0px 0px 500px;
+        }
+        input{
+            margin-bottom: 5px;
+        }
+        p{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="mailto:juanfril@gmail.com" enctype="application/x-www-form-urlencoded">
+        <fieldset>
+            <p>nick</p>
+            <input type="text" name="nick" text="nick">
+            <p>mail</p>
+            <input type="text" name="mail">
+            <fieldset>
+                <p>Contraseña</p>
+                <input type="password" name="contrasenya1">
+                <p>Vuelva a introducir la contraseña</p>
+                <input type="password" name="contrasenya2">
+            </fieldset>        
+        </fieldset>
+        <input type="submit" name="enviar" value="envía">
+        <input type="reset" name="reset" value="reset">
+    </form>
+</body>
+</html>

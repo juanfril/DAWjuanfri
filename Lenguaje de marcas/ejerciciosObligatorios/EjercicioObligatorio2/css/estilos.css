@@ -1,0 +1,162 @@
+*{margin: 0px; padding: 0px;}
+
+html{
+    background-color: white;
+}
+
+body{
+    padding: 30px;
+    text-align: center;
+    background:linear-gradient(to bottom,
+        rgba(227, 76, 38, 1) 0%, rgba(240, 101, 41, 0) 90%);  
+}
+
+#page{
+    width: 960px;
+    margin: 0px auto 0px auto;
+    text-align: left;
+    box-shadow: 5px 5px 6px grey; 
+    border-radius: 20px 20px 20px 20px;
+}
+
+header{
+    font-family: courier;
+    font-size:  1.1em;
+    color: white;
+    border-bottom: 6px black solid;
+    background: url(../imgs/logo.png) no-repeat,
+        linear-gradient(to bottom, #0170B9, #27AADE);
+    background-position: 20px center;
+    padding: 20px 100px;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 5px 5px 6px grey;
+}
+
+nav{
+    font-family: Courier;
+    font-size: 1.4em;
+    color: silver;
+    text-align: center;
+    background:linear-gradient(to bottom, rgb(213, 186,50), rgb(255, 218, 62));
+    box-shadow: 5px 5px 6px grey;
+}
+
+nav li{
+    padding: 80px 80px 10px;
+    list-style: none;
+    display: inline-block;
+    text-align: center;    
+}
+
+nav ul li:nth-child(1){
+    background-image: url(../imgs/book.png);
+    background-repeat: no-repeat;
+    background-position: center 10px;
+}
+
+nav ul li:nth-child(2){
+    background-image: url(../imgs/film.png);
+    background-repeat: no-repeat;
+    background-position: center 10px;
+    color:white;
+}
+
+nav ul li:nth-child(3){
+    background-image: url(../imgs/mail.png);
+    background-repeat: no-repeat;
+    background-position: center 10px;
+    color: white;
+}
+
+ul{
+    display: inline;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+a:hover{
+    color:orange;
+}
+
+main{
+    font-family: Verdana;
+    font-size:  0.8em;
+    background-color: white;
+    /*box-shadow: 5px 5px 6px grey;*/
+}
+
+article{
+    width: 240px;
+    background-color: white;
+    text-align: center;
+    line-height: 1.8em;
+    padding: 5px 5px 22px 5px;
+    margin: 10px 10px;
+    float: left;
+    border: solid;
+    border-width: 70px 25px;
+    border-image-source: url(../imgs/movil.png);
+    border-image-slice: 70 25;    
+}
+
+.clearfix:before,
+.clearfix:after,
+
+main{
+width:100%;
+display: table;
+/*box-shadow: 5px 5px 6px grey;*/
+}
+
+h2{
+    padding: 5px 10px 10px 10px;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 4px grey;
+}
+
+/*main article:nth-child(1){
+    background-image: url(../imgs/html5.png);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+main article:nth-child(2){
+    background-image: url(../imgs/css3.png);
+    background-repeat: no-repeat;
+    background-position: top;
+}*/
+
+img[src*="javascript"]{
+    padding-bottom: 3px;
+    background: radial-gradient(circle, #ffff 0%, #cecece 200%);
+}
+
+/*main article:nth-child(3) img{
+    padding-bottom: 5px;
+    background: radial-gradient(circle, #ffff 0%, #cecece 200%);
+}           Otra forma
+
+main article:nth-child(3) h2{
+    padding: 0px;
+}*/
+
+footer{
+    color: white;
+    text-align: center;
+    background: linear-gradient(to top, #0170B9, #27AADE);
+    border-top: 6px black solid;
+    padding: 15px 0px;
+    border-radius: 0px 0px 20px 20px;
+    border-radius: 0px 0px 20px 20px;
+    /*box-shadow: 5px 5px 6px grey;*/
+}
+
+footer a{
+    color: white;
+}
+
+
+

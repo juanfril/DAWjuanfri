@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form3</title>
+    <style>
+        form{
+            font-family: trebuchet, courier;
+            margin: 20px 0px 0px 400px;
+            width: 450px;
+            padding: 15px;
+            border-radius: 10px;
+            border: solid 2px gray;
+            box-shadow: 2px 2px 5px gray;
+            background: linear-gradient(to bottom, #FFFFFF, #DCE4FF)
+        }
+        input[type*="password"]{
+            margin: 5px 0px 5px 67px;
+        }
+        select{
+            width: 150px;
+            margin: 0px 50px 5px 57px;
+        }
+        p{
+            margin-bottom: 5px;
+        }
+        input[type*="submit"]{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="mailto:http://profesor/blog.php" method="POST" enctype="application/x-www-form-urlencoded">
+    
+        <span>Nombre de usuario:</span>
+        <input type="text" name="usuario">
+        <span>Contraseña:</span>
+        <input type="password" name="clave">
+        <span>Visibilidad:</span>
+        <select name="Visibilidad">
+
+            <option value="">Seleccione opción</option>
+            <option value="privada">Privada</option>
+            <option value="pública">Pública</option>
+            <option value="amigos">Amigos</option>
+
+        </select>
+        <span>Permitir comentarios:</span>
+        <input type="checkbox" name="comentarios" value="comentarios">
+        <p>Título de entrada:</p>
+        <input type="text" name="Título">
+        <p>Entrada:</p>
+        <textarea name="entrada" cols="30" rows="10"></textarea>
+        <p>Tipo de entrada:</p>
+        <input type="radio" name="tipo" value="opinion">
+        <span>Opinión</span>
+        <input type="radio" name="tipo" value="tecnica">
+        <span>técnica</span>
+        <input type="radio" name="tipo" value="ficcion">
+        <span>ficción</span>
+        <input type="radio" name="tipo" value="otros">
+        <span>Otros</span>
+        <input type="submit" name="enviar" value="Enviar">
+        <input type="reset" name="Reset" value="Reset">
+
+    </form>
+</body>
+</html>
