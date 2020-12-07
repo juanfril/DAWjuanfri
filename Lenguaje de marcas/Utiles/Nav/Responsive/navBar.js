@@ -5,3 +5,9 @@ function accion(){
         ancla[i].classList.toggle('desaparece');
     }
 }
+const mascota = {
+    nombre: 'Tom',
+    edad: 10,
+    vivo: true
+}
+console.log(mascota)
