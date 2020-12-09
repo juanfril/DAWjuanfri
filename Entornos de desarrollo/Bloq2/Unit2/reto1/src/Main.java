@@ -14,41 +14,28 @@ public class Main {
 
         for(int i = 0; i < pruebas; i++){
             do{
-                System.out.println("Introduce el nombre del personaje: ");
-                nombre = entrada.next().replace(" ", "");
+                System.out.println("Introduce el nombre y parentesco: ");
+                nombre = entrada.next();
+                parentesco = entrada.next().replace(" ", "");
 
-                if(nombre.length() > limiteCaracteres) {
+                if(nombre.length() > limiteCaracteres || parentesco.length() > limiteCaracteres) {
                 System.out.println("Número de carácteres máximo 100");
                 }
 
             }while (nombre.length() > limiteCaracteres ||
-            nombre.contains(" "));
-
-            do{
-                System.out.println("Introduce el parentesco: ");
-                parentesco = entrada.next().replace(" ", "");
-
-                if(parentesco.length() > limiteCaracteres){
-                    System.out.println("Número de carácteres máximo 100");
-                }
-                
-            }while (parentesco.length() > limiteCaracteres||
-            parentesco.contains(" ")); 
-
+            nombre.contains(" ") || parentesco.contains(" ") || parentesco.length() > limiteCaracteres);
+           
             if(nombre.equals("Luke") && parentesco.equals("padre")){
                 System.out.println("TOP SECRET");
             }
             else {
                 System.out.println(nombre + ", yo soy tu " + parentesco);
-            }       
-        
-        }
-    
+            }        
+        }    
     }
     finally{
         if(entrada!=null)
             entrada.close();
-    }
-           
+    }           
   }
 }
