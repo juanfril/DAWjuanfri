@@ -3,17 +3,24 @@ import java.util.Scanner;
 public class exercise3 {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-        int[] primeNumbers = new int[10];
-        int input;
-
 
         System.out.print("Input a number: ");
-        input = sc.nextInt();
+        int input = sc.nextInt();
+        boolean find = false;
 
-        for(int i = 1; i >= input; i++){
+        System.out.print("Prime numbers until " + input + ": ");
 
+        for(int i = 1; i < input; i++){
+
+            for( int j = 2; j < input || find ; j++){
+                if(i==1){
+                    System.out.print(1 + ",");
+                    find = true;
+                }
+            }
         }
-
+        
         sc.close();
+        
     }
 }
