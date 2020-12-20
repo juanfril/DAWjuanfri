@@ -1,3 +1,5 @@
+//not finish
+
 import java.util.Scanner;
 
 public class exercise3 {
@@ -6,17 +8,17 @@ public class exercise3 {
 
         System.out.print("Input a number: ");
         int input = sc.nextInt();
-        boolean find = false;
 
         System.out.print("Prime numbers until " + input + ": ");
 
         for(int i = 1; i < input; i++){
 
-            for( int j = 2; j < input || find ; j++){
+            for( int j = 2; j <= input; j++){
                 if(i==1){
-                    System.out.print(1 + ",");
-                    find = true;
+                    System.out.print("1,");
                 }
+                else if(i%j != 0)
+                    System.out.print(i + ", ");
             }
         }
         
