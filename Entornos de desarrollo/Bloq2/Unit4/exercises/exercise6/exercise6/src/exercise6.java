@@ -7,7 +7,6 @@ second and so on. After storing these names and marks, the program must
 show the name of the students with marks greater than the average and the
 name of the student with the greatest mark.*/
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class exercise6 {
@@ -16,12 +15,16 @@ public class exercise6 {
         int maxArray;
         double suma = 0, average;
         double[] numbers;
+        double[] tempNumbers;
         String[] names;
+        String[] tempNames;
 
         System.out.print("How many marks are going to introduce? ");
         maxArray = sc.nextInt();
         numbers = new double[maxArray];
+        tempNumbers = new double[maxArray];
         names = new String[maxArray];
+        tempNames = new String[maxArray];
 
         for(int i = 0; i < maxArray; i++){
             names[i] = sc.next();
@@ -43,14 +46,18 @@ public class exercise6 {
 
         for (int i = 0; i < maxArray; i++){
             for ( int j = 1; j < maxArray; j++){
-                if (numbers[i] < numbers[j]){
-                    
+                if (numbers[j] > numbers[i]){
+                    tempNames[i] = names[j];
+                    names[j] = names[i];
+                    names[i] = tempNames[i];
+                    tempNumbers[i] = numbers[j];
+                    numbers[j] = numbers[i];
+                    numbers[i] = tempNumbers[i];
                 }
             }
         }
 
         System.out.print("The student with the greatest mark is: " + 
         names[0]);
-
     }
 }
