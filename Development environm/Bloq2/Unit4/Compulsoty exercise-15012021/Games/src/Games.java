@@ -7,14 +7,29 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Games {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
 
-        playNim(20);
+        if(args[0].equals("lottery"))
+            playLottery();
 
-        playLottery();
+        if(isNumeric(args[1]) == false)
+            System.out.println("Is not a number");
+
+        if(args[0].equals("Nim") && isNumeric(args[1]))
+            playNim(Integer.parseInt(args[1]));
+        
     }
 
-    
+    public static boolean isNumeric(String args){
+
+        try{
+            Integer.parseInt(args);
+            return true;
+        }
+        catch(NumberFormatException exception){
+            return false;
+        }
+    }
 
     public static int generateNumber(int min, int max){
 
@@ -53,7 +68,6 @@ public class Games {
                 count++;
 
         return count;
-
     }
     
     public static void playNim(int number){
@@ -73,7 +87,6 @@ public class Games {
 
                 System.out.printf("%d chips pending %n", number);
                 System.out.println("YOU WIN");
-
             }
 
             else if(number == 0)
@@ -95,13 +108,10 @@ public class Games {
     
                 else
                     System.out.printf("%d chips pending %n", number);
-
             }
-
         }
         
         sc.close();
-
     }
 
     public static void playLottery(){
@@ -124,6 +134,5 @@ public class Games {
         System.out.println();
         
         System.out.printf("You have %d hits.%n", checkLottery(user, winner));
-
     }
 }
