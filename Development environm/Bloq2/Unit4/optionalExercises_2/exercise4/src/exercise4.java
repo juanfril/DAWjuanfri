@@ -6,13 +6,13 @@ public class exercise4 {
 
     static String writeReverse(String reverse){
 
-        //.reverse()
+        //.reverse()...
 
-        StringBuilder reverseBuilder = new StringBuilder(reverse);
+        /*StringBuilder reverseBuilder = new StringBuilder(reverse);
 
-        return reverse = reverseBuilder.reverse().toString();
+        return reverse = reverseBuilder.reverse().toString();*/
 
-        //Iterative
+        //Iterative...
 
         /*String sReverse = "";
 
@@ -21,12 +21,12 @@ public class exercise4 {
 
         return sReverse;*/
 
-        //recursive...don't work jet
+        //recursive...
 
-        /*if(reverse.length() == 1)
+        if(reverse.length() == 1)
             return reverse;
         else
-            return writeReverse(reverse.substring(1)) + charAt(0);*/
+            return writeReverse(reverse.substring(1)) + reverse.charAt(0);
     }
 
 	public static void main(String[] args) throws Exception {
