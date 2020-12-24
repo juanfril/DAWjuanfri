@@ -9,15 +9,28 @@ import java.util.Scanner;
 public class Games {
     public static void main(String[] args){
 
-        if(args[0].equals("lottery"))
+        int number = 0;
+
+        if(args.length > 0){
+            if(args[0].equals("lottery"))
             playLottery();
 
-        if(isNumeric(args[1]) == false)
-            System.out.println("Is not a number");
+            else if(isNumeric(args[1]) == false)
+                System.out.println("Incorrect number of chips");
 
-        if(args[0].equals("Nim") && isNumeric(args[1]))
-            playNim(Integer.parseInt(args[1]));
-        
+            else if(isNumeric(args[1]))
+                number = Integer.parseInt(args[1]);
+
+            else if(args[0].equals("nim") && (number > 0 && number <= 30))
+                playNim(number);
+
+            else
+                System.out.println("Wrong input: (lottery | " +
+                    "nim + number(between 1 to 30)");
+        }
+        else
+            System.out.println("Wrong input: (lottery | " +
+                "nim + number(between 1 to 30)");
     }
 
     public static boolean isNumeric(String args){
@@ -38,25 +51,24 @@ public class Games {
 
     public static int[] generateLottery(){
 
-        int[] sixNumbers = new int[6];
+        int[] winner = new int[6];
 
         for(int i = 0; i < 6; i++){
-            sixNumbers[i] = generateNumber(1 , 50);
+            winner[i] = generateNumber(1 , 50);
             
             for(int j = i; j >= i; j--){
 
                 do{
-
-                    if(sixNumbers[i] == sixNumbers[j])
-                        sixNumbers[j] = generateNumber(1 , 50);
-
+                    if(winner[i] == winner[j])
+                        winner[j] = generateNumber(1 , 50);
                 }
-                while(sixNumbers[i] == sixNumbers[j] && sixNumbers.length < 1);
+                while(winner[i] == winner[j] && winner.length < 1);
             }
         }
-        Arrays.sort(sixNumbers);
+        
+        Arrays.sort(winner);
 
-        return sixNumbers;
+        return winner;
     }
 
     public static int checkLottery(int[] user, int[] winner){
@@ -78,13 +90,20 @@ public class Games {
         System.out.printf("Playing Nim with %d chips.%n", number);
 
         while(number > 1){
+            do{
+                System.out.println("Your turn. Choose how many chips to substract:");
+                choose = sc.nextInt();
 
-            System.out.println("Your turn. Choose how many chips to substract:");
-            choose = sc.nextInt();
-            number -= choose;
+                if(choose < 4 && choose > 0)
+                number -= choose;
+
+                else
+                    System.out.println("The number must be 1, 2 or 3");
+
+            }
+            while(choose < 0 && choose > 4);
 
             if(number == 1){
-
                 System.out.printf("%d chips pending %n", number);
                 System.out.println("YOU WIN");
             }
@@ -93,7 +112,6 @@ public class Games {
                 System.out.println("YOU LOOSE");
 
             else{
-
                 System.out.printf("%d chips pending %n", number);
 
                 choose = generateNumber(1, 4);
@@ -110,12 +128,11 @@ public class Games {
                     System.out.printf("%d chips pending %n", number);
             }
         }
-        
         sc.close();
     }
 
     public static void playLottery(){
-
+        
         Scanner sc = new Scanner(System.in);
         int[] user = new int[6];
         int[] winner = generateLottery();
@@ -124,6 +141,7 @@ public class Games {
 
         for(int i = 0; i < 6; i++)
             user[i] = sc.nextInt();
+            
         sc.close();
 
         System.out.println("This is the winner combination:");
