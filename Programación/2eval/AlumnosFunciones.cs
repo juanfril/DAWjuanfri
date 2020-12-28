@@ -8,7 +8,7 @@ namespace AlumnosFunciones
         {
             public string nombre;
             public string apellidos;
-            public ushort dni;
+            public int dni;
             public string ciudad;
             public fecha fechaNacimiento;
             public notas notasParciales;
@@ -56,99 +56,115 @@ namespace AlumnosFunciones
             Console.WriteLine("Fin del programa");
         }
 
-        static void AnyadirAlumnos(alumno[] alumnos, byte cantidad)
+        static void AnyadirAlumnos(alumno[] alumnos, ref byte cantidad)
         {
             const byte MAXIMO = 200;
             const int PRACTICAS = 6;
             const int EXAMENES = 3;
             string nombreProvisional;
             string fechaProvisional;
-            bool diaCorrecto = false;
-            bool mesCorrecto = false;   //Estos 3 booleanos los utilizo
-            bool anyoCorrecto = false;  //para controlar la fecha correcta
-            float notaEva1;
-            float notaEva2;
-            float notaEva3;
+            bool correcto = false;
 
             if (cantidad < MAXIMO)
             {
-                try
+                correcto = false;
+
+                while (!correcto)
                 {
-                    Console.WriteLine("Nombre y apellidos del alumno: ");
-                    nombreProvisional = Console.ReadLine();
-                    string[] nombrePartido = nombreProvisional.Split();
-                    alumnos[cantidad].nombre = nombrePartido[0];
-                    alumnos[cantidad].apellidos =
-                        nombrePartido[1] + " " + nombrePartido[2];
-
-                    Console.WriteLine("Ciudad");
-                    alumnos[cantidad].ciudad = Console.ReadLine();
-
-                    do
+                    try
                     {
-                        diaCorrecto = false;
-                        mesCorrecto = false;
-                        anyoCorrecto = false;
+                        Console.WriteLine("Nombre y apellidos del alumno: ");
+                        nombreProvisional = Console.ReadLine();
+                        string[] nombrePartido = nombreProvisional.Split();
+                        alumnos[cantidad].nombre = nombrePartido[0];
+                        alumnos[cantidad].apellidos =
+                            nombrePartido[1] + " " + nombrePartido[2];
 
-                        Console.WriteLine("Fecha de nacimiento" +
-                            " (dd-mm-aaaa)");
-                        fechaProvisional = Console.ReadLine();
+                        correcto = true;
+                    }
+                    catch (Exception errorEncontrado)
+                    {
+                        Console.WriteLine("Ha habido un error: {0}",
+                            errorEncontrado.Message);
+                    }
+                }
+
+                correcto = false;
+
+                while (!correcto)
+                {                    
+                    Console.WriteLine("Introduzca DNI sin letra");
+                    if(int.TryParse(Console.ReadLine(), out alumnos[cantidad].dni))
+                    {
+                        if(alumnos[cantidad].dni < 100000000 && alumnos[cantidad].dni > 9999999)
+                        {
+                            if(!ComprobarDni(alumnos, cantidad))
+                                correcto = true;
+                            else
+                                Console.WriteLine("DNI ya existente");
+                        }
+                    }
+                    
+                    else
+                        Console.WriteLine("Debe ser un número de DNI válido");
+                    
+                }
+
+                Console.WriteLine("Ciudad");
+                alumnos[cantidad].ciudad = Console.ReadLine();
+
+                correcto = false;
+
+                do
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("El día debe estar entre 1 y 30");
+                    Console.WriteLine("El mes debe estar entre 1 y 12");
+                    Console.WriteLine("El año debe estar entre 1900 y 2010");
+                    Console.WriteLine("Introduce fecha de nacimiento" +
+                        " (dd-mm-aaaa)");
+                    fechaProvisional = Console.ReadLine();
+
+                    try
+                    {
                         string[] fechaPartida =
                             fechaProvisional.Split('-');
-                        byte diaProvisional =
+
+                        alumnos[cantidad].fechaNacimiento.dia =
                             Convert.ToByte(fechaPartida[0]);
-                        byte mesProvisional =
+                        alumnos[cantidad].fechaNacimiento.mes =
                             Convert.ToByte(fechaPartida[1]);
-                        ushort anyoProvisional =
+                        alumnos[cantidad].fechaNacimiento.anyo =
                             Convert.ToUInt16(fechaPartida[2]);
 
-                        if (diaProvisional >= 1 && diaProvisional <= 31)
+                        if ((alumnos[cantidad].fechaNacimiento.dia <= 31 &&
+                            alumnos[cantidad].fechaNacimiento.dia > 0) &&
+                            (alumnos[cantidad].fechaNacimiento.mes <= 12 &&
+                            alumnos[cantidad].fechaNacimiento.mes > 0) &&
+                            (alumnos[cantidad].fechaNacimiento.anyo <= 2010 &&
+                            alumnos[cantidad].fechaNacimiento.anyo >= 1900))
                         {
-                            alumnos[cantidad].fechaNacimiento.dia =
-                                diaProvisional;
-                            diaCorrecto = true;
-                        }
-                        else if (diaProvisional > 31)
-                        {
-                            Console.WriteLine("Día demasiado alto");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Día demasiado bajo");
-                        }
-                        if (mesProvisional >= 1 && mesProvisional <= 12)
-                        {
-                            alumnos[cantidad].fechaNacimiento.mes =
-                                mesProvisional;
-                            mesCorrecto = true;
-                        }
-                        else if (mesProvisional > 12)
-                        {
-                            Console.WriteLine("Mes demasiado alto");
+                            correcto = true;
                         }
                         else
                         {
-                            Console.WriteLine("Mes demasiado bajo");
+                            Console.WriteLine();
+                            Console.WriteLine("Fecha incorrecta, introduce fecha válida");
                         }
-                        if (anyoProvisional >= 1900 &&
-                            anyoProvisional <= 2010)
-                        {
-                            alumnos[cantidad].fechaNacimiento.anyo =
-                                anyoProvisional;
-                            anyoCorrecto = true;
-                        }
-                        else if (anyoProvisional > 12)
-                        {
-                            Console.WriteLine("Año demasiado alto");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Año demasiado bajo");
-                        }
-                    } while (diaCorrecto == false ||
-                                mesCorrecto == false ||
-                                anyoCorrecto == false);
+                    }
+                    catch (Exception errorEncontrado)
+                    {
+                        Console.WriteLine("Ha habido un error {0}",
+                            errorEncontrado);
+                    }
+                }
+                while (!correcto);
 
+                alumnos[cantidad].notasParciales.practicas = new float[PRACTICAS];
+                alumnos[cantidad].notasParciales.examenes = new float[EXAMENES];
+
+                try
+                {
                     for (int i = 0; i < PRACTICAS; i++)
                     {
                         do
@@ -172,29 +188,12 @@ namespace AlumnosFunciones
                         while (!(alumnos[cantidad].notasParciales.examenes[i] >= 0 &&
                             alumnos[cantidad].notasParciales.examenes[i] <= 10));
                     }
+                    cantidad++;
                 }
-                catch (Exception errorEncontrado)
+                catch(Exception errorEncontrado)
                 {
-                    Console.WriteLine("Ha habido un error: {0}",
-                        errorEncontrado.Message);
+                    Console.WriteLine("Ha habido un error {0}", errorEncontrado);
                 }
-
-                notaEva1 = ((30 * (alumnos[cantidad].notasParciales.practicas[0] +
-                    alumnos[cantidad].notasParciales.practicas[1]) / 100) / 2) +
-                    (70 * (alumnos[cantidad].notasParciales.examenes[0]) / 100);
-
-                notaEva2 = ((30 * (alumnos[cantidad].notasParciales.practicas[2] +
-                    alumnos[cantidad].notasParciales.practicas[3]) / 100) / 2) +
-                    (70 * (alumnos[cantidad].notasParciales.examenes[1]) / 100);
-
-                notaEva3 = ((30 * (alumnos[cantidad].notasParciales.practicas[4] +
-                    alumnos[cantidad].notasParciales.practicas[5]) / 100) / 2) +
-                    (70 * (alumnos[cantidad].notasParciales.examenes[2]) / 100);
-
-                alumnos[cantidad].notasParciales.notaFinal =
-                    (20 * (notaEva1 / 100)) + (30 * (notaEva2 / 100)) +
-                    (50 * (notaEva3 / 100));
-                cantidad++;
             }
             else
             {
@@ -202,8 +201,55 @@ namespace AlumnosFunciones
                     "({0} máximo)", MAXIMO);
             }
         }
+        static bool ComprobarDni(alumno[] alumnos, byte cantidad)
+        {
+            bool existe = false;
 
-        static void BorrarAlumnos(alumno[] alumnos, byte cantidad)
+            if (cantidad == 0)
+                return false;
+            else
+            {
+                for (int i = cantidad; i > 0; i--)
+                {
+                    for (int j = 0; j < cantidad - 1; j++)
+                    {
+                        if (alumnos[j].dni == alumnos[i].dni)
+                            existe = true;
+                        else
+                            existe = false;
+                    }
+                }
+                if (existe)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        static void CalcularFinales(alumno[] alumnos, byte cantidad)
+        {
+            float notaEva1;
+            float notaEva2;
+            float notaEva3;
+
+            notaEva1 = ((30 * (alumnos[cantidad].notasParciales.practicas[0] +
+                    alumnos[cantidad].notasParciales.practicas[1]) / 100) / 2) +
+                    (70 * (alumnos[cantidad].notasParciales.examenes[0]) / 100);
+
+            notaEva2 = ((30 * (alumnos[cantidad].notasParciales.practicas[2] +
+                alumnos[cantidad].notasParciales.practicas[3]) / 100) / 2) +
+                (70 * (alumnos[cantidad].notasParciales.examenes[1]) / 100);
+
+            notaEva3 = ((30 * (alumnos[cantidad].notasParciales.practicas[4] +
+                alumnos[cantidad].notasParciales.practicas[5]) / 100) / 2) +
+                (70 * (alumnos[cantidad].notasParciales.examenes[2]) / 100);
+
+            alumnos[cantidad].notasParciales.notaFinal =
+                (20 * (notaEva1 / 100)) + (30 * (notaEva2 / 100)) +
+                (50 * (notaEva3 / 100));
+        }
+
+        static void BorrarAlumnos(alumno[] alumnos, ref byte cantidad)
         {
             byte aluBorrar = 0;
 
@@ -223,13 +269,13 @@ namespace AlumnosFunciones
                 Console.WriteLine("Ha habido un error: {0}",
                     errorEncontrado.Message);
             }
-            if(BorrarAuxAlumnos(alumnos, cantidad, aluBorrar))
+            if (BorrarAuxAlumnos(alumnos, ref cantidad, aluBorrar))
                 Console.WriteLine("Se ha borrado el alumno solicitado");
             else
                 Console.WriteLine("No se ha podido borrar el alumnos solicitado");
         }
 
-        static bool BorrarAuxAlumnos(alumno[] alumnos, byte cantidad, byte aluBorrar)
+        static bool BorrarAuxAlumnos(alumno[] alumnos, ref byte cantidad, byte aluBorrar)
         {
             if (aluBorrar < cantidad)
             {
@@ -245,12 +291,12 @@ namespace AlumnosFunciones
                 Console.WriteLine("Número de alumno incorrecto");
                 return false;
             }
-            
         }
 
         static void Main()
         {
-            
+            const byte MAXIMO = 200;
+
             alumno[] alumnos = new alumno[MAXIMO];
             alumno[] alumnosProvisional = new alumno[MAXIMO];
             byte opcion = 9;
@@ -273,10 +319,10 @@ namespace AlumnosFunciones
                         AvisoFin(); break;
 
                     case 1:
-                        AnyadirAlumnos(alumnos, cantidad); break;
+                        AnyadirAlumnos(alumnos, ref cantidad); break;
 
                     case 2:
-                        BorrarAlumnos(alumnos, cantidad); break;
+                        BorrarAlumnos(alumnos, ref cantidad); break;
 
                     case 3:
                         encontradoCuidad = false;
@@ -516,5 +562,3 @@ namespace AlumnosFunciones
         }
     }
 }
-    
-
