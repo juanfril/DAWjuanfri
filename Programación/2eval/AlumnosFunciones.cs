@@ -72,10 +72,10 @@ namespace AlumnosFunciones
             Console.ReadKey();
         }
 
-        static void AnyadirAlumnos(alumno[] alumnos, ref byte cantidad)
+        static void AnyadirAlumnos(alumno[] alumnos, ref byte cantidad,
+            byte PRACTICAS, byte EXAMENES)
         {
-            const int PRACTICAS = 6;
-            const int EXAMENES = 3;
+            
             string nombreProvisional;
             string fechaProvisional;
             bool correcto = false;
@@ -437,143 +437,52 @@ namespace AlumnosFunciones
             }
         }
 
-        static void CalcularPorcentajes(alumno[] alumnos, byte cantidad)
+        static void CalcularPorcentajes(alumno[] alumnos, byte cantidad,
+            byte PRACTICAS, byte EXAMENES)
         {
             byte contadorAprobados = 0;
             float porcentaje;
 
-            for (int i = 0; i < cantidad; i++)
+            for (int i = 0; i < PRACTICAS; i++)
             {
-                if (alumnos[i].notasParciales.practicas[0] >= 5)
-                {
-                    contadorAprobados++;
-                }
-            }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados de la" +
-                " práctica 1 es del {0}%, de {1} alumnos", porcentaje, cantidad);
+                contadorAprobados = 0;
 
-            contadorAprobados = 0;
-            for (int i = 0; i < cantidad; i++)
-            {
-                if (alumnos[i].notasParciales.practicas[1] >= 5)
+                for (int j = 0; j < cantidad; j++)
                 {
-                    contadorAprobados++;
+                    if (alumnos[j].notasParciales.practicas[i] >= 5)
+                        contadorAprobados++;
                 }
+                porcentaje = (contadorAprobados * 100) / cantidad;
+                Console.WriteLine("El porcentaje de aprobados de la" +
+                    " práctica {0} es del {1}%, de {2} alumnos", i + 1,
+                    porcentaje, cantidad);
             }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados de la" +
-                " práctica 2 es del {0}%, de {1} alumnos", porcentaje, cantidad);
+            
+            for (int i = 0; i < EXAMENES; i++)
+            {
+                contadorAprobados = 0;
 
-            contadorAprobados = 0;
-            for (int i = 0; i < cantidad; i++)
-            {
-                if (alumnos[i].notasParciales.practicas[2] >= 5)
+                for (int j = 0; j < cantidad; j++)
                 {
-                    contadorAprobados++;
+                    if (alumnos[j].notasParciales.examenes[i] >= 5)
+                        contadorAprobados++;
                 }
+                porcentaje = (contadorAprobados * 100) / cantidad;
+                Console.WriteLine("El porcentaje de aprobados del exámen" +
+                   "de la {0}ª evaluación es del {1}%, de {2} alumnos", i + 1,
+                   porcentaje, cantidad);
             }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados de la" +
-                " práctica 3 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-            contadorAprobados = 0;
-            for (int i = 0; i < cantidad; i++)
-            {
-                if (alumnos[i].notasParciales.practicas[3] >= 5)
-                {
-                    contadorAprobados++;
-                }
-            }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados de la" +
-                " práctica 4 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-            contadorAprobados = 0;
-            for (int i = 0; i < cantidad; i++)
-            {
-                if (alumnos[i].notasParciales.practicas[4] >= 5)
-                {
-                    contadorAprobados++;
-                }
-            }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados de la" +
-                " práctica 5 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-            contadorAprobados = 0;
-            for (int i = 0; i < cantidad; i++)
-            {
-                if (alumnos[i].notasParciales.practicas[5] >= 5)
-                {
-                    contadorAprobados++;
-                }
-            }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados de la" +
-                " práctica 6 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-            contadorAprobados = 0;
-            for (int i = 0; i < cantidad; i++)
-            {
-                if (alumnos[i].notasParciales.examenes[0] >= 5)
-                {
-                    contadorAprobados++;
-                }
-            }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados del exámen" +
-               "de la 1ª evaluación es del {0}%, de {1} alumnos",
-               porcentaje, cantidad);
-
-            contadorAprobados = 0;
-            for (int i = 0; i < cantidad; i++)
-            {
-                if (alumnos[i].notasParciales.examenes[1] >= 5)
-                {
-                    contadorAprobados++;
-                }
-            }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados del exámen" +
-               "de la 2ª evaluación es del {0}%, de {1} alumnos",
-               porcentaje, cantidad);
-
-            contadorAprobados = 0;
-            for (int i = 0; i < cantidad; i++)
-            {
-                if (alumnos[i].notasParciales.examenes[2] >= 5)
-                {
-                    contadorAprobados++;
-                }
-            }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados del exámen" +
-               "de la 3ª evaluación es del {0}%, de {1} alumnos",
-               porcentaje, cantidad);
-
-            contadorAprobados = 0;
-            for (int i = 0; i < cantidad; i++)
-            {
-                if (alumnos[i].notasParciales.notaFinal >= 5)
-                {
-                    contadorAprobados++;
-                }
-            }
-            porcentaje = (contadorAprobados * 100) / cantidad;
-            Console.WriteLine("El porcentaje de aprobados a final" +
-               "de curso es del {0}%, de {1} alumnos", porcentaje, cantidad);
         }
 
         static void Main()
         {
             const byte MAXIMO = 200;
-
+            const int PRACTICAS = 6;
+            const int EXAMENES = 3;
             alumno[] alumnos = new alumno[MAXIMO];
             alumno[] alumnosProvisional = new alumno[MAXIMO];
             byte opcion = 9;
             byte cantidad = 0;
-            
             ushort anyoBus = 0;
             
 
@@ -588,7 +497,8 @@ namespace AlumnosFunciones
 
                     case 1:
                         if(cantidad < MAXIMO)
-                            AnyadirAlumnos(alumnos, ref cantidad);
+                            AnyadirAlumnos(alumnos, ref cantidad, PRACTICAS,
+                                EXAMENES);
                         else
                             Console.WriteLine("No quedan espacios disponibles" +
                                 "({0} máximo)", MAXIMO);
@@ -679,7 +589,8 @@ namespace AlumnosFunciones
                         break;
 
                     case 7:
-                        CalcularPorcentajes(alumnos, cantidad);
+                        CalcularPorcentajes(alumnos, cantidad, PRACTICAS,
+                            EXAMENES);
                         break;
 
                     default:
