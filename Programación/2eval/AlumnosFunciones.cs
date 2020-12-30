@@ -28,205 +28,208 @@ namespace AlumnosFunciones
 
         static byte Opciones()
         {
-            try
+            byte opcion = 9;
+            bool opcionValida;
+            
+            while(opcion > 8)
             {
+                Console.Clear();
                 Console.WriteLine();
                 Console.WriteLine("Escoja una opción:");
                 Console.WriteLine(" 1. Añadir alumno");
                 Console.WriteLine(" 2. Borrar alumno");
-                Console.WriteLine(" 3. Mostrar alumnos por ciudad");
-                Console.WriteLine(" 4. Mostrar alumnos nacidos" +
-                    " en un año concreto");
+                Console.WriteLine(" 3. Mostrar alumnos por apellidos o DNI");
+                Console.WriteLine(" 4. Mostrar alumnos por ciudad");
                 Console.WriteLine(" 5. Ordenar listado por apellidos");
                 Console.WriteLine(" 6. Ordenar listado por nota final");
                 Console.WriteLine(" 7. Calcular porcentajes" +
                     " aprobados suspensos");
                 Console.WriteLine(" 8. Mostrar gráfica");
                 Console.WriteLine(" 0. Salir del programa");
+
+                opcionValida = byte.TryParse(Console.ReadLine(), out opcion);
+
+                if (opcion < 9 && opcionValida)
+                    Console.WriteLine("Ha elegido la opcion {0}", opcion);
+                else
+                {
+                    opcion = 9;
+                    Console.WriteLine("Debe eligir un número válido de opción");
+                    Pausa();
+                }
             }
-            catch (Exception errorEncontrado)
-            {
-                Console.WriteLine("Ha habido un error: {0}",
-                    errorEncontrado.Message);
-            }
-            return Convert.ToByte(Console.ReadLine());
+            
+            return opcion;
         }
         static void AvisoFin()
         {
             Console.WriteLine("Fin del programa");
         }
 
+        static void Pausa()
+        {
+            Console.WriteLine("Presione una tecla para continuar");
+            Console.ReadKey();
+        }
+
         static void AnyadirAlumnos(alumno[] alumnos, ref byte cantidad)
         {
-            const byte MAXIMO = 200;
             const int PRACTICAS = 6;
             const int EXAMENES = 3;
             string nombreProvisional;
             string fechaProvisional;
             bool correcto = false;
 
-            if (cantidad < MAXIMO)
+            correcto = false;
+
+            while (!correcto)
             {
-                correcto = false;
-
-                while (!correcto)
+                try
                 {
-                    try
-                    {
-                        Console.WriteLine("Nombre y apellidos del alumno: ");
-                        nombreProvisional = Console.ReadLine();
-                        string[] nombrePartido = nombreProvisional.Split();
-                        alumnos[cantidad].nombre = nombrePartido[0];
-                        alumnos[cantidad].apellidos =
-                            nombrePartido[1] + " " + nombrePartido[2];
+                    Console.Clear();
+                    Console.WriteLine("Nombre y apellidos del alumno: ");
+                    nombreProvisional = Console.ReadLine();
+                    string[] nombrePartido = nombreProvisional.Split();
+                    alumnos[cantidad].nombre = nombrePartido[0];
+                    alumnos[cantidad].apellidos =
+                        nombrePartido[1] + " " + nombrePartido[2];
 
-                        correcto = true;
-                    }
-                    catch (Exception errorEncontrado)
-                    {
-                        Console.WriteLine("Ha habido un error: {0}",
-                            errorEncontrado.Message);
-                    }
+                    correcto = true;
                 }
-
-                correcto = false;
-
-                while (!correcto)
-                {                    
-                    Console.WriteLine("Introduzca DNI sin letra");
-                    if(int.TryParse(Console.ReadLine(), out alumnos[cantidad].dni))
-                    {
-                        if(alumnos[cantidad].dni < 100000000 && alumnos[cantidad].dni > 9999999)
-                        {
-                            if(!ComprobarDni(alumnos, cantidad))
-                                correcto = true;
-                            else
-                                Console.WriteLine("DNI ya existente");
-                        }
-                    }
-                    
-                    else
-                        Console.WriteLine("Debe ser un número de DNI válido");
-                    
-                }
-
-                Console.WriteLine("Ciudad");
-                alumnos[cantidad].ciudad = Console.ReadLine();
-
-                correcto = false;
-
-                do
+                catch (Exception errorEncontrado)
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("El día debe estar entre 1 y 30");
-                    Console.WriteLine("El mes debe estar entre 1 y 12");
-                    Console.WriteLine("El año debe estar entre 1900 y 2010");
-                    Console.WriteLine("Introduce fecha de nacimiento" +
-                        " (dd-mm-aaaa)");
-                    fechaProvisional = Console.ReadLine();
+                    Console.WriteLine("Ha habido un error: {0}",
+                        errorEncontrado.Message);
+                }
+            }
 
-                    try
+            correcto = false;
+
+            while (!correcto)
+            {                    
+                Console.WriteLine("Introduzca DNI sin letra");
+                if(int.TryParse(Console.ReadLine(), out alumnos[cantidad].dni))
+                {
+                    if(alumnos[cantidad].dni < 100000000 && alumnos[cantidad].dni > 9999999)
                     {
-                        string[] fechaPartida =
-                            fechaProvisional.Split('-');
-
-                        alumnos[cantidad].fechaNacimiento.dia =
-                            Convert.ToByte(fechaPartida[0]);
-                        alumnos[cantidad].fechaNacimiento.mes =
-                            Convert.ToByte(fechaPartida[1]);
-                        alumnos[cantidad].fechaNacimiento.anyo =
-                            Convert.ToUInt16(fechaPartida[2]);
-
-                        if ((alumnos[cantidad].fechaNacimiento.dia <= 31 &&
-                            alumnos[cantidad].fechaNacimiento.dia > 0) &&
-                            (alumnos[cantidad].fechaNacimiento.mes <= 12 &&
-                            alumnos[cantidad].fechaNacimiento.mes > 0) &&
-                            (alumnos[cantidad].fechaNacimiento.anyo <= 2010 &&
-                            alumnos[cantidad].fechaNacimiento.anyo >= 1900))
-                        {
+                        if (ComprobarDni(alumnos, cantidad) == false)
                             correcto = true;
-                        }
                         else
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine("Fecha incorrecta, introduce fecha válida");
-                        }
+                            Console.WriteLine("DNI ya existente");
                     }
-                    catch (Exception errorEncontrado)
-                    {
-                        Console.WriteLine("Ha habido un error {0}",
-                            errorEncontrado);
-                    }
+                    else
+                        Console.WriteLine("El DNI debe tener 8 dígitos");
                 }
-                while (!correcto);
+                else
+                    Console.WriteLine("Debe ser un número de DNI válido");
+            }
 
-                alumnos[cantidad].notasParciales.practicas = new float[PRACTICAS];
-                alumnos[cantidad].notasParciales.examenes = new float[EXAMENES];
+            Console.WriteLine("Ciudad");
+            alumnos[cantidad].ciudad = Console.ReadLine();
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("El día debe estar entre 1 y 30");
+                Console.WriteLine("El mes debe estar entre 1 y 12");
+                Console.WriteLine("El año debe estar entre 1900 y 2010");
+                Console.WriteLine("Introduce fecha de nacimiento" +
+                    " (dd-mm-aaaa)");
+                fechaProvisional = Console.ReadLine();
 
                 try
                 {
-                    for (int i = 0; i < PRACTICAS; i++)
-                    {
-                        do
-                        {
-                            Console.WriteLine("Nota práctica {0}", i + 1);
-                            alumnos[cantidad].notasParciales.practicas[i] =
-                                Convert.ToSingle(Console.ReadLine());
-                        }
-                        while (!(alumnos[cantidad].notasParciales.practicas[i] >= 0 &&
-                        alumnos[cantidad].notasParciales.practicas[i] <= 10));
-                    }
+                    string[] fechaPartida =
+                        fechaProvisional.Split('-');
 
-                    for (int i = 0; i < EXAMENES; i++)
+                    alumnos[cantidad].fechaNacimiento.dia =
+                        Convert.ToByte(fechaPartida[0]);
+                    alumnos[cantidad].fechaNacimiento.mes =
+                        Convert.ToByte(fechaPartida[1]);
+                    alumnos[cantidad].fechaNacimiento.anyo =
+                        Convert.ToUInt16(fechaPartida[2]);
+
+                    if ((alumnos[cantidad].fechaNacimiento.dia <= 31 &&
+                        alumnos[cantidad].fechaNacimiento.dia > 0) &&
+                        (alumnos[cantidad].fechaNacimiento.mes <= 12 &&
+                        alumnos[cantidad].fechaNacimiento.mes > 0) &&
+                        (alumnos[cantidad].fechaNacimiento.anyo <= 2010 &&
+                        alumnos[cantidad].fechaNacimiento.anyo >= 1900))
                     {
-                        do
-                        {
-                            Console.WriteLine("Nota exámen {0}ª evalución", i + 1);
-                            alumnos[cantidad].notasParciales.examenes[i] =
-                            Convert.ToSingle(Console.ReadLine());
-                        }
-                        while (!(alumnos[cantidad].notasParciales.examenes[i] >= 0 &&
-                            alumnos[cantidad].notasParciales.examenes[i] <= 10));
+                        correcto = true;
                     }
-                    cantidad++;
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Fecha incorrecta, introduce fecha válida");
+                    }
                 }
-                catch(Exception errorEncontrado)
+                catch (Exception errorEncontrado)
                 {
-                    Console.WriteLine("Ha habido un error {0}", errorEncontrado);
+                    Console.WriteLine("Ha habido un error {0}",
+                        errorEncontrado);
                 }
             }
-            else
+            while (!correcto);
+
+            alumnos[cantidad].notasParciales.practicas = new float[PRACTICAS];
+            alumnos[cantidad].notasParciales.examenes = new float[EXAMENES];
+
+            try
             {
-                Console.WriteLine("No quedan espacios disponibles" +
-                    "({0} máximo)", MAXIMO);
+                for (int i = 0; i < PRACTICAS; i++)
+                {
+                    do
+                    {
+                        Console.WriteLine("Nota práctica {0}", i + 1);
+                        alumnos[cantidad].notasParciales.practicas[i] =
+                            Convert.ToSingle(Console.ReadLine());
+                    }
+                    while (!(alumnos[cantidad].notasParciales.practicas[i] >= 0 &&
+                    alumnos[cantidad].notasParciales.practicas[i] <= 10));
+                }
+
+                for (int i = 0; i < EXAMENES; i++)
+                {
+                    do
+                    {
+                        Console.WriteLine("Nota exámen {0}ª evalución", i + 1);
+                        alumnos[cantidad].notasParciales.examenes[i] =
+                        Convert.ToSingle(Console.ReadLine());
+                    }
+                    while (!(alumnos[cantidad].notasParciales.examenes[i] >= 0 &&
+                        alumnos[cantidad].notasParciales.examenes[i] <= 10));
+                }
+                cantidad++;
+                Console.WriteLine("Alumno añadido correctamente");
+            }
+            catch(Exception errorEncontrado)
+            {
+                Console.WriteLine("Ha habido un error {0}", errorEncontrado);
             }
         }
+
         static bool ComprobarDni(alumno[] alumnos, byte cantidad)
         {
             bool existe = false;
 
-            if (cantidad == 0)
-                return false;
-            else
+            if (cantidad != 0)
             {
                 for (int i = cantidad; i > 0; i--)
                 {
-                    for (int j = 0; j < cantidad - 1; j++)
+                    for (int j = 0; j < cantidad; j++)
                     {
                         if (alumnos[j].dni == alumnos[i].dni)
                             existe = true;
-                        else
-                            existe = false;
                     }
                 }
-                if (existe)
-                    return true;
-                else
-                    return false;
             }
+            return existe;
         }
 
-        static void CalcularFinales(alumno[] alumnos, byte cantidad)
+        static void CalcularNotas(alumno[] alumnos, byte cantidad)
         {
             float notaEva1;
             float notaEva2;
@@ -253,44 +256,313 @@ namespace AlumnosFunciones
         {
             byte aluBorrar = 0;
 
-            for (int i = 0; i < cantidad; i++)
+            if (alumnos.Length > 0)
             {
-                Console.WriteLine("{0}. {1} {2}", i + 1, alumnos[i].nombre,
-                    alumnos[i].apellidos);
+                MostrarAlumnos(alumnos, cantidad);
+                try
+                {
+                    Console.WriteLine("¿Número de alumno a borrar?");
+                    aluBorrar = Convert.ToByte(Console.ReadLine());
+                }
+                catch (Exception errorEncontrado)
+                {
+                    Console.WriteLine("Ha habido un error: {0}",
+                        errorEncontrado.Message);
+                }
+                if (BorrarAuxAlumnos(alumnos, ref cantidad, aluBorrar))
+                    Console.WriteLine("Se ha borrado el alumno solicitado");
+                else
+                    Console.WriteLine("No se ha podido borrar el alumnos solicitado");
             }
-            Console.WriteLine();
-            try
-            {
-                Console.WriteLine("¿Número de alumno a borrar?");
-                aluBorrar = Convert.ToByte(Console.ReadLine());
-            }
-            catch (Exception errorEncontrado)
-            {
-                Console.WriteLine("Ha habido un error: {0}",
-                    errorEncontrado.Message);
-            }
-            if (BorrarAuxAlumnos(alumnos, ref cantidad, aluBorrar))
-                Console.WriteLine("Se ha borrado el alumno solicitado");
             else
-                Console.WriteLine("No se ha podido borrar el alumnos solicitado");
+                Console.WriteLine("No existen alumnos que borrar");
         }
-
         static bool BorrarAuxAlumnos(alumno[] alumnos, ref byte cantidad, byte aluBorrar)
         {
-            if (aluBorrar < cantidad)
+            bool borrado;
+
+            if (aluBorrar - 1 < cantidad)
             {
                 for (int i = aluBorrar - 1; i < cantidad - 1; i++)
                 {
                     alumnos[i] = alumnos[i + 1];
                 }
                 cantidad--;
-                return true;
+                borrado = true;
             }
             else
             {
-                Console.WriteLine("Número de alumno incorrecto");
-                return false;
+                borrado = false;
             }
+            return borrado;
+        }
+        static void MostrarAlumnos(alumno[] alumnos, byte cantidad)
+        {
+            for (int i = 0; i < cantidad; i++)
+            {
+                Console.WriteLine("{0}. {1} {2}", i + 1, alumnos[i].nombre,
+                    alumnos[i].apellidos);
+            }
+            Console.WriteLine();
+        }
+
+        static void OrdenarAlumno(alumno[] alumnos, byte cantidad,
+            byte criterio)
+        {
+            alumno[] alumnosProvisional = new alumno[cantidad];
+
+            switch (criterio)
+            {
+                case 1:
+                    for (int i = 0; i < cantidad - 1; i++)
+                    {
+                        for (int j = i + 1; j < cantidad; j++)
+                        {
+                            if (alumnos[i].apellidos.ToUpper()
+                                .CompareTo(alumnos[j].apellidos.ToUpper()) > 0)
+                            {
+                                alumnosProvisional[i] = alumnos[i];
+                                alumnos[i] = alumnos[j];
+                                alumnos[j] = alumnosProvisional[i];
+                            }
+                        }
+                    }
+                    break;
+
+                case 2:
+                    for (int i = 0; i < cantidad - 1; i++)
+                    {
+                        for (int j = i + 1; j < cantidad; j++)
+                        {
+                            if (alumnos[i].dni < alumnos[j].dni)
+                            {
+                                alumnosProvisional[i] = alumnos[i];
+                                alumnos[i] = alumnos[j];
+                                alumnos[j] = alumnosProvisional[i];
+                            }
+                        }
+                    }
+                    break;
+
+                case 3: // Hay que poner el orden descendente
+                    for (int i = 0; i < cantidad - 1; i++)
+                    {
+                        for (int j = i + 1; j < cantidad; j++)
+                        {
+                            if (alumnos[i].ciudad.ToUpper()
+                                .CompareTo(alumnos[j].ciudad.ToUpper()) > 0)
+                            {
+                                alumnosProvisional[i] = alumnos[i];
+                                alumnos[i] = alumnos[j];
+                                alumnos[j] = alumnosProvisional[i];
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+
+        static void BuscarAlumnos(alumno[] alumnos, byte cantidad)
+        {
+            string busquedaApellido = "";
+            int busquedaDni;
+            bool encontrado = false;
+            bool correcto;
+            byte criterio;
+
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("**Introduzca criterio de busqueda**");
+                Console.WriteLine(" 1. Por apellido");
+                Console.WriteLine(" 2. Por DNI");
+
+                correcto = byte.TryParse(Console.ReadLine(), out criterio);
+                if (!correcto)
+                    Console.WriteLine("Debe introducir un valor válido");
+            }
+            while (!correcto);
+
+            if (criterio == 2)
+            {
+                do
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Introduzca DNI a  buscar");
+                    correcto = int.TryParse(Console.ReadLine(), out busquedaDni);
+
+                    if (!correcto)
+                            Console.WriteLine("Debe ser un número de DNI válido");
+                }
+                while (!correcto);
+
+                OrdenarAlumno(alumnos, cantidad, criterio);
+
+                for (int i = 0; i < cantidad; i++)
+                {
+                    if(alumnos[i].dni == busquedaDni)
+                    {
+                        Console.WriteLine("{0}. {1} {2}. {3}. {4}", i + 1, alumnos[i].nombre,
+                            alumnos[i].apellidos, alumnos[i].ciudad, alumnos[i].dni);
+                        encontrado = true;
+                    }
+                }
+                if (encontrado == false)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("No se encontraron coincidencias");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Introduzca apellido");
+                busquedaApellido = Console.ReadLine().ToUpper();
+
+                OrdenarAlumno(alumnos, cantidad, criterio);
+
+                for (int i = 0; i < cantidad; i++)
+                {
+                    if (alumnos[i].apellidos.ToUpper().Contains(busquedaApellido))
+                    {
+                        Console.WriteLine("{0}. {1} {2}. {3}. {4}", i + 1, alumnos[i].nombre,
+                            alumnos[i].apellidos, alumnos[i].ciudad, alumnos[i].dni);
+                        encontrado = true;
+                    }
+                }
+                if (encontrado == false)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("No se encontraron coincidencias");
+                }
+            }
+        }
+
+        static void CalcularPorcentajes(alumno[] alumnos, byte cantidad)
+        {
+            byte contadorAprobados = 0;
+            float porcentaje;
+
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.practicas[0] >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados de la" +
+                " práctica 1 es del {0}%, de {1} alumnos", porcentaje, cantidad);
+
+            contadorAprobados = 0;
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.practicas[1] >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados de la" +
+                " práctica 2 es del {0}%, de {1} alumnos", porcentaje, cantidad);
+
+            contadorAprobados = 0;
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.practicas[2] >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados de la" +
+                " práctica 3 es del {0}%, de {1} alumnos", porcentaje, cantidad);
+
+            contadorAprobados = 0;
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.practicas[3] >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados de la" +
+                " práctica 4 es del {0}%, de {1} alumnos", porcentaje, cantidad);
+
+            contadorAprobados = 0;
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.practicas[4] >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados de la" +
+                " práctica 5 es del {0}%, de {1} alumnos", porcentaje, cantidad);
+
+            contadorAprobados = 0;
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.practicas[5] >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados de la" +
+                " práctica 6 es del {0}%, de {1} alumnos", porcentaje, cantidad);
+
+            contadorAprobados = 0;
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.examenes[0] >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados del exámen" +
+               "de la 1ª evaluación es del {0}%, de {1} alumnos",
+               porcentaje, cantidad);
+
+            contadorAprobados = 0;
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.examenes[1] >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados del exámen" +
+               "de la 2ª evaluación es del {0}%, de {1} alumnos",
+               porcentaje, cantidad);
+
+            contadorAprobados = 0;
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.examenes[2] >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados del exámen" +
+               "de la 3ª evaluación es del {0}%, de {1} alumnos",
+               porcentaje, cantidad);
+
+            contadorAprobados = 0;
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.notaFinal >= 5)
+                {
+                    contadorAprobados++;
+                }
+            }
+            porcentaje = (contadorAprobados * 100) / cantidad;
+            Console.WriteLine("El porcentaje de aprobados a final" +
+               "de curso es del {0}%, de {1} alumnos", porcentaje, cantidad);
         }
 
         static void Main()
@@ -300,17 +572,13 @@ namespace AlumnosFunciones
             alumno[] alumnos = new alumno[MAXIMO];
             alumno[] alumnosProvisional = new alumno[MAXIMO];
             byte opcion = 9;
-            byte cantidad = 0;          //Es la variable que controla los datos
-            bool encontradoCuidad;
-            bool encontradoAnyo;
-            byte contadorAprobados = 0;
-            float porcentaje;
+            byte cantidad = 0;
+            
             ushort anyoBus = 0;
-            string busquedaCiudad = "";
+            
 
             do
             {
-                //Opciones();
                 opcion = Opciones();
 
                 switch (opcion)
@@ -319,42 +587,25 @@ namespace AlumnosFunciones
                         AvisoFin(); break;
 
                     case 1:
-                        AnyadirAlumnos(alumnos, ref cantidad); break;
+                        if(cantidad < MAXIMO)
+                            AnyadirAlumnos(alumnos, ref cantidad);
+                        else
+                            Console.WriteLine("No quedan espacios disponibles" +
+                                "({0} máximo)", MAXIMO);
+                        Pausa();
+                        break;
 
                     case 2:
-                        BorrarAlumnos(alumnos, ref cantidad); break;
+                        BorrarAlumnos(alumnos, ref cantidad);
+                        Pausa();
+                        break;
 
                     case 3:
-                        encontradoCuidad = false;
-                        Console.WriteLine();
-                        try
-                        {
-                            Console.WriteLine("Indique ciudad a buscar");
-                            busquedaCiudad = Console.ReadLine().ToUpper();
-                        }
-                        catch (Exception errorEncontrado)
-                        {
-                            Console.WriteLine("Ha habido un error: {0}",
-                                errorEncontrado.Message);
-                        }
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].ciudad.ToUpper().Contains(busquedaCiudad))
-                            {
-                                Console.WriteLine("{0}. {1} {2}. {3}", i + 1, alumnos[i].nombre,
-                                alumnos[i].apellidos, alumnos[i].ciudad);
-                                encontradoCuidad = true;
-                            }
-                        }
-                        if (encontradoCuidad == false)
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine("No se encontraron coincidencias");
-                        }
+                        BuscarAlumnos(alumnos, cantidad);
                         break;
 
                     case 4:
-                        encontradoAnyo = false;
+                        encontrado = false;
                         Console.WriteLine();
                         try
                         {
@@ -374,10 +625,10 @@ namespace AlumnosFunciones
                                     i + 1, alumnos[i].nombre,
                                     alumnos[i].apellidos,
                                     alumnos[i].fechaNacimiento.anyo);
-                                encontradoAnyo = true;
+                                encontrado = true;
                             }
                         }
-                        if (encontradoAnyo == false)
+                        if (encontrado == false)
                         {
                             Console.WriteLine();
                             Console.WriteLine("No se encontraron coincidencias");
@@ -428,127 +679,7 @@ namespace AlumnosFunciones
                         break;
 
                     case 7:
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.practicas[0] >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados de la" +
-                            " práctica 1 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-                        contadorAprobados = 0;
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.practicas[1] >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados de la" +
-                            " práctica 2 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-                        contadorAprobados = 0;
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.practicas[2] >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados de la" +
-                            " práctica 3 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-                        contadorAprobados = 0;
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.practicas[3] >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados de la" +
-                            " práctica 4 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-                        contadorAprobados = 0;
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.practicas[4] >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados de la" +
-                            " práctica 5 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-                        contadorAprobados = 0;
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.practicas[5] >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados de la" +
-                            " práctica 6 es del {0}%, de {1} alumnos", porcentaje, cantidad);
-
-                        contadorAprobados = 0;
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.examenes[0] >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados del exámen" +
-                           "de la 1ª evaluación es del {0}%, de {1} alumnos",
-                           porcentaje, cantidad);
-
-                        contadorAprobados = 0;
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.examenes[1] >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados del exámen" +
-                           "de la 2ª evaluación es del {0}%, de {1} alumnos",
-                           porcentaje, cantidad);
-
-                        contadorAprobados = 0;
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.examenes[2] >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados del exámen" +
-                           "de la 3ª evaluación es del {0}%, de {1} alumnos",
-                           porcentaje, cantidad);
-
-                        contadorAprobados = 0;
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].notasParciales.notaFinal >= 5)
-                            {
-                                contadorAprobados++;
-                            }
-                        }
-                        porcentaje = (contadorAprobados * 100) / cantidad;
-                        Console.WriteLine("El porcentaje de aprobados a final" +
-                           "de curso es del {0}%, de {1} alumnos", porcentaje, cantidad);
+                        CalcularPorcentajes(alumnos, cantidad);
                         break;
 
                     default:
