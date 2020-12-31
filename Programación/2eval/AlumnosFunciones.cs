@@ -8,7 +8,7 @@ namespace AlumnosFunciones
         {
             public string nombre;
             public string apellidos;
-            public int dni;
+            public string dni;
             public string ciudad;
             public fecha fechaNacimiento;
             public notas notasParciales;
@@ -38,7 +38,7 @@ namespace AlumnosFunciones
                 Console.WriteLine("Escoja una opción:");
                 Console.WriteLine(" 1. Añadir alumno");
                 Console.WriteLine(" 2. Borrar alumno");
-                Console.WriteLine(" 3. Mostrar alumnos por apellidos o DNI");
+                Console.WriteLine(" 3. Buscar alumnos por apellidos o DNI");
                 Console.WriteLine(" 4. Mostrar alumnos por ciudad");
                 Console.WriteLine(" 5. Ordenar listado por apellidos");
                 Console.WriteLine(" 6. Ordenar listado por nota final");
@@ -68,6 +68,7 @@ namespace AlumnosFunciones
 
         static void Pausa()
         {
+            Console.WriteLine();
             Console.WriteLine("Presione una tecla para continuar");
             Console.ReadKey();
         }
@@ -75,7 +76,6 @@ namespace AlumnosFunciones
         static void AnyadirAlumnos(alumno[] alumnos, ref byte cantidad,
             byte PRACTICAS, byte EXAMENES)
         {
-            
             string nombreProvisional;
             string fechaProvisional;
             bool correcto = false;
@@ -107,21 +107,18 @@ namespace AlumnosFunciones
 
             while (!correcto)
             {                    
-                Console.WriteLine("Introduzca DNI sin letra");
-                if(int.TryParse(Console.ReadLine(), out alumnos[cantidad].dni))
+                Console.WriteLine("Introduzca DNI/NIE:");
+                alumnos[cantidad].dni = Console.ReadLine();
+             
+                if(alumnos[cantidad].dni.Length == 9)
                 {
-                    if(alumnos[cantidad].dni < 100000000 && alumnos[cantidad].dni > 9999999)
-                    {
-                        if (ComprobarDni(alumnos, cantidad) == false)
-                            correcto = true;
-                        else
-                            Console.WriteLine("DNI ya existente");
-                    }
+                    if (ComprobarDni(alumnos, cantidad) == false)
+                        correcto = true;
                     else
-                        Console.WriteLine("El DNI debe tener 8 dígitos");
+                        Console.WriteLine("DNI ya existente");
                 }
                 else
-                    Console.WriteLine("Debe ser un número de DNI válido");
+                    Console.WriteLine("El DNI/NIE debe tener 9 dígitos");
             }
 
             Console.WriteLine("Ciudad");
@@ -202,6 +199,7 @@ namespace AlumnosFunciones
                     while (!(alumnos[cantidad].notasParciales.examenes[i] >= 0 &&
                         alumnos[cantidad].notasParciales.examenes[i] <= 10));
                 }
+                CalcularNotas(alumnos, cantidad);
                 cantidad++;
                 Console.WriteLine("Alumno añadido correctamente");
             }
@@ -221,8 +219,11 @@ namespace AlumnosFunciones
                 {
                     for (int j = 0; j < cantidad; j++)
                     {
-                        if (alumnos[j].dni == alumnos[i].dni)
-                            existe = true;
+                        if(i != j)
+                        {
+                            if (alumnos[j].dni.Equals(alumnos[i].dni))
+                                existe = true;
+                        }
                     }
                 }
             }
@@ -291,9 +292,8 @@ namespace AlumnosFunciones
                 borrado = true;
             }
             else
-            {
                 borrado = false;
-            }
+
             return borrado;
         }
         static void MostrarAlumnos(alumno[] alumnos, byte cantidad)
@@ -334,7 +334,7 @@ namespace AlumnosFunciones
                     {
                         for (int j = i + 1; j < cantidad; j++)
                         {
-                            if (alumnos[i].dni < alumnos[j].dni)
+                            if (alumnos[i].dni.CompareTo(alumnos[j].dni) > 0)
                             {
                                 alumnosProvisional[i] = alumnos[i];
                                 alumnos[i] = alumnos[j];
@@ -365,10 +365,11 @@ namespace AlumnosFunciones
         static void BuscarAlumnos(alumno[] alumnos, byte cantidad)
         {
             string busquedaApellido = "";
-            int busquedaDni;
+            string busquedaDni;
             bool encontrado = false;
             bool correcto;
             byte criterio;
+            int posicion;
 
             do
             {
@@ -389,10 +390,12 @@ namespace AlumnosFunciones
                 {
                     Console.WriteLine();
                     Console.WriteLine("Introduzca DNI a  buscar");
-                    correcto = int.TryParse(Console.ReadLine(), out busquedaDni);
+                    busquedaDni = Console.ReadLine();
 
-                    if (!correcto)
-                            Console.WriteLine("Debe ser un número de DNI válido");
+                    if (busquedaDni.Length != 9)
+                        Console.WriteLine("El DNI/NIF debe tener 9 dígitos");
+                    else
+                        correcto = true;
                 }
                 while (!correcto);
 
@@ -400,10 +403,11 @@ namespace AlumnosFunciones
 
                 for (int i = 0; i < cantidad; i++)
                 {
-                    if(alumnos[i].dni == busquedaDni)
+                    if(alumnos[i].dni.Equals(busquedaDni))
                     {
-                        Console.WriteLine("{0}. {1} {2}. {3}. {4}", i + 1, alumnos[i].nombre,
-                            alumnos[i].apellidos, alumnos[i].ciudad, alumnos[i].dni);
+                        Console.WriteLine("{0}. {1} {2}. {3}. {4}", i +1,
+                            alumnos[i].nombre, alumnos[i].apellidos,
+                            alumnos[i].ciudad, alumnos[i].dni);
                         encontrado = true;
                     }
                 }
@@ -422,10 +426,11 @@ namespace AlumnosFunciones
 
                 for (int i = 0; i < cantidad; i++)
                 {
-                    if (alumnos[i].apellidos.ToUpper().Contains(busquedaApellido))
+                    if (alumnos[i].apellidos.ToUpper().Equals(busquedaApellido))
                     {
-                        Console.WriteLine("{0}. {1} {2}. {3}. {4}", i + 1, alumnos[i].nombre,
-                            alumnos[i].apellidos, alumnos[i].ciudad, alumnos[i].dni);
+                        Console.WriteLine("{0}. {1} {2}. {3}. {4}", i + 1,
+                            alumnos[i].nombre, alumnos[i].apellidos,
+                            alumnos[i].ciudad, alumnos[i].dni);
                         encontrado = true;
                     }
                 }
@@ -435,6 +440,17 @@ namespace AlumnosFunciones
                     Console.WriteLine("No se encontraron coincidencias");
                 }
             }
+        }
+
+        static int BusquedaRecursiva(alumno[] alumnos, int cantidad, string textoBuscar)
+        {
+            if (cantidad == 0)
+                return -1;
+            else if (alumnos[cantidad].apellidos.Equals(textoBuscar) ||
+                alumnos[cantidad].dni.Equals(textoBuscar))
+                return cantidad;
+            else
+                return BusquedaRecursiva(alumnos, cantidad - 1, textoBuscar);
         }
 
         static void CalcularPorcentajes(alumno[] alumnos, byte cantidad,
@@ -472,6 +488,11 @@ namespace AlumnosFunciones
                    "de la {0}ª evaluación es del {1}%, de {2} alumnos", i + 1,
                    porcentaje, cantidad);
             }
+        }
+
+        static void MostrarGrafica(alumno[] alumnos, byte cantidad)
+        {
+
         }
 
         static void Main()
@@ -512,10 +533,11 @@ namespace AlumnosFunciones
 
                     case 3:
                         BuscarAlumnos(alumnos, cantidad);
+                        Pausa();
                         break;
 
                     case 4:
-                        encontrado = false;
+                        //encontrado = false;
                         Console.WriteLine();
                         try
                         {
@@ -535,14 +557,14 @@ namespace AlumnosFunciones
                                     i + 1, alumnos[i].nombre,
                                     alumnos[i].apellidos,
                                     alumnos[i].fechaNacimiento.anyo);
-                                encontrado = true;
+                                //encontrado = true;
                             }
                         }
-                        if (encontrado == false)
+                        /*if (encontrado == false)
                         {
                             Console.WriteLine();
                             Console.WriteLine("No se encontraron coincidencias");
-                        }
+                        }*/
                         break;
 
                     case 5:
@@ -591,10 +613,17 @@ namespace AlumnosFunciones
                     case 7:
                         CalcularPorcentajes(alumnos, cantidad, PRACTICAS,
                             EXAMENES);
+                        Pausa();
+                        break;
+
+                    case 8:
+                        MostrarGrafica(alumnos, cantidad);
+                        Pausa();
                         break;
 
                     default:
                         Console.WriteLine("Opción desconocida");
+                        Pausa();
                         break;
                 }
                 Console.WriteLine();
