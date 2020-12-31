@@ -160,7 +160,8 @@ namespace AlumnosFunciones
                     else
                     {
                         Console.WriteLine();
-                        Console.WriteLine("Fecha incorrecta, introduce fecha válida");
+                        Console.WriteLine("Fecha incorrecta, introduce " +
+                            "fecha válida");
                     }
                 }
                 catch (Exception errorEncontrado)
@@ -273,12 +274,14 @@ namespace AlumnosFunciones
                 if (BorrarAuxAlumnos(alumnos, ref cantidad, aluBorrar))
                     Console.WriteLine("Se ha borrado el alumno solicitado");
                 else
-                    Console.WriteLine("No se ha podido borrar el alumnos solicitado");
+                    Console.WriteLine("No se ha podido borrar" +
+                        " el alumnos solicitado");
             }
             else
                 Console.WriteLine("No existen alumnos que borrar");
         }
-        static bool BorrarAuxAlumnos(alumno[] alumnos, ref byte cantidad, byte aluBorrar)
+        static bool BorrarAuxAlumnos(alumno[] alumnos, ref byte cantidad,
+            byte aluBorrar)
         {
             bool borrado;
 
@@ -344,7 +347,7 @@ namespace AlumnosFunciones
                     }
                     break;
 
-                case 3: // Hay que poner el orden descendente
+                case 3: // Hay que poner el orden descendente, no sé para qué es
                     for (int i = 0; i < cantidad - 1; i++)
                     {
                         for (int j = i + 1; j < cantidad; j++)
@@ -442,7 +445,9 @@ namespace AlumnosFunciones
             }
         }
 
-        static int BusquedaRecursiva(alumno[] alumnos, int cantidad, string textoBuscar)
+        //no sé cómo se emplea
+        static int BusquedaRecursiva(alumno[] alumnos, int cantidad,
+            string textoBuscar)
         {
             if (cantidad == 0)
                 return -1;
@@ -490,9 +495,51 @@ namespace AlumnosFunciones
             }
         }
 
-        static void MostrarGrafica(alumno[] alumnos, byte cantidad)
+        static char[,] CalcularGrafica(alumno[] alumnos, byte cantidad)
         {
+            string[,] porcentajeNotaFinal = new string[20,2];
+            byte contadorAprobados = 0;
+            byte resultadoAprobados;
+            byte numeroAsteriscosAprobados;
+            byte numeroAsteriscosSuspensos;
 
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (alumnos[i].notasParciales.notaFinal >= 5)
+                    contadorAprobados++;
+            }
+            resultadoAprobados = Convert.ToByte(cantidad / contadorAprobados);
+            numeroAsteriscosAprobados = Convert.ToByte(resultadoAprobados * (1 / 5));
+            numeroAsteriscosSuspensos = Convert.ToByte(20 - numeroAsteriscosAprobados);
+
+            for (int i = 0; i < numeroAsteriscosAprobados; i++)
+            {
+                porcentajeNotaFinal[0, i] = "*";
+            }
+            for (int i = 0; i < numeroAsteriscosSuspensos; i++)
+            {
+                porcentajeNotaFinal[1, i] = "*";
+            }
+            return porcentajeNotaFinal;
+        }
+
+        static void MostratGrafica(alumno[]alumnos, byte cantidad)
+        {
+            string porcentajeNotaFinal = CalcularGrafica(alumnos, cantidad);
+        }
+
+        static void PosicionamientoConsola(char asterisco, int x, int y)
+        {
+            try
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write(asterisco);
+            }
+            catch(ArgumentOutOfRangeException error)
+            {
+                Console.Clear();
+                Console.WriteLine(error.Message);
+            }
         }
 
         static void Main()
