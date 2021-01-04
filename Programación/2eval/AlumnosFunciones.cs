@@ -495,22 +495,25 @@ namespace AlumnosFunciones
             }
         }
 
-        static char[,] CalcularGrafica(alumno[] alumnos, byte cantidad)
+        static void MostrarGrafica(alumno[] alumnos, int cantidad)
         {
             string[,] porcentajeNotaFinal = new string[20,2];
-            byte contadorAprobados = 0;
-            byte resultadoAprobados;
-            byte numeroAsteriscosAprobados;
-            byte numeroAsteriscosSuspensos;
+            int contadorAprobados = 0;
+            float resultadoAprobados;
+            int numeroAsteriscosAprobados;
+            int numeroAsteriscosSuspensos;
+            byte porcentajeGrafica = 70;
 
             for (int i = 0; i < cantidad; i++)
             {
                 if (alumnos[i].notasParciales.notaFinal >= 5)
                     contadorAprobados++;
             }
-            resultadoAprobados = Convert.ToByte(cantidad / contadorAprobados);
-            numeroAsteriscosAprobados = Convert.ToByte(resultadoAprobados * (1 / 5));
-            numeroAsteriscosSuspensos = Convert.ToByte(20 - numeroAsteriscosAprobados);
+            resultadoAprobados = ((contadorAprobados / cantidad) * 100);
+            numeroAsteriscosAprobados = 
+                Convert.ToByte(resultadoAprobados * (1 / 5));
+            numeroAsteriscosSuspensos = 
+                Convert.ToByte(20 - numeroAsteriscosAprobados);
 
             for (int i = 0; i < numeroAsteriscosAprobados; i++)
             {
@@ -520,27 +523,41 @@ namespace AlumnosFunciones
             {
                 porcentajeNotaFinal[1, i] = "*";
             }
-            return porcentajeNotaFinal;
-        }
-
-        static void MostratGrafica(alumno[]alumnos, byte cantidad)
-        {
-            string porcentajeNotaFinal = CalcularGrafica(alumnos, cantidad);
-        }
-
-        static void PosicionamientoConsola(char asterisco, int x, int y)
-        {
-            try
+            for (int i = 2; i < 19; i++)
             {
-                Console.SetCursorPosition(x, y);
-                Console.Write(asterisco);
+                if (i == 2)
+                {
+                    Console.SetCursorPosition(0, i);
+                    Console.Write("%");
+                }
+                else if (i > 2 && i < 16)
+                {
+                    Console.SetCursorPosition(0, i);
+                    Console.Write((porcentajeGrafica) + "|");
+                    porcentajeGrafica -= 5;
+                }
+                else if (i == 16)
+                {
+                    Console.SetCursorPosition(0, i);
+                    Console.Write((porcentajeGrafica) + " |");
+                }
+                else if (i == 17)
+                {
+                    Console.SetCursorPosition(3, i - 1);
+                    Console.Write("_ _ _ _ _ _ _ _ _");
+                }
+                else
+                {
+                    Console.SetCursorPosition(5, i - 1);
+                    Console.WriteLine("APTO    SUSP");
+                }
             }
-            catch(ArgumentOutOfRangeException error)
+            for (int i = 16; i < numeroAsteriscosAprobados; i--)
             {
-                Console.Clear();
-                Console.WriteLine(error.Message);
+                Console.SetCursorPosition(5, i);
+                Console.Write(porcentajeNotaFinal[0, i]);
             }
-        }
+        }       
 
         static void Main()
         {
