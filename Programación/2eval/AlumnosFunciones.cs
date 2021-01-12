@@ -495,13 +495,15 @@ namespace AlumnosFunciones
             }
         }
 
-        static void MostrarGrafica(alumno[] alumnos, int cantidad)
+        static void MostrarGrafica(alumno[] alumnos, float cantidad)
         {
+            Console.Clear();
             string[,] porcentajeNotaFinal = new string[20,2];
-            int contadorAprobados = 0;
-            float resultadoAprobados;
-            int numeroAsteriscosAprobados;
-            int numeroAsteriscosSuspensos;
+            float contadorAprobados = 0;
+            float auxiliarNumeroAsteriscos = 0.2f;
+            byte resultadoAprobados;
+            byte numeroAsteriscosAprobados;
+            byte numeroAsteriscosSuspensos;
             byte porcentajeGrafica = 70;
 
             for (int i = 0; i < cantidad; i++)
@@ -509,19 +511,19 @@ namespace AlumnosFunciones
                 if (alumnos[i].notasParciales.notaFinal >= 5)
                     contadorAprobados++;
             }
-            resultadoAprobados = ((contadorAprobados / cantidad) * 100);
+            resultadoAprobados = Convert.ToByte((contadorAprobados / cantidad) * 100);
             numeroAsteriscosAprobados = 
-                Convert.ToByte(resultadoAprobados * (1 / 5));
+                Convert.ToByte(resultadoAprobados * auxiliarNumeroAsteriscos);
             numeroAsteriscosSuspensos = 
                 Convert.ToByte(20 - numeroAsteriscosAprobados);
 
             for (int i = 0; i < numeroAsteriscosAprobados; i++)
             {
-                porcentajeNotaFinal[0, i] = "*";
+                porcentajeNotaFinal[i, 0] = "*";
             }
             for (int i = 0; i < numeroAsteriscosSuspensos; i++)
             {
-                porcentajeNotaFinal[1, i] = "*";
+                porcentajeNotaFinal[i, 1] = "*";
             }
             for (int i = 2; i < 19; i++)
             {
@@ -552,10 +554,15 @@ namespace AlumnosFunciones
                     Console.WriteLine("APTO    SUSP");
                 }
             }
-            for (int i = 16; i < numeroAsteriscosAprobados; i--)
+            for (int i = numeroAsteriscosAprobados; i > 0; i--)
             {
-                Console.SetCursorPosition(5, i);
+                Console.SetCursorPosition(i, 0);
                 Console.Write(porcentajeNotaFinal[0, i]);
+            }
+            for (int i = numeroAsteriscosSuspensos; i > 0; i--)
+            {
+                Console.SetCursorPosition(i, 1);
+                Console.Write(porcentajeNotaFinal[1, i]);
             }
         }       
 
@@ -570,7 +577,6 @@ namespace AlumnosFunciones
             byte cantidad = 0;
             ushort anyoBus = 0;
             
-
             do
             {
                 opcion = Opciones();
