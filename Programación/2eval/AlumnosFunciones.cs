@@ -497,14 +497,12 @@ namespace AlumnosFunciones
 
         static void MostrarGrafica(alumno[] alumnos, float cantidad)
         {
-            Console.Clear();
             string[,] porcentajeNotaFinal = new string[20,2];
             float contadorAprobados = 0;
             float auxiliarNumeroAsteriscos = 0.2f;
             byte resultadoAprobados;
             byte numeroAsteriscosAprobados;
             byte numeroAsteriscosSuspensos;
-            byte porcentajeGrafica = 70;
 
             for (int i = 0; i < cantidad; i++)
             {
@@ -525,6 +523,26 @@ namespace AlumnosFunciones
             {
                 porcentajeNotaFinal[i, 1] = "*";
             }
+            PintarGrafica();
+            
+            for (int i = 16; numeroAsteriscosAprobados > 0; i--)
+            {
+                Console.SetCursorPosition(7, i);
+                Console.Write(porcentajeNotaFinal[numeroAsteriscosAprobados -1, 0]);
+                numeroAsteriscosAprobados--;
+            }
+            for (int i = 16; numeroAsteriscosSuspensos > 0; i--)
+            {
+                Console.SetCursorPosition(15 , i);
+                Console.Write(porcentajeNotaFinal[numeroAsteriscosSuspensos -1, 1]);
+                numeroAsteriscosSuspensos--;
+            }
+        }       
+        static void PintarGrafica()
+        {
+            byte porcentajeGrafica = 70;
+            Console.Clear();
+
             for (int i = 2; i < 19; i++)
             {
                 if (i == 2)
@@ -554,18 +572,7 @@ namespace AlumnosFunciones
                     Console.WriteLine("APTO    SUSP");
                 }
             }
-            for (int i = numeroAsteriscosAprobados; i > 0; i--)
-            {
-                Console.SetCursorPosition(i, 0);
-                Console.Write(porcentajeNotaFinal[0, i]);
-            }
-            for (int i = numeroAsteriscosSuspensos; i > 0; i--)
-            {
-                Console.SetCursorPosition(i, 1);
-                Console.Write(porcentajeNotaFinal[1, i]);
-            }
-        }       
-
+        }
         static void Main()
         {
             const byte MAXIMO = 200;
@@ -688,6 +695,7 @@ namespace AlumnosFunciones
 
                     case 8:
                         MostrarGrafica(alumnos, cantidad);
+                        Console.SetCursorPosition(1, 21);
                         Pausa();
                         break;
 
