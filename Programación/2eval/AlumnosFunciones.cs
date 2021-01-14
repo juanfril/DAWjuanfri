@@ -1,4 +1,20 @@
-﻿using System;
+﻿/*
+Losa Márquez, Juan Fco.
+Práctica Evaluable Tema 5
+Ejercicio 1
+Apartado 1.1 si
+Apartado 1.2 si
+Apartado 1.3 si
+Apartado 1.4 si
+Apartado 1.5 parcialmente
+Apartado 1.6 si
+Apartado 1.7 parcialmente
+Apartado 1.8 si
+Apartado 1.9 si
+Apartado 1.10 parcialmente
+ */
+
+using System;
 
 namespace AlumnosFunciones
 {
