@@ -301,10 +301,12 @@ namespace AlumnosFunciones
         }
         static void MostrarAlumnos(alumno[] alumnos, byte cantidad)
         {
+            Console.Clear();
             for (int i = 0; i < cantidad; i++)
             {
-                Console.WriteLine("{0}. {1} {2}", i + 1, alumnos[i].nombre,
-                    alumnos[i].apellidos);
+                Console.WriteLine("{0}. {1} {2}. Nota final = {3}",
+                    i + 1, alumnos[i].nombre, alumnos[i].apellidos,
+                    alumnos[i].notasParciales.notaFinal);
             }
             Console.WriteLine();
         }
@@ -354,6 +356,21 @@ namespace AlumnosFunciones
                         {
                             if (alumnos[i].ciudad.ToUpper()
                                 .CompareTo(alumnos[j].ciudad.ToUpper()) > 0)
+                            {
+                                alumnosProvisional[i] = alumnos[i];
+                                alumnos[i] = alumnos[j];
+                                alumnos[j] = alumnosProvisional[i];
+                            }
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < cantidad - 1; i++)
+                    {
+                        for (int j = i + 1; j < cantidad; j++)
+                        {
+                            if (alumnos[i].notasParciales.notaFinal <
+                                alumnos[j].notasParciales.notaFinal)
                             {
                                 alumnosProvisional[i] = alumnos[i];
                                 alumnos[i] = alumnos[j];
@@ -525,13 +542,13 @@ namespace AlumnosFunciones
             }
             PintarGrafica();
             
-            for (int i = 16; numeroAsteriscosAprobados > 0; i--)
+            for (int i = 15; numeroAsteriscosAprobados > 0; i--)
             {
                 Console.SetCursorPosition(7, i);
                 Console.Write(porcentajeNotaFinal[numeroAsteriscosAprobados -1, 0]);
                 numeroAsteriscosAprobados--;
             }
-            for (int i = 16; numeroAsteriscosSuspensos > 0; i--)
+            for (int i = 15; numeroAsteriscosSuspensos > 0; i--)
             {
                 Console.SetCursorPosition(15 , i);
                 Console.Write(porcentajeNotaFinal[numeroAsteriscosSuspensos -1, 1]);
@@ -587,6 +604,7 @@ namespace AlumnosFunciones
             do
             {
                 opcion = Opciones();
+                Pausa();
 
                 switch (opcion)
                 {
@@ -614,77 +632,22 @@ namespace AlumnosFunciones
                         break;
 
                     case 4:
-                        //encontrado = false;
-                        Console.WriteLine();
-                        try
-                        {
-                            Console.WriteLine("Indique año a buscar");
-                            anyoBus = Convert.ToUInt16(Console.ReadLine());
-                        }
-                        catch (Exception errorEncontrado)
-                        {
-                            Console.WriteLine("Ha habido un error: {0}",
-                                errorEncontrado.Message);
-                        }
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            if (alumnos[i].fechaNacimiento.anyo == anyoBus)
-                            {
-                                Console.WriteLine("{0}. {1} {2}. {3}",
-                                    i + 1, alumnos[i].nombre,
-                                    alumnos[i].apellidos,
-                                    alumnos[i].fechaNacimiento.anyo);
-                                //encontrado = true;
-                            }
-                        }
-                        /*if (encontrado == false)
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine("No se encontraron coincidencias");
-                        }*/
+                        OrdenarAlumno(alumnos, cantidad, 3);
+                        MostrarAlumnos(alumnos, cantidad);
+                        Pausa();
                         break;
 
                     case 5:
-                        for (int i = 0; i < cantidad - 1; i++)
-                        {
-                            for (int j = i + 1; j < cantidad; j++)
-                            {
-                                if (alumnos[i].apellidos.ToUpper()
-                                    .CompareTo(alumnos[j].apellidos.ToUpper()) > 0)
-                                {
-                                    alumnosProvisional[i] = alumnos[i];
-                                    alumnos[i] = alumnos[j];
-                                    alumnos[j] = alumnosProvisional[i];
-                                }
-                            }
-                        }
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            Console.WriteLine("{0}. {1}, {2}", i + 1, alumnos[i].apellidos,
-                                alumnos[i].nombre);
-                        }
+                        OrdenarAlumno(alumnos, cantidad, 1);
+                        MostrarAlumnos(alumnos, cantidad);
+                        Pausa();
+                        
                         break;
 
                     case 6:
-                        for (int i = 0; i < cantidad - 1; i++)
-                        {
-                            for (int j = i + 1; j < cantidad; j++)
-                            {
-                                if (alumnos[i].notasParciales.notaFinal <
-                                    alumnos[j].notasParciales.notaFinal)
-                                {
-                                    alumnosProvisional[i] = alumnos[i];
-                                    alumnos[i] = alumnos[j];
-                                    alumnos[j] = alumnosProvisional[i];
-                                }
-                            }
-                        }
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            Console.WriteLine("{0}. {1} {2}.Nota final = {3}",
-                                i + 1, alumnos[i].nombre, alumnos[i].apellidos,
-                                alumnos[i].notasParciales.notaFinal);
-                        }
+                        OrdenarAlumno(alumnos, cantidad, 4);
+                        MostrarAlumnos(alumnos, cantidad);
+                        Pausa();
                         break;
 
                     case 7:
