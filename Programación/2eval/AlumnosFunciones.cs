@@ -92,11 +92,21 @@ namespace AlumnosFunciones
         static void AnyadirAlumnos(alumno[] alumnos, ref byte cantidad,
             byte PRACTICAS, byte EXAMENES)
         {
-            string nombreProvisional;
-            string fechaProvisional;
-            bool correcto = false;
+            PedirNombre(alumnos, cantidad);
 
-            correcto = false;
+            PedirDni(alumnos, cantidad);
+
+            Console.WriteLine("Ciudad");
+            alumnos[cantidad].ciudad = Console.ReadLine();
+
+            PedirFecha(alumnos, cantidad);
+
+            PedirNotas(alumnos, cantidad, PRACTICAS, EXAMENES);
+        }
+        static void PedirNombre(alumno[]alumnos, byte cantidad)
+        {
+            bool correcto = false;
+            string nombreProvisional;
 
             while (!correcto)
             {
@@ -118,15 +128,17 @@ namespace AlumnosFunciones
                         errorEncontrado.Message);
                 }
             }
-
-            correcto = false;
+        }
+        static void PedirDni(alumno[] alumnos, byte cantidad)
+        {
+            bool correcto = false;
 
             while (!correcto)
-            {                    
+            {
                 Console.WriteLine("Introduzca DNI/NIE:");
                 alumnos[cantidad].dni = Console.ReadLine();
-             
-                if(alumnos[cantidad].dni.Length == 9)
+
+                if (alumnos[cantidad].dni.Length == 9)
                 {
                     if (ComprobarDni(alumnos, cantidad) == false)
                         correcto = true;
@@ -136,11 +148,32 @@ namespace AlumnosFunciones
                 else
                     Console.WriteLine("El DNI/NIE debe tener 9 dígitos");
             }
+        }
+        static bool ComprobarDni(alumno[] alumnos, byte cantidad)
+        {
+            bool existe = false;
 
-            Console.WriteLine("Ciudad");
-            alumnos[cantidad].ciudad = Console.ReadLine();
+            if (cantidad != 0)
+            {
+                for (int i = cantidad; i > 0; i--)
+                {
+                    for (int j = 0; j < cantidad; j++)
+                    {
+                        if (i != j)
+                        {
+                            if (alumnos[j].dni.Equals(alumnos[i].dni))
+                                existe = true;
+                        }
+                    }
+                }
+            }
+            return existe;
+        }
 
-            correcto = false;
+        static void PedirFecha(alumno[] alumnos, byte cantidad)
+        {
+            bool correcto = false;
+            string fechaProvisional;
 
             do
             {
@@ -187,7 +220,11 @@ namespace AlumnosFunciones
                 }
             }
             while (!correcto);
-
+        }
+        
+        static void PedirNotas(alumno[]alumnos, byte cantidad,
+            byte PRACTICAS, byte EXAMENES)
+        {
             alumnos[cantidad].notasParciales.practicas = new float[PRACTICAS];
             alumnos[cantidad].notasParciales.examenes = new float[EXAMENES];
 
@@ -220,33 +257,11 @@ namespace AlumnosFunciones
                 cantidad++;
                 Console.WriteLine("Alumno añadido correctamente");
             }
-            catch(Exception errorEncontrado)
+            catch (Exception errorEncontrado)
             {
                 Console.WriteLine("Ha habido un error {0}", errorEncontrado);
             }
         }
-
-        static bool ComprobarDni(alumno[] alumnos, byte cantidad)
-        {
-            bool existe = false;
-
-            if (cantidad != 0)
-            {
-                for (int i = cantidad; i > 0; i--)
-                {
-                    for (int j = 0; j < cantidad; j++)
-                    {
-                        if(i != j)
-                        {
-                            if (alumnos[j].dni.Equals(alumnos[i].dni))
-                                existe = true;
-                        }
-                    }
-                }
-            }
-            return existe;
-        }
-
         static void CalcularNotas(alumno[] alumnos, byte cantidad)
         {
             float notaEva1;
@@ -365,13 +380,13 @@ namespace AlumnosFunciones
                     }
                     break;
 
-                case 3: // Hay que poner el orden descendente, no sé para qué es
+                case 3: // Hay que poner el orden descendente
                     for (int i = 0; i < cantidad - 1; i++)
                     {
                         for (int j = i + 1; j < cantidad; j++)
                         {
                             if (alumnos[i].ciudad.ToUpper()
-                                .CompareTo(alumnos[j].ciudad.ToUpper()) > 0)
+                                .CompareTo(alumnos[j].ciudad.ToUpper()) < 0)
                             {
                                 alumnosProvisional[i] = alumnos[i];
                                 alumnos[i] = alumnos[j];
@@ -405,7 +420,6 @@ namespace AlumnosFunciones
             bool encontrado = false;
             bool correcto;
             byte criterio;
-            int posicion;
 
             do
             {
@@ -615,7 +629,6 @@ namespace AlumnosFunciones
             alumno[] alumnosProvisional = new alumno[MAXIMO];
             byte opcion = 9;
             byte cantidad = 0;
-            ushort anyoBus = 0;
             
             do
             {
