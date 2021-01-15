@@ -1,0 +1,6 @@
+c:\users\nacho\documents\visual studio 2013\Projects\Persona\Persona\bin\Debug\Persona.exe.config
+c:\users\nacho\documents\visual studio 2013\Projects\Persona\Persona\bin\Debug\Persona.exe
+c:\users\nacho\documents\visual studio 2013\Projects\Persona\Persona\bin\Debug\Persona.pdb
+c:\users\nacho\documents\visual studio 2013\Projects\Persona\Persona\obj\Debug\Persona.csprojResolveAssemblyReference.cache
+c:\users\nacho\documents\visual studio 2013\Projects\Persona\Persona\obj\Debug\Persona.exe
+c:\users\nacho\documents\visual studio 2013\Projects\Persona\Persona\obj\Debug\Persona.pdb
