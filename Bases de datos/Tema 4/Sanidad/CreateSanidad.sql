@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `Sanidad`.`HOSPITAL` (
   `Hospital_Cod` INT(2) NOT NULL,
   `Nombre` VARCHAR(10) NOT NULL,
   `Direccion` VARCHAR(20) NULL,
+  `Telefono` VARCHAR(8) NULL,
   `Cdad_Camas` INT(3) NULL,
   PRIMARY KEY (`Hospital_Cod`))
 ENGINE = InnoDB;
@@ -53,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `Sanidad`.`DOCTOR` (
   `Especialidad` VARCHAR(16) NOT NULL,
   PRIMARY KEY (`Doctor_Cod`, `Hospital_Cod`),
   INDEX `Hospital_Cod_idx` (`Hospital_Cod` ASC) VISIBLE,
-  CONSTRAINT `Hospital_Cod_prueba`
+  CONSTRAINT `Hospital_Cod_Doc`
     FOREIGN KEY (`Hospital_Cod`)
     REFERENCES `Sanidad`.`HOSPITAL` (`Hospital_Cod`)
     ON DELETE NO ACTION
@@ -67,12 +68,12 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Sanidad`.`PLANTILLA` (
   `Hospital_Cod` INT(2) NOT NULL,
   `Sala_Cod` INT(2) NOT NULL,
-  `Empleado_No` INT(4) NULL,
+  `Empleado_No` INT(4) NOT NULL,
   `Apellidos` VARCHAR(15) NULL,
   `Funcion` VARCHAR(10) NULL,
   `Turno` VARCHAR(1) NULL,
   `Salario` INT(10) NULL,
-  PRIMARY KEY (`Sala_Cod`, `Hospital_Cod`),
+  PRIMARY KEY (`Sala_Cod`, `Hospital_Cod`, `Empleado_No`),
   CONSTRAINT `Hospital_Cod, Sala_Cod`
     FOREIGN KEY (`Hospital_Cod` , `Sala_Cod`)
     REFERENCES `Sanidad`.`SALA` (`Hospital_Cod` , `Sala_Cod`)
@@ -105,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `Sanidad`.`INGRESOS` (
   `Cama` INT(4) NULL,
   PRIMARY KEY (`Inscripcion`),
   INDEX `Hospital_Cod, Sala_Cod_idx` (`Hospital_Cod` ASC, `Sala_Cod` ASC) VISIBLE,
-  CONSTRAINT `Hospital_Cod_prueba, Sala_Cod`
+  CONSTRAINT `Hospital_Cod_Ing, Sala_Cod`
     FOREIGN KEY (`Hospital_Cod` , `Sala_Cod`)
     REFERENCES `Sanidad`.`SALA` (`Hospital_Cod` , `Sala_Cod`)
     ON DELETE NO ACTION

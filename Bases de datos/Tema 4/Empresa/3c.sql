@@ -1,0 +1,1 @@
+UPDATE dept SET loc = 'VALENCIA' WHERE dept_no = 80;
