@@ -1,4 +1,9 @@
-/*Eliminar el hospital 50.*/
-SET foreign_key_checks = 0;
-DELETE FROM hospital WHERE Hospital_Cod = 50;
-SET foreign_key_checks = 1;
+/*a) Dentro del esquema Empresa, diseñar una vista de nombre imp_glo_nom_dept que
+muestre el importe global que cada departamento asume anualmente en concepto de
+nómina de los empleados, y ordenado descendentemente por este importe.*/
+
+create view imp_glo_nom_dept
+as select sum(salario), dept_no from emp
+where dept_no = dept_no;
+
+#drop view imp_glo_nom_dept;
