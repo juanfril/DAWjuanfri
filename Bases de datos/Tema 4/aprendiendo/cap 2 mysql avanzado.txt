@@ -1,0 +1,28 @@
+PARA CREAR UNA NUEVA TABLA CON LA ESTRCUTURA DE UNA YA EXISTENTE:
+
+
+
+CREATE TABLE empleados_antiguos SELECT * FROM empleado LIMIT 0;
+
+insert into empleados_antiguos values ("EMP0001","John McTiernan","EEUU");
+insert into empleados_antiguos values ("EMP0002","Bruce Willis","Aleman");
+insert into empleados_antiguos values ("EMP0003","Alan Rickman","Reino Unido");
+insert into empleados_antiguos values ("EMP0004","Bonnie Bedelia","EEUU");
+insert into empleados_antiguos values ("EMP0005","William Atherton","EEUU");
+insert into empleados_antiguos values ("EMP0006","Vin Diesel","EEUU");
+insert into empleados_antiguos values ("EMP0007","Dwayne Johnson","EEUU");
+insert into empleados_antiguos values ("EMP0008","Michelle Rodriguez","EEUU");
+insert into empleados_antiguos values ("EMP0009","Kurt Russell","EEUU");
+insert into empleados_antiguos values ("EMP0010","Gary Gray","EEUU");
+insert into empleados_antiguos values ("EMP0011","Leonardo DiCaprio","EEUU");      
+insert into empleados_antiguos values ("EMP0012","Kate Winslet","Reino Unido");
+insert into empleados_antiguos values ("EMP0013","Nicole Kidman","EEUU");
+insert into empleados_antiguos values ("EMP0014","Fionnula Flanagan","Irlanda");
+insert into empleados_antiguos values ("EMP0015","Patrick Wilson","EEUU");
+insert into empleados_antiguos values ("EMP0016","Vera Farmiga","EEUU");
+insert into empleados_antiguos values ("EMP0017","Paolo Agazi","Bolivia");
+insert into empleados_antiguos values ("EMP0018","Gerardo Suarez","Bolivia");        
+insert into empleados_antiguos values ("EMP0019","Pablo Echarri","Argentina");
+insert into empleados_antiguos values ("EMP0020","Fernando Arze","Bolivia");
+insert into empleados_antiguos values ("EMP0021","Cristian Mercado","Bolivia");
+insert into empleados_antiguos values ("EMP0022","Gory Patiño","Bolivia");   

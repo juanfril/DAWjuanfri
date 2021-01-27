@@ -1,0 +1,1 @@
+select sexo, count(*) from usuario group by sexo;
