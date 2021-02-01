@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{96B3540E-95C2-48CF-BB6F-92BB485D00CD}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EjemploBiblioteca/Program.cs">
+    <Files>
+      <File FileName="EjemploBiblioteca/Usuario.cs" Line="90" Column="30" />
+      <File FileName="EjemploBiblioteca/Material.cs" Line="8" Column="1" />
+      <File FileName="EjemploBiblioteca/Libro.cs" Line="40" Column="1" />
+      <File FileName="EjemploBiblioteca/Pelicula.cs" Line="48" Column="36" />
+      <File FileName="EjemploBiblioteca/Program.cs" Line="17" Column="74" />
+      <File FileName="EjemploBiblioteca/Prestamo.cs" Line="38" Column="35" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EjemploBiblioteca" expanded="True">
+            <Node name="EjemploBiblioteca" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.EjemploBiblioteca PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
