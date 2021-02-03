@@ -89,4 +89,4 @@ const usersOnline = users.reduce((cont, user) => {
     if (user.online) cont++
     return cont
 },0)
-console.log(`Hay ${usersOnline} usuarios conectados`); */ */
+console.log(`Hay ${usersOnline} usuarios conectados`); */s
