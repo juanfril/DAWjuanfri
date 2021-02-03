@@ -22,7 +22,8 @@ console.log(word.split('')); */
 const numbers = [1,8,100,300,3]
 console.log(letters.sort())
 console.log(numbers.sort())
-console.log(numbers.sort((a,b)=>a-b))
+console.log(numbers.sort((a,b)=>a-b)) de menor a mayor
+console.log(numbers.sort((a,b)=>b-a)) de mayor a menor
 function menorMayor(a, b) {
 if (a-b < 0) return -1;
 if (a-b > 0) return 1;
@@ -50,11 +51,14 @@ console.log(words.every(word => word.length>3)); */
 /* const numbers2 = numbers.map(number => number * 2)
 console.log(numbers2); */
 
-/* REDUCE */
+/* FILTER */
 
 /* const numbers2 = numbers.filter(number => number > 80)
 console.log(numbers2)
-console.log(numbers.reduce((a,b)=>a+b))
+
+/* REDUCE */
+
+/* console.log(numbers.reduce((a,b)=>a+b))
 const users = [
     {
         name: 'user 1',
@@ -85,4 +89,4 @@ const usersOnline = users.reduce((cont, user) => {
     if (user.online) cont++
     return cont
 },0)
-console.log(`Hay ${usersOnline} usuarios conectados`); */
+console.log(`Hay ${usersOnline} usuarios conectados`); */ */
