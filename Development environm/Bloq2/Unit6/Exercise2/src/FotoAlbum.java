@@ -12,6 +12,7 @@ public class FotoAlbum {
         pageNumber = 16;
     }
 
+    @Override
     public String toString(){
         return "I am an album with " + pageNumber + " pages.";
     }
