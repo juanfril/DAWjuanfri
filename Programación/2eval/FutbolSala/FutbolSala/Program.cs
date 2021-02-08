@@ -4,27 +4,67 @@ namespace FutbolSala
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Portero j1 = new Portero();
+            string modoJuego = PedirDatos.PedirModoJuego();
+            byte numeroJugadas = PedirDatos.PedirNumeroJugadas();
+            Equipo equipo1 = PedirDatos.PedirEquipo1();
+            Portero portero = new Portero();
+            Defensa defensa = new Defensa();
+            Delantero delantero = new Delantero();
 
-            j1.Nombre = "Portero";
-            Console.WriteLine(j1.ToString());
-            Console.WriteLine(j1.MostrarResumen("Portero"));
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Introduce nombre para el jugador {0}", i+1);
+                if (i == 0 || i == 9)
+                    portero.Nombre = Console.ReadLine();
+                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
+                    defensa.Nombre = Console.ReadLine();
+                else
+                    delantero.Nombre = Console.ReadLine();
 
-            Console.WriteLine();
+                Console.WriteLine("Introduce un dorsal para el jugador {0}", i+1);
+                if (i == 0 || i == 9)
+                    portero.Dorsal = Convert.ToByte(Console.ReadLine());
+                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
+                    defensa.Dorsal = Convert.ToByte(Console.ReadLine());
+                else
+                    delantero.Dorsal = Convert.ToByte(Console.ReadLine());
 
-            Defensa j2 = new Defensa();
-            j2.Nombre = "Defensa";
-            Console.WriteLine(j2.ToString());
-            Console.WriteLine(j2.MostrarResumen("Defensa"));
+                Console.WriteLine("Introduce altura para el jugador {0}", i+1);
+                if (i == 0 || i == 9)
+                    portero.Altura = Convert.ToByte(Console.ReadLine());
+                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
+                    defensa.Altura = Convert.ToByte(Console.ReadLine());
+                else
+                    delantero.Altura = Convert.ToByte(Console.ReadLine());
 
-            Console.WriteLine();
+                Console.WriteLine("Introduce capacidad defensiva" +
+                    " para el jugador {0}", i + 1);
+                if (i == 0 || i == 9)
+                    portero.Defensa = Convert.ToByte(Console.ReadLine());
+                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
+                    defensa.Defensa = Convert.ToByte(Console.ReadLine());
+                else
+                    delantero.Defensa = Convert.ToByte(Console.ReadLine());
 
-            Delantero j3 = new Delantero();
-            j3.Nombre = "Delantero";
-            Console.WriteLine(j3.ToString());
-            Console.WriteLine(j3.MostrarResumen("Delantero"));
+                Console.WriteLine("Introduce capacidad atacante " +
+                    "para el jugador {0}", i + 1);
+                if (i == 0 || i == 9)
+                    portero.Ataque = Convert.ToByte(Console.ReadLine());
+                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
+                    defensa.Ataque = Convert.ToByte(Console.ReadLine());
+                else
+                    delantero.Ataque = Convert.ToByte(Console.ReadLine());
+
+                if (i == 0 || i == 9)
+                    equipo1.jugadores[i] = portero;
+                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
+                    equipo1.jugadores[i] = defensa;
+                else
+                    equipo1.jugadores[i] = delantero;
+            }
+            equipo1.MostrarJugadores();
         }
     }
 }

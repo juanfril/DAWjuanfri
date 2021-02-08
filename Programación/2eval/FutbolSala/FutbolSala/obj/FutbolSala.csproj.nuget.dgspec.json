@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\juanf\\source\\repos\\FutbolSala\\FutbolSala\\FutbolSala.csproj": {}
+    "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\2eval\\FutbolSala\\FutbolSala\\FutbolSala.csproj": {}
   },
   "projects": {
-    "C:\\Users\\juanf\\source\\repos\\FutbolSala\\FutbolSala\\FutbolSala.csproj": {
+    "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\2eval\\FutbolSala\\FutbolSala\\FutbolSala.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juanf\\source\\repos\\FutbolSala\\FutbolSala\\FutbolSala.csproj",
+        "projectUniqueName": "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\2eval\\FutbolSala\\FutbolSala\\FutbolSala.csproj",
         "projectName": "FutbolSala",
-        "projectPath": "C:\\Users\\juanf\\source\\repos\\FutbolSala\\FutbolSala\\FutbolSala.csproj",
+        "projectPath": "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\2eval\\FutbolSala\\FutbolSala\\FutbolSala.csproj",
         "packagesPath": "C:\\Users\\juanf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juanf\\source\\repos\\FutbolSala\\FutbolSala\\obj\\",
+        "outputPath": "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\2eval\\FutbolSala\\FutbolSala\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\juanf\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

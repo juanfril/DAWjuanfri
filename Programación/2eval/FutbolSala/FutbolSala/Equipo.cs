@@ -4,9 +4,9 @@ namespace FutbolSala
 {
     class Equipo
     {
-        const byte MAXJUGADORES = 10;
+        protected const byte MAXJUGADORES = 10;
         private string nombreEquipo;
-        private Jugador[] jugadores = new Jugador[MAXJUGADORES];
+        public Jugador[] jugadores = new Jugador[MAXJUGADORES];
 
         public string NombreEquipo { get; set; }
 
@@ -26,6 +26,12 @@ namespace FutbolSala
                     jugadores[i] = new Delantero();
             }
         }
-
+        public void MostrarJugadores()
+        {
+            foreach (var jugador in jugadores)
+            {
+                Console.WriteLine(jugador);
+            }
+        }
     }
 }

@@ -11,3 +11,16 @@ C:\Users\juanf\source\repos\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\Futbol
 C:\Users\juanf\source\repos\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.dll
 C:\Users\juanf\source\repos\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.pdb
 C:\Users\juanf\source\repos\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.genruntimeconfig.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\bin\Debug\netcoreapp3.1\FutbolSala.exe
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\bin\Debug\netcoreapp3.1\FutbolSala.deps.json
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\bin\Debug\netcoreapp3.1\FutbolSala.runtimeconfig.json
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\bin\Debug\netcoreapp3.1\FutbolSala.runtimeconfig.dev.json
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\bin\Debug\netcoreapp3.1\FutbolSala.dll
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\bin\Debug\netcoreapp3.1\FutbolSala.pdb
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.csprojAssemblyReference.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.AssemblyInfoInputs.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.AssemblyInfo.cs
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.csproj.CoreCompileInputs.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.dll
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.pdb
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\2eval\FutbolSala\FutbolSala\obj\Debug\netcoreapp3.1\FutbolSala.genruntimeconfig.cache
