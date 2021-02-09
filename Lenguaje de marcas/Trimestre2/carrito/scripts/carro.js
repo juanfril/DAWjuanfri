@@ -1,6 +1,9 @@
 'use strict';
 
 (function(){
-    let color = document.getElementsByClassName('.item');
-    console.log(color);
+    let color = Array.from.document.getElementsByClassName('.item');
+    for (const key of color) {
+        key.style.backgroundColor = '#cecece';   
+    }
+    
 })();
