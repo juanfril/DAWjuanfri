@@ -16,7 +16,7 @@ namespace FutbolSala
             get => dorsal;
             set
             {
-                if (value > 1 && value < 15)
+                if (value > 0 && value < 16)
                     dorsal = value;
                 else
                     Console.WriteLine("El dorsal tiene que ser un" +
@@ -31,7 +31,7 @@ namespace FutbolSala
             get => altura;
             set
             {
-                if (value > 120 && value < 220)
+                if (value > 119 && value < 221)
                     altura = value;
                 else
                     Console.WriteLine("La altura tiene que ser un" +
@@ -68,7 +68,7 @@ namespace FutbolSala
         public Jugador()
         {
             dorsal = 1;
-            nombre = "genérico";
+            nombre = "Genérico";
             altura = 121;
             defensa = 1;
             ataque = 1;
