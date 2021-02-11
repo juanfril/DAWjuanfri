@@ -6,11 +6,17 @@ namespace FutbolSala
     {
         static void Main()
         {
-            PedirDatosAuto generaEquipo = new PedirDatosAuto();
-            Equipo equipo1 = generaEquipo.CrearEquiposJugadores();
-            Equipo equipo2 = generaEquipo.CrearEquiposJugadores();
+            PedirDatosAuto generaEquipo1 = new PedirDatosAuto();
+            Equipo local = generaEquipo1.CrearEquiposJugadores();
 
-            equipo1.MostrarJugadores();
+            PedirDatosAuto generaEquipo2 = new PedirDatosAuto();
+            Equipo visitante = generaEquipo2.CrearEquiposJugadores();
+
+            local.MostrarJugadores();
+            Console.WriteLine();
+            visitante.MostrarJugadores();
+            Console.WriteLine();
+            local.MostrarEstadisticas();
         }
     }
 }

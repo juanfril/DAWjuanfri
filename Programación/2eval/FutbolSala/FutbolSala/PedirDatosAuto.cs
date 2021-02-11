@@ -17,44 +17,53 @@ namespace FutbolSala
         public Equipo CrearEquiposJugadores()
         {
             
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 10 ; i++)
             {
                 int randomDorsal = new Random().Next(1, 15);
                 int randomAltura = new Random().Next(120, 220);
-                int randomPorcentaje = new Random().Next(1, 80);
+                int randomAtaque = new Random().Next(1, 80);
+                int randomDefensa = new Random().Next(1, 80);
                 int randomNombre = new Random().Next(1, 16);
+                int randomEspecial = new Random().Next(1, 10);
 
                 if (i == 0 || i == 9)
                 {
-                    portero.Nombre = nombresJugadores[randomNombre];
-                    portero.Dorsal = (byte)randomDorsal;
-                    portero.Altura = (byte)randomAltura;
-                    portero.Defensa = (byte)randomPorcentaje;
-                    portero.Ataque = (byte)randomPorcentaje;
+                    portero.nombre = nombresJugadores[randomNombre];
+                    portero.dorsal = (byte)randomDorsal;
+                    portero.altura = (byte)randomAltura;
+                    portero.defensa = (byte)randomDefensa;
+                    portero.ataque = (byte)randomAtaque;
+                    portero.pararTiro = (byte)randomEspecial;
                 }
 
                 else if ((i > 0 && i < 3) || (i > 4 && i < 7))
                 {
-                    defensa.Nombre = nombresJugadores[randomNombre];
-                    defensa.Dorsal = (byte)randomDorsal;
-                    defensa.Altura = (byte)randomAltura;
-                    defensa.Defensa = (byte)randomPorcentaje;
-                    defensa.Ataque = (byte)randomPorcentaje;
+                    defensa.nombre = nombresJugadores[randomNombre];
+                    defensa.dorsal = (byte)randomDorsal;
+                    defensa.altura = (byte)randomAltura;
+                    defensa.defensa = (byte)randomDefensa;
+                    defensa.ataque = (byte)randomAtaque;
+                    defensa.robarBalon = (byte)randomEspecial;
+                    defensa.velocidad = (byte)randomEspecial;
                 }
 
                 else
                 {
-                    delantero.Nombre = nombresJugadores[randomNombre];
-                    delantero.Dorsal = (byte)randomDorsal;
-                    delantero.Altura = (byte)randomAltura;
-                    delantero.Defensa = (byte)randomPorcentaje;
-                    delantero.Ataque = (byte)randomPorcentaje;
+                    delantero.nombre = nombresJugadores[randomNombre];
+                    delantero.dorsal = (byte)randomDorsal;
+                    delantero.altura = (byte)randomAltura;
+                    delantero.defensa = (byte)randomDefensa;
+                    delantero.ataque = (byte)randomAtaque;
+                    delantero.marcarGol = (byte)randomEspecial;
+                    delantero.velocidad = (byte)randomEspecial;
                 }
 
                 if (i == 0 || i == 9)
                     local.jugadores[i] = portero;
+                
                 else if ((i > 0 && i < 3) || (i > 4 && i < 7))
                     local.jugadores[i] = defensa;
+                    
                 else
                     local.jugadores[i] = delantero;
             }
