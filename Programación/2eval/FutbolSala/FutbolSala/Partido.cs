@@ -22,6 +22,7 @@ namespace FutbolSala
                 int randomLocal = new Random().Next(0, 9);
                 int randomVisitante = new Random().Next(0, 9);
                 byte capacidadDefensiva = 0;
+                byte capacidadAtacante = 0;
 
                 if((randomLocal == 0 || randomLocal == 9) &&
                    (randomVisitante == 0 || randomVisitante == 9))
@@ -30,8 +31,12 @@ namespace FutbolSala
                 }
                 else
                 {
-                    /*capacidadDefensiva = visitante.jugadores[randomVisitante].defensa +
-                        visitante.jugadores[randomVisitante]*/
+                    if (randomVisitante == 0 || randomVisitante == 9)
+                    {
+                        capacidadDefensiva = visitante.jugadores[randomVisitante].defensa +
+                            visitante.jugadores[randomVisitante].pararTiro;
+
+                    }
                 }
             }
         }

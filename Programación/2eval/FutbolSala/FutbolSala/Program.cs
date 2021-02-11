@@ -17,6 +17,12 @@ namespace FutbolSala
             visitante.MostrarJugadores();
             Console.WriteLine();
             local.MostrarEstadisticas();
+
+            foreach (var item in local.jugadores)
+            {
+                Console.WriteLine(item.GetType());
+            }
+            
         }
     }
 }
