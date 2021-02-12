@@ -17,31 +17,65 @@ namespace FutbolSala
         }
         public void Jugada (byte turno)
         {
-            while(numeroJugadas == 0)
-            {
-                int randomLocal = new Random().Next(0, 9);
-                int randomVisitante = new Random().Next(0, 9);
-                int capacidadDefensiva = 
-                    visitante.jugadores[randomVisitante].CapacidadDefensiva();
-                int capacidadAtacante =
-                    visitante.jugadores[randomLocal].CapacidadAtacante(); ;
+            int randomLocal = new Random().Next(0, 9);
+            int randomVisitante = new Random().Next(0, 9);
+            int capacidadAtacanteVisitante =
+                visitante.jugadores[randomVisitante].CapacidadAtacante();
+            int capacidadDefensivaVisitante = 
+                visitante.jugadores[randomVisitante].CapacidadDefensiva();
+            int capacidadAtacanteLocal =
+                local.jugadores[randomLocal].CapacidadAtacante();
+            int capacidadDefensivaLocal =
+                local.jugadores[randomLocal].CapacidadDefensiva();
 
-                if((randomLocal == 0 || randomLocal == 9) &&
-                   (randomVisitante == 0 || randomVisitante == 9))
-                {
-                    numeroJugadas = numeroJugadas;
-                }
-                else
-                {
-                    if (capacidadDefensiva < capacidadAtacante)
+            switch (turno)
+            {
+                case 1:
+                    if ((randomLocal == 0 || randomLocal == 9) &&
+                        (randomVisitante == 0 || randomVisitante == 9))
                     {
-                        Console.WriteLine("Jugador marcó gol");
+                        numeroJugadas = numeroJugadas;
                     }
                     else
                     {
-                        Console.WriteLine("Jugador falló");
+                        if (capacidadDefensivaVisitante < capacidadAtacanteLocal)
+                        {
+                            Console.WriteLine("Ataca {0}. Juega {1}. Tira a puerta. GOL!",
+                                local.nombreEquipo, local.jugadores[randomLocal].nombre);
+                            local.jugadores[randomLocal].goles++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ataca {0}. Juega {1}. Tira a puerta. FALLA!",
+                                local.nombreEquipo, local.jugadores[randomLocal].nombre); ;
+                        }
                     }
-                }
+                    break;
+
+                case 2:
+                    if ((randomLocal == 0 || randomLocal == 9) &&
+                        (randomVisitante == 0 || randomVisitante == 9))
+                    {
+                        numeroJugadas = numeroJugadas;
+                    }
+                    else
+                    {
+                        if (capacidadDefensivaLocal < capacidadAtacanteVisitante)
+                        {
+                            Console.WriteLine("Ataca {0}. Juega {1}. Tira a puerta. GOL!",
+                                visitante.nombreEquipo,
+                                visitante.jugadores[randomVisitante].nombre);
+
+                            visitante.jugadores[randomVisitante].goles++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ataca {0}. Juega {1}. Tira a puerta. FALLA!",
+                                visitante.nombreEquipo, 
+                                visitante.jugadores[randomVisitante].nombre);
+                        }
+                    }
+                    break;
             }
         }
     }

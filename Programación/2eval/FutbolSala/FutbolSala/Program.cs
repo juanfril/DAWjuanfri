@@ -12,17 +12,20 @@ namespace FutbolSala
             PedirDatosAuto generaEquipo2 = new PedirDatosAuto();
             Equipo visitante = generaEquipo2.CrearEquiposJugadores();
 
-            local.MostrarJugadores();
-            Console.WriteLine();
-            visitante.MostrarJugadores();
+            Partido p1 = new Partido(local, visitante);
+            p1.numeroJugadas = PedirDatos.PedirNumeroJugadas();
+            for (int i = 0; i < p1.numeroJugadas; i++)
+            {
+                for (byte j = 1; j < 3; j++)
+                {
+                    p1.Jugada(j);
+                }
+            }
+
             Console.WriteLine();
             local.MostrarEstadisticas();
-
-            foreach (var item in local.jugadores)
-            {
-                Console.WriteLine(item.GetType());
-            }
-            
+            Console.WriteLine();
+            visitante.MostrarEstadisticas();
         }
     }
 }

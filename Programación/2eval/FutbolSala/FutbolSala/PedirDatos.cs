@@ -27,7 +27,7 @@ namespace FutbolSala
             return modoJuego;
         }
 
-        public byte PedirNumeroJugadas()
+        public static byte PedirNumeroJugadas()
         {
             byte numeroJugadas = 0;
 
