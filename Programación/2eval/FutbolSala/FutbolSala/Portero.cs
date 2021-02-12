@@ -11,6 +11,13 @@ namespace FutbolSala
             pararTiro = 1;
         }
 
+        public override int CapacidadDefensiva()
+        {
+            int capacidadDefensiva = pararTiro + defensa;
+
+            return capacidadDefensiva;
+        }
+        
         public override string ToString()
         {
             return base.ToString() + ", " + pararTiro +

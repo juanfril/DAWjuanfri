@@ -19,6 +19,16 @@ namespace FutbolSala
             defensa = 1;
             ataque = 1;
         }
+        public virtual int CapacidadDefensiva()
+        {
+            int capacidadDefensiva = defensa;
+            return capacidadDefensiva;
+        }
+        public virtual int CapacidadAtacante()
+        {
+            int capacidadAtacante = ataque;
+            return capacidadAtacante;
+        }
 
         public override string ToString()
         {

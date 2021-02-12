@@ -12,6 +12,19 @@ namespace FutbolSala
             velocidad = 1;
         }
 
+        public override int CapacidadDefensiva()
+        {
+            int capacidadDefensiva = defensa + velocidad + robarBalon;
+
+            return capacidadDefensiva;
+        }
+
+        public override int CapacidadAtacante()
+        {
+            int capacidadAtacante = ataque + velocidad;
+
+            return capacidadAtacante;
+        }
         public override string ToString()
         {
             return base.ToString() + ", " + robarBalon +
