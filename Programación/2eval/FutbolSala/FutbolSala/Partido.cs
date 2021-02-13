@@ -76,6 +76,10 @@ namespace FutbolSala
                         }
                     }
                     break;
+
+                default:
+                    Console.WriteLine("No entiendo la jugada");
+                    break;
             }
         }
     }
