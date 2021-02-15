@@ -11,6 +11,7 @@ namespace FutbolSala
 
             PedirDatosAuto generaEquipo2 = new PedirDatosAuto();
             Equipo visitante = generaEquipo2.CrearEquiposJugadores();
+            visitante.nombreEquipo = "Visitante";
 
             Partido p1 = new Partido(local, visitante);
             p1.numeroJugadas = PedirDatos.PedirNumeroJugadas();
