@@ -8,7 +8,7 @@ namespace FutbolSala
         public Jugador[] jugadores = new Jugador[MAXJUGADORES];
 
         public string nombreEquipo { get; set; }
-        //public Jugador[] Jugadores { get; set; }
+        public Jugador[] Jugadores { get; set; }
 
         public Equipo()
         {
