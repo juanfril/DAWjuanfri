@@ -7,11 +7,10 @@ namespace FutbolSala
         static void Main()
         {
             PedirDatosAuto generaEquipo1 = new PedirDatosAuto();
-            Equipo local = generaEquipo1.CrearEquiposJugadores();
+            Equipo local = generaEquipo1.CrearEquipoLocal();
 
             PedirDatosAuto generaEquipo2 = new PedirDatosAuto();
-            Equipo visitante = generaEquipo2.CrearEquiposJugadores();
-            visitante.nombreEquipo = "Visitante";
+            Equipo visitante = generaEquipo2.CrearEquipoVisitante();
 
             Partido p1 = new Partido(local, visitante);
             p1.numeroJugadas = PedirDatos.PedirNumeroJugadas();
