@@ -1,13 +1,10 @@
 package automation.main;
 import java.util.Scanner;
 
-public class Main {
+public class ShowMenu {
+    int option;
 
-    public static void main(String[] args) {
-	// write your code here
-        int option;
-        Management home = new Management();
-
+    public int menu(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Choose option.");
         System.out.println("1. Winter mode");
@@ -19,11 +16,13 @@ public class Main {
 
         option = sc.nextInt();
         sc.close();
+        return option;
+    }
 
-        switch (option) {
+    public void choose(){
+        switch (option){
             case 1:
                 System.out.println("option 1");
-                
                 break;
             case 2:
                 System.out.println("option 2");
