@@ -23,7 +23,7 @@ public class Main {
         switch (option) {
             case 1:
                 System.out.println("option 1");
-                
+
                 break;
             case 2:
                 System.out.println("option 2");
