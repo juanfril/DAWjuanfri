@@ -1,12 +1,13 @@
 package automation.main;
+import automation.data.*;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
         int option;
-        Management home = new Management();
+        Management[] home = new Management[9];
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Choose option.");
@@ -22,7 +23,7 @@ public class Main {
 
         switch (option) {
             case 1:
-                System.out.println("option 1");
+                home[0].on();
 
                 break;
             case 2:

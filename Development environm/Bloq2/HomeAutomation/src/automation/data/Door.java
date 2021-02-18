@@ -13,9 +13,9 @@ public class Door implements AutomationElement{
     @Override
     public void setName(String name) { this.name = name; }
 
-    public void lock(){ lock = true; }
+    public void on(){ lock = true; }
 
-    public void unlock(){ lock = false; }
+    public void off(){ lock = false; }
 
     @Override
     public String getStatus() {

@@ -3,8 +3,13 @@ package automation.data;
 public class Window implements AutomationElement {
     String name;
     boolean lock;
+    Blind blind = new Blind();
 
-    public Window(String name) { this.name = name; }
+    public Window(String name, String nameBlind) {
+        this.name = name;
+        lock = false;
+        Blind blind = new Blind(nameBlind);
+    }
 
     @Override
     public String getName() { return name; }
@@ -12,9 +17,11 @@ public class Window implements AutomationElement {
     @Override
     public void setName(String name) { this.name = name; }
 
-    public void lock(){ lock = true; }
+    @Override
+    public void on(){ lock = true; }
 
-    public void unlock(){ lock = false; }
+    @Override
+    public void off(){ lock = false; }
 
     @Override
     public String getStatus() {
@@ -26,7 +33,6 @@ public class Window implements AutomationElement {
 
     @Override
     public String toString(){
-        return "- " + name + ": " + getStatus() +
-                " " + Blind.getPercent() + "%";
+        return "- " + name + " " + getStatus() + ": " + blind;
     }
 }

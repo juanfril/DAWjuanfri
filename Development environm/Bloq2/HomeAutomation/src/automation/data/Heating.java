@@ -22,9 +22,11 @@ public class Heating implements AutomationElement{
         this.temperature = temperature;
     }
 
-    public void switchOn(){ switchHow = true; }
+    @Override
+    public void on(){ switchHow = true; }
 
-    public void switchOff(){ switchHow = false; }
+    @Override
+    public void off(){ switchHow = false; }
 
     @Override
     public String getStatus(){
