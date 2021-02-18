@@ -1,29 +1,42 @@
 package automation.data;
 
-public class Heating extends AutomationSwitch{
-    int temperature;
+public class Heating implements AutomationElement{
 
-    public Heating(String name) {
-        super(name);
+    int temperature;
+    boolean switchHow;
+    String name;
+    public Heating(String name){
+        this.name = name;
+        switchHow = false;
     }
+
+    @Override
+    public String getName() { return name; }
+
+    @Override
+    public void setName(String name) { this.name = name; }
 
     public String getTemperature(){ return temperature + "ºC"; }
 
     public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
-    public Heating(){}
 
-    public Heating(int temperature){
-        this.temperature = temperature;
-    }
-    public Heating(int temperature, boolean switchHow){
-        this.temperature = temperature;
-        this.switchHow = switchHow;
+    public void switchOn(){ switchHow = true; }
+
+    public void switchOff(){ switchHow = false; }
+
+    @Override
+    public String getStatus(){
+        if(switchHow)
+            return "Switched on";
+        else
+            return "Switched off";
     }
 
     @Override
     public String toString(){
-        return super.toString() + ", " + temperature + "ºC";
+        return "- " + name + ": " + getStatus() +
+                ", " + temperature + "ºC";
     }
 }

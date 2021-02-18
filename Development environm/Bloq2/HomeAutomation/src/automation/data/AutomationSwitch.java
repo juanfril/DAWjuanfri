@@ -3,15 +3,15 @@ package automation.data;
 public abstract class AutomationSwitch {
 
     boolean switchHow;
-    String nameSwitch;
+    String name;
 
     public AutomationSwitch(String name){
-        this.nameSwitch = name;
+        this.name = name;
     }
 
-    public String getNameSwitch() { return nameSwitch; }
+    public String getNameSwitch() { return name; }
 
-    public void setNameSwitch(String name) { this.nameSwitch = name; }
+    public void setNameSwitch(String name) { this.name = name; }
 
     public void switchOn(){
         switchHow = true;
@@ -31,6 +31,6 @@ public abstract class AutomationSwitch {
     }
     @Override
     public String toString(){
-        return "- " + nameSwitch + ": " + getStatus();
+        return "- " + name + ": " + getStatus();
     }
 }

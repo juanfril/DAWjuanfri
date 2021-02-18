@@ -7,7 +7,7 @@ public class Management {
     AutomationSwitch[] switches = new AutomationSwitch[5];
 
     public Management(){
-        percents[0] = new Blind("Room blind");
+        /*percents[0] = new Blind("Room blind");
         percents[1] = new Blind("Living room blind");
         percents[3] = new Awning("Terrace awning");
         locks[0] = new Window("Room window");
@@ -18,6 +18,6 @@ public class Management {
         switches[1] =  new Heating("Bathroom heating");
         switches[2] = new Light("Kitchen light");
         switches[3] = new Light("Room light");
-        switches[4] = new Oven("Room light");
+        switches[4] = new Oven("Room light");*/
     }
 }
