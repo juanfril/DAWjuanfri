@@ -1,5 +1,4 @@
 package automation.main;
-import automation.data.*;
 import java.util.Scanner;
 
 public class Main {
@@ -23,27 +22,13 @@ public class Main {
             sc.close();
 
             switch (option) {
-                case 1:
-                    Management.winter();
-                    break;
-                case 2:
-                    Management.summer();
-                    break;
-                case 3:
-                    Management.cooking();
-                    break;
-                case 4:
-                    Management.closeEverything();
-                    break;
-                case 5:
-                    Management.showStatus();
-                    break;
-                case 0:
-                    System.out.println("Exit");
-                    break;
-                default:
-                    System.out.println("No correct option");
-                    break;
+                case 1 -> Management.winter();
+                case 2 -> Management.summer();
+                case 3 -> Management.cooking();
+                case 4 -> Management.closeEverything();
+                case 5 -> Management.showStatus();
+                case 0 -> System.out.println("Exit");
+                default -> System.out.println("No correct option");
             }
         }while (option != 0);
     }
