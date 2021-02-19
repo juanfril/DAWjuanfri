@@ -18,6 +18,16 @@ public class Window implements AutomationElement {
     public void setName(String name) { this.name = name; }
 
     @Override
+    public int getNumber() {
+        return blind.getNumber();
+    }
+
+    @Override
+    public void setNumber(int number) {
+        blind.setNumber(number);
+    }
+
+    @Override
     public void on(){ lock = true; }
 
     @Override
@@ -30,6 +40,20 @@ public class Window implements AutomationElement {
         else
             return "Unlock";
     }
+
+    @Override
+    public void lower(){ blind.lower(); }
+
+    @Override
+    public void lower(int down) { blind.lower(down); }
+
+    @Override
+    public void raise() { blind.raise(); }
+
+    @Override
+    public void raise(int up) { blind.raise(up); }
+
+    ;
 
     @Override
     public String toString(){

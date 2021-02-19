@@ -1,0 +1,28 @@
+________________________________
+añadir grupo
+
+addgroup usertest
+useradd test1 -G usertest
+smbpasswd -a test1
+_______________________________
+crear carpeta compartida
+
+mkdir -p /samba/test
+chmod -R 0770 /samba/test
+chown root:usertest /samba/test
+_________________________________
+añadir a samba
+sudo nano /etc/samba/smb.conf
+[usertest]
+ path = /samba/test
+ valid users = @usertest
+ guest ok = no
+ writable = yes
+ browseable = yes
+__________________________________
+reiniciar samba
+sudo systemctl restart smbd
+__________________________________
+copia seguridad samba
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+

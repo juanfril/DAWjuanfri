@@ -19,20 +19,31 @@ public class Blind implements AutomationElement{
     @Override
     public void setName(String name) { this.name = name; }
 
+    @Override
+    public int getNumber() { return percent; }
+
+    @Override
+    public void setNumber(int number){ percent = number; }
+
+    @Override
     public void raise(){
         percent = 100;
     }
 
+    @Override
     public void lower(){
         percent = 0;
     }
 
+    @Override
     public  void raise(int percent){
         if(this.percent + percent > 100)
             System.out.println("You can't open more than 100%");
         else
             this.percent += percent;
     }
+
+    @Override
     public void lower(int percent){
         if(this.percent - percent < 0)
             System.out.println("You can't close more than 0%");

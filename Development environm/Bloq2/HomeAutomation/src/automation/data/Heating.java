@@ -5,6 +5,7 @@ public class Heating implements AutomationElement{
     int temperature;
     boolean switchHow;
     String name;
+
     public Heating(String name){
         this.name = name;
         switchHow = false;
@@ -16,9 +17,11 @@ public class Heating implements AutomationElement{
     @Override
     public void setName(String name) { this.name = name; }
 
-    public String getTemperature(){ return temperature + "ºC"; }
+    @Override
+    public int getNumber(){ return temperature; }
 
-    public void setTemperature(int temperature) {
+    @Override
+    public void setNumber(int temperature) {
         this.temperature = temperature;
     }
 
@@ -36,6 +39,18 @@ public class Heating implements AutomationElement{
             return "Switched off";
     }
 
+    @Override
+    public void lower(){}
+
+    @Override
+    public void lower(int down){}
+
+    @Override
+    public void raise(){}
+
+    @Override
+    public void raise(int up){}
+    ;
     @Override
     public String toString(){
         return "- " + name + ": " + getStatus() +

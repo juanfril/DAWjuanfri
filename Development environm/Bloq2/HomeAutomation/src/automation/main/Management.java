@@ -2,7 +2,7 @@ package automation.main;
 import automation.data.*;
 
 public class Management{
-    AutomationElement[] home = new AutomationElement[9];
+    private static AutomationElement[] home = new AutomationElement[9];
 
     public Management(){
         home[0] = new Window("Room window", "Room blind");
@@ -16,7 +16,49 @@ public class Management{
         home[8] = new Light("Kitchen light");
         home[9] = new Light("Room light");
     }
-    public void lock(){
-
+    public static void winter(){
+        for (int i = 0; i < 4; i++) {
+            home[i].on();
+        }
+        home[3].lower();
+        home[0].setNumber(80);
+        home[1].setNumber(80);
+        home[4].raise();
+        home[5].setNumber(25);
+        home[7].off();
+        home[6].setNumber(25);
+        home[8].on();
+        home[9].on();
+    }
+    public static void summer(){
+        for (int i = 0; i < 4; i++) {
+            home[i].off();
+        }
+        home[3].raise();
+        home[0].setNumber(50);
+        home[1].setNumber(50);
+        home[4].setNumber(50);
+        home[5].off();
+        home[6].off();
+        home[7].off();
+        home[8].off();
+        home[9].off();
+    }
+    public static void cooking(){
+        home[8].on();
+        home[7].on();
+        home[7].setNumber(200);
+        home[9].off();
+    }
+    public static void closeEverything(){
+        for(var value : home){
+            value.off();
+            value.lower();
+        }
+    }
+    public static void showStatus(){
+        for(var value : home){
+            System.out.println(value);
+        }
     }
 }
