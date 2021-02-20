@@ -5,14 +5,28 @@ namespace FutbolSala
     class Equipo
     {
         protected const byte MAXJUGADORES = 10;
-        public Jugador[] jugadores = new Jugador[MAXJUGADORES];
+        protected Jugador[] jugadores = new Jugador[MAXJUGADORES];
 
-        public string nombreEquipo { get; set; }
+        public string NombreEquipo
+        {
+            get => NombreEquipo;
+            set
+            {
+                try
+                {
+                    NombreEquipo = value;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("El parámetro introducido no es correcto");
+                }
+            }
+        }
         public Jugador[] Jugadores { get; set; }
 
         public Equipo()
         {
-            nombreEquipo = "Local";
+            NombreEquipo = "Local";
 
             for (int i = 0; i < MAXJUGADORES; i++)
             {
@@ -38,7 +52,7 @@ namespace FutbolSala
             foreach (var jugador in jugadores)
             {
                 Console.WriteLine("{0}. {1} ha marcado {2} goles",
-                    jugador.dorsal, jugador.nombre, jugador.goles);
+                    jugador.Dorsal, jugador.Nombre, jugador.Goles);
             }
         }
         public byte Marcador()
@@ -47,7 +61,7 @@ namespace FutbolSala
 
             foreach (var jugador in jugadores)
             {
-                goles += jugador.goles; 
+                goles += jugador.Goles; 
             }
             return goles;
         }

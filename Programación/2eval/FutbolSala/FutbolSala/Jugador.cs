@@ -4,42 +4,110 @@ namespace FutbolSala
 {
     abstract class Jugador
     {
-        public byte dorsal { get; set; }
-        public string nombre { get; set; }
-        public byte altura { get; set; }
-        public byte defensa { get; set; }
-        public byte ataque { get; set; }
-        public byte goles { get; set; }
+        public byte Dorsal
+        {
+            get => Dorsal;
+            set
+            {
+                if (value < 0 || value > 15)
+                    Console.WriteLine("El dorsal debe ser un número" +
+                        "del 1 al 15");
+                else
+                    Dorsal = value;
+            }
+        }
+        public string Nombre
+        {
+            get => Nombre;
+            set
+            {
+                try
+                {
+                    Nombre = value;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("El valor introducido no es correcto");
+                }
+            }
+        }
+        public byte Altura
+        {
+            get => Altura;
+            set
+            {
+                if (value < 120 || value > 220)
+                    Console.WriteLine("La altura debe ser un número" +
+                        "del 120 al 220");
+                else
+                    Altura = value;
+            }
+        }
+        public byte Defensa 
+        {
+            get => Defensa;
+            set
+            {
+                if (value < 0 || value > 80)
+                    Console.WriteLine("El parámetro debe ser un número" +
+                        "del 0 al 80");
+                else
+                    Defensa = value;
+            } 
+        }
+        public byte Ataque
+        {
+            get => Ataque;
+            set
+            {
+                if (value < 0 || value > 80)
+                    Console.WriteLine("El parámetro debe ser un número" +
+                        "del 0 al 80");
+                else
+                    Ataque = value;
+            }
+        }
+        public byte Goles { get; set; }
 
         public Jugador()
         {
-            dorsal = 1;
-            nombre = "Genérico";
-            altura = 121;
-            defensa = 1;
-            ataque = 1;
+            Dorsal = 1;
+            Nombre = "Generic";
+            Altura = 120;
+            Defensa = 1;
+            Ataque = 1;
+        }
+
+        public Jugador(byte dorsal, string nombre, byte altura, byte defensa,
+            byte ataque)
+        {
+            this.Dorsal = dorsal;
+            this.Nombre = nombre;
+            this.Altura = altura;
+            this.Defensa = defensa;
+            this.Ataque = ataque;
         }
         public virtual int CapacidadDefensiva()
         {
-            int capacidadDefensiva = defensa;
+            int capacidadDefensiva = Defensa;
             return capacidadDefensiva;
         }
         public virtual int CapacidadAtacante()
         {
-            int capacidadAtacante = ataque;
+            int capacidadAtacante = Ataque;
             return capacidadAtacante;
+        }
+        public string MostrarResumen()
+        {
+            return Dorsal + ". " + this.Nombre + ": " + Goles +
+                " gol";
         }
 
         public override string ToString()
         {
-            return dorsal + ". " + nombre + ", " + altura + "cm, " +
-                defensa + "% defensa " + ataque + "% ataque";
+            return Dorsal + ". " + Nombre + ", " + Altura + "cm, " +
+                Defensa + "% defensa " + Ataque + "% ataque";
         }
 
-        public string MostrarResumen(string Nombre)
-        {
-            return dorsal + ". " + Nombre + ": " + goles +
-                " gol";
-        }
     }
 }

@@ -4,31 +4,62 @@ namespace FutbolSala
 {
     class Defensa: Jugador
     {
-        public byte robarBalon { get; set; }
-        public byte velocidad { get; set; }
-        public Defensa() : base()
+        public byte RobarBalon
         {
-            robarBalon = 1;
-            velocidad = 1;
+            get => RobarBalon;
+            set
+            {
+                if (value < 0 || value > 10)
+                    Console.WriteLine("El parámetro debe ser un número" +
+                        "del 0 al 10");
+                else
+                    RobarBalon = value;
+            }
+        }
+        public byte Velocidad
+        {
+            get => Velocidad;
+            set
+            {
+                if (value < 0 || value > 10)
+                    Console.WriteLine("El parámetro debe ser un número" +
+                        "del 0 al 10");
+                else
+                    Velocidad = value;
+            }
+        }
+
+        public Defensa() :base()
+        {
+            RobarBalon = 1;
+            Velocidad = 1;
+        }
+
+        public Defensa(byte dorsal, string nombre, byte altura, byte defensa,
+            byte ataque, byte robarBalon, byte velocidad) : base(dorsal, nombre,
+                altura, defensa, ataque)
+        {
+            this.RobarBalon = robarBalon;
+            this.Velocidad = velocidad;
         }
 
         public override int CapacidadDefensiva()
         {
-            int capacidadDefensiva = defensa + velocidad + robarBalon;
+            int capacidadDefensiva = Defensa + Velocidad + RobarBalon;
 
             return capacidadDefensiva;
         }
 
         public override int CapacidadAtacante()
         {
-            int capacidadAtacante = ataque + velocidad;
+            int capacidadAtacante = Ataque + Velocidad;
 
             return capacidadAtacante;
         }
         public override string ToString()
         {
-            return base.ToString() + ", " + robarBalon +
-                "% capacidad robar el balón, " + velocidad +
+            return base.ToString() + ", " + RobarBalon +
+                "% capacidad robar el balón, " + Velocidad +
                 "% velocidad";
         }
     }
