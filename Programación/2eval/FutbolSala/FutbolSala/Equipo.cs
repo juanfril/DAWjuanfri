@@ -13,17 +13,17 @@ namespace FutbolSala
             get => nombreEquipo;
             set
             {
-                if(value == null)
-                {
-                    Console.WriteLine("El parámetro introducido no es correcto");
-                }
+                if(string.IsNullOrEmpty(value))
+                    nombreEquipo = "";
                 else
-                {
                     nombreEquipo = value;
-                }
             }
         }
-        public Jugador[] Jugadores { get; set; }
+        public Jugador[] Jugadores
+        {
+            get => jugadores;
+            set => jugadores = value;
+        }
 
         public Equipo()
         {

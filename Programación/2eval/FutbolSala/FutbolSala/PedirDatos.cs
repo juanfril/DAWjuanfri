@@ -4,116 +4,479 @@ namespace FutbolSala
 {
     class PedirDatos
     {
-        /*public static string PedirModoJuego()
+        public static string PedirEquipo()
         {
-            string modoJuego = "a";
+            Console.Clear();
 
-            Console.WriteLine("Elija el modo de juego " +
-                "(\"R\" resumido / \"C\" completo): ");
-            try
+            string nombre = "";
+            do
             {
-                modoJuego = Console.ReadLine();
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Parámetro incorrecto, por favor" +
-                        "introduzca \"R\" resumido / \"C\" completo");
-            }
+                Console.WriteLine("Introduzca un nombre para el equipo");
+                nombre = Console.ReadLine();
 
-            if (!modoJuego.Equals("R") && !modoJuego.Equals("C"))
-                Console.WriteLine("Usted no ha elegido un modo de juego " +
-                    "válido");
-            
-            return modoJuego;
-        }*/
+            } while (string.IsNullOrEmpty(nombre));
 
-        /*public static byte PedirNumeroJugadas()
-        {
-            byte numeroJugadas = 0;
-
-            Console.WriteLine("Introduzca un número de jugadas (de 10 a 30)");
-
-            try
-            {
-                numeroJugadas = Convert.ToByte(Console.ReadLine());
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Tiene que elegir un número válido" +
-                    " (de 10 a 30 jugadas)");
-            }
-            if (numeroJugadas < 10 && numeroJugadas > 30)
-                Console.WriteLine("Usted no ha elegido un número de jugadas " +
-                    "válido");
-
-            return numeroJugadas;
-        }*/
-        public static Equipo PedirEquipo()
-        {
-            Equipo equipo = new Equipo();
-            Console.WriteLine("Introduzca un nombre para el equipo");
-            equipo.NombreEquipo = Console.ReadLine();
-
-            return equipo;
+            return nombre;
         }
 
-        public static void PedirJugadores()
+        public static Portero PedirPortero()
         {
+            Console.Clear();
+
+            bool correcto = false;
+            byte pruebaNumero;
+            string pruebaNombre;
             Portero portero = new Portero();
+
+            do
+            {
+                Console.WriteLine("Introduce nombre para portero");
+                pruebaNombre = Console.ReadLine();
+
+                if (string.IsNullOrEmpty(pruebaNombre))
+                    Console.WriteLine("Introduzca nombre válido");
+                else
+                {
+                    portero.Nombre = pruebaNombre;
+                    correcto = true;
+                }
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce un dorsal para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 0 || pruebaNumero > 15)
+                        Console.WriteLine("El dorsal debe ser un número" +
+                        "del 1 al 15");
+                    else
+                    {
+                        portero.Dorsal = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce altura para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 120 || pruebaNumero > 220)
+                        Console.WriteLine("La altura debe ser un número" +
+                            "del 120 al 220");
+                    else
+                    {
+                        portero.Altura = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce capacidad defensiva" +
+                    " para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 80)
+                        Console.WriteLine("La defensa debe ser un número" +
+                        "del 1 al 80");
+                    else
+                    {
+                        portero.Defensa = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce capacidad atacante " +
+                    "para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 80)
+                        Console.WriteLine("El ataque debe ser un número" +
+                        "del 1 al 80");
+                    else
+                    {
+                        portero.Ataque = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce capacidad de parar " +
+                    "tiros a puerta para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 10)
+                        Console.WriteLine("La capacidad de parar un tiro a puerta" +
+                        " debe ser un número del 1 al 10");
+                    else
+                    {
+                        portero.PararTiro = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            return portero;
+        }
+        public static Defensa PedirDefensa()
+        {
+            Console.Clear();
+
+            bool correcto = false;
+            byte pruebaNumero;
+            string pruebaNombre;
             Defensa defensa = new Defensa();
+
+            do
+            {
+                Console.WriteLine("Introduce nombre para el defensa");
+                pruebaNombre = Console.ReadLine();
+
+                if (string.IsNullOrEmpty(pruebaNombre))
+                    Console.WriteLine("Introduzca nombre válido");
+                else
+                {
+                    defensa.Nombre = pruebaNombre;
+                    correcto = true;
+                }
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce un dorsal para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 0 || pruebaNumero > 15)
+                        Console.WriteLine("El dorsal debe ser un número" +
+                        "del 1 al 15");
+                    else
+                    {
+                        defensa.Dorsal = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce altura para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 120 || pruebaNumero > 220)
+                        Console.WriteLine("La altura debe ser un número" +
+                            "del 120 al 220");
+                    else
+                    {
+                        defensa.Altura = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce capacidad defensiva" +
+                    " para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 80)
+                        Console.WriteLine("La defensa debe ser un número" +
+                        "del 1 al 80");
+                    else
+                    {
+                        defensa.Defensa = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce capacidad atacante " +
+                    "para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 80)
+                        Console.WriteLine("El ataque debe ser un número" +
+                        "del 1 al 80");
+                    else
+                    {
+                        defensa.Ataque = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce capacidad de robar " +
+                    "el balón para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 10)
+                        Console.WriteLine("La capacidad de robar el balón" +
+                        " debe ser un número del 1 al 10");
+                    else
+                    {
+                        defensa.RobarBalon = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce velocidad para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 10)
+                        Console.WriteLine("La velocidad debe ser un número" +
+                            " del 1 al 10");
+                    else
+                    {
+                        defensa.Velocidad = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            return defensa;
+        }
+
+        public static Delantero PedirDelantero()
+        {
+            Console.Clear();
+
+            bool correcto = false;
+            byte pruebaNumero;
+            string pruebaNombre;
             Delantero delantero = new Delantero();
 
-            for (int i = 0; i < 10; i++)
+            do
             {
-                Console.WriteLine("Introduce nombre para el jugador {0}", i + 1);
-                if (i == 0 || i == 9)
-                    portero.Nombre = Console.ReadLine();
-                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
-                    defensa.Nombre = Console.ReadLine();
-                else
-                    delantero.Nombre = Console.ReadLine();
+                Console.WriteLine("Introduce nombre para el defensa");
+                pruebaNombre = Console.ReadLine();
 
-                Console.WriteLine("Introduce un dorsal para el jugador {0}", i + 1);
-                if (i == 0 || i == 9)
-                    portero.Dorsal = Convert.ToByte(Console.ReadLine());
-                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
-                    defensa.Dorsal = Convert.ToByte(Console.ReadLine());
+                if (string.IsNullOrEmpty(pruebaNombre))
+                    Console.WriteLine("Introduzca nombre válido");
                 else
-                    delantero.Dorsal = Convert.ToByte(Console.ReadLine());
+                {
+                    delantero.Nombre = pruebaNombre;
+                    correcto = true;
+                }
 
-                Console.WriteLine("Introduce altura para el jugador {0}", i + 1);
-                if (i == 0 || i == 9)
-                    portero.Altura = Convert.ToByte(Console.ReadLine());
-                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
-                    defensa.Altura = Convert.ToByte(Console.ReadLine());
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce un dorsal para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 0 || pruebaNumero > 15)
+                        Console.WriteLine("El dorsal debe ser un número" +
+                        "del 1 al 15");
+                    else
+                    {
+                        delantero.Dorsal = pruebaNumero;
+                        correcto = true;
+                    }
+                }
                 else
-                    delantero.Altura = Convert.ToByte(Console.ReadLine());
+                    Console.WriteLine("El valor introducido es incorrecto");
 
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce altura para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 120 || pruebaNumero > 220)
+                        Console.WriteLine("La altura debe ser un número" +
+                            "del 120 al 220");
+                    else
+                    {
+                        delantero.Altura = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
                 Console.WriteLine("Introduce capacidad defensiva" +
-                    " para el jugador {0}", i + 1);
-                if (i == 0 || i == 9)
-                    portero.Defensa = Convert.ToByte(Console.ReadLine());
-                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
-                    defensa.Defensa = Convert.ToByte(Console.ReadLine());
+                    " para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 80)
+                        Console.WriteLine("La defensa debe ser un número" +
+                        "del 1 al 80");
+                    else
+                    {
+                        delantero.Defensa = pruebaNumero;
+                        correcto = true;
+                    }
+                }
                 else
-                    delantero.Defensa = Convert.ToByte(Console.ReadLine());
+                    Console.WriteLine("El valor introducido es incorrecto");
 
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
                 Console.WriteLine("Introduce capacidad atacante " +
-                    "para el jugador {0}", i + 1);
-                if (i == 0 || i == 9)
-                    portero.Ataque = Convert.ToByte(Console.ReadLine());
-                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
-                    defensa.Ataque = Convert.ToByte(Console.ReadLine());
+                    "para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 80)
+                        Console.WriteLine("El ataque debe ser un número" +
+                        "del 1 al 80");
+                    else
+                    {
+                        delantero.Ataque = pruebaNumero;
+                        correcto = true;
+                    }
+                }
                 else
-                    delantero.Ataque = Convert.ToByte(Console.ReadLine());
+                    Console.WriteLine("El valor introducido es incorrecto");
 
-                /*if (i == 0 || i == 9)
-                    equipo1.jugadores[i] = portero;
-                else if ((i > 0 && i < 3) || (i > 4 && i < 7))
-                    equipo1.jugadores[i] = defensa;
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce capacidad de robar " +
+                    "el balón para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 10)
+                        Console.WriteLine("La capacidad de robar el balón" +
+                        " debe ser un número del 1 al 10");
+                    else
+                    {
+                        delantero.MarcarGol = pruebaNumero;
+                        correcto = true;
+                    }
+                }
                 else
-                    equipo1.jugadores[i] = delantero;*/
-            }
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            correcto = false;
+
+            do
+            {
+                Console.WriteLine("Introduce velocidad para el jugador");
+                correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
+                if (correcto)
+                {
+                    if (pruebaNumero < 1 || pruebaNumero > 10)
+                        Console.WriteLine("La velocidad debe ser un número" +
+                            " del 1 al 10");
+                    else
+                    {
+                        delantero.Velocidad = pruebaNumero;
+                        correcto = true;
+                    }
+                }
+                else
+                    Console.WriteLine("El valor introducido es incorrecto");
+
+            } while (!correcto);
+
+            return delantero;
         }
     }
 }

@@ -7,13 +7,34 @@ namespace FutbolSala
     {
         private Equipo local = new Equipo();
         private Equipo visitante = new Equipo();
-        public string ModoJuego { get; set; }
-        public byte NumeroJugadas { get; set; }
+        private byte numeroJugadas;
+        private string modoJuego;
+        public byte NumeroJugadas
+        { 
+            get => numeroJugadas;
+            set => numeroJugadas = value;
+        }
+        public string ModoJuego
+        {
+            get => modoJuego;
+            set => modoJuego = value;
+        }
 
         public Partido (Equipo a, Equipo b)
         {
             local = a;
             visitante = b;
+        }
+
+        public void PartidoCompleto(Partido partido)
+        {
+            for (int i = 0; i < numeroJugadas; i++)
+            {
+                for (byte j = 1; j < 3; j++)
+                {
+                    partido.Jugada(j);
+                }
+            }
         }
         public void Jugada (byte turno)
         {

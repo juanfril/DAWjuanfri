@@ -16,20 +16,12 @@ namespace FutbolSala
             get => dorsal;
             set
             {
-                if (value < 0 || value > 15)
+                
+                if(value < 0 || value > 15)
                     Console.WriteLine("El dorsal debe ser un número" +
                         "del 1 al 15");
                 else
-                {
-                    try
-                    {
-                        dorsal = value;
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Valor introducido incorrecto");
-                    }
-                }
+                    dorsal = value;
             }
         }
         public string Nombre
@@ -37,7 +29,7 @@ namespace FutbolSala
             get => nombre;
             set
             {
-                if(value == null)
+                if(string.IsNullOrEmpty(value))
                 {
                     Console.WriteLine("No ha introducido ningún valor");
                 }
@@ -56,16 +48,7 @@ namespace FutbolSala
                     Console.WriteLine("La altura debe ser un número" +
                         "del 120 al 220");
                 else
-                {
-                    try
-                    {
-                        altura = value;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Valor introducido incorrecto");
-                    }
-                }
+                    altura = value;
             }
         }
         public byte Defensa 
@@ -77,16 +60,7 @@ namespace FutbolSala
                     Console.WriteLine("El parámetro debe ser un número" +
                         "del 0 al 80");
                 else
-                {
-                    try
-                    {
-                        defensa = value;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Valor introducido incorrecto");
-                    }
-                }
+                    defensa = value;
             } 
         }
         public byte Ataque
@@ -98,17 +72,7 @@ namespace FutbolSala
                     Console.WriteLine("El parámetro debe ser un número" +
                         "del 0 al 80");
                 else
-                {
-                    try
-                    {
-                        ataque = value;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Valor introducido incorrecto");
-                    }
-                }
-
+                    ataque = value;
             }
         }
         public byte Goles { get; set; }
