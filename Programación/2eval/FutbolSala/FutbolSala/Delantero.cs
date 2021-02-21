@@ -14,14 +14,14 @@ namespace FutbolSala
             {
                 if (value < 0 || value > 10)
                     Console.WriteLine("El parámetro debe ser un número" +
-                        "del 0 al 10");
+                        "del 1 al 10");
                 else
                 {
                     try
                     {
                         marcarGol = value;
                     }
-                    catch
+                    catch(Exception)
                     {
                         Console.WriteLine("Valor introducido incorrecto");
                     }

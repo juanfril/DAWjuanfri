@@ -23,7 +23,7 @@ namespace FutbolSala
                 {
                     try
                     {
-                    dorsal = value;
+                        dorsal = value;
                     }
                     catch (Exception)
                     {
