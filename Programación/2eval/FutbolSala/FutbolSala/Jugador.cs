@@ -4,74 +4,118 @@ namespace FutbolSala
 {
     abstract class Jugador
     {
+        private byte dorsal;
+        private string nombre;
+        private byte altura;
+        private byte defensa;
+        private byte ataque;
+        private byte goles;
+
         public byte Dorsal
         {
-            get => Dorsal;
+            get => dorsal;
             set
             {
                 if (value < 0 || value > 15)
                     Console.WriteLine("El dorsal debe ser un número" +
                         "del 1 al 15");
                 else
-                    Dorsal = value;
+                {
+                    try
+                    {
+                    dorsal = value;
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Valor introducido incorrecto");
+                    }
+                }
             }
         }
         public string Nombre
         {
-            get => Nombre;
+            get => nombre;
             set
             {
-                try
+                if(value == null)
                 {
-                    Nombre = value;
+                    Console.WriteLine("No ha introducido ningún valor");
                 }
-                catch (Exception)
+                else
                 {
-                    Console.WriteLine("El valor introducido no es correcto");
+                    nombre = value;
                 }
             }
         }
         public byte Altura
         {
-            get => Altura;
+            get => altura;
             set
             {
                 if (value < 120 || value > 220)
                     Console.WriteLine("La altura debe ser un número" +
                         "del 120 al 220");
                 else
-                    Altura = value;
+                {
+                    try
+                    {
+                        altura = value;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Valor introducido incorrecto");
+                    }
+                }
             }
         }
         public byte Defensa 
         {
-            get => Defensa;
+            get => defensa;
             set
             {
                 if (value < 0 || value > 80)
                     Console.WriteLine("El parámetro debe ser un número" +
                         "del 0 al 80");
                 else
-                    Defensa = value;
+                {
+                    try
+                    {
+                        defensa = value;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Valor introducido incorrecto");
+                    }
+                }
             } 
         }
         public byte Ataque
         {
-            get => Ataque;
+            get => ataque;
             set
             {
                 if (value < 0 || value > 80)
                     Console.WriteLine("El parámetro debe ser un número" +
                         "del 0 al 80");
                 else
-                    Ataque = value;
+                {
+                    try
+                    {
+                        ataque = value;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Valor introducido incorrecto");
+                    }
+                }
+
             }
         }
         public byte Goles { get; set; }
 
         public Jugador()
         {
-            Dorsal = 1;
+            dorsal = 1;
             Nombre = "Generic";
             Altura = 120;
             Defensa = 1;
@@ -81,32 +125,32 @@ namespace FutbolSala
         public Jugador(byte dorsal, string nombre, byte altura, byte defensa,
             byte ataque)
         {
-            this.Dorsal = dorsal;
-            this.Nombre = nombre;
-            this.Altura = altura;
-            this.Defensa = defensa;
-            this.Ataque = ataque;
+            this.dorsal = dorsal;
+            this.nombre = nombre;
+            this.altura = altura;
+            this.defensa = defensa;
+            this.ataque = ataque;
         }
         public virtual int CapacidadDefensiva()
         {
-            int capacidadDefensiva = Defensa;
+            int capacidadDefensiva = defensa;
             return capacidadDefensiva;
         }
         public virtual int CapacidadAtacante()
         {
-            int capacidadAtacante = Ataque;
+            int capacidadAtacante = ataque;
             return capacidadAtacante;
         }
         public string MostrarResumen()
         {
-            return Dorsal + ". " + this.Nombre + ": " + Goles +
+            return dorsal + ". " + nombre + ": " + goles +
                 " gol";
         }
 
         public override string ToString()
         {
-            return Dorsal + ". " + Nombre + ", " + Altura + "cm, " +
-                Defensa + "% defensa " + Ataque + "% ataque";
+            return dorsal + ". " + nombre + ", " + altura + "cm, " +
+                defensa + "% defensa " + ataque + "% ataque";
         }
 
     }

@@ -6,19 +6,20 @@ namespace FutbolSala
     {
         protected const byte MAXJUGADORES = 10;
         protected Jugador[] jugadores = new Jugador[MAXJUGADORES];
+        private string nombreEquipo;
 
         public string NombreEquipo
         {
-            get => NombreEquipo;
+            get => nombreEquipo;
             set
             {
-                try
-                {
-                    NombreEquipo = value;
-                }
-                catch (Exception)
+                if(value == null)
                 {
                     Console.WriteLine("El parámetro introducido no es correcto");
+                }
+                else
+                {
+                    nombreEquipo = value;
                 }
             }
         }
@@ -26,7 +27,7 @@ namespace FutbolSala
 
         public Equipo()
         {
-            NombreEquipo = "Local";
+            NombreEquipo = "Genérico";
 
             for (int i = 0; i < MAXJUGADORES; i++)
             {

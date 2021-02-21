@@ -5,15 +5,15 @@ namespace FutbolSala
 {
     class Partido
     {
-        private Equipo Local = new Equipo();
-        private Equipo Visitante = new Equipo();
+        private Equipo local = new Equipo();
+        private Equipo visitante = new Equipo();
         public string ModoJuego { get; set; }
         public byte NumeroJugadas { get; set; }
 
         public Partido (Equipo a, Equipo b)
         {
-            Local = a;
-            Visitante = b;
+            local = a;
+            visitante = b;
         }
         public void Jugada (byte turno)
         {
@@ -21,13 +21,13 @@ namespace FutbolSala
             int randomVisitante = new Random().Next(0, 9);
             int ramdomGol = new Random().Next(0, 100);
             int capacidadAtacanteVisitante =
-                Visitante.Jugadores[randomVisitante].CapacidadAtacante();
+                visitante.Jugadores[randomVisitante].CapacidadAtacante();
             int capacidadDefensivaVisitante = 
-                Visitante.Jugadores[randomVisitante].CapacidadDefensiva();
+                visitante.Jugadores[randomVisitante].CapacidadDefensiva();
             int capacidadAtacanteLocal =
-                Local.Jugadores[randomLocal].CapacidadAtacante();
+                local.Jugadores[randomLocal].CapacidadAtacante();
             int capacidadDefensivaLocal =
-                Local.Jugadores[randomLocal].CapacidadDefensiva();
+                local.Jugadores[randomLocal].CapacidadDefensiva();
 
             switch (turno)
             {
@@ -44,23 +44,23 @@ namespace FutbolSala
                             if(capacidadAtacanteLocal > ramdomGol)
                             {
                                 Console.WriteLine("Ataca {0}. Juega {1}." +
-                                    " Tira a puerta. GOL!", Local.NombreEquipo,
-                                    Local.Jugadores[randomLocal].Nombre);
-                                    Local.Jugadores[randomLocal].Goles++;
+                                    " Tira a puerta. GOL!", local.NombreEquipo,
+                                    local.Jugadores[randomLocal].Nombre);
+                                    local.Jugadores[randomLocal].Goles++;
                             }
                             else
                             {
                                 Console.WriteLine("Ataca {0}. Juega {1}." +
-                                    " Tira a puerta. FALLA!", Local.NombreEquipo,
-                                    Local.Jugadores[randomLocal].Nombre);
+                                    " Tira a puerta. FALLA!", local.NombreEquipo,
+                                    local.Jugadores[randomLocal].Nombre);
                             }
                         }
                         else
                         {
                             Console.WriteLine("Ataca {0}. Juega {1}. {2}" +
-                                " Roba el balón", Local.NombreEquipo,
-                                Local.Jugadores[randomLocal].Nombre,
-                                Visitante.Jugadores[randomVisitante].Nombre);
+                                " Roba el balón", local.NombreEquipo,
+                                local.Jugadores[randomLocal].Nombre,
+                                visitante.Jugadores[randomVisitante].Nombre);
                         }
                     }
                     break;
@@ -78,23 +78,23 @@ namespace FutbolSala
                             if (capacidadAtacanteVisitante > ramdomGol)
                             {
                                 Console.WriteLine("Ataca {0}. Juega {1}." +
-                                    " Tira a puerta. GOL!", Visitante.NombreEquipo,
-                                    Visitante.Jugadores[randomVisitante].Nombre);
-                                Visitante.Jugadores[randomVisitante].Goles++;
+                                    " Tira a puerta. GOL!", visitante.NombreEquipo,
+                                    visitante.Jugadores[randomVisitante].Nombre);
+                                visitante.Jugadores[randomVisitante].Goles++;
                             }
                             else
                             {
                                 Console.WriteLine("Ataca {0}. Juega {1}." +
-                                    " Tira a puerta. FALLA!", Visitante.NombreEquipo,
-                                    Visitante.Jugadores[randomVisitante].Nombre);
+                                    " Tira a puerta. FALLA!", visitante.NombreEquipo,
+                                    visitante.Jugadores[randomVisitante].Nombre);
                             }
                         }
                         else
                         {
                             Console.WriteLine("Ataca {0}. Juega {1}. {2}" +
-                                " Roba el balón", Visitante.NombreEquipo,
-                                Visitante.Jugadores[randomVisitante].Nombre,
-                                Local.Jugadores[randomLocal].Nombre);
+                                " Roba el balón", visitante.NombreEquipo,
+                                visitante.Jugadores[randomVisitante].Nombre,
+                                local.Jugadores[randomLocal].Nombre);
                         }
                     }
                     break;

@@ -4,7 +4,7 @@ namespace FutbolSala
 {
     class PedirDatos
     {
-        public static string PedirModoJuego()
+        /*public static string PedirModoJuego()
         {
             string modoJuego = "a";
 
@@ -25,9 +25,9 @@ namespace FutbolSala
                     "válido");
             
             return modoJuego;
-        }
+        }*/
 
-        public static byte PedirNumeroJugadas()
+        /*public static byte PedirNumeroJugadas()
         {
             byte numeroJugadas = 0;
 
@@ -47,23 +47,15 @@ namespace FutbolSala
                     "válido");
 
             return numeroJugadas;
-        }
-        public static Equipo PedirEquipo1()
-        {
-            Equipo equipo1 = new Equipo();
-            Console.WriteLine("Introduzca un nombre para el equipo");
-            equipo1.NombreEquipo = Console.ReadLine();
-
-            return equipo1;
-        }
-
-        /*public static Portero PedirPortero()
-        {
-            Portero portero = new Portero();
-            Console.WriteLine("Introduzca nombre para el portero");
-            portero.Nombre = Console.ReadLine();
-            return portero;
         }*/
+        public static Equipo PedirEquipo()
+        {
+            Equipo equipo = new Equipo();
+            Console.WriteLine("Introduzca un nombre para el equipo");
+            equipo.NombreEquipo = Console.ReadLine();
+
+            return equipo;
+        }
 
         public static void PedirJugadores()
         {

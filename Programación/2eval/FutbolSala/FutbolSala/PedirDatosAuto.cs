@@ -7,9 +7,9 @@ namespace FutbolSala
         public Equipo CrearEquipoLocal()
         {
             Equipo local = new Equipo();
-            Portero portero = new Portero();
+            /*Portero portero = new Portero();
             Defensa defensa = new Defensa();
-            Delantero delantero = new Delantero();
+            Delantero delantero = new Delantero();*/
 
             string[] nombresJugadores = {"Portero 1", "Defensa 1",
                 "Defensa 2", "Delantero 1", "Delantero 2", "Defensa 3", "Defensa 4",
@@ -26,37 +26,45 @@ namespace FutbolSala
 
                 if (i == 0 || i == 9)
                 {
-                    portero.Nombre = nombresJugadores[i];
-                    portero.Dorsal = (byte)randomDorsal;
-                    portero.Altura = (byte)randomAltura;
-                    portero.Defensa = (byte)randomDefensa;
-                    portero.Ataque = (byte)randomAtaque;
-                    portero.PararTiro = (byte)randomEspecial;
-                    local.Jugadores[i] = portero;
+                    local.Jugadores[i] = new Portero((byte)randomDorsal,
+                        nombresJugadores[i], (byte)randomAltura, (byte)randomDefensa,
+                        (byte)randomAtaque, (byte)randomEspecial);
+                    /*local.Jugadores[i].Nombre = nombresJugadores[i];
+                    local.Jugadores[i].Dorsal = (byte)randomDorsal;
+                    local.Jugadores[i].Altura = (byte)randomAltura;
+                    local.Jugadores[i].Defensa = (byte)randomDefensa;
+                    local.Jugadores[i].Ataque = (byte)randomAtaque;
+                    local.Jugadores[i].PararTiro = (byte)randomEspecial;*/
                 }
 
                 else if ((i > 0 && i < 3) || (i > 4 && i < 7))
                 {
-                    defensa.Nombre = nombresJugadores[i];
+                    local.Jugadores[i] = new Defensa((byte)randomDorsal,
+                        nombresJugadores[i], (byte)randomAltura, (byte)randomDefensa,
+                        (byte)randomAtaque, (byte)randomEspecial, (byte)randomEspecial);
+                    /*defensa.Nombre = nombresJugadores[i];
                     defensa.Dorsal = (byte)randomDorsal;
                     defensa.Altura = (byte)randomAltura;
                     defensa.Defensa = (byte)randomDefensa;
                     defensa.Ataque = (byte)randomAtaque;
                     defensa.RobarBalon = (byte)randomEspecial;
                     defensa.Velocidad = (byte)randomEspecial;
-                    local.Jugadores[i] = defensa;
+                    local.Jugadores[i] = defensa;*/
                 }
 
                 else
                 {
-                    delantero.Nombre = nombresJugadores[i];
+                    local.Jugadores[i] = new Defensa((byte)randomDorsal,
+                        nombresJugadores[i], (byte)randomAltura, (byte)randomDefensa,
+                        (byte)randomAtaque, (byte)randomEspecial, (byte)randomEspecial);
+                    /*delantero.Nombre = nombresJugadores[i];
                     delantero.Dorsal = (byte)randomDorsal;
                     delantero.Altura = (byte)randomAltura;
                     delantero.Defensa = (byte)randomDefensa;
                     delantero.Ataque = (byte)randomAtaque;
                     delantero.MarcarGol = (byte)randomEspecial;
                     delantero.Velocidad = (byte)randomEspecial;
-                    local.Jugadores[i] = delantero;
+                    local.Jugadores[i] = delantero;*/
                 }
             }
             return local;
