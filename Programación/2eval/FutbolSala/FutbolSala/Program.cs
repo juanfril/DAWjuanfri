@@ -2,9 +2,9 @@
 Losa Márquez, Juan Fco.
 Practica Evaluable Tema 6
 Apartado 1 si
-Apartado 2 si ; pero sin modulizar el método Jugada
-Apartado 3
-Apartado 4
+Apartado 2 si 
+Apartado 3 si
+Apartado 4 si
  */
 
 using System;
@@ -16,24 +16,31 @@ namespace FutbolSala
         static void Main(String[] args)
         {
             string modoJuego = "";
-            byte numeroJugadas;
+            byte numeroJugadas = 0;
 
-            if (!args[0].ToUpper().Equals("R") || !args[0].ToUpper().Equals("C"))
-                Console.WriteLine("Tiene que elegir el modo de juego");
-            else
-                modoJuego = args[0];
-
-            if (Byte.TryParse(args[1], out numeroJugadas))
+            if(args.Length == 2)
             {
-                if(numeroJugadas < 10 || numeroJugadas > 30)
-                    Console.WriteLine("Tiene que elegir un número del 10 al 30");
+                if (!args[0].ToUpper().Equals("R") && !args[0].ToUpper().Equals("C"))
+                    Console.WriteLine("Tiene que elegir el modo de juego");
                 else
-                    Console.WriteLine("Ha elegido {0} jugadas", numeroJugadas);
+                    modoJuego = args[0];
+
+                if (Byte.TryParse(args[1], out numeroJugadas))
+                {
+                    if(numeroJugadas < 10 || numeroJugadas > 30)
+                        Console.WriteLine("Tiene que elegir un número del 10 al 30");
+                    else
+                        Console.WriteLine("Ha elegido {0} jugadas", numeroJugadas);
+                }
+                else
+                    Console.WriteLine("No ha introducido un valor correcto");
+
             }
             else
-                Console.WriteLine("No ha introducido un valor correcto");
+                Console.WriteLine("Tiene que introducir 2 parametros a la hora" +
+                    "de iniciar el programa.");
 
-            if((numeroJugadas > 10 && numeroJugadas < 31) &&
+            if((numeroJugadas >= 10 && numeroJugadas <= 30) &&
                 !string.IsNullOrEmpty(modoJuego))
             {
                 Equipo local = new Equipo();
@@ -69,7 +76,24 @@ namespace FutbolSala
                 if (modoJuego.ToUpper().Equals("C"))
                 {
                     partido.PartidoCompleto(partido);
+                    Console.WriteLine();
+                    Console.WriteLine("{0} {1} - {2} {3}\n", local.NombreEquipo,
+                        local.Marcador(), visitante.Marcador(), visitante.NombreEquipo);
+                    Console.WriteLine("Estadísticas de {0}:", local.NombreEquipo);
                     local.MostrarEstadisticas();
+                    Console.WriteLine();
+                    Console.WriteLine("Estadísticas de {0}:", visitante.NombreEquipo);
+                    visitante.MostrarEstadisticas();
+                }
+                else if (modoJuego.ToUpper().Equals("R"))
+                {
+                    partido.PartidoResumen(partido);
+                    Console.WriteLine("{0} {1} - {2} {3}\n", local.NombreEquipo,
+                        local.Marcador(), visitante.Marcador(), visitante.NombreEquipo);
+                    Console.WriteLine("Estadísticas de {0}:", local.NombreEquipo);
+                    local.MostrarEstadisticas();
+                    Console.WriteLine();
+                    Console.WriteLine("Estadísticas de {0}:", visitante.NombreEquipo);
                     visitante.MostrarEstadisticas();
                 }
             }
@@ -78,7 +102,8 @@ namespace FutbolSala
 
             Console.ReadKey();
 
-            //Modo automático
+            //Modo automático: Te lo dejo aquí por si te sirve.
+
             /*PedirDatosAuto generaEquipo1 = new PedirDatosAuto();
             Equipo local = generaEquipo1.CrearEquipoLocal();
             local.NombreEquipo = "Local";

@@ -52,8 +52,8 @@ namespace FutbolSala
         {
             foreach (var jugador in jugadores)
             {
-                Console.WriteLine("{0}. {1} ha marcado {2} goles",
-                    jugador.Dorsal, jugador.Nombre, jugador.Goles);
+                Console.WriteLine("{0}. {1} ({2}) ha marcado {3} goles",
+                    jugador.Dorsal, jugador.Nombre,jugador.GetType() ,jugador.Goles);
             }
         }
         public byte Marcador()

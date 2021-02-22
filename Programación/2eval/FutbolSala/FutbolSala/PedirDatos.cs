@@ -52,8 +52,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 0 || pruebaNumero > 15)
+                    {
                         Console.WriteLine("El dorsal debe ser un número" +
-                        "del 1 al 15");
+                            "del 1 al 15");
+                        correcto = false;
+                    }
                     else
                     {
                         portero.Dorsal = pruebaNumero;
@@ -74,8 +77,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 120 || pruebaNumero > 220)
+                    {
                         Console.WriteLine("La altura debe ser un número" +
                             "del 120 al 220");
+                        correcto = false;
+                    }
                     else
                     {
                         portero.Altura = pruebaNumero;
@@ -96,8 +102,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 80)
+                    {
                         Console.WriteLine("La defensa debe ser un número" +
-                        "del 1 al 80");
+                            "del 1 al 80");
+                        correcto = false;
+                    }
                     else
                     {
                         portero.Defensa = pruebaNumero;
@@ -119,8 +128,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 80)
+                    {
                         Console.WriteLine("El ataque debe ser un número" +
-                        "del 1 al 80");
+                            "del 1 al 80");
+                        correcto = false;
+                    }
                     else
                     {
                         portero.Ataque = pruebaNumero;
@@ -142,8 +154,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 10)
+                    {
                         Console.WriteLine("La capacidad de parar un tiro a puerta" +
-                        " debe ser un número del 1 al 10");
+                            " debe ser un número del 1 al 10");
+                        correcto = false;
+                    }
                     else
                     {
                         portero.PararTiro = pruebaNumero;
@@ -190,8 +205,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 0 || pruebaNumero > 15)
+                    {
                         Console.WriteLine("El dorsal debe ser un número" +
-                        "del 1 al 15");
+                           "del 1 al 15");
+                        correcto = false;
+                    }
                     else
                     {
                         defensa.Dorsal = pruebaNumero;
@@ -212,8 +230,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 120 || pruebaNumero > 220)
+                    {
                         Console.WriteLine("La altura debe ser un número" +
                             "del 120 al 220");
+                        correcto = false;
+                    }
                     else
                     {
                         defensa.Altura = pruebaNumero;
@@ -234,8 +255,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 80)
+                    {
                         Console.WriteLine("La defensa debe ser un número" +
-                        "del 1 al 80");
+                            "del 1 al 80");
+                        correcto = false;
+                    }
                     else
                     {
                         defensa.Defensa = pruebaNumero;
@@ -257,8 +281,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 80)
+                    {
                         Console.WriteLine("El ataque debe ser un número" +
-                        "del 1 al 80");
+                            "del 1 al 80");
+                        correcto = false;
+                    }
                     else
                     {
                         defensa.Ataque = pruebaNumero;
@@ -280,8 +307,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 10)
+                    {
                         Console.WriteLine("La capacidad de robar el balón" +
-                        " debe ser un número del 1 al 10");
+                           " debe ser un número del 1 al 10");
+                        correcto = false;
+                    }
                     else
                     {
                         defensa.RobarBalon = pruebaNumero;
@@ -302,8 +332,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 10)
+                    {
                         Console.WriteLine("La velocidad debe ser un número" +
                             " del 1 al 10");
+                        correcto = false;
+                    }
                     else
                     {
                         defensa.Velocidad = pruebaNumero;
@@ -329,7 +362,7 @@ namespace FutbolSala
 
             do
             {
-                Console.WriteLine("Introduce nombre para el defensa");
+                Console.WriteLine("Introduce nombre para el delantero");
                 pruebaNombre = Console.ReadLine();
 
                 if (string.IsNullOrEmpty(pruebaNombre))
@@ -351,8 +384,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 0 || pruebaNumero > 15)
+                    {
                         Console.WriteLine("El dorsal debe ser un número" +
-                        "del 1 al 15");
+                           "del 1 al 15");
+                        correcto = false;
+                    }
                     else
                     {
                         delantero.Dorsal = pruebaNumero;
@@ -373,8 +409,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 120 || pruebaNumero > 220)
+                    {
                         Console.WriteLine("La altura debe ser un número" +
                             "del 120 al 220");
+                        correcto = false;
+                    }
                     else
                     {
                         delantero.Altura = pruebaNumero;
@@ -395,8 +434,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 80)
+                    {
                         Console.WriteLine("La defensa debe ser un número" +
-                        "del 1 al 80");
+                           "del 1 al 80");
+                        correcto = false;
+                    }
                     else
                     {
                         delantero.Defensa = pruebaNumero;
@@ -418,8 +460,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 80)
+                    {
                         Console.WriteLine("El ataque debe ser un número" +
-                        "del 1 al 80");
+                           "del 1 al 80");
+                        correcto = false;
+                    }
                     else
                     {
                         delantero.Ataque = pruebaNumero;
@@ -435,14 +480,17 @@ namespace FutbolSala
 
             do
             {
-                Console.WriteLine("Introduce capacidad de robar " +
-                    "el balón para el jugador");
+                Console.WriteLine("Introduce capacidad de marcar " +
+                    "gol para el jugador");
                 correcto = Byte.TryParse(Console.ReadLine(), out pruebaNumero);
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 10)
-                        Console.WriteLine("La capacidad de robar el balón" +
-                        " debe ser un número del 1 al 10");
+                    {
+                        Console.WriteLine("La capacidad de marcar gol" +
+                           " debe ser un número del 1 al 10");
+                        correcto = false;
+                    }
                     else
                     {
                         delantero.MarcarGol = pruebaNumero;
@@ -463,8 +511,11 @@ namespace FutbolSala
                 if (correcto)
                 {
                     if (pruebaNumero < 1 || pruebaNumero > 10)
+                    {
                         Console.WriteLine("La velocidad debe ser un número" +
                             " del 1 al 10");
+                        correcto = false;
+                    }
                     else
                     {
                         delantero.Velocidad = pruebaNumero;
