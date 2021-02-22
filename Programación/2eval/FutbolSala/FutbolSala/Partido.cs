@@ -32,11 +32,76 @@ namespace FutbolSala
             {
                 for (byte j = 1; j < 3; j++)
                 {
-                    partido.Jugada(j);
+                    partido.JugadaCompleta(j);
                 }
             }
         }
-        public void Jugada (byte turno)
+
+        public void PartidoResumen(Partido partido)
+        {
+            for (int i = 0; i < numeroJugadas; i++)
+            {
+                for (byte j = 1; j < 3; j++)
+                {
+                    partido.JugadaResumen(j);
+                }
+            }
+        }
+
+        public void JugadaResumen(byte turno)
+        {
+            int randomLocal = new Random().Next(0, 9);
+            int randomVisitante = new Random().Next(0, 9);
+            int ramdomGol = new Random().Next(0, 100);
+            int capacidadAtacanteVisitante =
+                visitante.Jugadores[randomVisitante].CapacidadAtacante();
+            int capacidadDefensivaVisitante =
+                visitante.Jugadores[randomVisitante].CapacidadDefensiva();
+            int capacidadAtacanteLocal =
+                local.Jugadores[randomLocal].CapacidadAtacante();
+            int capacidadDefensivaLocal =
+                local.Jugadores[randomLocal].CapacidadDefensiva();
+
+            switch (turno)
+            {
+                case 1:
+                    if ((randomLocal == randomVisitante) &&
+                        (randomVisitante == 0 || randomVisitante == 9))
+                    {
+                        NumeroJugadas = NumeroJugadas;
+                    }
+                    else
+                    {
+                        if (capacidadDefensivaVisitante < capacidadAtacanteLocal)
+                        {
+                            if (capacidadAtacanteLocal > ramdomGol)
+                                local.Jugadores[randomLocal].Goles++;
+                        }
+                    }
+                    break;
+
+                case 2:
+                    if ((randomLocal == randomVisitante) &&
+                        (randomVisitante == 0 || randomVisitante == 9))
+                    {
+                        NumeroJugadas = NumeroJugadas;
+                    }
+                    else
+                    {
+                        if (capacidadDefensivaLocal < capacidadAtacanteVisitante)
+                        {
+                            if (capacidadAtacanteVisitante > ramdomGol)
+                                visitante.Jugadores[randomVisitante].Goles++;
+                        }
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("No entiendo la jugada");
+                    break;
+            }
+        }
+        public void JugadaCompleta (byte turno)
         {
             int randomLocal = new Random().Next(0, 9);
             int randomVisitante = new Random().Next(0, 9);
