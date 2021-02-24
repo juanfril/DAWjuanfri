@@ -16,5 +16,4 @@ public interface AutomationElement {
 
     @Override
     public String toString();
-
 }

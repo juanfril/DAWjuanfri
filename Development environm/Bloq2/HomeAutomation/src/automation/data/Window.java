@@ -3,12 +3,13 @@ package automation.data;
 public class Window implements AutomationElement {
     String name;
     boolean lock;
-    Blind blind = new Blind();
+    Blind blind;
 
     public Window(String name, String nameBlind) {
         this.name = name;
         lock = false;
-        blind.name = nameBlind;
+        blind = new Blind();
+        blind.setName(nameBlind);
     }
 
     @Override
