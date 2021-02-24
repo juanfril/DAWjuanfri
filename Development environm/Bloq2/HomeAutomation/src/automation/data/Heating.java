@@ -1,6 +1,7 @@
 package automation.data;
 
-public class Heating implements AutomationElement{
+public class Heating extends AutomationElement
+        implements Temperature {
 
     int temperature;
     boolean switchHow;
@@ -18,10 +19,10 @@ public class Heating implements AutomationElement{
     public void setName(String name) { this.name = name; }
 
     @Override
-    public int getNumber(){ return temperature; }
+    public int getTemperature(){ return temperature; }
 
     @Override
-    public void setNumber(int temperature) {
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 

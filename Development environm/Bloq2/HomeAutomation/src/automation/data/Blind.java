@@ -1,6 +1,6 @@
 package automation.data;
 
-public class Blind implements AutomationElement{
+public class Blind extends AutomationElement implements Percent{
     String name;
     int percent;
 
@@ -10,7 +10,7 @@ public class Blind implements AutomationElement{
 
     public Blind(String name) {
         this.name = name;
-        this.percent = 50;
+        percent = 0;
     }
 
     @Override
@@ -20,10 +20,10 @@ public class Blind implements AutomationElement{
     public void setName(String name) { this.name = name; }
 
     @Override
-    public int getNumber() { return percent; }
+    public int getPercent() { return percent; }
 
     @Override
-    public void setNumber(int number){ percent = number; }
+    public void setPercent(int number){ percent = number; }
 
     @Override
     public void raise(){
@@ -57,14 +57,8 @@ public class Blind implements AutomationElement{
     }
 
     @Override
-    public void on() {}
-
-    @Override
-    public void off() {}
-
-    @Override
     public String toString(){
-        return "- " + name + ", " + percent + "%";
+        return name + ": " + percent + "%";
     }
 
 }

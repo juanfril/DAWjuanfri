@@ -1,6 +1,6 @@
 package automation.data;
 
-public class GarageDoor extends Door implements AutomationElement{
+public class GarageDoor extends Door implements Percent{
     int percent;
 
     public GarageDoor(String name) {

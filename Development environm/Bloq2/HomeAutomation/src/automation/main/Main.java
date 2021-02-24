@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) {
 
         int option;
-        Scanner sc = new Scanner(System.in);
         Management home = new Management();
+        Scanner sc = new Scanner(System.in);
 
         do{
             System.out.println("Choose option.");
@@ -30,6 +30,5 @@ public class Main {
                 default -> System.out.println("No correct option");
             }
         }while (option != 0);
-        sc.close();
     }
 }

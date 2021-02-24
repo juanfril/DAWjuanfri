@@ -1,14 +1,15 @@
 package automation.data;
 
-public class Window implements AutomationElement {
+public class Window extends AutomationElement
+    implements Lockable{
+
     String name;
     boolean lock;
-    Blind blind;
+    Blind blind = new Blind(); //I'm sorry but if I don't do that, don't work...
 
     public Window(String name, String nameBlind) {
         this.name = name;
         lock = false;
-        blind = new Blind();
         blind.setName(nameBlind);
     }
 
@@ -19,13 +20,13 @@ public class Window implements AutomationElement {
     public void setName(String name) { this.name = name; }
 
     @Override
-    public int getNumber() {
-        return blind.getNumber();
+    public int getPercent() {
+        return blind.getPercent();
     }
 
     @Override
-    public void setNumber(int number) {
-        blind.setNumber(number);
+    public void setPercent(int number) {
+        blind.setPercent(number);
     }
 
     @Override
@@ -53,8 +54,6 @@ public class Window implements AutomationElement {
 
     @Override
     public void raise(int up) { blind.raise(up); }
-
-    ;
 
     @Override
     public String toString(){

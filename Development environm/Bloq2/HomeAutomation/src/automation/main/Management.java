@@ -16,51 +16,109 @@ public class Management{
         home[8] = new Light("Kitchen light");
         home[9] = new Light("Room light");
     }
-
     public void winter(){
-
-        for (int i = 0; i < 4; i++) {
-            home[i].on();
+        for (int i = 0; i < home.length; i++) {
+            if (home[i] instanceof Window){
+                home[i].on();
+                home[i].setPercent(80);
+            }
+            if(home[i] instanceof Door){
+                home[i].on();
+            }
+            if(home[i] instanceof GarageDoor) {
+                home[i].on();
+                home[i].lower();
+            }
+            if(home[i] instanceof Awning) {
+                home[i].raise();
+            }
+            if(home[i] instanceof Heating){
+                home[i].on();
+                home[i].setTemperature(25);
+            }
+            if(home[i] instanceof Oven){
+                home[i].off();
+            }
+            if(home[i] instanceof Light){
+                home[i].on();
+            }
         }
-        home[3].lower();
-        home[0].setNumber(80);
-        home[1].setNumber(80);
-        home[4].raise();
-        home[5].setNumber(25);
-        home[6].setNumber(25);
-        home[7].off();
-        home[8].on();
-        home[9].on();
     }
     public void summer(){
-        for (int i = 0; i < 4; i++) {
-            home[i].off();
+        for (int i = 0; i < home.length; i++) {
+            if (home[i] instanceof Window) {
+                home[i].off();
+                home[i].setPercent(50);
+            }
+            if (home[i] instanceof Door) {
+                home[i].off();
+            }
+            if (home[i] instanceof GarageDoor) {
+                home[i].off();
+                home[i].raise();
+            }
+            if (home[i] instanceof Awning) {
+                home[i].setPercent(50);
+            }
+            if (home[i] instanceof Heating) {
+                home[i].off();
+                home[i].setTemperature(25);
+            }
+            if (home[i] instanceof Oven) {
+                home[i].off();
+            }
+            if (home[i] instanceof Light) {
+                home[i].off();
+            }
         }
-        home[3].raise();
-        home[0].setNumber(50);
-        home[1].setNumber(50);
-        home[4].setNumber(50);
-        home[5].off();
-        home[6].off();
-        home[7].off();
-        home[8].off();
-        home[9].off();
     }
     public void cooking(){
-        home[8].on();
-        home[7].on();
-        home[7].setNumber(200);
-        home[9].off();
+            for (int i = 0; i < home.length; i++) {
+                if (home[i] instanceof Window) {
+                    home[i].off();
+                    home[i].setPercent(50);
+                }
+                if (home[i] instanceof Door) {
+                    home[i].off();
+                }
+                if (home[i] instanceof GarageDoor) {
+                    home[i].off();
+                    home[i].raise();
+                }
+                if (home[i] instanceof Awning) {
+                    home[i].setPercent(50);
+                }
+                if (home[i] instanceof Heating) {
+                    home[i].off();
+                    home[i].setTemperature(25);
+                }
+                if (home[i] instanceof Oven) {
+                    home[i].on();
+                    home[i].setTemperature(200);
+                }
+                if (home[i] instanceof Light) {
+                    if (i == 8)
+                        home[8].on();
+                    else
+                        home[i].off();
+                }
+            }
     }
     public void closeEverything(){
         for(var value : home){
-            value.on();
-            value.lower();
+            if(value instanceof Window || value instanceof Door ||
+                value instanceof GarageDoor){
+
+                value.on();
+                value.lower();
+            }
+            else
+                value.off();
         }
     }
     public void showStatus(){
-        for(int i = 0; i < home.length; i++){
-            System.out.println(home[i]);
+        for(var value : home){
+            System.out.println(value);
         }
     }
 }
