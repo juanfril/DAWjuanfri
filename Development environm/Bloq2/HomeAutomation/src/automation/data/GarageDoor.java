@@ -35,6 +35,6 @@ public class GarageDoor extends Door implements AutomationElement{
 
     @Override
     public String toString(){
-        return name + ": " + getStatus() + ", " + percent + "%";
+        return "- " + name + ": " + getStatus() + ", " + percent + "%";
     }
 }

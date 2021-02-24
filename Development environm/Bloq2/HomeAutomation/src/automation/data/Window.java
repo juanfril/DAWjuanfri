@@ -8,7 +8,7 @@ public class Window implements AutomationElement {
     public Window(String name, String nameBlind) {
         this.name = name;
         lock = false;
-        Blind blind = new Blind(nameBlind);
+        blind.name = nameBlind;
     }
 
     @Override

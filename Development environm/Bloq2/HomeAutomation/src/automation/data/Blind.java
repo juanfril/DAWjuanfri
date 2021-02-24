@@ -10,7 +10,7 @@ public class Blind implements AutomationElement{
 
     public Blind(String name) {
         this.name = name;
-        percent = 0;
+        this.percent = 50;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class Blind implements AutomationElement{
 
     @Override
     public String toString(){
-        return name + ", " + percent + "%";
+        return "- " + name + ", " + percent + "%";
     }
 
 }
