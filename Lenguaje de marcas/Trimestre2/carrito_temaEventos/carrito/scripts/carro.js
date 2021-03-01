@@ -118,5 +118,4 @@
         let vaciar = document.getElementById('btn_clear');
         vaciar.onclick = vaciarOnClick;
     };
-    
 })();
