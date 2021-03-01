@@ -1,6 +1,22 @@
 'use strict';
 
 (function(){
+    let carrito = document.getElementById('cart_items');
+    let style = window.getComputedStyle(carrito, '')
+    let rectArticulo = 120;
+    let posicion = parseInt(style.left);
+    let derecha = parseInt(style.right);
+    let ancho = parseInt(style.width);
+    const widthInicial = parseInt(style.width);
+    let articulosCarrito = carrito.children.length;
+    let rectCarritoInicial = carrito.getBoundingClientRect();
+    let timer = setInterval(() => {
+        if(!carrito.firstChild){
+            carrito.style.background = 
+                carrito.style.background == 'yellow' ? 'red' : 'yellow';
+        }
+    }, 1000);
+
     //copiar artículo seleccionado
     function getCopia (articulo){
         let copia = articulo.cloneNode(true);
@@ -13,9 +29,8 @@
     //Sacar del carrito los artículos
     function borrarArticuloCarro(event){
         //borrar artículo
-        let padre = document.getElementById("cart_items");
         let hijo = this.parentNode;
-        padre.removeChild(hijo);
+        carrito.removeChild(hijo);
         
         //aumento numero de stock de articulo    
         let split = hijo.id.substring(2,4);
@@ -27,6 +42,8 @@
 
         //resto precio artículo al total
         setDescontarPrecioTotal(articuloOriginal);
+
+        disminuirAncho();
     }
     //insertar el botón para sacar del carro
     function insertarEnlaceBorrado(copia){
@@ -40,7 +57,6 @@
     //añadir articulos al carrito
     function insertarCarrito (articulo){
         let copia = getCopia(articulo);
-        let carrito = document.getElementById('cart_items');
         carrito.insertBefore(copia, carrito.children[0]);
         setStock(articulo, -1);
         setCantidadArticulos(1);
@@ -100,6 +116,7 @@
             insertarCarrito(articulo);
         else
             alert('No se pueden añadir artículos sin stock');
+        aumentarAncho();
     }
     //Vaciar el carrito
     function vaciarOnClick(event){
@@ -107,6 +124,34 @@
         enlaces.forEach(element => {
            element.onclick();
         });
+    }
+    //Comprobar si hay más de 4 artículos
+    function aumentarAncho() {
+        articulosCarrito = carrito.children.length;
+        if(articulosCarrito > 4){
+            ancho = ancho + rectArticulo;
+            carrito.style.width = ancho.toString() + 'px'
+        }
+    }
+    //Disminuir tamaño carrito
+    function disminuirAncho() {
+        articulosCarrito = carrito.children.length;
+        if(articulosCarrito > 4){
+            ancho = ancho - rectArticulo;
+            carrito.style.width = ancho.toString() + 'px'
+        }
+    }
+    //Función para que el carrito se mueva hacia la izquierda
+    function mueveIzquierda(event) {
+        if(posicion < 0){
+            posicion = posicion + 50;
+            carrito.style.left = posicion.toString() + 'px';
+        }
+    }
+    //Función para que el carrito se mueva hacia la derecha
+    function mueveDerecha(event) {
+        posicion = posicion - 50;
+        carrito.style.left = posicion.toString() + 'px';
     }
     window.onload = function (){
         //añadir a todos los artículos dbclick
@@ -117,5 +162,12 @@
         //Añadir click a vaciar carrito
         let vaciar = document.getElementById('btn_clear');
         vaciar.onclick = vaciarOnClick;
+        //Añadir botón izq click
+        let botonIzq = document.getElementById('btn_prev');
+        botonIzq.onclick = mueveIzquierda;
+        //Añadir botón der click
+        let botonDer = document.getElementById('btn_next');
+        botonDer.onclick = mueveDerecha;
+
     };
 })();
