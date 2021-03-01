@@ -2,8 +2,8 @@ package automation.data;
 
 public class Door extends AutomationElement implements Lockable{
 
-    String name;
-    boolean lock;
+    protected String name;
+    private boolean lock;
 
     public Door(String name) { this.name = name; }
 

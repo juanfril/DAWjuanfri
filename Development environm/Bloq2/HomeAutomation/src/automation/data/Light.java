@@ -2,8 +2,8 @@ package automation.data;
 
 public class Light extends AutomationElement implements Lockable{
 
-    String name;
-    boolean switchHow;
+    private String name;
+    private boolean switchHow;
 
     public Light(String name) { this.name = name; }
 

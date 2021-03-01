@@ -12,5 +12,5 @@ public abstract class GeometricalFigure {
     public GeometricalFigure(){
         super();
     }
-    public abstract void show();
+    public abstract String show();
 }

@@ -1,7 +1,8 @@
 package automation.data;
 
 public class GarageDoor extends Door implements Percent{
-    int percent;
+
+    private int percent;
 
     public GarageDoor(String name) {
         super(name);

@@ -1,8 +1,8 @@
 package automation.data;
 
 public class Blind extends AutomationElement implements Percent{
-    String name;
-    int percent;
+    private String name;
+    private int percent;
 
     public Blind(){
         name = "Generic";

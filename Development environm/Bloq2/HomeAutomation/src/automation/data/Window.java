@@ -3,8 +3,8 @@ package automation.data;
 public class Window extends AutomationElement
     implements Lockable{
 
-    String name;
-    boolean lock;
+    private String name;
+    protected boolean lock;
     Blind blind = new Blind(); //I'm sorry but if I don't do that, don't work...
 
     public Window(String name, String nameBlind) {

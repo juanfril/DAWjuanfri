@@ -3,9 +3,9 @@ package automation.data;
 public class Heating extends AutomationElement
         implements Temperature {
 
-    int temperature;
-    boolean switchHow;
-    String name;
+    protected int temperature;
+    protected boolean switchHow;
+    private String name;
 
     public Heating(String name){
         this.name = name;
@@ -40,18 +40,6 @@ public class Heating extends AutomationElement
             return "Switched off";
     }
 
-    @Override
-    public void lower(){}
-
-    @Override
-    public void lower(int down){}
-
-    @Override
-    public void raise(){}
-
-    @Override
-    public void raise(int up){}
-    ;
     @Override
     public String toString(){
         return "- " + name + ": " + getStatus() +

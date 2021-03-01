@@ -2,15 +2,16 @@ package Measure.main;
 
 public class Square extends GeometricalFigure
         implements Measurable, Drawable {
+    private int size;
 
     @Override
-    public void show() {
-
+    public String show() {
+        return "I'm a square and my size is: " + size;
     }
 
     @Override
-    public void getSize() {
-
+    public int getSize() {
+        return size; //calculate the size
     }
 
     @Override
