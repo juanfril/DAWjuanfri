@@ -101,13 +101,22 @@
         else
             alert('No se pueden añadir artículos sin stock');
     }
-    //añadir a todos los artículos dbclick
+    //Vaciar el carrito
+    function vaciarOnClick(event){
+        let enlaces = document.querySelectorAll('#cart_items .delete');
+        enlaces.forEach(element => {
+           element.onclick();
+        });
+    }
     window.onload = function (){
+        //añadir a todos los artículos dbclick
         let articulos = document.getElementsByClassName('item');
-
         for (let i = 0; i < articulos.length; i++){
             articulos[i].ondblclick = articuloDbClick; 
         }
+        //Añadir click a vaciar carrito
+        let vaciar = document.getElementById('btn_clear');
+        vaciar.onclick = vaciarOnClick;
     };
     
 })();
