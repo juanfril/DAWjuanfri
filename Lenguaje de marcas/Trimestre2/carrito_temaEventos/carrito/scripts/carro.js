@@ -5,9 +5,7 @@
     let style = window.getComputedStyle(carrito, '')
     let rectArticulo = 120;
     let posicion = parseInt(style.left);
-    let derecha = parseInt(style.right);
     let ancho = parseInt(style.width);
-    const widthInicial = parseInt(style.width);
     let articulosCarrito = carrito.children.length;
     let rectCarritoInicial = carrito.getBoundingClientRect();
     let timer = setInterval(() => {
@@ -31,18 +29,15 @@
         //borrar artículo
         let hijo = this.parentNode;
         carrito.removeChild(hijo);
-        
         //aumento numero de stock de articulo    
         let split = hijo.id.substring(2,4);
         let articuloOriginal = document.getElementById(split);
         setStock(articuloOriginal, 1);
-
         //resto cantidad total artículos
         setCantidadArticulos(-1);
-
         //resto precio artículo al total
         setDescontarPrecioTotal(articuloOriginal);
-
+        //Disminuyo el ancho si hay menos de 4 artículos
         disminuirAncho();
     }
     //insertar el botón para sacar del carro
@@ -140,6 +135,12 @@
             ancho = ancho - rectArticulo;
             carrito.style.width = ancho.toString() + 'px'
         }
+        else{
+            if(posicion < 0)
+                carrito.style.left = '0px'
+            else
+                carrito.style.left = -(posicion - rectCarritoInicial) + 'px';
+        }
     }
     //Función para que el carrito se mueva hacia la izquierda
     function mueveIzquierda(event) {
@@ -150,6 +151,7 @@
     }
     //Función para que el carrito se mueva hacia la derecha
     function mueveDerecha(event) {
+        if(posicion > (posicion - rectCarritoInicial.width))
         posicion = posicion - 50;
         carrito.style.left = posicion.toString() + 'px';
     }
@@ -168,6 +170,5 @@
         //Añadir botón der click
         let botonDer = document.getElementById('btn_next');
         botonDer.onclick = mueveDerecha;
-
     };
 })();
