@@ -177,6 +177,9 @@
 
         let dolar = document.getElementById('dolar');
         dolar.onclick = cambioDolar; 
+
+        let compra = document.getElementById('btn_comprar');
+        compra.onclick = compraCarrito;
     };
     ///////////////////EXTRA////////////////////////////////////
     let valor;
@@ -198,5 +201,10 @@
                 node.textContent = (parseInt(valor) / 0.83).toFixed(2) + ' €';
             }
         });
+    }
+
+    function compraCarrito(event){
+        vaciarOnClick();
+        alert('Felicidades, tu compra se ha validado');
     }
 })();
