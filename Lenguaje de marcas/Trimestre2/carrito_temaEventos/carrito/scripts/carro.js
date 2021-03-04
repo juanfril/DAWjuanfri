@@ -4,17 +4,24 @@
     let carrito = document.getElementById('cart_items');
     let style = window.getComputedStyle(carrito, '')
     let rectArticulo = 120;
+    let desplazamiento = 50;
     let posicion = parseInt(style.left);
     let ancho = parseInt(style.width);
     let articulosCarrito = carrito.children.length;
     let rectCarritoInicial = carrito.getBoundingClientRect();
-    let timer = setInterval(() => {
-        if(!carrito.firstChild){
-            carrito.style.background = 
-                carrito.style.background == 'yellow' ? 'red' : 'yellow';
-        }
-    }, 1000);
+    let rectCarritoWidth = rectCarritoInicial.width;
+    let colores = setInterval(timer, 1000);
 
+    function timer(){
+        carrito.style.background = 
+            carrito.style.background == 'yellow' ? 'red' : 'yellow';
+    }
+    function comprobarCarritoVacio(){
+        if(!carrito.firstChild)
+            colores = setInterval(timer, 1000);
+        else
+            clearInterval(colores);
+    }    
     //copiar artículo seleccionado
     function getCopia (articulo){
         let copia = articulo.cloneNode(true);
@@ -23,6 +30,15 @@
         copia.style.cursor = 'default';
         insertarEnlaceBorrado(copia)
         return copia;
+    }
+    //insertar el botón para sacar del carro
+    function insertarEnlaceBorrado(copia){
+        copia.id = 'c' + copia.id;
+        let enlaceBorrado = document.createElement('a');
+        enlaceBorrado.href = '#';
+        enlaceBorrado.setAttribute( 'class', 'delete');
+        enlaceBorrado.onclick = borrarArticuloCarro;
+        copia.insertBefore(enlaceBorrado, copia.children[0]);
     }
     //Sacar del carrito los artículos
     function borrarArticuloCarro(event){
@@ -39,15 +55,8 @@
         setDescontarPrecioTotal(articuloOriginal);
         //Disminuyo el ancho si hay menos de 4 artículos
         disminuirAncho();
-    }
-    //insertar el botón para sacar del carro
-    function insertarEnlaceBorrado(copia){
-        copia.id = 'c' + copia.id;
-        let enlaceBorrado = document.createElement('a');
-        enlaceBorrado.href = '#';
-        enlaceBorrado.setAttribute( 'class', 'delete');
-        enlaceBorrado.onclick = borrarArticuloCarro;
-        copia.insertBefore(enlaceBorrado, copia.children[0]);
+        //Activar / Desactivar colores
+        comprobarCarritoVacio();
     }
     //añadir articulos al carrito
     function insertarCarrito (articulo){
@@ -56,6 +65,7 @@
         setStock(articulo, -1);
         setCantidadArticulos(1);
         setAgregarPrecioTotal(articulo);
+        comprobarCarritoVacio();
     }
     //conseguir stock
     function getStock(articulo){
@@ -131,6 +141,8 @@
     //Disminuir tamaño carrito
     function disminuirAncho() {
         articulosCarrito = carrito.children.length;
+        let rectCarrito = carrito.getBoundingClientRect();
+        rectCarritoWidth = rectCarrito.width;
         if(articulosCarrito > 4){
             ancho = ancho - rectArticulo;
             carrito.style.width = ancho.toString() + 'px'
@@ -139,21 +151,31 @@
             if(posicion < 0)
                 carrito.style.left = '0px'
             else
-                carrito.style.left = -(posicion - rectCarritoInicial) + 'px';
+                carrito.style.left = -(rectCarritoWidth - rectCarritoInicial.width) + 'px';
         }
     }
     //Función para que el carrito se mueva hacia la izquierda
     function mueveIzquierda(event) {
         if(posicion < 0){
-            posicion = posicion + 50;
+            posicion = posicion + desplazamiento;
             carrito.style.left = posicion.toString() + 'px';
         }
     }
     //Función para que el carrito se mueva hacia la derecha
     function mueveDerecha(event) {
-        if(posicion > (posicion - rectCarritoInicial.width))
-        posicion = posicion - 50;
-        carrito.style.left = posicion.toString() + 'px';
+        articulosCarrito = carrito.children.length;
+        let rectCarrito = carrito.getBoundingClientRect();
+        rectCarritoWidth = rectCarrito.width;
+        console.log(rectCarritoInicial);
+        console.log(rectCarritoWidth);
+        console.log(carrito.style.left);
+
+        if(posicion > -(rectArticulo * (articulosCarrito - 4))){
+            posicion = posicion - desplazamiento;
+            carrito.style.left = posicion.toString() + 'px';
+        }
+        else
+            carrito.style.left = -(rectCarritoWidth - rectCarritoInicial.width);
     }
     window.onload = function (){
         //añadir a todos los artículos dbclick
