@@ -1,0 +1,6 @@
+c:\users\nacho\documents\visual studio 2013\Projects\PersonajeMovil\PersonajeMovil\bin\Debug\PersonajeMovil.exe.config
+C:\Users\Nacho\Documents\Visual Studio 2013\Projects\PersonajeMovil\PersonajeMovil\bin\Debug\PersonajeMovil.exe
+C:\Users\Nacho\Documents\Visual Studio 2013\Projects\PersonajeMovil\PersonajeMovil\bin\Debug\PersonajeMovil.pdb
+C:\Users\Nacho\Documents\Visual Studio 2013\Projects\PersonajeMovil\PersonajeMovil\obj\Debug\PersonajeMovil.csprojResolveAssemblyReference.cache
+C:\Users\Nacho\Documents\Visual Studio 2013\Projects\PersonajeMovil\PersonajeMovil\obj\Debug\PersonajeMovil.exe
+C:\Users\Nacho\Documents\Visual Studio 2013\Projects\PersonajeMovil\PersonajeMovil\obj\Debug\PersonajeMovil.pdb
