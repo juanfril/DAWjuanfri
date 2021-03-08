@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Animales"
   ],
-  "SelectedNode": "\\Equipo.cs",
+  "SelectedNode": "\\Animales\\Ave.cs",
   "PreviewInSolutionExplorer": false
 }

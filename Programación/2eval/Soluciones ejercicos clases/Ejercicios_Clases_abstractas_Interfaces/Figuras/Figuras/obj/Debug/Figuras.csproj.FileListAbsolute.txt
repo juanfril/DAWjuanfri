@@ -1,0 +1,5 @@
+c:\users\ignacio iborra\documents\visual studio 2015\Projects\Figuras\Figuras\bin\Debug\Figuras.exe.config
+c:\users\ignacio iborra\documents\visual studio 2015\Projects\Figuras\Figuras\bin\Debug\Figuras.exe
+c:\users\ignacio iborra\documents\visual studio 2015\Projects\Figuras\Figuras\bin\Debug\Figuras.pdb
+c:\users\ignacio iborra\documents\visual studio 2015\Projects\Figuras\Figuras\obj\Debug\Figuras.exe
+c:\users\ignacio iborra\documents\visual studio 2015\Projects\Figuras\Figuras\obj\Debug\Figuras.pdb
