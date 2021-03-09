@@ -113,7 +113,7 @@ namespace FutbolSala
         private static void PedirDatosJugador(ref string nombre, ref byte altura,
             ref int defensa, ref int ataque)
         {
-//            dorsal = Convert.ToByte(PedirNumero("Dorsal (0-15):", 0, 15));
+            dorsal = Convert.ToByte(PedirNumero("Dorsal (0-15):", 0, 15));
             nombre = PedirCadenaNoVacia("Nombre del jugador:");
             altura = Convert.ToByte(PedirNumero("Altura (120-220):", 120, 220));
             defensa = PedirNumero("Defensa (0-80)", 0, 80);
