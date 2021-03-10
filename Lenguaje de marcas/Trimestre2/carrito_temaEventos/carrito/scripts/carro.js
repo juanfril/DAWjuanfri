@@ -5,11 +5,9 @@
     let style = window.getComputedStyle(carrito, '')
     let rectArticulo = 120;
     let desplazamiento = 50;
-    let posicion = parseInt(style.left);
     let ancho = parseInt(style.width);
     let articulosCarrito = carrito.children.length;
     let rectCarritoInicial = carrito.getBoundingClientRect();
-    let rectCarritoWidth = rectCarritoInicial.width;
     let colores = setInterval(timer, 1000);
 
     function timer(){
@@ -57,6 +55,8 @@
         disminuirAncho();
         //Activar / Desactivar colores
         comprobarCarritoVacio();
+
+        controlCarrito();
     }
     //añadir articulos al carrito
     function insertarCarrito (articulo){
@@ -129,6 +129,7 @@
         enlaces.forEach(element => {
            element.onclick();
         });
+        controlCarrito();
     }
     //Comprobar si hay más de 4 artículos
     function aumentarAncho() {
@@ -141,41 +142,39 @@
     //Disminuir tamaño carrito
     function disminuirAncho() {
         articulosCarrito = carrito.children.length;
-        let rectCarrito = carrito.getBoundingClientRect();
-        rectCarritoWidth = rectCarrito.width;
-        if(articulosCarrito > 4){
-            ancho = ancho - rectArticulo;
-            carrito.style.width = ancho.toString() + 'px'
+        let style = window.getComputedStyle(carrito, '');
+        let ancho = parseInt(style.width);
+        if(articulosCarrito > 3){
+            carrito.style.width = (ancho - rectArticulo) + 'px'
         }
-        else{
-            if(posicion < 0)
-                carrito.style.left = '0px'
-            else
-                carrito.style.left = -(rectCarritoWidth - rectCarritoInicial.width) + 'px';
-        }
+        controlCarrito();
     }
     //Función para que el carrito se mueva hacia la izquierda
     function mueveIzquierda(event) {
-        if(posicion < 0){
-            posicion = posicion + desplazamiento;
-            carrito.style.left = posicion.toString() + 'px';
+        articulosCarrito = carrito.children.length;
+        if(articulosCarrito > 4){
+            let style = window.getComputedStyle(carrito, '');
+            let left = parseInt(style.left);
+            carrito.style.left = (left + desplazamiento) + 'px';
         }
+        controlCarrito();
     }
     //Función para que el carrito se mueva hacia la derecha
     function mueveDerecha(event) {
         articulosCarrito = carrito.children.length;
-        let rectCarrito = carrito.getBoundingClientRect();
-        rectCarritoWidth = rectCarrito.width;
-        console.log(rectCarritoInicial);
-        console.log(rectCarritoWidth);
-        console.log(carrito.style.left);
-
-        if(posicion > -(rectArticulo * (articulosCarrito - 4))){
-            posicion = posicion - desplazamiento;
-            carrito.style.left = posicion.toString() + 'px';
+        if(articulosCarrito > 4){
+            let style = window.getComputedStyle(carrito, '');
+            let left = parseInt(style.left);
+            carrito.style.left = (left - desplazamiento) + 'px';
         }
-        else
-            carrito.style.left = -(rectCarritoWidth - rectCarritoInicial.width);
+        controlCarrito();        
+    }
+    const controlCarrito = () =>{
+        let rectCarrito = carrito.getBoundingClientRect();
+        if(rectCarrito.left > rectCarritoInicial.left)
+            carrito.style.left = '0px'
+        if(rectCarrito.right < rectCarritoInicial.right)
+            carrito.style.left = -(rectCarrito.width - rectCarritoInicial.width) + 'px';
     }
     window.onload = function (){
         //añadir a todos los artículos dbclick
