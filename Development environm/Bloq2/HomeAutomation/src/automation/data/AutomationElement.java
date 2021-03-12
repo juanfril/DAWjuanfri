@@ -8,7 +8,7 @@ public abstract class AutomationElement {
 
     public void setName(String name) { this.name = name; }
 
-    public int getPercent() { return -1; }
+    /*public int getPercent() { return -1; } todo esto no hacía falta
 
     public void setPercent(int number) {}
 
@@ -28,7 +28,7 @@ public abstract class AutomationElement {
 
     public void raise() {}
 
-    public void raise(int up) {}
+    public void raise(int up) {}*/
 
     @Override
     public String toString(){
