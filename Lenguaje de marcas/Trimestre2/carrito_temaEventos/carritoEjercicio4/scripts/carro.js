@@ -9,7 +9,14 @@
     let articulosCarrito = carrito.children.length;
     let rectCarritoInicial = carrito.getBoundingClientRect();
     let colores = setInterval(timer, 1000);
+    let mostrarOcultarMensajes = setInterval();
 
+    const timerMensajes = (event) => {
+        mostrarOcultarMensajes = (timerMensajes, 1000);
+        let mensajesPadre = document.getElementById('mensajes');
+        mensajesPadre.firstChild.style.display =
+            mensajesPadre.firstChild.style.display == 'none' ? 'block' : 'none';
+    }
     function timer(){
         carrito.style.background = 
             carrito.style.background == 'yellow' ? 'red' : 'yellow';
@@ -55,8 +62,10 @@
         disminuirAncho();
         //Activar / Desactivar colores
         comprobarCarritoVacio();
-
+        //ajustar carro
         controlCarrito();
+        //añadir mensaje borrado
+        añadirMensajeBorrar(hijo);
     }
     //añadir articulos al carrito
     function insertarCarrito (articulo){
@@ -117,8 +126,10 @@
     function articuloDbClick(event){
         let articulo = event.currentTarget;
         let stock = getStock(articulo);
-        if(parseInt(stock[1]) > 0)
+        if(parseInt(stock[1]) > 0){
             insertarCarrito(articulo);
+            añadirMensajeInsertar(articulo);
+        }
         else
             alert('No se pueden añadir artículos sin stock');
         aumentarAncho();
@@ -176,6 +187,24 @@
         if(rectCarrito.right < rectCarritoInicial.right)
             carrito.style.left = -(rectCarrito.width - rectCarritoInicial.width) + 'px';
     }
+    const añadirMensajeInsertar = (articulo) => {
+        let mensajes = document.createElement('p');
+        let mensajesPadre = document.getElementById('mensajes');
+        let stock = getStock(articulo);
+        let textoArticulo = articulo.querySelector('.title').textContent;
+        mensajes.textContent = 'Se ha añadido el artículo ' + textoArticulo + 
+            '. Stock restante ' + stock[1];
+        mensajesPadre.insertBefore(mensajes, mensajesPadre.children[1]);
+    }
+    const añadirMensajeBorrar = (articulo) => {
+        let mensajes = document.createElement('p');
+        let mensajesPadre = document.getElementById('mensajes');
+        let stock = getStock(articulo);
+        let textoArticulo = articulo.querySelector('.title').textContent;
+        mensajes.textContent = 'Se ha eliminado el artículo ' + textoArticulo + 
+            '. Stock restante ' + stock[1];
+        mensajesPadre.insertBefore(mensajes, mensajesPadre.children[1]);
+    }
     window.onload = function (){
         //añadir a todos los artículos dbclick
         let articulos = document.getElementsByClassName('item');
@@ -191,5 +220,8 @@
         //Añadir botón der click
         let botonDer = document.getElementById('btn_next');
         botonDer.onclick = mueveDerecha;
+        let mostrar = document.getElementById('btn_mostrar');
+        mostrar.onclick = timerMensajes;
+        //no me da tiempo a terminar...
     };
 })();

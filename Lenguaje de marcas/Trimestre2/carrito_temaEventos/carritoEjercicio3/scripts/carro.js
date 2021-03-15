@@ -14,8 +14,15 @@
         carrito.style.background = 
             carrito.style.background == 'yellow' ? 'red' : 'yellow';
     }
-    function comprobarCarritoVacio(){
-        if(!carrito.firstChild)
+    //No funciona bien... es lo que me ha dado tiempo
+    const comprobarCarritoVacio = () => {
+        //let articuloParar = document.querySelector('.title').textContent;
+        //console.log(articuloParar);
+        let titulosCarrito = carrito.querySelector('.title').textContent;
+        
+        //console.log(titulosCarrito);
+
+        if(!titulosCarrito.includes('Camiseta'))
             colores = setInterval(timer, 1000);
         else
             clearInterval(colores);
