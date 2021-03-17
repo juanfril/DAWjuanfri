@@ -1,6 +1,5 @@
 package videogame.scenes;
 
-import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
@@ -38,7 +37,7 @@ public class WelcomeScene extends GeneralScene{
             if(activeKeys.contains(KeyCode.SPACE)){
                 this.stop();
                 BearFruitChallenge.setScene(BearFruitChallenge.GAME_SCENE);
-            } else if(activeKeys.contains(KeyCode.ESCAPE){
+            } else if(activeKeys.contains(KeyCode.ESCAPE)){
                 this.stop();
                 BearFruitChallenge.exit();
             }

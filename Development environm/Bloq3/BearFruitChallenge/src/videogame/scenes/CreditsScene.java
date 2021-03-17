@@ -28,13 +28,14 @@ public class CreditsScene extends GeneralScene{
     @Override
     public void draw() {
         activeKeys.clear();
-        (AnimationTimer) (currentNanoTime) ->{
+
+        (AnimationTimer) (currentNanoTime) -> {
             gc.setFill(Color.BLACK);
             gc.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
             showCreditsMessage();
 
-            if(activeKeys.contains(KeyCode.SPACE)){
+            if (activeKeys.contains(KeyCode.SPACE)) {
                 this.stop();
                 BearFruitChallenge.setScene(BearFruitChallenge.WELCOME_SCENE);
             }

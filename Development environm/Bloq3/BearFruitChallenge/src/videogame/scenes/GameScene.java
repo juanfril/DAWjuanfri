@@ -23,7 +23,7 @@ public class GameScene extends GeneralScene{
     @Override
     public void draw() {
         activeKeys.clear();
-        (AnimationTimer) (currentNanoTime) ->{
+        (AnimationTimer) (currentNanoTime) -> {
             gc.setFill(Color.BLACK);
             gc.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
