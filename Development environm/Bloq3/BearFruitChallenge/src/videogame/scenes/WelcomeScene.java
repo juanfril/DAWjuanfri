@@ -1,8 +1,12 @@
 package videogame.scenes;
 
+import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import videogame.BearFruitChallenge;
 
 public class WelcomeScene extends GeneralScene{
     public WelcomeScene(){
@@ -24,6 +28,20 @@ public class WelcomeScene extends GeneralScene{
 
     @Override
     public void draw() {
-        showWelcomeMessage();
+        activeKeys.clear();
+        (AnimationTimer) (currentNanoTime) ->{
+            gc.setFill(Color.BLACK);
+            gc.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
+            showWelcomeMessage();
+
+            if(activeKeys.contains(KeyCode.SPACE)){
+                this.stop();
+                BearFruitChallenge.setScene(BearFruitChallenge.GAME_SCENE);
+            } else if(activeKeys.contains(KeyCode.ESCAPE){
+                this.stop();
+                BearFruitChallenge.exit();
+            }
+        }.start();
     }
 }

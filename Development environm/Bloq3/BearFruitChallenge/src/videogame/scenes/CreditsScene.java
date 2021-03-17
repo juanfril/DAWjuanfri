@@ -1,8 +1,11 @@
 package videogame.scenes;
 
+import javafx.animation.AnimationTimer;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import videogame.BearFruitChallenge;
 
 public class CreditsScene extends GeneralScene{
 
@@ -24,6 +27,17 @@ public class CreditsScene extends GeneralScene{
 
     @Override
     public void draw() {
-        showCreditsMessage();
+        activeKeys.clear();
+        (AnimationTimer) (currentNanoTime) ->{
+            gc.setFill(Color.BLACK);
+            gc.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
+            showCreditsMessage();
+
+            if(activeKeys.contains(KeyCode.SPACE)){
+                this.stop();
+                BearFruitChallenge.setScene(BearFruitChallenge.WELCOME_SCENE);
+            }
+        }.start();
     }
 }
