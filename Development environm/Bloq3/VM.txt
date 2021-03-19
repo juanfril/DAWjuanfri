@@ -1,0 +1,1 @@
+Error: faltan los componentes de JavaFX runtime y son necesarios para ejecutar esta aplicación

@@ -26,18 +26,20 @@ public class CreditsScene extends GeneralScene{
     }
 
     @Override
-    public void draw() {
+    public void draw(){
         activeKeys.clear();
+        new AnimationTimer(){
+            public void handle(long currentNanoTime){
+                gc.setFill(Color.BLACK);
+                gc.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-        (AnimationTimer) (currentNanoTime) -> {
-            gc.setFill(Color.BLACK);
-            gc.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+                showCreditsMessage();
 
-            showCreditsMessage();
-
-            if (activeKeys.contains(KeyCode.SPACE)) {
-                this.stop();
-                BearFruitChallenge.setScene(BearFruitChallenge.WELCOME_SCENE);
+                if (activeKeys.contains(KeyCode.SPACE)) {
+                    this.stop();
+                    BearFruitChallenge.setScene(
+                            BearFruitChallenge.WELCOME_SCENE);
+                }
             }
         }.start();
     }
