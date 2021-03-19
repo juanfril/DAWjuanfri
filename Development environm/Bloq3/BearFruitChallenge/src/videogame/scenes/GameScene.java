@@ -6,6 +6,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import videogame.BearFruitChallenge;
 import videogame.sprites.Fruit;
 import videogame.sprites.MainCharacter;
@@ -26,6 +28,8 @@ public class GameScene extends GeneralScene {
     private Fruit fruit = null;
     private MediaPlayer mediaPlayerEffects;
     private Media effect;
+    public static int points = 0;
+    private int lives = 3;
 
     public GameScene() {
         super();
@@ -40,6 +44,7 @@ public class GameScene extends GeneralScene {
     @Override
     public void draw() {
 
+        reset();
         sound = new Media(new File(BACKGROUND_SOUND).toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
@@ -56,6 +61,7 @@ public class GameScene extends GeneralScene {
                 bear.draw(gc);
                 if(fruit != null)
                     fruit.draw(gc);
+                updateHUD();
 
                 if (activeKeys.contains(KeyCode.ESCAPE)) {
                     this.stop();
@@ -78,11 +84,21 @@ public class GameScene extends GeneralScene {
                 } else {
                     fruit.move();
                     if(fruit.collidesWith(bear)) {
+                        points += 10;
                         playEffect(SOUND_EFFECT);
                         fruit = null;
                     } else if(fruit.getY() > GeneralScene.GAME_HEIGHT){
+                        lives--;
+                        bear.resetPosition();
                         fruit = null;
                     }
+                }
+
+                if(lives == 0){
+                    this.stop();
+                    mediaPlayer.stop();
+                    BearFruitChallenge.setScene(
+                            BearFruitChallenge.CREDITS_SCENE);
                 }
             }
         }.start();
@@ -92,5 +108,22 @@ public class GameScene extends GeneralScene {
         effect = new Media(new File(path).toURI().toString());
         mediaPlayerEffects = new MediaPlayer(effect);
         mediaPlayerEffects.play();
+    }
+
+    private void reset(){
+        bear.resetPosition();
+        lives = 3;
+        points = 0;
+    }
+
+    private void updateHUD(){
+        Font myFont = Font.font("Arial", FontWeight.NORMAL, 18);
+        gc.setFont(myFont);
+        gc.setFill(Color.BLUE);
+        gc.fillText("Score: " + points,20,GeneralScene.GAME_HEIGHT - 15);
+
+        gc.setFill(Color.YELLOW);
+        gc.fillText("Lives: " + lives,GeneralScene.GAME_WIDTH - 100,
+                GeneralScene.GAME_HEIGHT - 15);
     }
 }
