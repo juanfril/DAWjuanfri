@@ -85,6 +85,7 @@ public class GameScene extends GeneralScene {
                     fruit.move();
                     if(fruit.collidesWith(bear)) {
                         points += 10;
+                        fruit.increaseDifficulty();
                         playEffect(SOUND_EFFECT);
                         fruit = null;
                     } else if(fruit.getY() > GeneralScene.GAME_HEIGHT){
@@ -114,6 +115,7 @@ public class GameScene extends GeneralScene {
         bear.resetPosition();
         lives = 3;
         points = 0;
+        Fruit.STEP_INCREMENT = 0f;
     }
 
     private void updateHUD(){

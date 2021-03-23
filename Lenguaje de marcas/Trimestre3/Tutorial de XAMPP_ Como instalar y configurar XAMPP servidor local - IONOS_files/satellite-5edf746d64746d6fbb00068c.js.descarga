@@ -1,0 +1,64 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  var sendCoreWebVitals = function() {
+    var tlds = {
+        at: 'at',
+        ca: 'ca',
+        de: 'de',
+        es: 'es',
+        fr: 'fr',
+        it: 'it',
+        mx: 'mx',
+        uk: 'co.uk',
+        us: 'com'
+    };
+    var currentTLD = document.location.hostname.split('.').pop();
+    if (currentTLD.toLowerCase() === "com") {
+      currentTLD = "us";
+    }
+    var siteId = "T3.DG." + currentTLD.toUpperCase();
+
+    var data = new FormData();
+    data.append('application', siteId);
+    data.append('device_type', UNOUNO.device.getType());
+    data.append('visit_id', undefined);
+
+    var send = function (metric) {
+        if (navigator.sendBeacon) {
+            var value = metric.name === 'LCP' ? metric.value/1000 : metric.value;
+            data.append(metric.name.toLowerCase(), value);
+            navigator.sendBeacon('//pixel.ionos.' + (tlds[currentTLD.toLowerCase()] || 'de') + '/rum', data);
+        }
+    };
+
+    var n = document.createElement("script");
+    n.async = true;
+    n.onload = function () {
+        webVitals.getCLS(send);
+        webVitals.getFID(send);
+        webVitals.getLCP(send);
+    };
+    n.setAttribute("src", '//unpkg.com/web-vitals@1.0.1/dist/web-vitals.umd.js');
+    window.document.head.appendChild(n);
+};
+
+
+// for DE: check if consent is given and then trigger
+if (document.location.host.indexOf('ionos.de') !== -1 ||
+    document.location.host.indexOf('ionos.at') !== -1) {
+
+    if (typeof window.privacyConsentInstance === "undefined") {
+        window.privacyConsentInstance = new PrivacyConsent({ whitelist: true });
+    }
+
+    window.privacyConsentInstance.invoke(
+        sendCoreWebVitals,
+        PrivacyConsentEnum.STATISTICS,
+        window.privacyConsentInstance,
+        true
+    );
+    window.privacyConsentInstance.initialize();
+
+} else {
+    sendCoreWebVitals();
+}
+});

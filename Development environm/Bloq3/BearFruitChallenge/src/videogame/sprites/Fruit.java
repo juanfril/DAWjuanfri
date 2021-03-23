@@ -10,6 +10,7 @@ public class Fruit extends Sprite{
     public static int MAX_FRUITS = 2;
     public static int FRUIT_WIDTH = 30;
     public static int FRUIT_HEIGHT = 30;
+    public static float STEP_INCREMENT = 0f;
 
     public Fruit(){
         this((int)(Math.random() * MAX_FRUITS));
@@ -38,6 +39,10 @@ public class Fruit extends Sprite{
         }
     }
     public void move(){
-        this.y++;
+        this.y += (int) (1 + STEP_INCREMENT);
+    }
+
+    public void increaseDifficulty(){
+        STEP_INCREMENT += 0.2f;
     }
 }
