@@ -5,7 +5,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import videogame.BearFruitChallenge;
+import videogame.EducationalGame;
 
 public class CreditsScene extends GeneralScene{
 
@@ -21,8 +21,6 @@ public class CreditsScene extends GeneralScene{
 
         myFont = Font.font("Arial", FontWeight.NORMAL, 20);
         gc.setFont(myFont);
-        gc.setFill(Color.YELLOW);
-        gc.fillText("Your score: " + GameScene.points, 340, 225);
         gc.setFill(Color.WHITE);
         gc.fillText("Press SpaceBar to go welcome scene", 200, 275);
     }
@@ -39,8 +37,8 @@ public class CreditsScene extends GeneralScene{
 
                 if (activeKeys.contains(KeyCode.SPACE)) {
                     this.stop();
-                    BearFruitChallenge.setScene(
-                            BearFruitChallenge.WELCOME_SCENE);
+                    EducationalGame.setScene(
+                            EducationalGame.WELCOME_SCENE);
                 }
             }
         }.start();
