@@ -40,32 +40,43 @@
 			'stock' => 10,
 			'activo' => true
 		),
+		array(
+			'nombre' => 'Camiseta 6',
+			'url' => 'img/camiseta6.jpg',
+			'descripcion' => 'descripcion i6',
+			'precio' => 15,
+			'stock' => 10,
+			'activo' => true
+		),
 	)
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Carro de la compra con Javascript</title>
+	<title>Carro de la compra con PHP</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" title="normal" href="css/carro.css" type="text/css" media="screen" >
 </head>
 <body>
 	<div id="item_container">
 		<?php
+			$contadorId = 1;
 			foreach($articulos as $articulo){
-
-				if($articulo['activo']){
+				
+				if($articulo["activo"]){
 					echo
-						"<div class='item' id='i1'>
-							<img src='$articulo['url']' alt='articulo['descripcion']'>
-							<label class='title'>$articulo['nombre']</label>
-							<label class='price'>$articulo['precio'] €</label>
-							<label class='stock'>Stock $articulo['stock']</label>
+						"<div class='item' id='i$contadorId'>
+							<img src='$articulo[url]' alt='$articulo[descripcion]'>
+							<label class='title'>$articulo[nombre]</label>
+							<label class='price'>$articulo[precio] €</label>
+							<label class='stock'>Stock $articulo[stock]</label>
 						</div>";
 				}
+				$contadorId++;
 			}
 		?>
+		<div class= "clear"></div>
 	</div>
 	<div id="cart_container">
 		<div id="cart_title">
