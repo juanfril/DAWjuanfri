@@ -1,0 +1,4 @@
+Juanfri;39;85
+Cristina;38;65
+Sara;4;12
+Oliver;8;24
