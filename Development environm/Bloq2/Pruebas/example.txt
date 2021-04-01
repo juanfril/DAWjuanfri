@@ -1,1 +1,4 @@
-hola;4;80
+Paco;48;90
+Julia;82;50
+Anastasia;50;90
+Joaquin;26;75

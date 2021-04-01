@@ -1,27 +1,27 @@
 package ficheros.objetos;
 
 public class Person {
-    int age;
+    String age;
     String name;
-    int weight;
+    String weight;
 
     public Person(){
-        age = 0;
+        age = "0";
         name = "nobody";
-        weight = 0;
+        weight = "0";
     }
 
-    public Person( String name, int age, int weight ) {
+    public Person( String name, String age, String weight ) {
         this.age = age;
         this.name = name;
         this.weight = weight;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge( int age ) {
+    public void setAge( String age ) {
         this.age = age;
     }
 
@@ -33,11 +33,11 @@ public class Person {
         this.name = name;
     }
 
-    public int getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight( Integer weight ) {
+    public void setWeight( String weight ) {
         this.weight = weight;
     }
 

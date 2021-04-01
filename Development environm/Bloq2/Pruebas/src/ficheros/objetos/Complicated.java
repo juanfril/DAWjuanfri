@@ -7,8 +7,7 @@ import java.util.List;
 public class Complicated {
     public static ArrayList<Person> load(){
         ArrayList<Person> stats = new ArrayList<>();
-        String[] temporal;
-        String line;
+        String[] AUX;
 
         if (! (new File("example.txt")).exists() ) {
             System.out.println("File stats.txt not found");
@@ -19,12 +18,12 @@ public class Complicated {
         try{
             BufferedReader inputFile = new BufferedReader(
                     new FileReader(new File("example.txt")));
-            line = inputFile.readLine();
-            System.out.println(line);
-                temporal = inputFile.readLine().split(";");
-                for(Object s: temporal){
-                    System.out.println(s);
-                }
+            while (inputFile != null){
+                AUX = inputFile.readLine().split(";");
+                Person p = new Person(AUX[0], AUX[1], AUX[2]);
+                stats.add(p);
+            }
+
 
             inputFile.close();
         }
@@ -57,7 +56,9 @@ public class Complicated {
 
     public static void main( String[] args ) {
         ArrayList text = load();
-
+        for (Object p: text) {
+            System.out.println(p);
+        }
 
     }
 

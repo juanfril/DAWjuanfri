@@ -1,5 +1,6 @@
 package race;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -11,35 +12,71 @@ public class Main {
         System.out.println("0. Exit");
         System.out.print("\nChoose an option: ");
     }
-    private static void addStage() {
+    private static void addStage(ArrayList<CyclingStage> stats) {
+        Scanner sc = new Scanner(System.in);
+        CyclingStage c = new CyclingStage();
 
+        System.out.println("Input date of the stage (YYYY-MM-DD): ");
+        c.setDate(sc.nextLine());
+        System.out.println("Input kilometres of race: ");
+        c.setKilometres(sc.nextLine());
+        System.out.println("Input full name of the winner: ");
+        c.setWinner(sc.nextLine());
+        stats.add(c);
+
+        FileUtils.saveStats(stats);
     }
-    private static void showWinners() {
-
+    private static void showWinners(ArrayList<CyclingStage> stats) {
+        System.out.println(stats.get(0));
+        for (int i = 1; i < stats.size(); i++) {
+            if(!stats.get(i-1).getWinner().equals(stats.get(i).getWinner())){
+                System.out.println(stats.get(i));
+            }
+        }
     }
 
-    private static void topWinner() {
+    private static void topWinner(ArrayList<CyclingStage> stats) {
+        int temporalWinner;
+        int maxWinner = 0;
+        String nameWinner = "";
 
+        for (int i = 0; i < stats.size(); i++) {
+            temporalWinner = 0;
+            for (int j = 0; j < stats.size(); j++) {
+                if(stats.get(i).getWinner().equals(stats.get(j).getWinner())){
+                    temporalWinner++;
+                }
+            }
+            if (temporalWinner > maxWinner){
+                maxWinner = temporalWinner;
+                nameWinner = stats.get(i).getWinner();
+            }
+        }
+        for(CyclingStage c : stats){
+            if(c.getWinner().equals(nameWinner))
+                System.out.println(c);
+        }
     }
 
     public static void main( String[] args ) {
-        FileUtils.loadStats();
+        ArrayList<CyclingStage> stats = FileUtils.loadStats();
+
         Scanner sc = new Scanner(System.in);
         int option;
 
-        showMenu();
-        option = sc.nextInt();
 
         do {
+            showMenu();
+            option = sc.nextInt();
             switch (option){
                 case 1:
-                    addStage();
+                    addStage(stats);
                     break;
                 case 2:
-                    showWinners();
+                    showWinners(stats);
                     break;
                 case 3:
-                    topWinner();
+                    topWinner(stats);
                     break;
                 case 0:
                     System.out.println("Thanks, see you next time!");
@@ -48,8 +85,4 @@ public class Main {
 
         }while (option != 0);
     }
-
-
-
-
 }

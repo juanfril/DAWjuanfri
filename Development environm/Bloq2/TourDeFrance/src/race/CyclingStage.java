@@ -2,16 +2,16 @@ package race;
 
 public class CyclingStage {
     String date;
-    int kilometres;
+    String kilometres;
     String winner;
 
     public CyclingStage(){
         date = "0000-00-00";
-        kilometres = 0;
+        kilometres = "0";
         winner =  "nobody";
     }
 
-    public CyclingStage( String date, String winner, int kilometres ) {
+    public CyclingStage( String date, String winner, String kilometres ) {
         this.date = date;
         this.winner = winner;
         this.kilometres = kilometres;
@@ -33,16 +33,16 @@ public class CyclingStage {
         this.winner = winner;
     }
 
-    public int getKilometres() {
+    public String getKilometres() {
         return kilometres;
     }
 
-    public void setKilometres( int kilometres ) {
+    public void setKilometres( String kilometres ) {
         this.kilometres = kilometres;
     }
 
     @Override
     public String toString(){
-        return date + "(" + kilometres + " km)" + winner;
+        return date + " (" + kilometres + " km) " + winner;
     }
 }
