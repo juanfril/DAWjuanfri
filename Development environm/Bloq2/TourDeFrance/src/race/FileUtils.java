@@ -12,38 +12,42 @@ public class FileUtils {
         if (! (new File("stats.txt")).exists() ) {
             System.out.println("File stats.txt not found");
         }
+        else{
+            try{
+                BufferedReader countFiles = new BufferedReader(
+                        new FileReader("stats.txt"));
 
-        try{
-            BufferedReader countFiles = new BufferedReader(
-                    new FileReader("stats.txt"));
+                int numLines = ( int ) countFiles.lines().count();
+                System.out.println(numLines);
+                countFiles.close();
 
-            int numLines = ( int ) countFiles.lines().count();
-            System.out.println(numLines);
-            countFiles.close();
+                if(numLines != 0){
+                    System.out.println("Hay líneas");
+                    BufferedReader inputFile = new BufferedReader(
+                            new FileReader("stats.txt"));
 
-            BufferedReader inputFile = new BufferedReader(
-                    new FileReader("stats.txt"));
-
-            while(numLines > 0) {
-
-                AUX = inputFile.readLine().split(";");
-                stats.add(new CyclingStage());
-                if(stats.get(line) instanceof CyclingStage){
-                    CyclingStage c = (CyclingStage)(stats.get(line));
-                    c.setDate(AUX[0]);
-                    c.setKilometres(AUX[1]);
-                    c.setWinner(AUX[2]);
-                    line++;
+                    while(numLines > 0) {
+                        AUX = inputFile.readLine().split(";");
+                        stats.add(new CyclingStage());
+                        if(stats.get(line) instanceof CyclingStage){
+                            CyclingStage c = (CyclingStage)(stats.get(line));
+                            c.setDate(AUX[0]);
+                            c.setKilometres(AUX[1]);
+                            c.setWinner(AUX[2]);
+                            line++;
+                        }
+                        numLines--;
+                    }
+                    inputFile.close();
                 }
-                numLines--;
             }
-            inputFile.close();
+            catch (IOException fileError) {
+                System.out.println(
+                        "There has been some problems: " +
+                                fileError.getMessage() );
+            }
         }
-        catch (IOException fileError) {
-            System.out.println(
-                    "There has been some problems: " +
-                            fileError.getMessage() );
-        }
+
         return stats;
     }
 

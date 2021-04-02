@@ -15,6 +15,7 @@ public class Main {
     private static void addStage(ArrayList<CyclingStage> stats) {
         Scanner sc = new Scanner(System.in);
         CyclingStage c = new CyclingStage();
+        boolean exist = false;
 
         System.out.println("Input date of the stage (YYYY-MM-DD): ");
         c.setDate(sc.nextLine());
@@ -22,15 +23,30 @@ public class Main {
         c.setKilometres(sc.nextLine());
         System.out.println("Input full name of the winner: ");
         c.setWinner(sc.nextLine());
-        stats.add(c);
+        for (int i = 0; i < stats.size() || exist; i++) {
+            if(c.getDate().equals(stats.get(i).getDate()))
+                exist = true;
+        }
+        if(!exist){
+            stats.add(c);
+            FileUtils.saveStats(stats);
+            System.out.println("\nFile save!");
+        }
+        else {
+            System.out.println("\nSorry, you can't repeat the date. Try again!");
+        }
 
-        FileUtils.saveStats(stats);
     }
     private static void showWinners(ArrayList<CyclingStage> stats) {
-        System.out.println(stats.get(0));
-        for (int i = 1; i < stats.size(); i++) {
-            if(!stats.get(i-1).getWinner().equals(stats.get(i).getWinner())){
-                System.out.println(stats.get(i));
+        if(stats.size() == 0){
+            System.out.println("\nNo dates yet, try input someone");
+        }
+        else {
+            System.out.println(stats.get(0));
+            for (int i = 1; i < stats.size(); i++) {
+                if(!stats.get(i-1).getWinner().equals(stats.get(i).getWinner())){
+                    System.out.println(stats.get(i));
+                }
             }
         }
     }
@@ -40,21 +56,26 @@ public class Main {
         int maxWinner = 0;
         String nameWinner = "";
 
-        for (int i = 0; i < stats.size(); i++) {
-            temporalWinner = 0;
-            for (int j = 0; j < stats.size(); j++) {
-                if(stats.get(i).getWinner().equals(stats.get(j).getWinner())){
-                    temporalWinner++;
+        if(stats.size() == 0){
+            System.out.println("\nNo dates yet, try input someone");
+        }
+        else {
+            for (int i = 0; i < stats.size(); i++) {
+                temporalWinner = 0;
+                for (int j = 0; j < stats.size(); j++) {
+                    if(stats.get(i).getWinner().equals(stats.get(j).getWinner())){
+                        temporalWinner++;
+                    }
+                }
+                if (temporalWinner > maxWinner){
+                    maxWinner = temporalWinner;
+                    nameWinner = stats.get(i).getWinner();
                 }
             }
-            if (temporalWinner > maxWinner){
-                maxWinner = temporalWinner;
-                nameWinner = stats.get(i).getWinner();
+            for(CyclingStage c : stats){
+                if(c.getWinner().equals(nameWinner))
+                    System.out.println(c);
             }
-        }
-        for(CyclingStage c : stats){
-            if(c.getWinner().equals(nameWinner))
-                System.out.println(c);
         }
     }
 
