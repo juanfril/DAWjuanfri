@@ -15,7 +15,7 @@ namespace TiendaInformatica
 
         public void NuevoProducto(ProductoInformatico producto)
         {
-            
+            if(producto.isInstanceOf(Componentes))
         }
     }
 }
