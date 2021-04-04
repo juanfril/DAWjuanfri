@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\juanf\\OneDrive\\Documentos\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\TiendaInformatica.csproj": {}
+    "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\TiendaInformatica.csproj": {}
   },
   "projects": {
-    "C:\\Users\\juanf\\OneDrive\\Documentos\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\TiendaInformatica.csproj": {
+    "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\TiendaInformatica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juanf\\OneDrive\\Documentos\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\TiendaInformatica.csproj",
+        "projectUniqueName": "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\TiendaInformatica.csproj",
         "projectName": "TiendaInformatica",
-        "projectPath": "C:\\Users\\juanf\\OneDrive\\Documentos\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\TiendaInformatica.csproj",
+        "projectPath": "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\TiendaInformatica.csproj",
         "packagesPath": "C:\\Users\\juanf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juanf\\OneDrive\\Documentos\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\obj\\",
+        "outputPath": "C:\\Users\\juanf\\Documents\\GitHub\\DAWjuanfri\\Programación\\3eval\\TiendaInformatica\\TiendaInformatica\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\juanf\\AppData\\Roaming\\NuGet\\NuGet.Config",

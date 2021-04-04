@@ -1,0 +1,13 @@
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\obj\Debug\netcoreapp3.1\TiendaInformatica.csprojAssemblyReference.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\obj\Debug\netcoreapp3.1\TiendaInformatica.AssemblyInfoInputs.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\obj\Debug\netcoreapp3.1\TiendaInformatica.AssemblyInfo.cs
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\obj\Debug\netcoreapp3.1\TiendaInformatica.csproj.CoreCompileInputs.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\bin\Debug\netcoreapp3.1\TiendaInformatica.exe
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\bin\Debug\netcoreapp3.1\TiendaInformatica.deps.json
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\bin\Debug\netcoreapp3.1\TiendaInformatica.runtimeconfig.json
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\bin\Debug\netcoreapp3.1\TiendaInformatica.runtimeconfig.dev.json
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\bin\Debug\netcoreapp3.1\TiendaInformatica.dll
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\bin\Debug\netcoreapp3.1\TiendaInformatica.pdb
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\obj\Debug\netcoreapp3.1\TiendaInformatica.dll
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\obj\Debug\netcoreapp3.1\TiendaInformatica.pdb
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\TiendaInformatica\TiendaInformatica\obj\Debug\netcoreapp3.1\TiendaInformatica.genruntimeconfig.cache

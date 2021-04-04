@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace TiendaInformatica
 {
-    class ProductoInformatico
+    abstract class ProductoInformatico
     {
         protected string codigo;
         protected string marca;
