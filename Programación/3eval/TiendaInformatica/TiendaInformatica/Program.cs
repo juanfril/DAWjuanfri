@@ -37,6 +37,8 @@ namespace TiendaInformatica
             ProductoInformatico producto;
             float decimalAuxiliar;
 
+            Console.Clear();
+
             if(opcion == 1)
             {
                 producto = CrearComponentes();
@@ -58,13 +60,13 @@ namespace TiendaInformatica
             producto.Modelo = Console.ReadLine();
             do
             {
-                Console.WriteLine("Introduzca precio");
+                Console.WriteLine("Introduzca precio (número, acepta decimales)");
 
             } while (!Single.TryParse(Console.ReadLine(), out decimalAuxiliar));
 
             producto.Precio = decimalAuxiliar;
 
-            if (!catalogo.NuevoProducto(producto))
+            if (catalogo.NuevoProducto(producto))
                 Console.WriteLine("Producto añadido correctamente");
             else
                 Console.WriteLine("No se ha podido añadir el producto," +
@@ -154,8 +156,7 @@ namespace TiendaInformatica
             {
                 MostrarMenu();
 
-            } while (!byte.TryParse(Console.ReadLine(), out opcion) ||
-                opcion >=7);
+            } while (!byte.TryParse(Console.ReadLine(), out opcion));
 
             switch (opcion)
             {
@@ -174,25 +175,39 @@ namespace TiendaInformatica
                         Console.WriteLine("| 3. Periféricos");
                         Console.WriteLine("|\n Introduzca un número del 1 al 3");
 
-                    } while (!byte.TryParse(Console.ReadLine(), out opcion) ||
-                        opcion >= 3);
+                    } while (!byte.TryParse(Console.ReadLine(), out opcion));
 
-                    if(opcion == 1)
-                    {
+                    if (opcion > 0 && opcion < 4)
                         CrearProducto(opcion, catalogo);
-                    }
 
                     break;
                 case 3:
-
+                    catalogo.ListarCatalogo();
                     break;
                 case 4:
+                    string codigo;
+
+                    do
+                    {
+                        Console.WriteLine("Introduzca el código del producto a borrar " +
+                            "(No puede dejar el campo vacío)");
+                        codigo = Console.ReadLine();
+
+                    } while (String.IsNullOrEmpty(codigo));
+
+                    if(catalogo.EliminarProducto(codigo))
+                        Console.WriteLine("El producto se ha eliminado correctamente");
+                    else
+                        Console.WriteLine("No se ha podido eliminar el producto");
 
                     break;
                 case 5:
 
                     break;
                 case 6:
+
+                    float precioTotal = catalogo.CalcularTotal(carro);
+                    Console.WriteLine("\n El precio total del carro es {0}", precioTotal);
 
                     break;
                 case 7:
