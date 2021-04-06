@@ -71,6 +71,8 @@ namespace TiendaInformatica
             else
                 Console.WriteLine("No se ha podido añadir el producto," +
                     " revise los datos e intentelo de nuevo.");
+
+            Console.ReadKey();
         }
         public static Componentes CrearComponentes()
         {
@@ -150,73 +152,77 @@ namespace TiendaInformatica
         {
             List<string> carro = new List<string>();
             Catalogo catalogo = new Catalogo();
+
             byte opcion;
+            byte opcionNuevo;
 
             do
             {
                 MostrarMenu();
+                if(!byte.TryParse(Console.ReadLine(), out opcion))
+                    Console.WriteLine("Tiene que elegir un número del 1 al 7");
 
-            } while (!byte.TryParse(Console.ReadLine(), out opcion));
-
-            switch (opcion)
-            {
-                case 1:
-                    Console.WriteLine("Gracias por utilizar nuestro servicio!");
-                    break;
-                case 2:
+                switch (opcion)
+                {
+                    case 1:
+                        Console.WriteLine("Gracias por utilizar nuestro servicio!");
+                        break;
+                    case 2:
                     
-                    do
-                    {
-                        Console.Clear();
-                        Console.WriteLine("\n| TIENDA DE INFORMATICA \n");
-                        Console.WriteLine("| Escoja tipo de producto a crear");
-                        Console.WriteLine("| 1. Componentes");
-                        Console.WriteLine("| 2. Portátiles");
-                        Console.WriteLine("| 3. Periféricos");
-                        Console.WriteLine("|\n Introduzca un número del 1 al 3");
+                        do
+                        {
+                            Console.Clear();
+                            Console.WriteLine("\n| TIENDA DE INFORMATICA \n");
+                            Console.WriteLine("| Escoja tipo de producto a crear");
+                            Console.WriteLine("| 1. Componentes");
+                            Console.WriteLine("| 2. Portátiles");
+                            Console.WriteLine("| 3. Periféricos");
+                            Console.WriteLine("|\n Introduzca un número del 1 al 3");
 
-                    } while (!byte.TryParse(Console.ReadLine(), out opcion));
+                        } while (!byte.TryParse(Console.ReadLine(), out opcionNuevo));
 
-                    if (opcion > 0 && opcion < 4)
-                        CrearProducto(opcion, catalogo);
+                        if (opcionNuevo > 0 && opcionNuevo < 4)
+                            CrearProducto(opcionNuevo, catalogo);
 
-                    break;
-                case 3:
-                    catalogo.ListarCatalogo();
-                    break;
-                case 4:
-                    string codigo;
+                        break;
+                    case 3:
+                        catalogo.ListarCatalogo();
+                        break;
+                    case 4:
+                        string codigo;
 
-                    do
-                    {
-                        Console.WriteLine("Introduzca el código del producto a borrar " +
-                            "(No puede dejar el campo vacío)");
-                        codigo = Console.ReadLine();
+                        do
+                        {
+                            catalogo.ListarCatalogo();
+                            Console.WriteLine("Introduzca el código del producto a borrar " +
+                                "(No puede dejar el campo vacío)");
+                            codigo = Console.ReadLine();
 
-                    } while (String.IsNullOrEmpty(codigo));
+                        } while (String.IsNullOrEmpty(codigo));
 
-                    if(catalogo.EliminarProducto(codigo))
-                        Console.WriteLine("El producto se ha eliminado correctamente");
-                    else
-                        Console.WriteLine("No se ha podido eliminar el producto");
+                        if(catalogo.EliminarProducto(codigo))
+                            Console.WriteLine("El producto se ha eliminado correctamente");
+                        else
+                            Console.WriteLine("No se ha podido eliminar el producto");
+                        Console.ReadKey();
+                        break;
+                    case 5:
 
-                    break;
-                case 5:
+                        break;
+                    case 6:
 
-                    break;
-                case 6:
+                        float precioTotal = catalogo.CalcularTotal(carro);
+                        Console.WriteLine("\n El precio total del carro es {0}", precioTotal);
 
-                    float precioTotal = catalogo.CalcularTotal(carro);
-                    Console.WriteLine("\n El precio total del carro es {0}", precioTotal);
+                        break;
+                    case 7:
 
-                    break;
-                case 7:
-
-                    break;
-                default:
-                    Console.WriteLine("Tiene que escoger una opción válida del menu");
-                    break;
-            }
+                        break;
+                    default:
+                        Console.WriteLine("Tiene que escoger una opción válida del menu");
+                        break;
+                }
+            } while (opcion != 1);
         }
     }
 }
