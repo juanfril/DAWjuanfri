@@ -8,9 +8,17 @@ namespace TiendaInformatica
 
         public Portatiles() : base()
         {
-            tamanyoPantalla = 0.00f;
-            ram = 0;
-            discoDuro = 0;
+            TamanyoPantalla = 0.00f;
+            Ram = 0;
+            DiscoDuro = 0;
+        }
+        public Portatiles(string codigo, string marca, string modelo,
+            float precio, float tamanyoPantalla, int ram, int discoDuro)
+            : base(codigo, marca, modelo, precio)
+        {
+            this.TamanyoPantalla = tamanyoPantalla;
+            this.Ram = ram;
+            this.DiscoDuro = discoDuro;
         }
 
         public float TamanyoPantalla { get; set; }
@@ -19,8 +27,8 @@ namespace TiendaInformatica
 
         public override string ToString()
         {
-            return base.ToString() + " |Tamaño de pantalla: " + TamanyoPantalla + 
-                " |Ram instalada: " + Ram + " GB |Disco duro: " + DiscoDuro + " GB";
+            return "- Tamaño de pantalla: " + TamanyoPantalla + " inch | Ram instalada: " +
+                Ram + " GB | Disco duro: " + DiscoDuro + " GB" + base.ToString();
         }
     }
 }

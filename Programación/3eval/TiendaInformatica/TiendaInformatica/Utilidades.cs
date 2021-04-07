@@ -7,14 +7,14 @@ namespace TiendaInformatica
     {
         public static bool ComprobarCadena(string texto)
         {
-            bool error = false;
+            bool correcto = true;
 
             if (String.IsNullOrEmpty(texto))
             {
-                error = true;
+                correcto = false;
             }
 
-            return error;
+            return correcto;
         }
         public static bool ComprobarEntero(string texto)
         {

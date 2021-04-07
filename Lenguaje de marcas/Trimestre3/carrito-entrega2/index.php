@@ -104,20 +104,28 @@
 			<div class="clear"></div>
 		</div>
 		<div id = "formunario">
-			<form action="index.php" method="get">
-				<p>Buscar por nombre <input class="bsc_etxto" type="text" name="Buscar"></p>
-				<p>Buscar por importe</p>
-				<p>
-					<input class="bsc_importe" type="number" name="desde" min="0" placeholder="desde">
-					<input class="bsc_importe" type="number" name="hasta" min="0" placeholder="hasta">
-				</p>
-				
-				<p>
-					<input type="submit" value="Buscar">
-				</p>
+			<form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
+				<br>
+				<label for="nombre">Buscar por nombre</label>
+				<input type="text" name="nombre" value="">
+				<br>
+				<p>Buscar por precio:</p>
+				<label for="desde">Desde</label>
+				<input type="number" name="desde" value="">
+				<label for="hasta">Hasta</label>
+				<input type="number" name="hasta" value="">
+				<br>
+				<br>
+				<input type="submit" value="Enviar"> 
 			</form>
+			<?php
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					if(!trim($nombre) == false){
+						var_dump($_POST);
+					}
+				}
+			?>
 		</div>
-		
 	</div>
 	<script src="./scripts/carro.js"></script>
 </body>

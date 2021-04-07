@@ -10,10 +10,19 @@ namespace TiendaInformatica
 
         public ProductoInformatico()
         {
-            codigo = "aa00";
-            marca = "generica";
-            modelo = "standard";
-            precio = 0.00f;
+            Codigo = "aa00";
+            Marca = "generica";
+            Modelo = "standard";
+            Precio = 0.00f;
+        }
+
+        public ProductoInformatico(string codigo, string marca, string modelo,
+            float precio)
+        {
+            this.Codigo = codigo;
+            this.Marca = marca;
+            this.Modelo = modelo;
+            this.Precio = precio;
         }
         public string Codigo { get; set; }
         public string Marca { get; set; }
@@ -22,8 +31,8 @@ namespace TiendaInformatica
 
         public override string ToString()
         {
-            return "Código producto: " + Codigo + " |Marca; " + Marca +
-                " | Modelo: " + Modelo + " |Precio: " + Precio;
+            return " | Código producto: " + Codigo + " |Marca; " + Marca +
+                " | Modelo: " + Modelo + " |Precio: " + Precio + "euros";
         }
     }
 }
