@@ -1,13 +1,13 @@
 ﻿/*
  Juan Fco. Losa Márquez
  Practica Evaluable Tema 7
- Apartado 1 si / no / parcialmente
- Apartado 2 si / no / parcialmente
- Apartado 3 si / no / parcialmente
- Apartado 4 si / no / parcialmente
- Apartado 5 si / no / parcialmente
- Apartado 6 si / no / parcialmente
- Apartado 7 si / no / parcialmente
+ Apartado 1 si
+ Apartado 2 si
+ Apartado 3 si
+ Apartado 4 si
+ Apartado 5 si
+ Apartado 6 si
+ Apartado 7 si
  */
 
 using System;
@@ -72,7 +72,7 @@ namespace TiendaInformatica
                 Console.WriteLine("No se ha podido añadir el producto," +
                     " revise los datos e intentelo de nuevo.");
 
-            Console.ReadKey();
+            Utilidades.Pausa();
         }
         public static Componentes CrearComponentes()
         {
@@ -155,6 +155,8 @@ namespace TiendaInformatica
 
             byte opcion;
             byte opcionNuevo;
+            string añadirCarro;
+            string borrarCarro;
 
             do
             {
@@ -187,39 +189,60 @@ namespace TiendaInformatica
                         break;
                     case 3:
                         catalogo.ListarCatalogo();
+                        Utilidades.Pausa();
+
                         break;
                     case 4:
-                        string codigo;
-
                         do
                         {
+                            Console.Clear();
                             catalogo.ListarCatalogo();
                             Console.WriteLine("Introduzca el código del producto a borrar " +
                                 "(No puede dejar el campo vacío)");
-                            codigo = Console.ReadLine();
+                            borrarCarro = Console.ReadLine();
 
-                        } while (String.IsNullOrEmpty(codigo));
+                        } while (String.IsNullOrEmpty(borrarCarro));
 
-                        if(catalogo.EliminarProducto(codigo))
+                        if(catalogo.EliminarProducto(borrarCarro))
                             Console.WriteLine("El producto se ha eliminado correctamente");
                         else
                             Console.WriteLine("No se ha podido eliminar el producto");
-                        Console.ReadKey();
+                            Utilidades.Pausa();
                         break;
                     case 5:
+                        do
+                        {
+                            Console.Clear();
+                            catalogo.ListarCatalogo();
+                            Console.WriteLine("\n" +
+                                "Introduzca el código del producto a añadir " +
+                                "(No puede dejar el campo vacío)");
+                            añadirCarro = Console.ReadLine();
+
+                        } while (String.IsNullOrEmpty(añadirCarro));
+
+                        if(catalogo.ObtenerProducto(añadirCarro) == null)
+                            Console.WriteLine("Artículo no encontrado");
+                        else
+                        {
+                            carro.Add(añadirCarro);
+                            Console.WriteLine("Artículo añadido correctamente");
+                        }
+                        Utilidades.Pausa();
 
                         break;
                     case 6:
-
                         float precioTotal = catalogo.CalcularTotal(carro);
                         Console.WriteLine("\n El precio total del carro es {0}", precioTotal);
-
+                        Utilidades.Pausa();
                         break;
                     case 7:
-
+                        carro.Clear();
+                        Console.WriteLine("\nCarro vacío");
+                        Utilidades.Pausa();
                         break;
                     default:
-                        Console.WriteLine("Tiene que escoger una opción válida del menu");
+                        Console.WriteLine("\nTiene que escoger una opción válida del menu");
                         break;
                 }
             } while (opcion != 1);

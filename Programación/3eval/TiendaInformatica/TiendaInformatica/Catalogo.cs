@@ -49,7 +49,7 @@ namespace TiendaInformatica
             {
                 string nombreAtributo = listaPropiedades[i].Name;
                 //Type tipo = listaPropiedades[i].GetType();
-                //Console.WriteLine(tipo.DeclaringType);
+                //En un principio quería obtener el tipo de variable; pero no pude
                 string valor = listaPropiedades[i].GetValue(producto).ToString();
 
                 if (nombreAtributo.Equals("Nombre") || nombreAtributo.Equals("Marca") ||
@@ -76,7 +76,7 @@ namespace TiendaInformatica
             if (!catalogoEnumerador.MoveNext())
             {
                 Console.WriteLine("Nada que mostrar");
-                Console.ReadKey();
+                Utilidades.Pausa();
             }
             else
             {
@@ -86,7 +86,6 @@ namespace TiendaInformatica
                     Console.WriteLine(catalogoEnumerador.Current.Value);
                     Console.WriteLine();
                 }
-                Console.ReadKey();
             }
         }
 
@@ -105,15 +104,33 @@ namespace TiendaInformatica
 
         public ProductoInformatico ObtenerProducto(string codigo)
         {
-            string codigoVuelta = null;
+            ProductoInformatico temporal = null;
+            string tipoProducto;
 
             foreach (KeyValuePair<string, ProductoInformatico> key in catalogo)
             {
                 if (catalogo.ContainsKey(codigo))
-                    codigoVuelta = key.Key;
+                {
+                    tipoProducto = key.Value.GetType().ToString();
+                    if (tipoProducto.Equals("TiendaInformatica.Componentes"))
+                    {
+                        temporal = new Componentes();
+                        temporal = key.Value;
+                    }
+                    else if (tipoProducto.Equals("TiendaInformatica.Portatiles"))
+                    {
+                        temporal = new Portatiles();
+                        temporal = key.Value;
+                    }
+                    else
+                    {
+                        temporal = new Perifericos();
+                        temporal = key.Value;
+                    }
+                }
             }
 
-            return catalogo[codigoVuelta];
+            return temporal;
         } 
 
         public float CalcularTotal(List<string> listaCarro)

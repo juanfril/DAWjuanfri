@@ -46,5 +46,10 @@ namespace TiendaInformatica
             
             return correcto;
         }
+        public static void Pausa()
+        {
+            Console.WriteLine("\nPresione una tecla para continuar");
+            Console.ReadKey();
+        }
     }
 }
