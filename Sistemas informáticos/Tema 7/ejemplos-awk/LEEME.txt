@@ -1,0 +1,1 @@
+Los ejemplos del 1 al 9 trabajan con el archivo pedido.txt (excepto el 8 que no trabaja con ninguno), mientras que el ejemplo 10 trabaja con letras.txt 
