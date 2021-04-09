@@ -1,0 +1,7 @@
+B5361;Componentes;Procesador;145.65;2
+A4315;Componentes;Placa base;109.95;2
+A0043;Periféricos;Memoria USB 32GB;19.50;6
+B0435;Componentes;Disco duro 1TB;54.15;4
+B1324;Periféricos;Impresora;67.89;1
+C4359;Redes;Router 802.11n;34.90;1
+B4251;Redes;Cable Ethernet 3m;3.95;15
