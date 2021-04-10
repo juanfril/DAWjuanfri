@@ -1,0 +1,21 @@
+------------ ESTAS SI DEBEN SALIR ----------------
+Mi nombre es Pepito Pérez
+Mis teléfonos son 967564345,678987654
+Teléfono con prefijo: +34-657456345
+Mi DNI: 23435465Y
+pepito28@gmail.com es mi dirección de correo
+aunque también tengo otra en pepito.perez_15@hola.es
+Me conecto desde la IP 194.54.230.15
+y la MAC de mi router es FF:3E:45:34:A4:2E
+Ayer aprendí HTML <p>hola mundo</p>
+Mensaje envíado el 13/12/2014
+
+------------ ESTOS NO DEBERÍAN SALIR ----------------
+El teléfono 98398534 no es válido ni tampoco 94032454678
+El DNI 54639935JY tampoco. Ni 943526T
+El correo sadfs@ewf.com@hola.es no me valida
+Mi IP falsa es 345.43.655.260, la otra falsa es 32.243.12
+Y la IP 192.168.0.256 se sale de rango también
+La MAC F4:6J:2A:44:7H:FD no funciona, ni tampoco 4A:2E:43:5B
+Y el HTML no va así </p>para nada<p>
+Mensaje no enviado el 43/12/2099, tampoco el 13/14/2014

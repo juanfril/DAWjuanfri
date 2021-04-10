@@ -1,0 +1,8 @@
+15.40234-A;Toalla;2.45;10
+7.63456-G;Calcetín negro;1.60;10
+8-34562.D;Pastel;2,95;20
+123-4375-R;Sacacorchos;0,95;30
+21.34562-E;Lápiz;0.50;120
+24.52353-ERT;Trepanadora;32.00;14
+54634-T;Aceite;32.00,30;14
+7.63478-R;Neumático;130.45;6

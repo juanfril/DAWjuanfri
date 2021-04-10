@@ -1,0 +1,12 @@
+Deberían salir 6 dominios correctos según enunciado
+www.google.es
+mail.subdom.pepe.es
+anda.net
+tipo.de-perro.muy.largo.demasiado
+este.tampoco.saldra
+admin.este-si.uk
+www.tambien.este.info
+www.p1234.ok
+oficina.ninguna.e98
+este.123no.sale
+ni,este.com

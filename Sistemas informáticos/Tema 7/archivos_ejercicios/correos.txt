@@ -1,0 +1,10 @@
+En este archivo hay 3 correos con formato correcto
+pedro@dominio.es
+pedro@juan@pepe.hola
+notengousuario.com
+%usu@domin+.uk
+jose.perez-martinez@dominio123.com
+@novale.net
+tampoco.vale@com
+@.no
+estesi@my-domain.net

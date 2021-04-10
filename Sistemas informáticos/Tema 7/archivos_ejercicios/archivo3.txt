@@ -1,0 +1,5 @@
+Nombre ,   Dirección   ,   Teléfono   -> home
+Pepe   ,   Calle Pepe  ,   987987987  -> /home/pepe
+Juan   ,   Calle Juan  ,   999888777  -> /home/juan
+Ana    ,   Calle Ana   ,   666777888  -> /home/ana
+Marta  ,   Calle Marta ,   689543234  -> /home/marta
