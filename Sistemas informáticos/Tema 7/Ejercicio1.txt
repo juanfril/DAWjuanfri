@@ -1,0 +1,31 @@
+1
+~$ echo "ejer1/trabajo/urgente ejer1/trabajo/terminado ejer1/personal/documentos ejer1/personal/descargas" | xargs mkdir -p
+2
+~$ echo "$(date +"%A, %d de %B de %Y a las %R")" > ejer1/personal/documentos/fecha.txt
+3
+chmod o+w ejer1/personal/documentos/fecha.txt
+4
+~/ejer1/trabajo$ mv ../personal/documentos/fecha.txt  ../trabajo/terminado/
+5
+~/ejer1/personal/documentos$ ln -s ../../trabajo/terminado/fecha.txt enlfecha.txt
+6
+~/ejer1/personal/documentos$ mv enlfecha.txt ../descargas/
+
+No funciona porque ha cambiado la ruta de acceso. El enlace blando guarda la dirección del 
+original, no los datos que contiene el archivo. Eso lo hacen los enlaces duros.
+7
+~$ echo "$USER" > ejer1/personal/documentos/usuario.txt
+
+~$ cat ejer1/personal/documentos/usuario.txt ejer1/trabajo/terminado/fecha.txt > ejer1/personal/documentos/login.txt
+8
+~$ sudo chown juanfri ejer1/personal/documentos/login.txt
+
+~$ sudo chmod g+w ejer1/personal/documentos/login.txt
+9
+~$ echo "Hola como estas" > ejer1/personal/documentos/login.txt
+
+En esta caso si que me ha funcionado, porque el usuario que uso está en el grupo root, y al 
+haberle dado permisos en el ejercicio anterior, puedo modificarlo.
+10
+
+
