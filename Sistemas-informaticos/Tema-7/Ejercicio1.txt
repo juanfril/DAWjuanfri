@@ -1,34 +1,61 @@
 1
 ~$ echo "ejer1/trabajo/urgente ejer1/trabajo/terminado ejer1/personal/documentos ejer1/personal/descargas" | xargs mkdir -p
+
 2
 ~$ echo "$(date +"%A, %d de %B de %Y a las %R")" > ejer1/personal/documentos/fecha.txt
+
 3
 chmod o+w ejer1/personal/documentos/fecha.txt
+
 4
 ~/ejer1/trabajo$ mv ../personal/documentos/fecha.txt  ../trabajo/terminado/
+
 5
 ~/ejer1/personal/documentos$ ln -s ../../trabajo/terminado/fecha.txt enlfecha.txt
+
 6
 ~/ejer1/personal/documentos$ mv enlfecha.txt ../descargas/
 
 Si funciona porque aunque se haya cambiado la ruta del enlace, el archivo original sigue donde estaba. Un enlace blando guarda la ruta del original.
+
 7
 ~$ echo "$USER" > ejer1/personal/documentos/usuario.txt
 
 ~$ cat ejer1/personal/documentos/usuario.txt ejer1/trabajo/terminado/fecha.txt > ejer1/personal/documentos/login.txt
+
 8
 ~$ sudo chown juanfri ejer1/personal/documentos/login.txt
 
 ~$ sudo chmod g+w ejer1/personal/documentos/login.txt
+
 9
 ~$ echo "Hola como estas" > ejer1/personal/documentos/login.txt
 
 En esta caso si que me ha funcionado, porque el usuario que uso está en el grupo root, y al haberle dado permisos en el ejercicio anterior, puedo modificarlo.
+
 10
 ~/ejer1/trabajo/urgente$ mv ../../personal/descargas/ ./
 
 Ahora no funciona porque el archivo origen esta en otro nivel
+
 11
+~$ find /etc -name '*conf*' -size -300k -type f
+
+12
+-------------no va----------------
+~$ find /etc -name '*conf*' -size -300k -type f -exec ls -l {} ;
+
+13
+~$ echo "El archivo $(ls si.txt) pertenece a $(ls -l si.txt | cut -d" " -f 3) y su tamaño es de $(du -bh si.txt | cut -f 1)bytes."
+
+14
+~$ cat /etc/group | cut -d ":" -f 1 | grep '\<a'
+
+15
+~$ cut -d ":" -f 1,3,7 /etc/passwd | sort -r
+
+16
+
 
 
 
