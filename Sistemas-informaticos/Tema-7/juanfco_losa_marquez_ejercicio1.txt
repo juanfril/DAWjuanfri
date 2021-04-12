@@ -42,8 +42,7 @@ Ahora no funciona porque el archivo origen esta en otro nivel
 ~$ find /etc -name '*conf*' -size -300k -type f
 
 12
--------------no va----------------
-~$ find /etc -name '*conf*' -size -300k -type f -exec ls -l {} ;
+~$ find /etc -name '*conf*' -size -300k -type f -ls
 
 13
 ~$ echo "El archivo $(ls si.txt) pertenece a $(ls -l si.txt | cut -d" " -f 3) y su tamaño es de $(du -bh si.txt | cut -f 1)bytes."

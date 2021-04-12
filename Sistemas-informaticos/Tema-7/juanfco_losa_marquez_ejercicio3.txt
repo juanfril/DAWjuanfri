@@ -6,7 +6,7 @@
 3
 ~$ cat archivos_ejercicios/cifs.txt | egrep ^'([A-Z]?([0-9]{7}[A-Z]{1}|[0-9]{8})|[0-9]{8}[A-Z]{1})'$
 4
-cat archivos_ejercicios/correos.txt | egrep ^'[a-zA-Z]+[a-zA-Z.-]+@[a-zA-Z0-9-]+.[a-z]{2,4}'$
+~$ cat archivos_ejercicios/correos.txt | egrep ^'[a-zA-Z]+[a-zA-Z.-]+@[a-zA-Z0-9-]+.[a-z]{2,4}'$
 5
 -----------no va bien--------------
 ^([a-z]+[a-z0-9-]?.)+(.[a-z]{2,4}$)
@@ -17,5 +17,8 @@ cat archivos_ejercicios/correos.txt | egrep ^'[a-zA-Z]+[a-zA-Z.-]+@[a-zA-Z0-9-]+
 ~$ cat archivos_ejercicios/reservas.txt | sed -r 's/\(/-/g;s/\)//g;s/>//g' | awk -F'-' '/Salmón|Bacalao|Lubina/ {print "En la"$2"comerán"$4" "$3"a las "$1}'
 3-----------------------
 ~$ awk -F';' '{print $1"+"$2"="$1+$2}' archivos_ejercicios/numeros.txt
-4---------------------------sin terminar-----------
-~$ cat archivos_ejercicios/productos.txt | egrep -i ^'[0-9]{1,2}.[0-9]{5}-[a-z]{1};' | awk -F ';' '{print$1"-"$2":"$3"x"$4"="$3*$4"€. Con IVA = "}'
+4------------------------------------
+cat archivos_ejercicios/productos.txt | egrep -i ^'[0-9]{1,2}.[0-9]{5}-[a-z]{1};' | sed -r 's/\./,/g' | awk -F ';' '{printf "\n%s - %s: %.2f€ x %d unidades = %.2f€. Con IVA = %.2f€\n", $1, $2, $3, $4, $3*$4, $3*$4*1.21 }'
+5-----------------------------
+~$ cat archivos_ejercicios/passwords.txt | sed -n '/[A-Z]/p' | sed -n '/[a-z]/p' | sed -n '/[0-9]/p' | sed -n '/^.\{6\}/p' | sed -n '/^.\{12\}/!p' | sed -n '/ /!p'
+
