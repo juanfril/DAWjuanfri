@@ -5,6 +5,9 @@ module EducationalGame {
     requires javafx.web;
     requires javafx.base;
     requires javafx.fxml;
+    requires javafx.swt;
 
-    opens educational;
+    opens educational.controller;
+    opens educational.model;
+    opens educational.scene;
 }
