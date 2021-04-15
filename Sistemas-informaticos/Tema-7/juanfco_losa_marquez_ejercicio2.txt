@@ -1,0 +1,30 @@
+A
+
+telefono
+~$ cat archivos_ejercicios/archivo1.txt | egrep -w '[0-9]{9}'
+DNI
+~$ cat archivos_ejercicios/archivo1.txt | egrep -iw '[0-9]{8}[a-z]'
+email
+----------------no funciona bien--------------
+~$ cat archivos_ejercicios/archivo1.txt | egrep -i '[[:alnum:]+\.\_\-]*@[[:alnum:]]*.(com|es)'
+IP
+~$ cat archivos_ejercicios/archivo1.txt | egrep -w '(([0-9]|[0-9]{2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[0-9]{2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])'
+MAC
+~$ cat archivos_ejercicios/archivo1.txt | egrep -iw '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
+HTML
+~$ cat archivos_ejercicios/archivo1.txt | egrep -w '(<.+>).+(<\/.+>)'
+fecha
+~$ cat archivos_ejercicios/archivo1.txt | egrep [0-3][0-9]/[01][0-2]/[0-2][0-9]{3}
+
+B
+1
+~$ cat archivos_ejercicios/archivo2.txt | sed -r 's/\)/\-/g;s/\:/\-/g;s/\=/\ /g;s/\(/-/g' | cut -d '-' -f 1,2,5 | sort -k 2
+2
+~$ cat archivos_ejercicios/archivo2.txt | sed -r 's/\)/\-/g;s/\:/\-/g;s/\=/\ /g;s/\(/-/g' | cut -d '-' -f 2,3,4 | sed -r 's/\-/<=>/g'
+
+C
+1
+~$ cat archivos_ejercicios/archivo3.txt | sed -r 's/ *//g;s/\-/,/g' | tail -n +2 | cut -d ',' -f 3
+2
+~$ cat archivos_ejercicios/archivo3.txt | sed -r 's/ *//g;s/,/\-/g;s/>//g' | tail -n +2 | cut -d '-' -f -1,4 | sort
+
