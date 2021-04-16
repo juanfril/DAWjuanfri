@@ -6,6 +6,7 @@ module EducationalGame {
     requires javafx.base;
     requires javafx.fxml;
     requires javafx.swt;
+    requires java.datatransfer;
 
     opens educational.controller;
     opens educational.model;

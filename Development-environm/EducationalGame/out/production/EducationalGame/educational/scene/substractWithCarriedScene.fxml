@@ -8,7 +8,15 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="educational.controller.SubstractWithCarriedController"
+            fx:controller="educational.controller.SubtractWithCarriedController"
             prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label layoutX="278.0" layoutY="35.0" text="Subtract with carried" />
+        <Label layoutX="279.0" layoutY="102.0" text="Number1" />
+        <Label layoutX="278.0" layoutY="146.0" text="Number2" />
+        <TextField layoutX="262.0" layoutY="206.0" prefHeight="25.0" prefWidth="78.0" />
+        <Button layoutX="275.0" layoutY="287.0" mnemonicParsing="false" text="Result" />
+        <Label layoutX="214.0" layoutY="146.0" text="-" />
+    </children>
 
 </AnchorPane>

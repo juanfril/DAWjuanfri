@@ -8,11 +8,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+//import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainMenuController extends GeneralController {
 
+    @FXML
     public TextField txtAge;
     @FXML
     private TextField txtName;
@@ -22,21 +24,16 @@ public class MainMenuController extends GeneralController {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        btnGo.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                dialog.setHeaderText("Informacion");
-                dialog.setContentText("Hello world");
-                dialog.showAndWait();
-            }
+        btnGo.setOnAction(actionEvent -> {
+            player = new Player(txtName.getText(), Byte.parseByte(txtAge.getText()));
+
+            dialog.setHeaderText("Information");
+            dialog.setContentText(player.toString());
+            dialog.showAndWait();
         });
     }
 
-    @FXML @Override
-    public void clic(ActionEvent actionEvent) {}
+    /*@FXML @Override
+    public void clic(ActionEvent actionEvent) {}*/
 
-    @FXML
-    private void saveName(ActionEvent event){
-        player = new Player(this.txtName.getText(), Byte.parseByte(this.txtAge.getText()));
-    }
 }
