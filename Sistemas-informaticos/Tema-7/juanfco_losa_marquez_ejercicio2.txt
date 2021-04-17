@@ -12,8 +12,7 @@ IP
 MAC
 ~$ cat archivos_ejercicios/archivo1.txt | egrep -iw '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
 HTML
---------------no funciona bien----------------
-~$ cat archivos_ejercicios/archivo1.txt | egrep -i ^\<[a-z]*\>
+~$ cat archivos_ejercicios/archivo1.txt | egrep -w '(<.+>).+(<\/.+>)'
 fecha
 ~$ cat archivos_ejercicios/archivo1.txt | egrep [0-3][0-9]/[01][0-2]/[0-2][0-9]{3}
 
