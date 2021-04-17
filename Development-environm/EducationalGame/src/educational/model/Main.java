@@ -11,13 +11,14 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) {
 
         try{
             Parent root = FXMLLoader.load(getClass().getResource("/educational/scene/mainMenuScene.fxml"));
             primaryStage.setTitle("Educational game");
             primaryStage.setScene(new Scene(root, 600, 400));
             primaryStage.show();
+
         } catch (Exception exception){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText(String.valueOf(exception));

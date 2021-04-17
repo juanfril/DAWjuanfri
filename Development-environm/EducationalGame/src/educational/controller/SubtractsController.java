@@ -10,5 +10,6 @@ import java.util.ResourceBundle;
 
 import educational.model.MathGames;
 
-public class SubtractsController extends MathGames {
+public class SubtractsController extends GeneralController {
+
 }
