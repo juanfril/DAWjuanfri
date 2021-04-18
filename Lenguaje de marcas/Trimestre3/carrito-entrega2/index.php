@@ -6,7 +6,7 @@
 			'descripcion' => 'descripcion i1',
 			'precio' => 20,
 			'stock' => 10,
-			'activo' => true
+			'activo' => false
 		),
 		array(
 			'nombre' => 'Reloj 2',
@@ -14,7 +14,7 @@
 			'descripcion' => 'descripcion i2',
 			'precio' => 24,
 			'stock' => 10,
-			'activo' => true
+			'activo' => false
 		),
 		array(
 			'nombre' => 'Camiseta 3',
@@ -22,7 +22,7 @@
 			'descripcion' => 'descripcion i3',
 			'precio' => 18,
 			'stock' => 10,
-			'activo' => true
+			'activo' => false
 		),
 		array(
 			'nombre' => 'Reloj 4',
@@ -30,7 +30,7 @@
 			'descripcion' => 'descripcion i4',
 			'precio' => 30,
 			'stock' => 10,
-			'activo' => true
+			'activo' => false
 		),
 		array(
 			'nombre' => 'Reloj 5',
@@ -38,7 +38,7 @@
 			'descripcion' => 'descripcion i5',
 			'precio' => 28,
 			'stock' => 10,
-			'activo' => true
+			'activo' => false
 		),
 		array(
 			'nombre' => 'Camiseta 6',
@@ -46,7 +46,7 @@
 			'descripcion' => 'descripcion i6',
 			'precio' => 15,
 			'stock' => 10,
-			'activo' => true
+			'activo' => false
 		),
 	)
 ?>
@@ -61,19 +61,77 @@
 <body>
 	<div id="item_container">
 		<?php
-			$contadorId = 1;
-			foreach($articulos as $articulo){
-				
-				if($articulo["activo"]){
-					echo
-						"<div class='item' id='i$contadorId'>
-							<img src='$articulo[url]' alt='$articulo[descripcion]'>
-							<label class='title'>$articulo[nombre]</label>
-							<label class='price'>$articulo[precio] €</label>
-							<label class='stock'>Stock $articulo[stock]</label>
-						</div>";
+			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+				if(!empty($_POST['nombre']) && !empty($_POST['desde']) &&
+				!empty($_POST['hasta'])){
+					
+					/* echo 'post: <br>', var_dump($_POST);
+					echo '<br> encontrado: <br>'; */
+					//en principio no hace falta porque al input le he puesto tipo número
+					/* if(!is_numeric($_POST['desde']))
+						$_POST['desde'] = 0;
+					else if(!is_numeric($_POST['hasta']))
+						$_POST['hasta'] = 0; */
+
+					$encontrados = array_filter($articulos, function($e){
+						$posicion = stripos($e['nombre'], trim($_POST['nombre']));
+						return
+						$posicion !== false &&
+						$e['precio'] >= $_POST['desde'] &&
+						$e['precio'] <= $_POST['hasta'];
+					});
+					/* var_dump($encontrados);
+					echo '<p>artículos:</p>';
+					var_dump($articulos); */
+					ocultar($articulos, $encontrados);
+				} else{
+					/* echo '<p style="color:red">Tiene que rellenar todos los campos</p>'; */
+					for ($i=0; $i < count($articulos); $i++) { 
+						$articulos[$i]['activo'] = true;
+					}
 				}
-				$contadorId++;
+			}
+			function ocultar(&$articulos, $encontrados){
+				if(empty($encontrados)){
+					echo '<p style="color:red">No se encontraron artículos</p>';
+				}else {
+					foreach ($encontrados as $encontrado => $valor) { 
+						$clave = array_search($valor, $articulos);
+
+						if($clave != null){
+							$articulos[$clave]['activo'] = true;
+						}
+					}
+				}
+
+			}
+			function cargarArticulos($articulos){
+				$contadorId = 1;
+				
+				foreach($articulos as $articulo){
+					
+					if($articulo["activo"]){
+						echo
+						"<div class='item' id='i$contadorId'>
+						<img src='$articulo[url]' alt='$articulo[descripcion]'>
+						<label class='title'>$articulo[nombre]</label>
+						<label class='price'>$articulo[precio] €</label>
+						<label class='stock'>Stock $articulo[stock]</label>
+						</div>";
+					}
+					$contadorId++;
+				}
+			}
+			cargarArticulos($articulos);
+			function cargarFormulario(){
+				echo
+				"<label for='nombre'>Buscar por nombre</label>
+				<input type='text' name='nombre' value='$_POST[nombre]'>
+				<label for='desde'>Precio desde</label>
+				<input type='number' name='desde' value='$_POST[desde]'>
+				<label for='hasta'>Precio hasta</label>
+				<input type='number' name='hasta' value='$_POST[hasta]'>
+				<input type='submit' value='Enviar'>";
 			}
 		?>
 		<div class= "clear"></div>
@@ -103,28 +161,12 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-		<div id = "formunario">
-			<form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
-				<br>
-				<label for="nombre">Buscar por nombre</label>
-				<input type="text" name="nombre" value="">
-				<br>
-				<p>Buscar por precio:</p>
-				<label for="desde">Desde</label>
-				<input type="number" name="desde" value="">
-				<label for="hasta">Hasta</label>
-				<input type="number" name="hasta" value="">
-				<br>
-				<br>
-				<input type="submit" value="Enviar"> 
+		<div id = "form_enviar">
+			<form action="<?= $_SERVER["PHP_SELF"]; ?>" method="post">
+				<?php
+					cargarFormulario();
+				?>
 			</form>
-			<?php
-				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-					if(!trim($nombre) == false){
-						var_dump($_POST);
-					}
-				}
-			?>
 		</div>
 	</div>
 	<script src="./scripts/carro.js"></script>

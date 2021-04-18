@@ -213,7 +213,7 @@ a.delete {
 	text-decoration: line-through;
 }
 
-#form_enviar  input
+#form_enviar input
 {
 	width:270px; text-align:left; 
 	padding: 9px; font-weight:bold;
@@ -229,7 +229,7 @@ a.delete {
 	float:left;
 }
 
-#form_enviar  input:focus 
+#form_enviar input:focus 
 {
 	outline: 0;
 	box-shadow: 0 0 10px #9F9FFF;
@@ -237,10 +237,10 @@ a.delete {
 	-webkit-box-shadow: 0 0 10px #9F9FFF;
 }
 
-#form_enviar  label
+#form_enviar label
 {
 	float:left; 
-	width:100px; 
+	width:1000px;
 	padding-top:10px;
 }
 
