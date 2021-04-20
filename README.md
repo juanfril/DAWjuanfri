@@ -1,2 +1,0 @@
-# DAWjuanfri
-Repositorio de apuntes
