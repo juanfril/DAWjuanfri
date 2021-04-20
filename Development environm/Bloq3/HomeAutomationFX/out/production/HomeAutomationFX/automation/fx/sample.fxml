@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="automation.fx.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="22.0" prefHeight="17.0" prefWidth="567.0" style="-fx-background-color: #feb236;" text="Label" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="361.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="22.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="78.0" prefHeight="17.0" prefWidth="567.0" style="-fx-background-color: #feb236;" text="Label" textAlignment="JUSTIFY" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="134.0" prefHeight="17.0" prefWidth="567.0" style="-fx-background-color: #feb236;" text="Label" textAlignment="JUSTIFY" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="192.0" prefHeight="17.0" prefWidth="567.0" style="-fx-background-color: #feb236;" text="Label" textAlignment="JUSTIFY" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="250.0" prefHeight="17.0" prefWidth="279.0" style="-fx-background-color: #feb236;" text="Label" textAlignment="JUSTIFY" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="303.0" layoutY="250.0" prefHeight="17.0" prefWidth="279.0" style="-fx-background-color: #feb236;" text="Label" textAlignment="JUSTIFY" />
+            <Button layoutX="17.0" layoutY="46.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Button" />
+            <Button layoutX="17.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Button" />
+            <Button layoutX="17.0" layoutY="157.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Button" />
+            <Button layoutX="17.0" layoutY="218.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Button" />
+            <Button layoutX="58.0" layoutY="274.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Button" />
+            <Button layoutX="347.0" layoutY="274.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Button" />
+            <TextField layoutX="331.0" layoutY="157.0" prefHeight="25.0" prefWidth="251.0" />
+            <TextField layoutX="331.0" layoutY="218.0" prefHeight="25.0" prefWidth="251.0" />
+            <Button layoutX="203.0" layoutY="329.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Apply Changes" />
+            <ComboBox layoutX="303.0" layoutY="46.0" prefHeight="25.0" prefWidth="279.0" />
+            <ComboBox layoutX="303.0" layoutY="102.0" prefHeight="25.0" prefWidth="279.0" />
+            <Label layoutX="235.0" layoutY="50.0" text="Percent:" />
+            <Label layoutX="235.0" layoutY="106.0" text="Percent:" />
+            <Label layoutX="235.0" layoutY="161.0" text="Temperature:" />
+            <Label layoutX="235.0" layoutY="222.0" text="Temperature:" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
