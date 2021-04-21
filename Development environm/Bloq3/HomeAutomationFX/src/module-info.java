@@ -8,4 +8,5 @@ module HomeAutomationFX {
     requires javafx.swt;
 
     opens automation.fx;
+    opens automation.data;
 }
