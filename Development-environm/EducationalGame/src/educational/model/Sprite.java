@@ -1,4 +1,4 @@
 package educational.model;
 
-public class Sprite {
+public class Sprite{
 }

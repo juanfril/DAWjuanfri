@@ -1,4 +1,4 @@
 package educational.model;
 
-public class Mouse {
+public class Mouse extends AnimatedSprites{
 }

@@ -1,4 +1,4 @@
 package educational.model;
 
-public class AnimatedSprites {
+public class AnimatedSprites extends Sprite{
 }
