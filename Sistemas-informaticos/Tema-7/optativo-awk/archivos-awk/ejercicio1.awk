@@ -13,8 +13,8 @@ BEGIN{
     print $1" -> "$2" de "$3". Saldo: "cuenta"€"
   }
   else {
-    intereses = cuenta * 0.25
+    intereses = cuenta * 0.025
     cuenta = cuenta + intereses
     print "Cobro de intereses de "intereses"€ ("intereses"). Saldo: "cuenta"€"
+  }
 }
-
