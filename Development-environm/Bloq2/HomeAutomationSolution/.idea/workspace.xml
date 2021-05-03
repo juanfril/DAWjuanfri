@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b5736d-6d0e-49f5-859e-bc1ad65808f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../HomeAutomation/src/automation/data/AutomationElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HomeAutomation/src/automation/data/AutomationElement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/automation/data/BlindTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeAutomationSolution.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HomeAutomationSolution.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -20,9 +28,114 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="automation.data" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.BlindTest.testToString">
+    <configuration name="BlindTest.getPercent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeAutomationSolution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="automation.data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="automation.data" />
+      <option name="MAIN_CLASS_NAME" value="automation.data.BlindTest" />
+      <option name="METHOD_NAME" value="getPercent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlindTest.lower" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeAutomationSolution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="automation.data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="automation.data" />
+      <option name="MAIN_CLASS_NAME" value="automation.data.BlindTest" />
+      <option name="METHOD_NAME" value="lower" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlindTest.testLower" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeAutomationSolution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="automation.data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="automation.data" />
+      <option name="MAIN_CLASS_NAME" value="automation.data.BlindTest" />
+      <option name="METHOD_NAME" value="testLower" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlindTest.testRaise" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeAutomationSolution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="automation.data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="automation.data" />
+      <option name="MAIN_CLASS_NAME" value="automation.data.BlindTest" />
+      <option name="METHOD_NAME" value="testRaise" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlindTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeAutomationSolution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="automation.data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="automation.data" />
+      <option name="MAIN_CLASS_NAME" value="automation.data.BlindTest" />
+      <option name="METHOD_NAME" value="testToString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BlindTest.testToString" />
+        <item itemvalue="JUnit.BlindTest.getPercent" />
+        <item itemvalue="JUnit.BlindTest.testRaise" />
+        <item itemvalue="JUnit.BlindTest.testLower" />
+        <item itemvalue="JUnit.BlindTest.lower" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
