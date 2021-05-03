@@ -103,7 +103,6 @@
 						}
 					}
 				}
-
 			}
 			function cargarArticulos($articulos){
 				$contadorId = 1;
@@ -124,13 +123,16 @@
 			}
 			cargarArticulos($articulos);
 			function cargarFormulario(){
+				$nombre = empty($_POST['nombre']) ? '' : $_POST['nombre'];
+				$desde = empty($_POST['desde']) ? '' : $_POST['desde'];
+				$hasta = empty($_POST['hasta']) ? '' : $_POST['hasta'];
 				echo
 				"<label for='nombre'>Buscar por nombre</label>
-				<input type='text' name='nombre' value='$_POST[nombre]'>
+				<input type='text' name='nombre' value='$nombre'>
 				<label for='desde'>Precio desde</label>
-				<input type='number' name='desde' value='$_POST[desde]'>
+				<input type='number' name='desde' value='$desde'>
 				<label for='hasta'>Precio hasta</label>
-				<input type='number' name='hasta' value='$_POST[hasta]'>
+				<input type='number' name='hasta' value='$hasta'>
 				<input type='submit' value='Enviar'>";
 			}
 		?>
