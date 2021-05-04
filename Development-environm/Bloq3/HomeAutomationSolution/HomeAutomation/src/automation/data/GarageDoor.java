@@ -1,16 +1,16 @@
 package automation.data;
 
 /**
- * Blinds are an AutomationElement subtype which can act as blinds
- * and then raise or lower.
+ * Subtype of door for garages. It can act as a blind,
+ * so it must implement the corresponding interface
  */
-public class Blind extends AutomationElement implements Blindable
+public class GarageDoor extends Door implements Blindable
 {
-    protected int percent;
+    private int percent;
 
-    public Blind(String name, int percent)
+    public GarageDoor(String name, boolean locked, int percent)
     {
-        super(name);
+        super(name, locked);
         this.percent = percent;
     }
 
@@ -23,8 +23,6 @@ public class Blind extends AutomationElement implements Blindable
     @Override
     public void raise(int percent)
     {
-        if(percent < 0)
-            percent = 0;
         this.percent = Math.min(100, this.percent + percent);
     }
 
@@ -37,8 +35,6 @@ public class Blind extends AutomationElement implements Blindable
     @Override
     public void lower(int percent)
     {
-        if(percent < 0)
-            percent = 0;
         this.percent = Math.max(0, this.percent - percent);
     }
 
@@ -49,8 +45,7 @@ public class Blind extends AutomationElement implements Blindable
     }
 
     @Override
-    public String toString()
-    {
-        return super.toString() + ": " + percent + "%";
+    public String toString() {
+        return super.toString() + ", " + percent + "%";
     }
 }
