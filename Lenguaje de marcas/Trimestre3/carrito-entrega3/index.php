@@ -1,3 +1,7 @@
+<?php
+	$articulos = getArticulos();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -42,9 +46,13 @@
 			function getArticulos(){
 				$articulos = [];
 
-				$con = @ new mysqli('localhost', 'usuario1', '123');
+				$con = @ new mysqli('localhost', 'root', '');
 				if($con->connect_error)
 					die('Error de conexión: ' . $con->connect_error);
+
+				$con->select_db('carrito');
+				if ($con->errno !== 0)
+					die('Error al seleccionar la BBDD: ' . $con->error);
 
 				$resultado = $con->query("SELECT * FROM articulos");
 
@@ -54,19 +62,17 @@
 						'title' => $registro['nombre'],
 						'price' => $registro['precio'],
 						'stock' => $registro['stock'],
-						'img' => $registro['imagen'],
+						'url' => $registro['ruta_imagen'],
 						'descripcion' => $registro['descripcion'],
 						'activo' => $registro['activo']
-					]
+					];
 				}
 
 				$con->close();
 
 				return $articulos;
 			}
-
-			$articulos = getArticulos();
-
+			
 			function cargarArticulos($articulos){
 				$contadorId = 1;
 				
