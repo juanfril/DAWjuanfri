@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ACDE8DA0-A918-403B-B5C8-79140B37BD58}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GestionMantenimiento</RootNamespace>
+    <AssemblyName>GestionMantenimiento</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tecnicos\GestionTecnicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\GestionTecnicos.Designer.cs">
+      <DependentUpon>GestionTecnicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\AñadirUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\AñadirUsuario.Designer.cs">
+      <DependentUpon>AñadirUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElementosInstalacion\Climatizacion.cs" />
+    <Compile Include="ElementosInstalacion\Electricidad.cs" />
+    <Compile Include="ElementosInstalacion\Fontaneria.cs" />
+    <Compile Include="GestionFicheros.cs" />
+    <Compile Include="Usuarios\GestionUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\GestionUsuarios.Designer.cs">
+      <DependentUpon>GestionUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\InterfazAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\InterfazAdministrador.Designer.cs">
+      <DependentUpon>InterfazAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElementosInstalacion\MaquinaGeneral.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\InterfazUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\InterfazUsuario.Designer.cs">
+      <DependentUpon>InterfazUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\Usuario.cs" />
+    <EmbeddedResource Include="Tecnicos\GestionTecnicos.resx">
+      <DependentUpon>GestionTecnicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\AñadirUsuario.resx">
+      <DependentUpon>AñadirUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\GestionUsuarios.resx">
+      <DependentUpon>GestionUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\InterfazAdministrador.resx">
+      <DependentUpon>InterfazAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Interfaces\InterfazUsuario.resx">
+      <DependentUpon>InterfazUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\GestionFicheros.datasource" />
+    <None Include="Properties\DataSources\IntroducirUsuario.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -13,40 +13,33 @@
 	<div id="item_container">
 		<?php
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-				if(!empty($_POST['nombre']) && !empty($_POST['desde']) &&
-				!empty($_POST['hasta'])){
+				$nombre = empty($_POST['nombre']) ? '%' : $_POST['nombre'];
+				$desde = empty($_POST['desde']) ? 0 : $_POST['desde'];
+				$hasta = empty($_POST['hasta']) ? 100 : $_POST['hasta'];
 
-					$encontrados = array_filter($articulos, function($e){
-						$posicion = stripos($e['nombre'], trim($_POST['nombre']));
-						return
-						$posicion !== false &&
-						$e['precio'] >= $_POST['desde'] &&
-						$e['precio'] <= $_POST['hasta'];
-					});
-					ocultar($articulos, $encontrados);
-				} else{
-					for ($i=0; $i < count($articulos); $i++) { 
-						$articulos[$i]['activo'] = true;
-					}
-				}
+				
+				ocultar($nombre, $desde, $hasta);
 			}
-			function ocultar(&$articulos, $encontrados){
-				if(empty($encontrados)){
-					echo '<p style="color:red">No se encontraron artículos</p>';
-				}else {
-					foreach ($encontrados as $encontrado => $valor) { 
-						$clave = array_search($valor, $articulos);
+			function ocultar($nombre, $desde, $hasta){
+				$con = @ new mysqli('localhost', 'usuario1', '123');
+					if($con->connect_error)
+						die('Error de conexión: ' . $con->connect_error);
 
-						if($clave != null){
-							$articulos[$clave]['activo'] = true;
-						}
-					}
-				}
+					$con->select_db('carrito');
+					if ($con->errno !== 0)
+						die('Error al seleccionar la BBDD: ' . $con->error);
+
+					$con->query("UPDATE articulos SET activo = 0");
+					$con->query("UPDATE articulos SET activo = 1 
+									WHERE LOWER(nombre) like '%$nombre%' and
+									precio >= $desde and precio <= $hasta");
+				$con->close();
 			}
+			
 			function getArticulos(){
 				$articulos = [];
 
-				$con = @ new mysqli('localhost', 'root', '');
+				$con = @ new mysqli('localhost', 'usuario1', '123');
 				if($con->connect_error)
 					die('Error de conexión: ' . $con->connect_error);
 
@@ -59,8 +52,8 @@
 				while ($registro = $resultado->fetch_array()){
 					$articulos[] = [
 						'id' => $registro['id'],
-						'title' => $registro['nombre'],
-						'price' => $registro['precio'],
+						'nombre' => $registro['nombre'],
+						'precio' => $registro['precio'],
 						'stock' => $registro['stock'],
 						'url' => $registro['ruta_imagen'],
 						'descripcion' => $registro['descripcion'],

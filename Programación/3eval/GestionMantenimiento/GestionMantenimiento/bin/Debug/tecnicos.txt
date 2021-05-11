@@ -1,0 +1,5 @@
+Joaquin Martínez;01/07/2015;fontanero
+Francisco Hernandez;10/05/2016;electricista
+Cesar Juarez;23/10/2018;frigorista
+Antonio Domingo;02/12/2020;electricista
+Raul Calvo;15/03/2011;fontanero
