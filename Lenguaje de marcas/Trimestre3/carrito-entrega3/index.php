@@ -1,7 +1,4 @@
-<?php
-	$articulos = getArticulos();
-?>
-
+//Sólo tendrás que cambiar la base de datos, que yo la llamé carrito.
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,30 +13,14 @@
 				$nombre = empty($_POST['nombre']) ? '%' : $_POST['nombre'];
 				$desde = empty($_POST['desde']) ? 0 : $_POST['desde'];
 				$hasta = empty($_POST['hasta']) ? 100 : $_POST['hasta'];
-
-				
-				ocultar($nombre, $desde, $hasta);
 			}
-			function ocultar($nombre, $desde, $hasta){
-				$con = @ new mysqli('localhost', 'usuario1', '123');
-					if($con->connect_error)
-						die('Error de conexión: ' . $con->connect_error);
 
-					$con->select_db('carrito');
-					if ($con->errno !== 0)
-						die('Error al seleccionar la BBDD: ' . $con->error);
-
-					$con->query("UPDATE articulos SET activo = 0");
-					$con->query("UPDATE articulos SET activo = 1 
-									WHERE LOWER(nombre) like '%$nombre%' and
-									precio >= $desde and precio <= $hasta");
-				$con->close();
-			}
-			
-			function getArticulos(){
+			$articulos = getArticulos($nombre, $desde, $hasta);
+						
+			function getArticulos($nombre, $desde, $hasta){
 				$articulos = [];
 
-				$con = @ new mysqli('localhost', 'usuario1', '123');
+				$con = @ new mysqli('localhost', 'root', ''); //originalmente en mi base de datos tengo usuario y contraseña
 				if($con->connect_error)
 					die('Error de conexión: ' . $con->connect_error);
 
@@ -47,7 +28,9 @@
 				if ($con->errno !== 0)
 					die('Error al seleccionar la BBDD: ' . $con->error);
 
-				$resultado = $con->query("SELECT * FROM articulos");
+				$resultado = $con->query("SELECT * FROM articulos
+									WHERE LOWER(nombre) like '%$nombre%' and
+									precio >= $desde and precio <= $hasta");
 
 				while ($registro = $resultado->fetch_array()){
 					$articulos[] = [
@@ -55,7 +38,7 @@
 						'nombre' => $registro['nombre'],
 						'precio' => $registro['precio'],
 						'stock' => $registro['stock'],
-						'url' => $registro['ruta_imagen'],
+						'url' => $registro['imagen'],
 						'descripcion' => $registro['descripcion'],
 						'activo' => $registro['activo']
 					];
@@ -67,20 +50,18 @@
 			}
 			
 			function cargarArticulos($articulos){
-				$contadorId = 1;
 				
 				foreach($articulos as $articulo){
 					
 					if($articulo["activo"]){
 						echo
-						"<div class='item' id='i$contadorId'>
+						"<div class='item' id='$articulo[id]'>
 						<img src='$articulo[url]' alt='$articulo[descripcion]'>
 						<label class='title'>$articulo[nombre]</label>
 						<label class='price'>$articulo[precio] €</label>
 						<label class='stock'>Stock $articulo[stock]</label>
 						</div>";
 					}
-					$contadorId++;
 				}
 			}
 			cargarArticulos($articulos);

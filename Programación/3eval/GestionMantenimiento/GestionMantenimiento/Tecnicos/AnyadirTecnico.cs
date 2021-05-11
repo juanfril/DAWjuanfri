@@ -16,5 +16,21 @@ namespace GestionMantenimiento.Tecnicos
         {
             InitializeComponent();
         }
+        private void btnAnyadir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        public string GetNombre()
+        {
+            return tbNombre.Text;
+        }
+        public string GetOficio()
+        {
+            return cbOficio.SelectedItem.ToString();
+        }
+        public DateTime GetAntiguedad()
+        {
+            return mcAntiguedad.SelectionStart;
+        }
     }
 }

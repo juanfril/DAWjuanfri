@@ -71,6 +71,7 @@ namespace GestionMantenimiento
             this.btnTecnicos.TabIndex = 2;
             this.btnTecnicos.Text = "Gestión técnicos";
             this.btnTecnicos.UseVisualStyleBackColor = true;
+            this.btnTecnicos.Click += new System.EventHandler(this.btnTecnicos_Click);
             // 
             // btnMaquinas
             // 
@@ -103,7 +104,7 @@ namespace GestionMantenimiento
             // msCerrarSesion
             // 
             this.msCerrarSesion.Name = "msCerrarSesion";
-            this.msCerrarSesion.Size = new System.Drawing.Size(180, 22);
+            this.msCerrarSesion.Size = new System.Drawing.Size(142, 22);
             this.msCerrarSesion.Text = "Cerrar sesión";
             this.msCerrarSesion.Click += new System.EventHandler(this.msCerrarSesion_Click);
             // 

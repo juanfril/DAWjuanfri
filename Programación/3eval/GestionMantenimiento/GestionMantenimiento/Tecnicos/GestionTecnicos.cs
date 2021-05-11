@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionMantenimiento.Tecnicos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +13,15 @@ namespace GestionMantenimiento
 {
     public partial class GestionTecnicos : Form
     {
-        List<Usuario> usuarios;
-        AñadirUsuario anyadirUsuario;
+        List<Tecnico> tecnicos;
+        AnyadirTecnico anyadirTecnico;
         public GestionTecnicos()
         {
-            usuarios = new List<Usuario>();
-            usuarios = GestionFicheros.CargarUsuarios(usuarios);
+            tecnicos = new List<Tecnico>();
+            tecnicos = GestionFicheros.CargarUsuarios(tecnicos);
             InitializeComponent();
-            dgwUsuarios.DataSource = usuarios;
-            anyadirUsuario = new AñadirUsuario();
+            dgwTecnicos.DataSource = tecnicos;
+            anyadirTecnico = new AnyadirTecnico();
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -30,48 +31,36 @@ namespace GestionMantenimiento
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(dgwUsuarios.SelectedRows.Count != 1)
+            if (dgwTecnicos.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Tiene que seleccionar una fila", "Aviso");
             }
             else
             {
-                int posicion = dgwUsuarios.SelectedRows[0].Index;
-                usuarios.RemoveAt(posicion);
+                int posicion = dgwTecnicos.SelectedRows[0].Index;
+                tecnicos.RemoveAt(posicion);
 
-                RefrescarGrid(usuarios);
-                GestionFicheros.GuardarUsuarios(usuarios);
+                RefrescarGrid(tecnicos);
+                GestionFicheros.GuardarTecnicos(tecnicos);
             }
         }
         private void tbnAnyadir_Click(object sender, EventArgs e)
         {
-            anyadirUsuario.ShowDialog();
-            Usuario u = new Usuario();
-            u.Nombre = anyadirUsuario.GetNombre();
-            u.Contraseña = anyadirUsuario.GetContraseña();
-            usuarios.Add(u);
+            anyadirTecnico.ShowDialog();
+            Tecnico t = new Tecnico();
+            t.Nombre = anyadirTecnico.GetNombre();
+            t.Oficio = anyadirTecnico.GetOficio();
+            t.Antiguedad = anyadirTecnico.GetAntiguedad();
+            tecnicos.Add(t);
 
-            RefrescarGrid(usuarios);
-            GestionFicheros.GuardarUsuarios(usuarios);
+            RefrescarGrid(tecnicos);
+            GestionFicheros.GuardarTecnicos(tecnicos);
         }
 
-        private void RefrescarGrid(List<Usuario> usuarios)
+        private void RefrescarGrid(List<Tecnico> tecnicos)
         {
-            dgwUsuarios.DataSource = typeof(Usuario);
-            dgwUsuarios.DataSource = usuarios;
-        }
-
-        private void dgwUsuarios_CellEndEdit(object sender,
-            DataGridViewCellEventArgs e)
-        {
-            int posicion = dgwUsuarios.CurrentRow.Index;
-
-            usuarios[posicion].Nombre = 
-                (string)dgwUsuarios.Rows[posicion].Cells[0].Value;
-            usuarios[posicion].Contraseña = 
-                (string)dgwUsuarios.Rows[posicion].Cells[1].Value;
-
-            GestionFicheros.GuardarUsuarios(usuarios);
+            dgwTecnicos.DataSource = typeof(Tecnico);
+            dgwTecnicos.DataSource = tecnicos;
         }
     }
 }

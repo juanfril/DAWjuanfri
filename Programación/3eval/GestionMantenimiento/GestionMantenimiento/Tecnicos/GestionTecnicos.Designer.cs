@@ -33,10 +33,10 @@ namespace GestionMantenimiento
             this.tbnAnyadir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
-            this.dgwUsuarios = new System.Windows.Forms.DataGridView();
+            this.dgwTecnicos = new System.Windows.Forms.DataGridView();
             this.introducirUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gestionFicherosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTecnicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.introducirUsuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionFicherosBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -72,18 +72,18 @@ namespace GestionMantenimiento
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
-            // dgwUsuarios
+            // dgwTecnicos
             // 
-            this.dgwUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgwTecnicos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgwUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgwUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwUsuarios.Location = new System.Drawing.Point(25, 52);
-            this.dgwUsuarios.Name = "dgwUsuarios";
-            this.dgwUsuarios.Size = new System.Drawing.Size(660, 365);
-            this.dgwUsuarios.TabIndex = 4;
-            this.dgwUsuarios.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwUsuarios_CellEndEdit);
+            this.dgwTecnicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwTecnicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwTecnicos.Location = new System.Drawing.Point(25, 52);
+            this.dgwTecnicos.Name = "dgwTecnicos";
+            this.dgwTecnicos.Size = new System.Drawing.Size(660, 365);
+            this.dgwTecnicos.TabIndex = 4;
+            //this.dgwTecnicos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwUsuarios_CellEndEdit);
             // 
             // introducirUsuarioBindingSource
             // 
@@ -93,18 +93,18 @@ namespace GestionMantenimiento
             // 
             this.gestionFicherosBindingSource.DataSource = typeof(GestionMantenimiento.GestionFicheros);
             // 
-            // GestionUsuarios
+            // GestionTecnicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 448);
-            this.Controls.Add(this.dgwUsuarios);
+            this.Controls.Add(this.dgwTecnicos);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.tbnAnyadir);
-            this.Name = "GestionUsuarios";
-            this.Text = "GestionUsuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dgwUsuarios)).EndInit();
+            this.Name = "GestionTecnicos";
+            this.Text = "Gestion de técnicos";
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTecnicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.introducirUsuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionFicherosBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -116,7 +116,7 @@ namespace GestionMantenimiento
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.BindingSource introducirUsuarioBindingSource;
         private System.Windows.Forms.Button btnAtras;
-        private System.Windows.Forms.DataGridView dgwUsuarios;
+        private System.Windows.Forms.DataGridView dgwTecnicos;
         private System.Windows.Forms.BindingSource gestionFicherosBindingSource;
     }
 }
