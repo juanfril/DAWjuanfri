@@ -1,0 +1,613 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GestionMantenimiento</name>
+    </assembly>
+    <members>
+        <member name="T:GestionMantenimiento.ElementosInstalacion.anyadirElemento">
+            <summary>
+            Clase para añadir elementos de la instalación
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.anyadirElemento.#ctor">
+            <summary>
+            Constructor que inicializa el formulario
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.anyadirElemento.GetNombre">
+            <summary>
+            Recoge los datos del campo nombre
+            </summary>
+            <returns>Una cadena con el nombre</returns>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.anyadirElemento.GetUbicacion">
+            <summary>
+            Recoge los datos del campo ubicación
+            </summary>
+            <returns>Una cadena con la ubicación</returns>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.anyadirElemento.GetOficio">
+            <summary>
+            Recoge los datos del campo oficio
+            </summary>
+            <returns>Una cadena con el oficio</returns>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.anyadirElemento.GetOpcion">
+            <summary>
+            Recoge los datos del campo según el oficio
+            </summary>
+            <returns>Una cadena con el valor introducido</returns>
+        </member>
+        <member name="F:GestionMantenimiento.ElementosInstalacion.anyadirElemento.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.anyadirElemento.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.anyadirElemento.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.GestionMaquinas">
+            <summary>
+            Formulario para gestionar las máquinas de la instalación
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionMaquinas.#ctor">
+            <summary>
+            Constructor que inicializa el formulario, así como las listas de
+            los objetos de las máquinas, el origen de los datos de las 
+            diferentes tablas y el acceso a añadir más elementos.
+            </summary>
+        </member>
+        <member name="F:GestionMantenimiento.GestionMaquinas.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionMaquinas.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GestionMantenimiento.GestionMaquinas.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.GestionPreventivos.GestionFicherosPreventivos">
+            <summary>
+            Clase para guardar un cargar datos de preventivos
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionPreventivos.GestionFicherosPreventivos.CargarPreventivos(System.Collections.Generic.List{GestionMantenimiento.GestionPreventivos.Preventivo})">
+            <summary>
+            Carga los preventivos desde un fichero.
+            </summary>
+            <param name="preventivos">Una lista de preventivos</param>
+            <returns>Una lista de preventivos</returns>
+        </member>
+        <member name="M:GestionMantenimiento.GestionPreventivos.GestionFicherosPreventivos.GuardarPreventivo(GestionMantenimiento.GestionPreventivos.Preventivo)">
+            <summary>
+            Guarda preventivos cerrados individualmente sin sobreescribir.
+            </summary>
+            <param name="preventivo"></param>
+        </member>
+        <member name="T:GestionMantenimiento.GestionPreventivos.Preventivo">
+            <summary>
+            Clase que representa los preventivos realizados
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionPreventivos.Preventivo.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor que inicializa los campos
+            </summary>
+            <param name="usuario">Nombre del usuario que generó el preventivo</param>
+            <param name="tecnico">Nombre del técnico que realizó el preventivo</param>
+            <param name="nombreElemento">Nombre del elemento sobre el que se hizo el preventivo</param>
+        </member>
+        <member name="M:GestionMantenimiento.GestionPreventivos.Preventivo.ToString">
+            <summary>
+            Método ToString de preventivo
+            </summary>
+            <returns>Una cadena con los campos separados por ;</returns>
+        </member>
+        <member name="T:GestionMantenimiento.GestionPreventivos.PreventivosRealizados">
+            <summary>
+            Formulario para la visualización de preventivos realizados
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionPreventivos.PreventivosRealizados.#ctor">
+            <summary>
+            Constructor que inicializa el formulario, una lista de preventivos
+            cargados desde un fichero y el origen de los datos de la listView
+            </summary>
+        </member>
+        <member name="F:GestionMantenimiento.GestionPreventivos.PreventivosRealizados.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionPreventivos.PreventivosRealizados.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GestionMantenimiento.GestionPreventivos.PreventivosRealizados.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.Tecnicos.AnyadirTecnico">
+            <summary>
+            Formulario para añadir técnicos al sistema.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.Tecnicos.AnyadirTecnico.#ctor">
+            <summary>
+            Constructor que inicializa los componentes del formulario.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.Tecnicos.AnyadirTecnico.GetNombre">
+            <summary>
+            Recoge el nombre del técnico
+            </summary>
+            <returns>Cadena con el nombre del técnico</returns>
+        </member>
+        <member name="M:GestionMantenimiento.Tecnicos.AnyadirTecnico.GetOficio">
+            <summary>
+            Recoge el oficio del técnico. Si no hay nada seleccionado
+            devuelve cadena vacía.
+            </summary>
+            <returns>Cadena con el oficio del técnico</returns>
+        </member>
+        <member name="M:GestionMantenimiento.Tecnicos.AnyadirTecnico.GetAntiguedad">
+            <summary>
+            Recoge la fecha de entrada en la empresa del técnico
+            </summary>
+            <returns>La fecha en formato DateTime</returns>
+        </member>
+        <member name="F:GestionMantenimiento.Tecnicos.AnyadirTecnico.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.Tecnicos.AnyadirTecnico.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GestionMantenimiento.Tecnicos.AnyadirTecnico.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.Tecnicos.Tecnico">
+            <summary>
+            Clase que representa los técnicos
+            </summary>
+        </member>
+        <member name="P:GestionMantenimiento.Tecnicos.Tecnico.Nombre">
+            <value>
+            Propiedad Nombre corresponde al nombre del técnico
+            </value>
+        </member>
+        <member name="P:GestionMantenimiento.Tecnicos.Tecnico.Oficio">
+            <value>
+            Propiedad Oficio corresponde al oficio del técnico
+            </value>
+        </member>
+        <member name="P:GestionMantenimiento.Tecnicos.Tecnico.Antiguedad">
+            <value>
+            Propiedad Antiguedad corresponde a la antiguedad del técnico
+            en la empresa
+            </value>
+        </member>
+        <member name="M:GestionMantenimiento.Tecnicos.Tecnico.ToString">
+            <summary>
+            Método ToString de Técnico
+            </summary>
+            <returns>Una cadena con las propiedad de técnico separada por ;</returns>
+        </member>
+        <member name="T:GestionMantenimiento.GestionTecnicos">
+            <summary>
+            Formulario para gestionar a los técnicos del sistema.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionTecnicos.#ctor">
+            <summary>
+            Constructor de formulario que inicializa una lista de técnicos
+            cargada desde un fichero, el formulario para añadir un técnico y
+            establece el origen de la tabla a esa lista
+            </summary>
+        </member>
+        <member name="F:GestionMantenimiento.GestionTecnicos.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionTecnicos.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GestionMantenimiento.GestionTecnicos.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.AñadirUsuario">
+            <summary>
+            Formulario para introducir los datos de nuevos usuarios
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.AñadirUsuario.#ctor">
+            <summary>
+            Constructor que inicializa el formulario
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.AñadirUsuario.GetNombre">
+            <summary>
+            Devuelve una cadena con el nombre
+            </summary>
+            <returns>string con la cadena introducida en el formulario</returns>
+        </member>
+        <member name="M:GestionMantenimiento.AñadirUsuario.GetContraseña">
+            <summary>
+            Devuelve una cadena con la contraseña
+            </summary>
+            <returns>string con la cadena introducida en el formulario</returns>
+        </member>
+        <member name="F:GestionMantenimiento.AñadirUsuario.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.AñadirUsuario.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GestionMantenimiento.AñadirUsuario.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.Climatizacion">
+            <summary>
+            Clase hija de MaquinaGeneral
+            </summary>
+        </member>
+        <member name="P:GestionMantenimiento.Climatizacion.TipoRefrigerante">
+            <value>
+            Representa el tipo de refrigerante que usa la máquina
+            </value>
+        </member>
+        <member name="M:GestionMantenimiento.Climatizacion.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor hijo de MaquinaGeneral
+            </summary>
+            <param name="nombre">Nombre</param>
+            <param name="ubicacion">Ubicación</param>
+            <param name="tipoInstalacion">Tipo de instalación</param>
+            <param name="tipoRefrigerante">Tipo de refrigerante</param>
+        </member>
+        <member name="M:GestionMantenimiento.Climatizacion.ToString">
+            <summary>
+            Método ToString hijo de MaquinaGeneral
+            </summary>
+            <returns>Cadena propiedades separada por ;</returns>
+        </member>
+        <member name="T:GestionMantenimiento.Electricidad">
+            <summary>
+            Clase hija de MaquinaGeneral
+            </summary>
+        </member>
+        <member name="P:GestionMantenimiento.Electricidad.TipoCableado">
+            <value>
+            Representa el tipo de cableado que usa la instalación
+            </value>
+        </member>
+        <member name="M:GestionMantenimiento.Electricidad.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor hijo de MaquinaGeneral
+            </summary>
+            <param name="nombre">Nombre</param>
+            <param name="ubicacion">Ubicación</param>
+            <param name="tipoInstalacion">Tipo de instalación</param>
+            <param name="tipoCableado">Tipo de cableado</param>
+        </member>
+        <member name="M:GestionMantenimiento.Electricidad.ToString">
+            <summary>
+            Método ToString padre del elemento
+            </summary>
+            <returns>Cadena propiedades separada por ;</returns>
+        </member>
+        <member name="T:GestionMantenimiento.Fontaneria">
+            <summary>
+            Clase hija de MaquinaGeneral
+            </summary>
+        </member>
+        <member name="P:GestionMantenimiento.Fontaneria.TipoTuberias">
+            <value>
+            Representa el tipo de tuberías de la instalación
+            </value>
+        </member>
+        <member name="M:GestionMantenimiento.Fontaneria.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor hijo de MaquinaGeneral
+            </summary>
+            <param name="nombre">Nombre</param>
+            <param name="ubicacion">Ubicación</param>
+            <param name="tipoInstalacion">Tipo de instalación</param>
+            <param name="tipoTuberias">Tipo de tuberías</param>
+        </member>
+        <member name="M:GestionMantenimiento.Fontaneria.ToString">
+            <summary>
+            Método ToString hijo de MaquinaGeneral
+            </summary>
+            <returns>Cadena propiedades separada por ;</returns>
+        </member>
+        <member name="T:GestionMantenimiento.GestionFicherosUsuario">
+            <summary>
+            Clase para guardar y cargar datos del fichero usuarios
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionFicherosUsuario.CargarUsuarios(System.Collections.Generic.List{GestionMantenimiento.Usuario})">
+            <summary>
+            Método para cargar los datos de los usuarios del sistema
+            </summary>
+            <param name="usuarios">Lista de usuarios</param>
+            <returns>Lista de usuarios</returns>
+        </member>
+        <member name="M:GestionMantenimiento.GestionFicherosUsuario.GuardarUsuarios(System.Collections.Generic.List{GestionMantenimiento.Usuario})">
+            <summary>
+            Método para guardar los datos de los usuarios en el fichero
+            </summary>
+            <param name="usuarios">Lista de usuarios</param>
+        </member>
+        <member name="T:GestionMantenimiento.GestionUsuarios">
+            <summary>
+            Formulario para la edición de usuarios
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionUsuarios.#ctor">
+            <summary>
+            Constructor de la clase <c>GestionUsuarios</c>, inicializa
+            una lista de usuarios, el origen de los datos de la tabla y 
+            el formulario para añadir un usuario nuevo
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionUsuarios.btnAtras_Click(System.Object,System.EventArgs)">
+            <summary>
+            Añade funcionalidad al botón atrás del formulario
+            </summary>
+            <param name="sender">Objeto sobre el evento</param>
+            <param name="e">Evento</param>
+        </member>
+        <member name="M:GestionMantenimiento.GestionUsuarios.btnEliminar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Borra un usuario seleccionado y actualiza el fichero
+            de eliminar
+            </summary>
+            <param name="sender">Objeto sobre el evento</param>
+            <param name="e">Evento</param>
+        </member>
+        <member name="M:GestionMantenimiento.GestionUsuarios.tbnAnyadir_Click(System.Object,System.EventArgs)">
+            <summary>
+            Añade un usuario a la lista de usuarios y lo guarda en un fichero
+            </summary>
+            <param name="sender">Objeto del evento</param>
+            <param name="e">Evento</param>
+        </member>
+        <member name="M:GestionMantenimiento.GestionUsuarios.RefrescarGrid(System.Collections.Generic.List{GestionMantenimiento.Usuario})">
+            <summary>
+            Funcionalidad para refrescar la tabla después de un cambio
+            </summary>
+            <param name="usuarios">Lista de usuarios</param>
+        </member>
+        <member name="M:GestionMantenimiento.GestionUsuarios.dgwUsuarios_CellEndEdit(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            Permite modificar celdas individualmente y actualiza el fichero
+            </summary>
+            <param name="sender">Objeto sobre el evento</param>
+            <param name="e">evento</param>
+        </member>
+        <member name="F:GestionMantenimiento.GestionUsuarios.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.GestionUsuarios.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GestionMantenimiento.GestionUsuarios.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.InterfazAdministrador">
+            <summary>
+            Formulario que representa las opciones del administrador
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.InterfazAdministrador.#ctor">
+            <summary>
+            Constructor que inicializa el formulario, así como los diferentes
+            formularios a los cuáles se accede
+            </summary>
+        </member>
+        <member name="F:GestionMantenimiento.InterfazAdministrador.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.InterfazAdministrador.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GestionMantenimiento.InterfazAdministrador.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.Login">
+            <summary>
+            Formulario de inicio para loguearse en la aplicación
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.Login.#ctor">
+            <summary>
+            Constructor que inicializa el formulario, así como una lista de 
+            usuarios cargada desde un fichero y los diferentes formularios 
+            a los que se accede
+            </summary>
+        </member>
+        <member name="F:GestionMantenimiento.Login.components">
+            <summary>
+            Variable del diseñador necesaria.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.Login.Dispose(System.Boolean)">
+            <summary>
+            Limpiar los recursos que se estén usando.
+            </summary>
+            <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        </member>
+        <member name="M:GestionMantenimiento.Login.InitializeComponent">
+            <summary>
+            Método necesario para admitir el Diseñador. No se puede modificar
+            el contenido de este método con el editor de código.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.MaquinaGeneral">
+            <summary>
+            Super clase de los elementos de la instalación
+            </summary>
+        </member>
+        <member name="P:GestionMantenimiento.MaquinaGeneral.Nombre">
+            <value>
+            Representa el nombre del elemento
+            </value>
+        </member>
+        <member name="P:GestionMantenimiento.MaquinaGeneral.Ubicacion">
+            <value>
+            Representa la ubicación del elemento
+            </value>
+        </member>
+        <member name="P:GestionMantenimiento.MaquinaGeneral.TipoInstalacion">
+            <value>
+            Representa el tipo de instalación del elemento.
+            </value>
+        </member>
+        <member name="M:GestionMantenimiento.MaquinaGeneral.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor padre del objeto
+            </summary>
+            <param name="nombre">Nombre del elemento</param>
+            <param name="ubicacion">Ubicación del elemento</param>
+            <param name="tipoInstalacion">Tipo de instalación del elemento</param>
+        </member>
+        <member name="M:GestionMantenimiento.MaquinaGeneral.ToString">
+            <summary>
+            Método ToString padre del elemento
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GestionMantenimiento.Program.Main">
+            <summary>
+            Punto de entrada principal para la aplicación.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.InterfazUsuario">
+            <summary>
+            Formulario donde los usuarios pueden cerrar preventivos.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.InterfazUsuario.#ctor(System.String)">
+            <summary>
+            Constructor que inicializa el formulario, así como las listas de
+            los diferentes objetos necesarios y las opciones del textBox.
+            </summary>
+            <param name="usuarioAceptado">Usuario por el cuál se accede</param>
+        </member>
+        <member name="F:GestionMantenimiento.InterfazUsuario.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.InterfazUsuario.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GestionMantenimiento.InterfazUsuario.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GestionMantenimiento.Usuario">
+            <summary>
+            Clase que representa los usuarios
+            </summary>
+        </member>
+        <member name="P:GestionMantenimiento.Usuario.Nombre">
+            <value>
+            Propiedad Nombre corresponde al nombre de usuario
+            </value>
+        </member>
+        <member name="P:GestionMantenimiento.Usuario.Contraseña">
+            <value>
+            Propiedad Contraseña corresponde a la contraseña de usuario
+            </value>
+        </member>
+        <member name="M:GestionMantenimiento.Usuario.ToString">
+            <summary>
+            Método ToString del objeto usuario
+            </summary>
+            <returns>Una cadena con el nombre y la contraseña separada por ;</returns>
+        </member>
+        <member name="T:GestionMantenimiento.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:GestionMantenimiento.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:GestionMantenimiento.Properties.Resources.Culture">
+            <summary>
+              Invalida la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos usando esta clase de recursos fuertemente tipados.
+            </summary>
+        </member>
+    </members>
+</doc>

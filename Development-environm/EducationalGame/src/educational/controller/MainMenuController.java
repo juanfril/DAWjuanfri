@@ -10,18 +10,22 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 //import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MainMenuController extends GeneralController {
 
     @FXML
-    public TextField txtAge;
+    private Button btnRanking;
+    @FXML
+    private TextField txtAge;
     @FXML
     private TextField txtName;
     @FXML
     private Button btnGo;
-    Player player;
+    public static Player player;
     private byte age;
 
     @Override
@@ -34,12 +38,12 @@ public class MainMenuController extends GeneralController {
                 Stage stage = new Stage();
 
                 if(age > 3){
-                    root = FXMLLoader.load(getClass().getResource(
-                            "/educational/scene/olderScene.fxml"));
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+                            "/educational/scene/olderScene.fxml")));
                     stage.setTitle("Older than 3 menu");
                 } else {
-                    root = FXMLLoader.load(getClass().getResource(
-                            "/educational/scene/underScene.fxml"));
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+                            "/educational/scene/underScene.fxml")));
                     stage.setTitle("Under than 3 menu");
                 }
                 stage.setScene(new Scene(root, 600, 400));
@@ -49,6 +53,19 @@ public class MainMenuController extends GeneralController {
                 dialog.setContentText("Age must be a number (0-10)");
                 dialog.showAndWait();
             }
+        });
+        btnRanking.setOnAction(actionEvent ->{
+            Parent root;
+            Stage stage = new Stage();
+            try {
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+                        "/educational/scene/scoreScene.fxml")));
+            } catch (IOException e) {
+                dialog.setHeaderText("ERROR");
+                dialog.setContentText(String.valueOf(e));
+                dialog.showAndWait();
+            }
+            stage.setTitle("Score");
         });
     }
 }

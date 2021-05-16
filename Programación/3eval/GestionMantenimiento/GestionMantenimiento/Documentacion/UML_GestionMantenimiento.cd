@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GestionMantenimiento.ElementosInstalacion.anyadirElemento">
+    <Position X="6" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAACCAAEBCCAACAEAACAAEBAAQAAEAAAIAAgAA=</HashCode>
+      <FileName>ElementosInstalacion\anyadirElemento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.ElementosInstalacion.GestionFicherosElementos" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAIAAAAAAAAAAAAAAAACAAAAAACAAgEAA=</HashCode>
+      <FileName>ElementosInstalacion\GestionFicherosElementos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Climatizacion">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>ElementosInstalacion\Climatizacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Electricidad">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ElementosInstalacion\Electricidad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Fontaneria">
+    <Position X="5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ElementosInstalacion\Fontaneria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.GestionMaquinas" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAZgBAAACAIAhcAIACAABACKAARACAAJAAACAACAAA=</HashCode>
+      <FileName>ElementosInstalacion\GestionMaquinas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.MaquinaGeneral">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAECAAAgIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ElementosInstalacion\MaquinaGeneral.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.InterfazAdministrador">
+    <Position X="1" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAAAITAAABAAEgCAIAACBUAEACAAAACAAAIBAAA=</HashCode>
+      <FileName>Interfaces\InterfazAdministrador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.InterfazUsuario">
+    <Position X="11.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAABgAAAICAIABAAAAKEGAECCAAAQAAAAAAAAAACAAA=</HashCode>
+      <FileName>Interfaces\InterfazUsuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Login">
+    <Position X="10.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAEBAAAACABAACAAAAAAAAAAASEgAAgAQ=</HashCode>
+      <FileName>Interfaces\Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Program">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.GestionTecnicos" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACBAAACAAABAAAACEABACKAAAACAAABAACAAgAAI=</HashCode>
+      <FileName>Tecnicos\GestionTecnicos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.AñadirUsuario" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACCAAAACAAACEFAACAIAAAAAAAAAAAAAAgIA=</HashCode>
+      <FileName>Usuarios\AñadirUsuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.GestionFicherosUsuario" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Usuarios\GestionFicherosUsuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.GestionUsuarios" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIBAAACAAABAAAADAABACKgAAACAAABACCAAgAAA=</HashCode>
+      <FileName>Usuarios\GestionUsuarios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Usuario">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIEAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Usuarios\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.GestionPreventivos.GestionFicherosPreventivos" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GestionPreventivos\GestionFicherosPreventivos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.GestionPreventivos.Preventivo">
+    <Position X="8.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAEIAAAAAAAAAAAACQAAAAAAAAAAAA=</HashCode>
+      <FileName>GestionPreventivos\Preventivo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Properties.Resources" Collapsed="true">
+    <Position X="16.75" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Properties.Settings" Collapsed="true">
+    <Position X="18.5" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Tecnicos.AnyadirTecnico" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAKCAAAACCAACAEAACEAgAAAQAAgAAAAgAgIA=</HashCode>
+      <FileName>Tecnicos\AnyadirTecnico.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Tecnicos.GestionFicherosTecnicos">
+    <Position X="3.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tecnicos\GestionFicherosTecnicos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionMantenimiento.Tecnicos.Tecnico">
+    <Position X="8.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAiAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Tecnicos\Tecnico.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="GestionMantenimiento.Tecnicos.provisionalTecnico">
+    <Position X="4" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAACAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tecnicos\GestionFicherosTecnicos.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

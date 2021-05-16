@@ -11,15 +11,23 @@ using System.Windows.Forms;
 
 namespace GestionMantenimiento
 {
+    /// <summary>
+    /// Formulario para gestionar a los técnicos del sistema.
+    /// </summary>
     public partial class GestionTecnicos : Form
     {
-        List<Tecnico> tecnicos;
-        AnyadirTecnico anyadirTecnico;
+        private List<Tecnico> tecnicos;
+        private AnyadirTecnico anyadirTecnico;
+        /// <summary>
+        /// Constructor de formulario que inicializa una lista de técnicos
+        /// cargada desde un fichero, el formulario para añadir un técnico y
+        /// establece el origen de la tabla a esa lista
+        /// </summary>
         public GestionTecnicos()
         {
-            tecnicos = new List<Tecnico>();
-            tecnicos = GestionFicheros.CargarUsuarios(tecnicos);
             InitializeComponent();
+            tecnicos = new List<Tecnico>();
+            tecnicos = GestionFicherosTecnicos.CargarTecnicos(tecnicos);
             dgwTecnicos.DataSource = tecnicos;
             anyadirTecnico = new AnyadirTecnico();
         }
@@ -41,20 +49,25 @@ namespace GestionMantenimiento
                 tecnicos.RemoveAt(posicion);
 
                 RefrescarGrid(tecnicos);
-                GestionFicheros.GuardarTecnicos(tecnicos);
+                GestionFicherosTecnicos.GuardarTecnicos(tecnicos);
             }
         }
         private void tbnAnyadir_Click(object sender, EventArgs e)
         {
             anyadirTecnico.ShowDialog();
-            Tecnico t = new Tecnico();
-            t.Nombre = anyadirTecnico.GetNombre();
-            t.Oficio = anyadirTecnico.GetOficio();
-            t.Antiguedad = anyadirTecnico.GetAntiguedad();
-            tecnicos.Add(t);
 
-            RefrescarGrid(tecnicos);
-            GestionFicheros.GuardarTecnicos(tecnicos);
+            if(!anyadirTecnico.GetNombre().Equals("") ||
+                !anyadirTecnico.GetOficio().Equals(""))
+            {
+                Tecnico t = new Tecnico();
+                t.Nombre = anyadirTecnico.GetNombre();
+                t.Oficio = anyadirTecnico.GetOficio();
+                t.Antiguedad = anyadirTecnico.GetAntiguedad();
+                tecnicos.Add(t);
+
+                RefrescarGrid(tecnicos);
+                GestionFicherosTecnicos.GuardarTecnicos(tecnicos);
+            }
         }
 
         private void RefrescarGrid(List<Tecnico> tecnicos)

@@ -89,10 +89,10 @@ namespace GestionMantenimiento
             this.Controls.Add(this.lbContraseña);
             this.Controls.Add(this.lbNombre);
             this.Name = "AñadirUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AñadirUsuario";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

@@ -36,7 +36,7 @@ namespace GestionMantenimiento
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAsignar = new System.Windows.Forms.Button();
+            this.btnVisualizar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +82,7 @@ namespace GestionMantenimiento
             this.btnMaquinas.TabIndex = 3;
             this.btnMaquinas.Text = "Gestión máquinas";
             this.btnMaquinas.UseVisualStyleBackColor = true;
+            this.btnMaquinas.Click += new System.EventHandler(this.btnMaquinas_Click);
             // 
             // menuStrip1
             // 
@@ -108,22 +109,23 @@ namespace GestionMantenimiento
             this.msCerrarSesion.Text = "Cerrar sesión";
             this.msCerrarSesion.Click += new System.EventHandler(this.msCerrarSesion_Click);
             // 
-            // btnAsignar
+            // btnVisualizar
             // 
-            this.btnAsignar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignar.Location = new System.Drawing.Point(217, 196);
-            this.btnAsignar.Name = "btnAsignar";
-            this.btnAsignar.Size = new System.Drawing.Size(138, 59);
-            this.btnAsignar.TabIndex = 5;
-            this.btnAsignar.Text = "Asignar preventivos";
-            this.btnAsignar.UseVisualStyleBackColor = true;
+            this.btnVisualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualizar.Location = new System.Drawing.Point(217, 196);
+            this.btnVisualizar.Name = "btnVisualizar";
+            this.btnVisualizar.Size = new System.Drawing.Size(138, 59);
+            this.btnVisualizar.TabIndex = 5;
+            this.btnVisualizar.Text = "Preventivos Realizados";
+            this.btnVisualizar.UseVisualStyleBackColor = true;
+            this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
             // 
             // InterfazAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 273);
-            this.Controls.Add(this.btnAsignar);
+            this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.btnMaquinas);
             this.Controls.Add(this.btnTecnicos);
             this.Controls.Add(this.label1);
@@ -131,6 +133,7 @@ namespace GestionMantenimiento
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "InterfazAdministrador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InterfazAdministrador";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -148,6 +151,6 @@ namespace GestionMantenimiento
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem msCerrarSesion;
-        private System.Windows.Forms.Button btnAsignar;
+        private System.Windows.Forms.Button btnVisualizar;
     }
 }

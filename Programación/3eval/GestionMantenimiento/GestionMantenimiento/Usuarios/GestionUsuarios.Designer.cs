@@ -91,7 +91,7 @@ namespace GestionMantenimiento
             // 
             // gestionFicherosBindingSource
             // 
-            this.gestionFicherosBindingSource.DataSource = typeof(GestionMantenimiento.GestionFicheros);
+            this.gestionFicherosBindingSource.DataSource = typeof(GestionMantenimiento.GestionFicherosUsuario);
             // 
             // GestionUsuarios
             // 
@@ -103,6 +103,7 @@ namespace GestionMantenimiento
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.tbnAnyadir);
             this.Name = "GestionUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionUsuarios";
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.introducirUsuarioBindingSource)).EndInit();

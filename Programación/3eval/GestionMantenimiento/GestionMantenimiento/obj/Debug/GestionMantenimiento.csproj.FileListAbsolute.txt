@@ -1,7 +1,6 @@
 C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\bin\Debug\GestionMantenimiento.exe.config
 C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\bin\Debug\GestionMantenimiento.exe
 C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\bin\Debug\GestionMantenimiento.pdb
-C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.csprojAssemblyReference.cache
 C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.Properties.Resources.resources
 C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.csproj.GenerateResource.cache
 C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.csproj.CoreCompileInputs.cache
@@ -14,3 +13,8 @@ C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimie
 C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.GestionTecnicos.resources
 C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.Login.resources
 C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.Tecnicos.AnyadirTecnico.resources
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.GestionMaquinas.resources
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.ElementosInstalacion.anyadirElemento.resources
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.GestionPreventivos.PreventivosRealizados.resources
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\bin\Debug\GestionMantenimiento.xml
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\GestionMantenimiento\GestionMantenimiento\obj\Debug\GestionMantenimiento.csprojAssemblyReference.cache

@@ -1,5 +1,0 @@
-enfriadora norte;cubierta;climatizacion;1;404
-enfriadora sur;sotano;climatizacion;1;124a
-cuadro general;planta 0;Electricidad;3;trifasica
-aseos norte;planta 1;fontaneria;1;multicapa
-aseos centro;planta 0;fontaneria;1;cobre

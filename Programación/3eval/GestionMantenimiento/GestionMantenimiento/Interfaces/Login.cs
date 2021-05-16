@@ -12,41 +12,51 @@ using System.Windows.Forms;
 
 namespace GestionMantenimiento
 {
+    /// <summary>
+    /// Formulario de inicio para loguearse en la aplicación
+    /// </summary>
     public partial class Login : Form
     {
-        List<Usuario> usuarios;
-        InterfazAdministrador interfazAdministrador;
+        private List<Usuario> usuarios;
+        private InterfazAdministrador interfazAdministrador;
+        private InterfazUsuario interfazUsuario;
+        private bool encontrado;
+        /// <summary>
+        /// Constructor que inicializa el formulario, así como una lista de 
+        /// usuarios cargada desde un fichero y los diferentes formularios 
+        /// a los que se accede
+        /// </summary>
         public Login()
         {
             InitializeComponent();
             interfazAdministrador = new InterfazAdministrador();
             usuarios = new List<Usuario>();
-            usuarios = GestionFicheros.CargarUsuarios(usuarios);
+            usuarios = GestionFicherosUsuario.CargarUsuarios(usuarios);
+            encontrado = false;
         }
-
         private void btnUsuario_Click(object sender, EventArgs e)
         {
             if (tbNombre.Text.Contains("admin") &&
                         tbContraseña.Text.Contains("admin"))
             {
                 interfazAdministrador.ShowDialog();
-                //Close();
+                this.Refresh();
             }
             else
             {
-                for (int i = 0; i < usuarios.Count; i++)
+                for (int i = 0; i < usuarios.Count ; i++)
                 {
                     if (usuarios[i].Nombre.Equals(tbNombre.Text) && 
                             usuarios[i].Contraseña.Equals(tbContraseña.Text))
                     {
-                        MessageBox.Show("Usuario aceptado", "Aviso");
-                    }
-                    else
-                    {
-                        MessageBox.Show("El usuario o la contraseña no son correctos",
-                            "Aviso");
+                        interfazUsuario = new InterfazUsuario(usuarios[i].Nombre);
+                        encontrado = true;
+                        interfazUsuario.ShowDialog();
+                        this.Refresh();
                     }
                 }
+                if (!encontrado)
+                    MessageBox.Show("No se encuentra el usuario o contraseña");
             }
         }
     }

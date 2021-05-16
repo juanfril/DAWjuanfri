@@ -81,9 +81,9 @@ namespace GestionMantenimiento
             this.dgwTecnicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwTecnicos.Location = new System.Drawing.Point(25, 52);
             this.dgwTecnicos.Name = "dgwTecnicos";
+            this.dgwTecnicos.ReadOnly = true;
             this.dgwTecnicos.Size = new System.Drawing.Size(660, 365);
             this.dgwTecnicos.TabIndex = 4;
-            //this.dgwTecnicos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwUsuarios_CellEndEdit);
             // 
             // introducirUsuarioBindingSource
             // 
@@ -91,7 +91,7 @@ namespace GestionMantenimiento
             // 
             // gestionFicherosBindingSource
             // 
-            this.gestionFicherosBindingSource.DataSource = typeof(GestionMantenimiento.GestionFicheros);
+            this.gestionFicherosBindingSource.DataSource = typeof(GestionMantenimiento.GestionFicherosUsuario);
             // 
             // GestionTecnicos
             // 
@@ -103,6 +103,7 @@ namespace GestionMantenimiento
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.tbnAnyadir);
             this.Name = "GestionTecnicos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de técnicos";
             ((System.ComponentModel.ISupportInitialize)(this.dgwTecnicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.introducirUsuarioBindingSource)).EndInit();

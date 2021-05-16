@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/15.0.1"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="educational.controller.MainMenuController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="educational.controller.MainMenuController">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -44,6 +43,7 @@
                         </Label>
                         <TextField fx:id="txtAge" layoutX="240.0" layoutY="51.0" prefHeight="25.0" prefWidth="46.0" />
                         <Button fx:id="btnGo" layoutX="216.0" layoutY="88.0" mnemonicParsing="false" onAction="#clic" prefHeight="47.0" prefWidth="94.0" text="Lest's go!" />
+                        <Button fx:id="btnRanking" layoutX="423.0" layoutY="135.0" mnemonicParsing="false" text="View Ranking" />
                      </children>
                   </AnchorPane>
               </items>

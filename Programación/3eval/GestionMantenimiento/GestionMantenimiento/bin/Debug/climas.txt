@@ -1,0 +1,2 @@
+enfriadora norte;cubierta;climatizacion;404
+Clima14;Centro 1;frigorista;124a

@@ -1,0 +1,7 @@
+2021-05-21;186.0;Tadej Pogacar
+2021-05-22;198.0;Primoz Roglic
+2021-05-23;234.0;Mari Chelo
+2021-05-24;121.0;Mari Chelo
+2021-05-25;130.0;Nacho Iborra
+2021-05-26;155.0;Pepe García
+2021-05-27;166.0;Juan Sanchez

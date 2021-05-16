@@ -118,6 +118,7 @@ namespace GestionMantenimiento.Tecnicos
             this.Controls.Add(this.lbFecha);
             this.Controls.Add(this.lbNombre);
             this.Name = "AnyadirTecnico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AñadirTecnico";
             this.ResumeLayout(false);
             this.PerformLayout();

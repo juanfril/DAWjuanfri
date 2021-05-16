@@ -1,0 +1,8 @@
+Deberéis entregar un archivo comprimido (ZIP o RAR) con la siguiente información:
+
+Diagrama de clases del proyecto, donde se representen las clases con sus atributos, métodos, constructores y relaciones entre ellas.
+Documentación del proyecto. Además de los comentarios en el código de las clases que ya hemos venido haciendo en las prácticas, explicando qué hace cada clase, o cada método o trozo de código, deberéis elaborar un manual (en formato LibreOffice y/o PDF) del proyecto, que incluirá:
+Etapas que habéis seguido en el desarrollo del proyecto, es decir, la secuencia de pasos que habéis hecho, y si es posible, las horas que os ha llevado cada etapa: diseño del diagrama de clases, implementación de las clases, creación del menú, implementación de cada opción del menú...).
+Manual de usuario de la aplicación o videojuego, incluyendo alguna captura de pantalla explicativa.
+Carpeta del proyecto completo, incluyendo imágenes, archivos de audio, y cualquier otro recurso que utilicéis y que debería estar incorporado dentro de la carpeta de ficheros fuentes o subcarpeta Debug.
+Debéis tener en cuenta que el tamaño límite de subida es de 20 MB, por lo que tened cuidado con el tamaño y cantidad de imágenes que utilicéis (procurad usar formatos comprimidos como PNG o JPEG), y de los audios.

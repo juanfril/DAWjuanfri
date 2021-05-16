@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\GestionMantenimiento.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,12 +47,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ElementosInstalacion\anyadirElemento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElementosInstalacion\anyadirElemento.Designer.cs">
+      <DependentUpon>anyadirElemento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElementosInstalacion\GestionFicherosElementos.cs" />
+    <Compile Include="ElementosInstalacion\GestionMaquinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElementosInstalacion\GestionMaquinas.Designer.cs">
+      <DependentUpon>GestionMaquinas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionPreventivos\GestionFicherosPreventivos.cs" />
+    <Compile Include="GestionPreventivos\Preventivo.cs" />
+    <Compile Include="GestionPreventivos\PreventivosRealizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPreventivos\PreventivosRealizados.Designer.cs">
+      <DependentUpon>PreventivosRealizados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tecnicos\AnyadirTecnico.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tecnicos\AnyadirTecnico.Designer.cs">
       <DependentUpon>AnyadirTecnico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tecnicos\GestionFicherosTecnicos.cs" />
     <Compile Include="Tecnicos\GestionTecnicos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,7 +91,7 @@
     <Compile Include="ElementosInstalacion\Climatizacion.cs" />
     <Compile Include="ElementosInstalacion\Electricidad.cs" />
     <Compile Include="ElementosInstalacion\Fontaneria.cs" />
-    <Compile Include="GestionFicheros.cs" />
+    <Compile Include="Usuarios\GestionFicherosUsuario.cs" />
     <Compile Include="Usuarios\GestionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +120,15 @@
       <DependentUpon>InterfazUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\Usuario.cs" />
+    <EmbeddedResource Include="ElementosInstalacion\anyadirElemento.resx">
+      <DependentUpon>anyadirElemento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElementosInstalacion\GestionMaquinas.resx">
+      <DependentUpon>GestionMaquinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionPreventivos\PreventivosRealizados.resx">
+      <DependentUpon>PreventivosRealizados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tecnicos\AnyadirTecnico.resx">
       <DependentUpon>AnyadirTecnico.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +159,8 @@
     <EmbeddedResource Include="Interfaces\InterfazUsuario.resx">
       <DependentUpon>InterfazUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\GestionMantenimiento.GestionPreventivos.Preventivo.datasource" />
+    <None Include="Documentacion\UML_GestionMantenimiento.cd" />
     <None Include="Properties\DataSources\GestionFicheros.datasource" />
     <None Include="Properties\DataSources\IntroducirUsuario.datasource" />
     <None Include="Properties\Settings.settings">

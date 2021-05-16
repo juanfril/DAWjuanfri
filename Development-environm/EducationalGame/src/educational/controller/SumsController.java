@@ -1,17 +1,26 @@
 package educational.controller;
 
+import educational.model.FileUtils;
+import educational.model.Record;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import static educational.controller.MainMenuController.player;
 
 public class SumsController extends GeneralController {
 
+    @FXML
+    private Label lbPlayer;
     @FXML
     private Label lbNumber1;
     @FXML
@@ -22,9 +31,13 @@ public class SumsController extends GeneralController {
     private Button btnResult;
     private Random random = new Random();
     private int number1, number2, result;
+    private byte count = 0;
+    Stage stage;
+    private ArrayList<Record> records = new ArrayList<>(FileUtils.loadRecords());
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lbPlayer.setText("Go " + player.getName() + "!");
         number1 = (int)(Math.floor(Math.random()*(0-1000+1)+1000));
         number2 = (int)(Math.floor(Math.random()*(0-1000+1)+1000));
 
@@ -33,24 +46,37 @@ public class SumsController extends GeneralController {
 
         btnResult.setOnAction(actionEvent -> {
             try{
-                do{
-                    result = Integer.parseInt(txtResult.getText());
-                    if(result == number1 + number2){
-                        dialog.setHeaderText("Information");
-                        dialog.setContentText("Correct");
-                        dialog.showAndWait();
+                result = Integer.parseInt(txtResult.getText());
+                if(result == number1 + number2){
+                    count++;
+                    dialog.setHeaderText("Information");
+                    dialog.setContentText("Correct");
+                    dialog.showAndWait();
 
-                        number1 = (int)(Math.floor(Math.random()*(0-1000+1)+1000));
-                        number2 = (int)(Math.floor(Math.random()*(0-1000+1)+1000));
+                    number1 = (int)(Math.floor(Math.random()*(0-1000+1)+1000));
+                    number2 = (int)(Math.floor(Math.random()*(0-1000+1)+1000));
 
-                        lbNumber1.setText(String.valueOf(number1));
-                        lbNumber2.setText(String.valueOf(number2));
-                    } else{
+                    lbNumber1.setText(String.valueOf(number1));
+                    lbNumber2.setText(String.valueOf(number2));
+
+                    txtResult.setText("");
+                } else{
+                    if(Record.SumsRecord.checkSumsRecord(player.getName(), count, records)){
                         dialog.setHeaderText("Information");
-                        dialog.setContentText("You fail");
+                        dialog.setContentText("You fail!\nRight result: " + (number1 + number2) +
+                                "\n You won a new Record!! " + count);
                         dialog.showAndWait();
+                        stage = (Stage) this.lbNumber1.getScene().getWindow();
+                        stage.close();
+                    }else{
+                        dialog.setHeaderText("Information");
+                        dialog.setContentText("You fail!\nRight result: " + (number1 + number2) +
+                                "\n Your score is: " + count);
+                        dialog.showAndWait();
+                        stage = (Stage) this.lbNumber1.getScene().getWindow();
+                        stage.close();
                     }
-                }while(result == number1 + number2);
+                }
             } catch (Exception e) {
                 dialog.setHeaderText("Information");
                 dialog.setContentText(String.valueOf(e));
