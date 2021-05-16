@@ -7,6 +7,6 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="educational.controller.ScoreController">
    <children>
       <ListView fx:id="lvRanking" layoutX="72.0" layoutY="54.0" prefHeight="336.0" prefWidth="447.0" />
-      <Label layoutX="220.0" layoutY="24.0" text="Here it will show the ranking" />
+      <Label layoutX="220.0" layoutY="24.0" text="Best records all the games" />
    </children>
 </AnchorPane>
