@@ -1,3 +1,5 @@
-juanfri;Cesar Juarez;Me falta el nombre del elemento;12/05/2021
-juanfri;Antonio Domingo;Me falta el nombre del elemento;12/05/2021
-juanfri;Antonio Domingo;Me falta el nombre del elemento;12/05/2021
+juanfri;Joaquin Martínez;aseos norte;17/05/2021
+juanfri;Cesar Juarez;enfriadora norte;17/05/2021
+juanfri;Antonio Domingo;cuadro general;17/05/2021
+juanfri;Cesar Juarez;Clima14;17/05/2021
+juanfri;Antonio Domingo;Cuadro alu exterior;17/05/2021

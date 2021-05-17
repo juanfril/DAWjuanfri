@@ -55,6 +55,50 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:GestionMantenimiento.ElementosInstalacion.GestionFicherosElementos">
+            <summary>
+            Clase para guardar y cargar los datos de los diferentes elementos desde un fichero
+            </summary>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.GestionFicherosElementos.CargarClima(System.Collections.Generic.List{GestionMantenimiento.Climatizacion})">
+            <summary>
+            Método para cargar datos sobre una lista
+            </summary>
+            <param name="climas">Lista donde cargar los datos</param>
+            <returns>Lista con los datos cargados</returns>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.GestionFicherosElementos.GuardarClima(System.Collections.Generic.List{GestionMantenimiento.Climatizacion})">
+            <summary>
+            Guarda una lista en el fichero preventivos
+            </summary>
+            <param name="fontas">Lista a guardar en el fichero</param>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.GestionFicherosElementos.CargarElectricidad(System.Collections.Generic.List{GestionMantenimiento.Electricidad})">
+            <summary>
+            Método para cargar datos sobre una lista
+            </summary>
+            <param name="climas">Lista donde cargar los datos</param>
+            <returns>Lista con los datos cargados</returns>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.GestionFicherosElementos.GuardarElectricidad(System.Collections.Generic.List{GestionMantenimiento.Electricidad})">
+            <summary>
+            Guarda una lista en el fichero preventivos
+            </summary>
+            <param name="fontas">Lista a guardar en el fichero</param>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.GestionFicherosElementos.CargarFontaneria(System.Collections.Generic.List{GestionMantenimiento.Fontaneria})">
+            <summary>
+            Método para cargar datos sobre una lista
+            </summary>
+            <param name="climas">Lista donde cargar los datos</param>
+            <returns>Lista con los datos cargados</returns>
+        </member>
+        <member name="M:GestionMantenimiento.ElementosInstalacion.GestionFicherosElementos.GuardarFontaneria(System.Collections.Generic.List{GestionMantenimiento.Fontaneria})">
+            <summary>
+            Guarda una lista en el fichero preventivos
+            </summary>
+            <param name="fontas">Lista a guardar en el fichero</param>
+        </member>
         <member name="T:GestionMantenimiento.GestionMaquinas">
             <summary>
             Formulario para gestionar las máquinas de la instalación
@@ -537,6 +581,14 @@
             Método ToString padre del elemento
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:GestionMantenimiento.Program">
+            <summary>
+            Programa que genera un registro de preventivos
+            </summary>
+            <author>
+            Juan Fco. Losa Márquez
+            </author>
         </member>
         <member name="M:GestionMantenimiento.Program.Main">
             <summary>

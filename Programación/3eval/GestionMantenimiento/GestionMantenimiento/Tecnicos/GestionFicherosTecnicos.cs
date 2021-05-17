@@ -19,6 +19,7 @@ namespace GestionMantenimiento.Tecnicos
         public static List<Tecnico> CargarTecnicos(List<Tecnico> tecnicos)
         {
             string[] provisional = new string[2];
+            string linea;
             provisionalTecnico tecnicoProvisional = new provisionalTecnico();
         
             if (!File.Exists("tecnicos.txt"))
@@ -29,21 +30,24 @@ namespace GestionMantenimiento.Tecnicos
             try
             {
                 StreamReader ficheroTecnicos = new StreamReader("tecnicos.txt");
-                int cantidad = File.ReadLines(@"tecnicos.txt").Count();
-                for (int i = 0; i < cantidad; i++)
+                do
                 {
-                    provisional = ficheroTecnicos.ReadLine().Split(';');
-                    tecnicoProvisional.nombre = provisional[0];
-                    tecnicoProvisional.oficio = provisional[1];
-                    tecnicoProvisional.antiguedad = Convert.ToDateTime(provisional[2]);
-                    Tecnico t = new Tecnico
+                    linea = ficheroTecnicos.ReadLine();
+                    if (linea != null)
                     {
-                        Nombre = tecnicoProvisional.nombre,
-                        Oficio = tecnicoProvisional.oficio,
-                        Antiguedad = tecnicoProvisional.antiguedad
-                    };
-                    tecnicos.Add(t);
-                }
+                        provisional = linea.Split(';');
+                        tecnicoProvisional.nombre = provisional[0];
+                        tecnicoProvisional.oficio = provisional[1];
+                        tecnicoProvisional.antiguedad = Convert.ToDateTime(provisional[2]);
+                        Tecnico t = new Tecnico
+                        {
+                            Nombre = tecnicoProvisional.nombre,
+                            Oficio = tecnicoProvisional.oficio,
+                            Antiguedad = tecnicoProvisional.antiguedad
+                        };
+                        tecnicos.Add(t);
+                    }
+                } while (linea != null);
                 ficheroTecnicos.Close();
             }
             catch (IOException)

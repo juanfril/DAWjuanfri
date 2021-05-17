@@ -1,2 +1,1 @@
 cuadro general;planta 0;electricidad;trifasica
-Cuadro alu exterior;cubierta;electricista;Monofasica

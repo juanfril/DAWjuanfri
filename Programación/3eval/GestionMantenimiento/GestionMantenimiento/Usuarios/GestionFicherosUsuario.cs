@@ -20,6 +20,7 @@ namespace GestionMantenimiento
         public static List<Usuario> CargarUsuarios(List<Usuario> usuarios)
         {
             string[] provisional = new string[1];
+            string linea;
             if (!File.Exists("usuarios.txt"))
             {
                 return usuarios;
@@ -28,15 +29,18 @@ namespace GestionMantenimiento
             try
             {
                 StreamReader ficheroUsuarios = new StreamReader("usuarios.txt");
-                int cantidad = File.ReadLines(@"usuarios.txt").Count();
-                for (int i = 0; i < cantidad; i++)
+                do
                 {
-                    provisional = ficheroUsuarios.ReadLine().Split(';');
-                    Usuario u = new Usuario();
-                    u.Nombre = provisional[0];
-                    u.Contraseña = provisional[1];
-                    usuarios.Add(u);
-                }
+                    linea = ficheroUsuarios.ReadLine();
+                    if (linea != null)
+                    {
+                        provisional = linea.Split(';');
+                        Usuario u = new Usuario();
+                        u.Nombre = provisional[0];
+                        u.Contraseña = provisional[1];
+                        usuarios.Add(u);
+                    }
+                } while (linea != null);
                 ficheroUsuarios.Close();
             }
             catch (IOException)

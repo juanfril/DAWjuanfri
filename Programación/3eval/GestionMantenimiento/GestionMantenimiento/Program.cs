@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+namespace GestionMantenimiento
+{
 /// <summary>
 /// Programa que genera un registro de preventivos
 /// </summary>
 /// <author>
 /// Juan Fco. Losa Márquez
 /// </author>
-namespace GestionMantenimiento
-{
     static class Program
     {
         /// <summary>

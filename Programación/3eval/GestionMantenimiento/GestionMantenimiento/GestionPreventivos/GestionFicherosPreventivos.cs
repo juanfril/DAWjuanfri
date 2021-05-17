@@ -21,6 +21,7 @@ namespace GestionMantenimiento.GestionPreventivos
         public static List<Preventivo> CargarPreventivos(List<Preventivo> preventivos)
         {
             string[] provisional = new string[2];
+            string linea;
         
             if (!File.Exists("preventivos.txt"))
             {
@@ -30,17 +31,19 @@ namespace GestionMantenimiento.GestionPreventivos
             try
             {
                 StreamReader ficheroTecnicos = new StreamReader("preventivos.txt");
-                int cantidad = File.ReadLines(@"preventivos.txt").Count();
-                for (int i = 0; i < cantidad; i++)
+                do
                 {
-                    provisional = ficheroTecnicos.ReadLine().Split(';');
-                    Preventivo p = new Preventivo(
-                            provisional[0], provisional[1],
-                            provisional[2]
-                        );
-                    
-                    preventivos.Add(p);
-                }
+                    linea = ficheroTecnicos.ReadLine();
+                    if(linea != null)
+                    {
+                        provisional = linea.Split(';');
+                        Preventivo p = new Preventivo(
+                                provisional[0], provisional[1],
+                                provisional[2]
+                            );
+                        preventivos.Add(p);
+                    }
+                } while (linea != null);
                 ficheroTecnicos.Close();
             }
             catch (IOException)
@@ -61,17 +64,17 @@ namespace GestionMantenimiento.GestionPreventivos
         {
             try
             {
-                StreamWriter fichero = File.AppendText("preventivos.txt");
+                StreamWriter fichero = new StreamWriter("preventivos.txt", append: true);
                 fichero.WriteLine(preventivo);
                 fichero.Close();
             }
             catch (IOException)
             {
-                Console.WriteLine("Error de escritura");
+                MessageBox.Show("Error de escritura");
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error: " + e.Message);
+                MessageBox.Show("Error: " + e.Message);
             }
         }
     }

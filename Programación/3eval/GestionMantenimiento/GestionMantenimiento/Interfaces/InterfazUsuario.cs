@@ -72,7 +72,6 @@ namespace GestionMantenimiento
                 }
             }
         }
-        //TODO... falta conseguir el nombre del elemento!!
         //Este método guarda el preventivo que se realiza en un fichero
         //y lo oculta en la tabla.
         private void btnRealizar_Click(object sender, EventArgs e)
@@ -84,9 +83,10 @@ namespace GestionMantenimiento
             else
             {
                 int posicion = dgwPeventivos.SelectedRows[0].Index;
+                string elemento = dgwPeventivos.SelectedRows[0].Cells[1].Value.ToString();
                 preventivo = new Preventivo(
                         this.Text, cbTecnicos.SelectedItem.ToString(),
-                        "Me falta el nombre del elemento" 
+                        elemento
                     );
                 GestionFicherosPreventivos.GuardarPreventivo(preventivo);
                 this.dgwPeventivos.CurrentCell = null;

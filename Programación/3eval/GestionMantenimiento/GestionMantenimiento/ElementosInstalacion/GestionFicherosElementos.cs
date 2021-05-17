@@ -8,11 +8,20 @@ using System.Windows.Forms;
 
 namespace GestionMantenimiento.ElementosInstalacion
 {
+    /// <summary>
+    /// Clase para guardar y cargar los datos de los diferentes elementos desde un fichero
+    /// </summary>
     class GestionFicherosElementos
     {
+        /// <summary>
+        /// Método para cargar datos sobre una lista
+        /// </summary>
+        /// <param name="climas">Lista donde cargar los datos</param>
+        /// <returns>Lista con los datos cargados</returns>
         public static List<Climatizacion> CargarClima(List<Climatizacion> climas)
         {
             string[] provisional = new string[3];
+            string linea;
             if (!File.Exists("climas.txt"))
             {
                 return climas;
@@ -21,16 +30,20 @@ namespace GestionMantenimiento.ElementosInstalacion
             try
             {
                 StreamReader ficheroMaquinas = new StreamReader("climas.txt");
-                int cantidad = File.ReadLines(@"climas.txt").Count();
-                for (int i = 0; i < cantidad; i++)
+                do
                 {
-                    provisional = ficheroMaquinas.ReadLine().Split(';');
-                    Climatizacion c = new Climatizacion(
-                                    provisional[0], provisional[1],
-                                    provisional[2], provisional[3]
-                                );
-                    climas.Add(c);
-                }
+                    linea = ficheroMaquinas.ReadLine();
+                    if (linea != null)
+                    {
+                        provisional = linea.Split(';');
+                        Climatizacion c = new Climatizacion(
+                                        provisional[0], provisional[1],
+                                        provisional[2], provisional[3]
+                                    );
+                        climas.Add(c);
+
+                    }
+                } while (linea != null);
                 ficheroMaquinas.Close();
             }
             catch (IOException)
@@ -43,6 +56,10 @@ namespace GestionMantenimiento.ElementosInstalacion
             }
             return climas;
         }
+        /// <summary>
+        /// Guarda una lista en el fichero preventivos
+        /// </summary>
+        /// <param name="fontas">Lista a guardar en el fichero</param>
         public static void GuardarClima(List<Climatizacion> climas)
         {
             try
@@ -63,9 +80,15 @@ namespace GestionMantenimiento.ElementosInstalacion
                 Console.WriteLine("Error: " + e.Message);
             }
         }
+        /// <summary>
+        /// Método para cargar datos sobre una lista
+        /// </summary>
+        /// <param name="climas">Lista donde cargar los datos</param>
+        /// <returns>Lista con los datos cargados</returns>
         public static List<Electricidad> CargarElectricidad(List<Electricidad> electricos)
         {
             string[] provisional = new string[3];
+            string linea;
             if (!File.Exists("electricidad.txt"))
             {
                 return electricos;
@@ -74,16 +97,19 @@ namespace GestionMantenimiento.ElementosInstalacion
             try
             {
                 StreamReader ficheroMaquinas = new StreamReader("electricidad.txt");
-                int cantidad = File.ReadLines(@"electricidad.txt").Count();
-                for (int i = 0; i < cantidad; i++)
+                do
                 {
-                    provisional = ficheroMaquinas.ReadLine().Split(';');
-                    Electricidad e = new Electricidad(
-                                    provisional[0], provisional[1],
-                                    provisional[2], provisional[3]
-                                );
-                    electricos.Add(e);
-                }
+                    linea = ficheroMaquinas.ReadLine();
+                    if (linea != null)
+                    {
+                        provisional = linea.Split(';');
+                        Electricidad e = new Electricidad(
+                                        provisional[0], provisional[1],
+                                        provisional[2], provisional[3]
+                                    );
+                        electricos.Add(e);
+                    }
+                } while (linea != null);
                 ficheroMaquinas.Close();
             }
             catch (IOException)
@@ -96,6 +122,10 @@ namespace GestionMantenimiento.ElementosInstalacion
             }
             return electricos;
         }
+        /// <summary>
+        /// Guarda una lista en el fichero preventivos
+        /// </summary>
+        /// <param name="fontas">Lista a guardar en el fichero</param>
         public static void GuardarElectricidad(List<Electricidad> electricos)
         {
             try
@@ -116,9 +146,15 @@ namespace GestionMantenimiento.ElementosInstalacion
                 Console.WriteLine("Error: " + e.Message);
             }
         }
+        /// <summary>
+        /// Método para cargar datos sobre una lista
+        /// </summary>
+        /// <param name="climas">Lista donde cargar los datos</param>
+        /// <returns>Lista con los datos cargados</returns>
         public static List<Fontaneria> CargarFontaneria(List<Fontaneria> fontas)
         {
             string[] provisional = new string[3];
+            string linea;
             if (!File.Exists("fontaneria.txt"))
             {
                 return fontas;
@@ -127,16 +163,19 @@ namespace GestionMantenimiento.ElementosInstalacion
             try
             {
                 StreamReader ficheroMaquinas = new StreamReader("fontaneria.txt");
-                int cantidad = File.ReadLines(@"fontaneria.txt").Count();
-                for (int i = 0; i < cantidad; i++)
+                do
                 {
-                    provisional = ficheroMaquinas.ReadLine().Split(';');
-                    Fontaneria f = new Fontaneria(
-                                    provisional[0], provisional[1],
-                                    provisional[2], provisional[3]
-                                );
-                    fontas.Add(f);
-                }
+                    linea = ficheroMaquinas.ReadLine();
+                    if (linea != null)
+                    {
+                        provisional = linea.Split(';');
+                        Fontaneria f = new Fontaneria(
+                                        provisional[0], provisional[1],
+                                        provisional[2], provisional[3]
+                                    );
+                        fontas.Add(f);
+                    }
+                } while (linea != null);
                 ficheroMaquinas.Close();
             }
             catch (IOException)
@@ -149,6 +188,10 @@ namespace GestionMantenimiento.ElementosInstalacion
             }
             return fontas;
         }
+        /// <summary>
+        /// Guarda una lista en el fichero preventivos
+        /// </summary>
+        /// <param name="fontas">Lista a guardar en el fichero</param>
         public static void GuardarFontaneria(List<Fontaneria> fontas)
         {
             try

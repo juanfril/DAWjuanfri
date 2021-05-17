@@ -139,13 +139,13 @@ namespace GestionMantenimiento
         }
         private void RefrescarGridElectricidad(List<Electricidad> electricidad)
         {
-            dgwClimatizacion.DataSource = typeof(Electricidad);
-            dgwClimatizacion.DataSource = electricidad;
+            dgwElectricidad.DataSource = typeof(Electricidad);
+            dgwElectricidad.DataSource = electricidad;
         }
         private void RefrescarGridFontaneria(List<Fontaneria> fontas)
         {
-            dgwClimatizacion.DataSource = typeof(Fontaneria);
-            dgwClimatizacion.DataSource = fontas;
+            dgwFontaneria.DataSource = typeof(Fontaneria);
+            dgwFontaneria.DataSource = fontas;
         }
 
         
