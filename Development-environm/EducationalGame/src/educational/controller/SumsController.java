@@ -17,6 +17,11 @@ import javafx.stage.Stage;
 
 import static educational.controller.MainMenuController.player;
 
+/**
+ * Class for controller sumsScene
+ * Inheritance GeneralController
+ * @see GeneralController
+ */
 public class SumsController extends GeneralController {
 
     @FXML
@@ -35,6 +40,11 @@ public class SumsController extends GeneralController {
     Stage stage;
     private ArrayList<Record> records = new ArrayList<>(FileUtils.loadRecords());
 
+    /**
+     * Initialize the scene
+     * @param url scene's path
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lbPlayer.setText("Go " + player.getName() + "!");

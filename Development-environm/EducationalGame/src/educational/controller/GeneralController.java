@@ -15,7 +15,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
-
+/**
+ * SuperClass for controller Scenes
+ * Implement Initializable
+ * @see Initializable
+ */
 public class GeneralController implements Initializable {
 
     protected Alert dialog = new Alert(Alert.AlertType.INFORMATION);
@@ -23,10 +27,7 @@ public class GeneralController implements Initializable {
     public void setNumbers(){}
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
-    }
-
-    public void clic(ActionEvent actionEvent) {
-    }
+    public void clic(ActionEvent actionEvent) {}
 }

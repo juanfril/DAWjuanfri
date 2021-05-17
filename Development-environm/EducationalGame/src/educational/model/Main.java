@@ -8,8 +8,17 @@ import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Class Main
+ * @author Juan Fco. Losa Marquez
+ * @version 1.0
+ * @since java 11
+ */
 public class Main extends Application {
-
+    /**
+     * Starts the app
+     * @param primaryStage the fist one scene for the app
+     */
     @Override
     public void start(Stage primaryStage) {
 
@@ -27,5 +36,9 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Main method
+     * @param args
+     */
     public static void main(String[] args) {launch(args);}
 }

@@ -14,6 +14,11 @@ import java.util.ResourceBundle;
 
 import static educational.controller.MainMenuController.player;
 
+/**
+ * Class for controller subtractScene
+ * Inheritance GeneralController
+ * @see GeneralController
+ */
 public class SubtractsController extends GeneralController {
     @FXML
     protected Label lbPlayer;
@@ -26,19 +31,24 @@ public class SubtractsController extends GeneralController {
     @FXML
     protected Button btnResult;
     protected Random random = new Random();
-
-    public void setNumber1(int number1) {
-        this.number1 = number1;
-    }
-
-    public void setNumber2(int number2) {
-        this.number2 = number2;
-    }
-
     protected int number1, number2, result;
     protected byte count = 0;
     protected Stage stage;
-    ArrayList<Record> records = new ArrayList<>();
+    protected ArrayList<Record> records = new ArrayList<>();
+    /**
+     * Establishes number1
+     * @param number1 A int for subtract
+     */
+    public void setNumber1(int number1) {
+        this.number1 = number1;
+    }
+    /**
+     * Establishes number2
+     * @param number2 A int for subtract
+     */
+    public void setNumber2(int number2) {
+        this.number2 = number2;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -88,6 +98,9 @@ public class SubtractsController extends GeneralController {
             }
         });
     }
+    /**
+     * Method for set random numbers for Subtract
+     */
     @Override
     public void setNumbers(){
         do{

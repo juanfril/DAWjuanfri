@@ -86,7 +86,7 @@ namespace GestionMantenimiento
                 int posicion = dgwPeventivos.SelectedRows[0].Index;
                 preventivo = new Preventivo(
                         this.Text, cbTecnicos.SelectedItem.ToString(),
-                        "Me falta el nombre del elemento"
+                        "Me falta el nombre del elemento" 
                     );
                 GestionFicherosPreventivos.GuardarPreventivo(preventivo);
                 this.dgwPeventivos.CurrentCell = null;

@@ -3,7 +3,14 @@ package educational.model;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Class for load and save records
+ */
 public class FileUtils {
+    /**
+     * Method for load records into an ArrayList
+     * @return ArrayList with the records
+     */
     public static ArrayList<Record> loadRecords(){
         ArrayList<Record> records = new ArrayList<>();
 
@@ -59,7 +66,10 @@ public class FileUtils {
         }
         return records;
     }
-
+    /**
+     * Method for save records into an ArrayList
+     * @param records ArrayList with the records
+     */
     public static void saveRecords( ArrayList<Record> records ){
         PrintWriter printerWriter = null;
         try{

@@ -13,8 +13,17 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 import static educational.controller.MainMenuController.player;
-
+/**
+ * Class for controller subtractWithCarriedScene
+ * Inheritance SubtractsController
+ * @see SubtractsController
+ */
 public class SubtractWithCarriedController extends SubtractsController {
+    /**
+     * Initialize the scene
+     * @param url scene's path
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         records = FileUtils.loadRecords();
@@ -64,6 +73,10 @@ public class SubtractWithCarriedController extends SubtractsController {
             }
         });
     }
+
+    /**
+     * Method for set random numbers for SubtractWithCarried
+     */
     @Override
     public void setNumbers(){
         do{

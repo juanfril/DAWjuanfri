@@ -95,7 +95,6 @@ namespace GestionMantenimiento
             this.Controls.Add(this.btnUsuario);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Login";
-            this.Opacity = 0.8D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));

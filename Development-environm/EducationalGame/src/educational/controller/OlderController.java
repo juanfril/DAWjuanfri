@@ -9,8 +9,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * Class for controller olderScene
+ * Inheritance GeneralController
+ * @see GeneralController
+ */
 public class OlderController extends GeneralController {
 
     @FXML
@@ -21,13 +27,17 @@ public class OlderController extends GeneralController {
     private Button btnSubtractWithCarriedController;
     private Stage stage = new Stage();
     private Parent root;
-
+    /**
+     * Initialize the scene
+     * @param url scene's path
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btnSums.setOnAction(ActionEvent -> {
             try {
-                root = FXMLLoader.load(getClass().getResource(
-                        "/educational/scene/sumsScene.fxml"));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+                        "/educational/scene/sumsScene.fxml")));
                 stage.setTitle("Sums");
             } catch (Exception e) {
                 dialog.setHeaderText("Information");
@@ -39,8 +49,8 @@ public class OlderController extends GeneralController {
         });
         btnSubtract.setOnAction(actionEvent -> {
             try {
-                root = FXMLLoader.load(getClass().getResource(
-                        "/educational/scene/subtractsScene.fxml"));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+                        "/educational/scene/subtractsScene.fxml")));
                 stage.setTitle("Subtract");
             } catch (Exception e) {
                 dialog.setHeaderText("Information");
@@ -52,8 +62,8 @@ public class OlderController extends GeneralController {
         });
         btnSubtractWithCarriedController.setOnAction(actionEvent -> {
             try {
-                root = FXMLLoader.load(getClass().getResource(
-                        "/educational/scene/subtractWithCarriedScene.fxml"));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+                        "/educational/scene/subtractWithCarriedScene.fxml")));
                 stage.setTitle("Subtract with carried");
             } catch (Exception e) {
                 dialog.setHeaderText("Information");

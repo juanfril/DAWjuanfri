@@ -11,4 +11,5 @@ module EducationalGame {
     opens educational.controller;
     opens educational.model;
     opens educational.scene;
+    opens educational.catchTheMouse;
 }

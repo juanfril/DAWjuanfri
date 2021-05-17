@@ -18,9 +18,12 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 import static educational.controller.MainMenuController.player;
-
+/**
+ * Class for controller howManyAreThereScene
+ * Inheritance GeneralController
+ * @see GeneralController
+ */
 public class HowManyAreThereController extends GeneralController{
-
     @FXML
     private Label lbPlayer;
     @FXML
@@ -38,7 +41,11 @@ public class HowManyAreThereController extends GeneralController{
     private byte count;
     Stage stage;
     private ArrayList<Record> records = new ArrayList<>(FileUtils.loadRecords());
-
+    /**
+     * Initialize the scene
+     * @param url scene's path
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         circles.add(circle1);
@@ -96,6 +103,10 @@ public class HowManyAreThereController extends GeneralController{
         });
     }
 
+    /**
+     * Method for hide the circles
+     * @param circles A ArrayList with the circles
+     */
     private void hideCircles(ArrayList<Circle> circles){
         for (int i = 0; i < circles.size(); i++) {
             circles.get(i).setVisible(false);
