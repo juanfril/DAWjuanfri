@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Class that inheritance from Record
  * @see Record
  */
-public static class MouseRecord extends Record{
+public class MouseRecord extends Record{
     /**
      * Constructor with parameters
      * @param name A string with the player name
@@ -24,7 +24,7 @@ public static class MouseRecord extends Record{
      * @param records A ArrayList with all the records
      * @return A boolean returns true if the number is greater
      */
-    public static boolean checkMouseRecord(String name ,int number, ArrayList<Record> records){
+    public static boolean checkMouseRecord(String name , int number, ArrayList<Record> records){
         boolean newRecord = false;
         for (int i = 0; i < records.size(); i++) {
             if(records.get(i) instanceof MouseRecord){

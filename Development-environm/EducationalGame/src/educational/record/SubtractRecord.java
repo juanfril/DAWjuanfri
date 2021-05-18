@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Class that inheritance from Record
  * @see Record
  */
-public static class SubtractRecord extends Record{
+public class SubtractRecord extends Record{
     /**
      * Constructor with parameters
      * @param name A string with the player name

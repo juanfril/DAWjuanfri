@@ -1,6 +1,6 @@
 package educational.model;
 
-import educational.record.Record;
+import educational.record.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -31,27 +31,27 @@ public class FileUtils {
                         String[] lineSplit = line.split(";");
                         switch (lineSplit[2]){
                             case "Sums Record":
-                                records.add(new Record.SumsRecord(
+                                records.add(new SumsRecord(
                                         lineSplit[0], Integer.parseInt(lineSplit[1])
                                 ));
                                 break;
                             case "Subtract Record":
-                                records.add(new Record.SubtractRecord(
+                                records.add(new SubtractRecord(
                                         lineSplit[0], Integer.parseInt(lineSplit[1])
                                 ));
                                 break;
                             case "Subtract With Carried Record":
-                                records.add(new Record.SubtractWithCarriedRecord(
+                                records.add(new SubtractWithCarriedRecord(
                                         lineSplit[0], Integer.parseInt(lineSplit[1])
                                 ));
                                 break;
                             case "Mouse Record":
-                                records.add(new Record.MouseRecord(
+                                records.add(new MouseRecord(
                                         lineSplit[0], Integer.parseInt(lineSplit[1])
                                 ));
                                 break;
                             case "How Many Record":
-                                records.add(new Record.HowManyRecord(
+                                records.add(new HowManyRecord(
                                         lineSplit[0], Integer.parseInt(lineSplit[1])
                                 ));
                                 break;

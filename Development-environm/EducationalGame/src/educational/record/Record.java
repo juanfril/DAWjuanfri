@@ -49,6 +49,6 @@ public abstract class Record {
      */
     @Override
     public String toString() {
-        return  name + ";" + record;
+        return  name + "-" + record;
     }
 }

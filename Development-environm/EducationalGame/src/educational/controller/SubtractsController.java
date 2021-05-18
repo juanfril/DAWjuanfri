@@ -2,6 +2,7 @@ package educational.controller;
 
 import educational.model.FileUtils;
 import educational.record.Record;
+import educational.record.SubtractRecord;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -75,7 +76,7 @@ public class SubtractsController extends GeneralController {
 
                     txtResult.setText("");
                 } else {
-                    if(Record.SubtractRecord.checkSubtractRecord(player.getName(), count, records)){
+                    if(SubtractRecord.checkSubtractRecord(player.getName(), count, records)){
                         dialog.setHeaderText("Information");
                         dialog.setContentText("You fail!\nRight result: " + (number1 - number2) +
                                 "\nYou won a new Record!! " + count);

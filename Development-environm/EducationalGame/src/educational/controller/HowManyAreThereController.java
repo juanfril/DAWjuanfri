@@ -1,6 +1,7 @@
 package educational.controller;
 
 import educational.model.FileUtils;
+import educational.record.HowManyRecord;
 import educational.record.Record;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -76,7 +77,7 @@ public class HowManyAreThereController extends GeneralController{
 
                     tbResult.setText("");
                 } else{
-                    if(Record.HowManyRecord.checkHowManyRecord(player.getName(), count, records)){
+                    if(HowManyRecord.checkHowManyRecord(player.getName(), count, records)){
                         dialog.setHeaderText("Information");
                         dialog.setContentText("You fail!\nRight result: " + howMany +
                                 "\n You won a new Record!! " + count);

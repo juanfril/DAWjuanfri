@@ -2,6 +2,7 @@ package educational.controller;
 
 import educational.model.FileUtils;
 import educational.record.Record;
+import educational.record.SubtractWithCarriedRecord;
 import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,7 +44,7 @@ public class SubtractWithCarriedController extends SubtractsController {
 
                     txtResult.setText("");
                 } else {
-                    if(Record.SubtractWithCarriedRecord.checkSubtractWithCarriedRecord(
+                    if(SubtractWithCarriedRecord.checkSubtractWithCarriedRecord(
                             player.getName(), count, records)){
                         dialog.setHeaderText("Information");
                         dialog.setContentText("You fail!\nRight result: " + (number1 - number2) +

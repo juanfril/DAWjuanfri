@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Class that inheritance from Record
  * @see Record
  */
-public static class SubtractWithCarriedRecord extends Record{
+public class SubtractWithCarriedRecord extends Record{
     /**
      * Constructor with parameters
      * @param name A string with the player name
@@ -44,6 +44,6 @@ public static class SubtractWithCarriedRecord extends Record{
      */
     @Override
     public String toString(){
-        return super.toString() + ";Subtract With Carried Record";
+        return "Subtract With Carried Record -" + super.toString();
     }
 }
