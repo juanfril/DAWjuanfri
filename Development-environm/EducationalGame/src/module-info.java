@@ -12,4 +12,5 @@ module EducationalGame {
     opens educational.model;
     opens educational.scene;
     opens educational.catchTheMouse;
+    opens educational.record;
 }

@@ -1,9 +1,9 @@
 package educational.controller;
 
 import educational.model.FileUtils;
-import educational.model.Record;
+import educational.record.Record;
+import educational.record.SumsRecord;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 
 import java.net.URL;
@@ -71,7 +71,7 @@ public class SumsController extends GeneralController {
 
                     txtResult.setText("");
                 } else{
-                    if(Record.SumsRecord.checkSumsRecord(player.getName(), count, records)){
+                    if(SumsRecord.checkSumsRecord(player.getName(), count, records)){
                         dialog.setHeaderText("Information");
                         dialog.setContentText("You fail!\nRight result: " + (number1 + number2) +
                                 "\n You won a new Record!! " + count);

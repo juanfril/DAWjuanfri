@@ -1,15 +1,9 @@
 package educational.controller;
 
 import educational.model.FileUtils;
-import educational.model.Record;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import educational.record.Record;
 import javafx.stage.Stage;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import static educational.controller.MainMenuController.player;

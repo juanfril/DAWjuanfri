@@ -1,7 +1,7 @@
 package educational.controller;
 
 import educational.model.FileUtils;
-import educational.model.Record;
+import educational.record.Record;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

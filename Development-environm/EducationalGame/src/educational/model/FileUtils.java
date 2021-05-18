@@ -1,5 +1,7 @@
 package educational.model;
 
+import educational.record.Record;
+
 import java.io.*;
 import java.util.ArrayList;
 
