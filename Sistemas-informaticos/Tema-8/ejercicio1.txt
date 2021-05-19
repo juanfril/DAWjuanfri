@@ -1,0 +1,86 @@
+3. Crear un usuario
+
+echo "Indique el nombre del usuario"
+read usuario
+sudo adduser $usuario
+;;
+
+4. Crear un grupo
+
+echo "Indique el nombre del grupo"
+read grupo
+sudo addgroup $grupo
+;;
+
+5. Eliminar un usuario (con id >= 1000)
+
+echo "Indique el usuario a eliminar"
+read usuario
+sudo deluser $usuario
+;;
+
+6. Eliminar un grupo (con id >= 1000)
+
+echo "Indique el grupo a eliminar"
+read grupo
+sudo delgroup $group
+;;
+
+7. Muestra por pantalla el nombre del grupo primario y secundarios de
+un usuario existente
+
+echo "Indique el usuario"
+read usuario
+usuarioGroups = (`groups $usuario 2> /dev/null | cut -d":" -f2`)
+if[-z $usuarioGroups]
+then
+	echo "El usuario no existe"
+else
+	echo "Los grupos del usuario son ${usuarioGroups[*]}"
+fi
+;;
+
+8. Muestra por pantalla el nombre de los usuarios pertenecientes a un
+grupo existente
+
+echo "Indique el grupo"
+read grupo
+#comprobar si el grupo existe
+grupoTemp = `cat /etc/passwd | grep -w ^$grupo | cut -d ':' -f1`
+#comprobar si exista algún usuario con el mismo nombre que el grupo, 
+	para mostrarlo si grupoTemp = usuarioTemp
+usuarioTemp = `cat /etc/passwd | grep -w ^$grupo | cut -d ':' -f1`
+if[-z grupotemp]
+then
+	echo "El grupo $ grupo no existe"
+elif [-z usuarioTemp]
+then
+	us=`cat /etc/passwd | grep -w ^$grupo | cut -d ':' -f4`
+	if[! -z $us]
+	then
+		echo "No hay usuarios pertenecientes al grupo $grupo"
+	fi
+elif[$grupoTemp = $usuarioTemp]
+then
+	us=`cat /etc/passwd | grep -w ^$grupo | cut -d ':' -f4`
+	echo "Los usuarios del grupo $grupo son $usuarioTemp, us"
+fi
+;;
+
+9. Dado un usuario existente, realice un registro de su actividad en el
+fichero /var/log/actividadUsuarios en el que incluya en una misma
+línea los datos siguientes:
+a. Nombre del usuario
+b. Fecha del registro (usar comando date)
+c. Número de procesos que tiene en memoria
+d. Número de ficheros que tiene en su carpeta de trabajo
+
+echo "Indique el nombre del usuario a controlar"
+read usuario
+numeroProcesos = `ps -u $usuario | wc -l`
+let numeroProcesos--; #Eliminar la línea de cabecera
+numeroFicheros = `find/home/$usuario -type f 2>/dev/null | wc -l`
+echo "$usuario `date+"%Y-%m-%d"` $numeroProcesos $numeroFicheros" >> /var/log/actividadUsuarios
+echo "La actividad del usuario $usuario ha sido registrada en /var/log/actividadUsuarios"
+;;
+

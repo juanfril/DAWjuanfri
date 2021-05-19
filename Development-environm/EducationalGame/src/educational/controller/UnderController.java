@@ -1,6 +1,5 @@
 package educational.controller;
 
-import educational.catchTheMouse.CatchTheMouseScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,7 +23,6 @@ public class UnderController extends GeneralController {
     private Button btnHowMany;
     private Stage stage = new Stage();
     private Parent root;
-    private Scene catchTheMouse;
     /**
      * Initialize the scene
      * @param url scene's path
@@ -32,18 +30,24 @@ public class UnderController extends GeneralController {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        catchTheMouse = new CatchTheMouseScene();
         btnCatchTheMouse.setOnAction(ActionEvent -> {
-
-            stage.setTitle("Catch the mouse");
-            stage.setScene(catchTheMouse);
+            try {
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+                        "/educational/scene/catchTheMouseScene.fxml")));
+                stage.setTitle("Catch the mouse");
+            } catch (Exception e) {
+                dialog.setHeaderText("Information");
+                dialog.setContentText(e.toString());
+                dialog.showAndWait();
+            }
+            stage.setScene(new javafx.scene.Scene(root, 600, 400));
             stage.show();
         });
         btnHowMany.setOnAction(actionEvent -> {
             try {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
                         "/educational/scene/howManyAreThereScene.fxml")));
-                stage.setTitle("How many are there scene");
+                stage.setTitle("How many are there");
             } catch (Exception e) {
                 dialog.setHeaderText("Information");
                 dialog.setContentText(e.toString());

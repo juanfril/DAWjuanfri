@@ -44,6 +44,6 @@ public class MouseRecord extends Record{
      */
     @Override
     public String toString(){
-        return super.toString() + ";Mouse Record";
+        return "Mouse Record - " + super.toString();
     }
 }

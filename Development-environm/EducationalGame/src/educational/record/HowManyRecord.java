@@ -44,6 +44,6 @@ public class HowManyRecord extends Record{
      */
     @Override
     public String toString(){
-        return super.toString() + ";How Many Record";
+        return "How Many Record - " + super.toString();
     }
 }

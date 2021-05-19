@@ -44,6 +44,6 @@ public class SumsRecord extends Record{
      */
     @Override
     public String toString(){
-        return "Sums Record-"+ super.toString();
+        return "Sums Record - "+ super.toString();
     }
 }

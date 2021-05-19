@@ -7,11 +7,9 @@ module EducationalGame {
     requires javafx.fxml;
     requires javafx.swt;
     requires java.datatransfer;
-    requires org.jetbrains.annotations;
 
     opens educational.controller;
     opens educational.model;
     opens educational.scene;
-    opens educational.catchTheMouse;
     opens educational.record;
 }

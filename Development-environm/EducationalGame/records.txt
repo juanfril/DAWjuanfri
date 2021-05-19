@@ -1,5 +1,5 @@
-Josefina;1;Sums Record
-Juanfri;1;Subtract Record
-Alfonso;1;Subtract With Carried Record
-Cristina;1;Mouse Record
-Sara;5;How Many Record
+Sums Record - Nobody - 0
+Subtract Record - Nobody - 0
+Subtract With Carried Record - Nobody - 0
+Mouse Record - Nobody - 0
+How Many Record - Sara - 1

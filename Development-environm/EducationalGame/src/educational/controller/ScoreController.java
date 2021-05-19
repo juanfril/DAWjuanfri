@@ -25,8 +25,8 @@ public class ScoreController extends GeneralController{
     @FXML
     private Button btnBack;
     Stage stage;
-    private ArrayList<Record> records = new ArrayList<Record>(FileUtils.loadRecords());
-    ObservableList<Record> observableList = FXCollections.observableArrayList(records);
+    private ArrayList<Record> records;
+    ObservableList<Record> observableList;
 
     /**
      * Initialize the scene
@@ -35,6 +35,8 @@ public class ScoreController extends GeneralController{
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        records = new ArrayList<Record>(FileUtils.loadRecords());
+        observableList = FXCollections.observableArrayList(records);
         lvRanking.setItems(observableList);
         btnBack.setOnAction(actionEvent -> {
             stage = (Stage) this.btnBack.getScene().getWindow();

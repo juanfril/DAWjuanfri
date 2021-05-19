@@ -44,6 +44,6 @@ public class SubtractRecord extends Record{
      */
     @Override
     public String toString(){
-        return super.toString() + ";Subtract Record";
+        return "Subtract Record - " + super.toString();
     }
 }

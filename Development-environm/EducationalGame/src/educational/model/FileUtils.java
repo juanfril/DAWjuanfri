@@ -28,31 +28,36 @@ public class FileUtils {
                 do {
                     line = inputFile.readLine();
                     if(line != null){
-                        String[] lineSplit = line.split(";");
-                        switch (lineSplit[2]){
-                            case "Sums Record":
+                        String[] lineSplit = line.split("-");
+                        switch (lineSplit[0]){
+                            case "Sums Record ":
                                 records.add(new SumsRecord(
-                                        lineSplit[0], Integer.parseInt(lineSplit[1])
+                                        lineSplit[1], Integer.parseInt(lineSplit[2]
+                                            .replace(" ",""))
                                 ));
                                 break;
-                            case "Subtract Record":
+                            case "Subtract Record ":
                                 records.add(new SubtractRecord(
-                                        lineSplit[0], Integer.parseInt(lineSplit[1])
+                                        lineSplit[1], Integer.parseInt(lineSplit[2]
+                                            .replace(" ",""))
                                 ));
                                 break;
-                            case "Subtract With Carried Record":
+                            case "Subtract With Carried Record ":
                                 records.add(new SubtractWithCarriedRecord(
-                                        lineSplit[0], Integer.parseInt(lineSplit[1])
+                                        lineSplit[1], Integer.parseInt(lineSplit[2]
+                                            .replace(" ",""))
                                 ));
                                 break;
-                            case "Mouse Record":
+                            case "Mouse Record ":
                                 records.add(new MouseRecord(
-                                        lineSplit[0], Integer.parseInt(lineSplit[1])
+                                        lineSplit[1], Integer.parseInt(lineSplit[2]
+                                            .replace(" ",""))
                                 ));
                                 break;
-                            case "How Many Record":
+                            case "How Many Record ":
                                 records.add(new HowManyRecord(
-                                        lineSplit[0], Integer.parseInt(lineSplit[1])
+                                        lineSplit[1], Integer.parseInt(lineSplit[2]
+                                            .replace(" ",""))
                                 ));
                                 break;
                         }

@@ -44,6 +44,6 @@ public class SubtractWithCarriedRecord extends Record{
      */
     @Override
     public String toString(){
-        return "Subtract With Carried Record -" + super.toString();
+        return "Subtract With Carried Record - " + super.toString();
     }
 }
