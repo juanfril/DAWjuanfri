@@ -1,0 +1,4 @@
+casa;house
+manzana;apple
+perro;dog
+mesa;table

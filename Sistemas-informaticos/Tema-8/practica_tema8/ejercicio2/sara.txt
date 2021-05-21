@@ -1,0 +1,8 @@
+cristina;5;20/05/2021
+oliver;7;20/05/2021
+cristina;8;20/05/2021
+juanfri;3;20/05/2021
+juanfri;10;20/05/2021
+juanfri;9;20/05/2021
+juanfri;3;20/05/2021
+juanfri;5;20/05/2021

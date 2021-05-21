@@ -1,3 +1,20 @@
+cat<<END
+ - Menu de mantenimiento de usuarios -
+   _________________________________
+    1. Mostrar usuarios del sistema
+    2. Mostrar grupos del sistema
+    3. Crear un usuario
+    4. Crear un grupo
+    5. Eliminar un usuario
+    6. Eliminar un grupo
+    7. Mostrar grupos primario y secundario de un usuario
+    8. Mostrar usuarios de un grupo
+    9. Mostrar registro actividad
+    0. Salir
+    
+END
+
+
 3. Crear un usuario
 
 echo "Indique el nombre del usuario"

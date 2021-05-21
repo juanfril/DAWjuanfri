@@ -1,0 +1,10 @@
+16/12/2018
+Esto no es una fecha
+06/10/2009
+Otra cosa
+30/05/2015
+Cadena de texto
+15/09/1990
+16/04/1934
+Cadena larga, al menos comparada con el resto
+28/02/2035
