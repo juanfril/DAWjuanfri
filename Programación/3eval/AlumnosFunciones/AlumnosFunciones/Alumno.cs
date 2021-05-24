@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AlumnosFunciones
+namespace AlumnosFunciones 
 {
-    class Alumno
+    class Alumno : IComparable
     {
         Notas notas;
         public string NombreApellido { get; set; }
@@ -73,6 +73,42 @@ namespace AlumnosFunciones
         {
             return notas.NotaFinal;
         }
+        public float GetParcial1()
+        {
+            return notas.Parcial1;
+        }
+        public float GetParcial2()
+        {
+            return notas.Parcial2;
+        }
+        public float GetParcial3()
+        {
+            return notas.Parcial3;
+        }
+        public float GetParcial4()
+        {
+            return notas.Parcial4;
+        }
+        public float GetParcial5()
+        {
+            return notas.Parcial5;
+        }
+        public float GetParcial6()
+        {
+            return notas.Parcial6;
+        }
+        public float GetExamen1()
+        {
+            return notas.Examen1;
+        }
+        public float GetExamen2()
+        {
+            return notas.Examen2;
+        }
+        public float GetExamen3()
+        {
+            return notas.Examen3;
+        }
         public void CalcularNotas()
         {
             float notaEva1;
@@ -94,6 +130,16 @@ namespace AlumnosFunciones
         public override string ToString()
         {
             return NombreApellido + ";" + Dni + ";" + Ciudad + ";" + FechaNacimiento + ";" + notas;
+        }
+
+        public int CompareTo(Alumno otro)
+        {
+            return notas.NotaFinal.CompareTo(otro.notas.NotaFinal);
+        }
+
+        public int CompareTo(object obj)
+        {
+            return Dni.CompareTo(obj);
         }
     }
 }

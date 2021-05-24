@@ -12,7 +12,7 @@ namespace AlumnosFunciones
         {
             string linea;
             List<string> provisional;
-            if (!File.Exists("alumos.txt"))
+            if (!File.Exists("alumnos.txt"))
             {
                 return alumnos;
             }
@@ -29,7 +29,8 @@ namespace AlumnosFunciones
                         Alumno a = new Alumno(provisional[0], provisional[1],provisional[2], Convert.ToDateTime(provisional[3]),
                             Convert.ToSingle(provisional[4]), Convert.ToSingle(provisional[5]), Convert.ToSingle(provisional[6]),
                             Convert.ToSingle(provisional[7]), Convert.ToSingle(provisional[8]), Convert.ToSingle(provisional[9]),
-                            Convert.ToSingle(provisional[10]), Convert.ToSingle(provisional[11]), Convert.ToSingle(provisional[12]));
+                            Convert.ToSingle(provisional[10]), Convert.ToSingle(provisional[11]), Convert.ToSingle(provisional[12]),
+                            Convert.ToSingle(provisional[13]));
                         alumnos.Add(a);
                     }
                 } while (linea != null);
