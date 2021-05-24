@@ -3,10 +3,7 @@ namespace TiendaInformatica
 {
     class Portatiles : ProductoInformatico
     {
-        private float tamanyoPantalla;
-        private int ram, discoDuro;
-
-        public Portatiles() : base()
+       public Portatiles() : base()
         {
             TamanyoPantalla = 0.00f;
             Ram = 0;
@@ -16,9 +13,9 @@ namespace TiendaInformatica
             float precio, float tamanyoPantalla, int ram, int discoDuro)
             : base(codigo, marca, modelo, precio)
         {
-            this.TamanyoPantalla = tamanyoPantalla;
-            this.Ram = ram;
-            this.DiscoDuro = discoDuro;
+            TamanyoPantalla = tamanyoPantalla;
+            Ram = ram;
+            DiscoDuro = discoDuro;
         }
 
         public float TamanyoPantalla { get; set; }
