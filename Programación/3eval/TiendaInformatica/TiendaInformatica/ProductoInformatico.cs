@@ -3,11 +3,6 @@ namespace TiendaInformatica
 {
     abstract class ProductoInformatico
     {
-        protected string codigo;
-        protected string marca;
-        protected string modelo;
-        protected float precio;
-
         public ProductoInformatico()
         {
             Codigo = "aa00";
@@ -19,10 +14,10 @@ namespace TiendaInformatica
         public ProductoInformatico(string codigo, string marca, string modelo,
             float precio)
         {
-            this.Codigo = codigo;
-            this.Marca = marca;
-            this.Modelo = modelo;
-            this.Precio = precio;
+            Codigo = codigo;
+            Marca = marca;
+            Modelo = modelo;
+            Precio = precio;
         }
         public string Codigo { get; set; }
         public string Marca { get; set; }

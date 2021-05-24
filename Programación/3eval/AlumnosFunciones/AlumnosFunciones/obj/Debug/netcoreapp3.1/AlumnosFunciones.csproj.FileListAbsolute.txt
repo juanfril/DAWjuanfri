@@ -1,0 +1,13 @@
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.exe
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.deps.json
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.runtimeconfig.json
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.runtimeconfig.dev.json
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.dll
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.pdb
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.csprojAssemblyReference.cache
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.AssemblyInfoInputs.cache
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.AssemblyInfo.cs
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.csproj.CoreCompileInputs.cache
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.dll
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.pdb
+C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.genruntimeconfig.cache
