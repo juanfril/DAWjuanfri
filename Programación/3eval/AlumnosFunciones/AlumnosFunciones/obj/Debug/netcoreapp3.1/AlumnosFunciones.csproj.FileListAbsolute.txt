@@ -11,3 +11,16 @@ C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcorea
 C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.dll
 C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.pdb
 C:\Users\juanf\source\repos\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.genruntimeconfig.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.csprojAssemblyReference.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.AssemblyInfoInputs.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.AssemblyInfo.cs
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.csproj.CoreCompileInputs.cache
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.dll
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.pdb
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.exe
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.deps.json
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.runtimeconfig.json
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.runtimeconfig.dev.json
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.dll
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\bin\Debug\netcoreapp3.1\AlumnosFunciones.pdb
+C:\Users\juanf\Documents\GitHub\DAWjuanfri\Programación\3eval\AlumnosFunciones\AlumnosFunciones\obj\Debug\netcoreapp3.1\AlumnosFunciones.genruntimeconfig.cache

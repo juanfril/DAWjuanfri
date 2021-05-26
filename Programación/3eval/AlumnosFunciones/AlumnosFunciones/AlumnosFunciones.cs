@@ -16,6 +16,7 @@ Apartado 1.10 parcialmente
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AlumnosFunciones
 {
@@ -173,8 +174,8 @@ namespace AlumnosFunciones
         
         static void PedirNotas(Alumno alumno)
         {
-            float[] practicas = new float[5];
-            float[] examenes = new float[2];
+            float[] practicas = new float[6];
+            float[] examenes = new float[3];
 
             try
             {
@@ -195,25 +196,24 @@ namespace AlumnosFunciones
                         Console.WriteLine("Nota exámen {0}ª evalución", i + 1);
                         examenes[i] = Convert.ToSingle(Console.ReadLine());
                     }
-                    while (examenes[i] >= 0 && examenes[i] <= 10);
+                    while (examenes[i] <= 0 && examenes[i] >= 10);
                 }
                 alumno.CalcularNotas();
-                Console.WriteLine("Alumno añadido correctamente");
+                alumno.SetParcial1(practicas[0]);
+                alumno.SetParcial2(practicas[1]);
+                alumno.SetParcial3(practicas[2]);
+                alumno.SetParcial4(practicas[3]);
+                alumno.SetParcial5(practicas[4]);
+                alumno.SetParcial6(practicas[5]);
+                alumno.SetExamen1(examenes[0]);
+                alumno.SetExamen2(examenes[1]);
+                alumno.SetExamen3(examenes[2]);
+                alumno.CalcularNotas();
             }
             catch (Exception errorEncontrado)
             {
                 Console.WriteLine("Ha habido un error {0}", errorEncontrado);
             }
-            alumno.SetParcial1(practicas[0]);
-            alumno.SetParcial2(practicas[1]);
-            alumno.SetParcial3(practicas[2]);
-            alumno.SetParcial4(practicas[3]);
-            alumno.SetParcial5(practicas[4]);
-            alumno.SetParcial6(practicas[5]);
-            alumno.SetExamen1(examenes[0]);
-            alumno.SetExamen2(examenes[1]);
-            alumno.SetExamen3(examenes[2]);
-            alumno.CalcularNotas();
         }
 
         static void BorrarAlumnos(List<Alumno> alumnos)
@@ -268,14 +268,15 @@ namespace AlumnosFunciones
             Console.WriteLine();
         }
 
-        /*static void OrdenarAlumno(List<Alumno> alumnos, byte criterio)
+        static void OrdenarAlumno(List<Alumno> alumnos, byte criterio)
         {
             List<Alumno> alumnosProvisional = new List<Alumno>();
 
             switch (criterio)
             {
                 case 1:
-                    for (int i = 0; i < cantidad - 1; i++)
+                    alumnos.Sort();
+                    /*for (int i = 0; i < cantidad - 1; i++)
                     {
                         for (int j = i + 1; j < cantidad; j++)
                         {
@@ -287,11 +288,13 @@ namespace AlumnosFunciones
                                 alumnos[j] = alumnosProvisional[i];
                             }
                         }
-                    }
+                    }*/
                     break;
 
                 case 2:
-                    for (int i = 0; i < cantidad - 1; i++)
+                    List<Alumno> alumnosDni = alumnos.OrderBy(
+                        alumnos => alumnos.Dni).ToList();
+                    /*for (int i = 0; i < cantidad - 1; i++)
                     {
                         for (int j = i + 1; j < cantidad; j++)
                         {
@@ -302,11 +305,13 @@ namespace AlumnosFunciones
                                 alumnos[j] = alumnosProvisional[i];
                             }
                         }
-                    }
+                    }*/
                     break;
 
                 case 3: // Hay que poner el orden descendente
-                    for (int i = 0; i < cantidad - 1; i++)
+                    List<Alumno> alumnosCuidad = alumnos.OrderByDescending(
+                        alumnos => alumnos.Ciudad).ToList();
+                    /*for (int i = 0; i < cantidad - 1; i++)
                     {
                         for (int j = i + 1; j < cantidad; j++)
                         {
@@ -318,10 +323,11 @@ namespace AlumnosFunciones
                                 alumnos[j] = alumnosProvisional[i];
                             }
                         }
-                    }
+                    }*/
                     break;
                 case 4:
-                    for (int i = 0; i < cantidad - 1; i++)
+                    alumnos.Sort();
+                    /*for (int i = 0; i < cantidad - 1; i++)
                     {
                         for (int j = i + 1; j < cantidad; j++)
                         {
@@ -333,12 +339,12 @@ namespace AlumnosFunciones
                                 alumnos[j] = alumnosProvisional[i];
                             }
                         }
-                    }
+                    }*/
                     break;
             }
-        }*/
+        }
 
-        static void BuscarAlumnos(alumno[] alumnos, byte cantidad)
+        static void BuscarAlumnos(List<Alumno> alumnos)
         {
             string busquedaApellido = "";
             string busquedaDni;
@@ -374,15 +380,14 @@ namespace AlumnosFunciones
                 }
                 while (!correcto);
 
-                OrdenarAlumno(alumnos, cantidad, criterio);
+                OrdenarAlumno(alumnos, criterio);
 
-                for (int i = 0; i < cantidad; i++)
+                for (int i = 0; i < alumnos.Count; i++)
                 {
-                    if(alumnos[i].dni.Equals(busquedaDni))
+                    if(alumnos[i].Dni.Equals(busquedaDni))
                     {
-                        Console.WriteLine("{0}. {1} {2}. {3}. {4}", i +1,
-                            alumnos[i].nombre, alumnos[i].apellidos,
-                            alumnos[i].ciudad, alumnos[i].dni);
+                        Console.WriteLine("{0}. {1} {2}. {3}", i +1,
+                            alumnos[i].NombreApellido, alumnos[i].Ciudad, alumnos[i].Dni);
                         encontrado = true;
                     }
                 }
@@ -397,15 +402,14 @@ namespace AlumnosFunciones
                 Console.WriteLine("Introduzca apellido");
                 busquedaApellido = Console.ReadLine().ToUpper();
 
-                OrdenarAlumno(alumnos, cantidad, criterio);
+                OrdenarAlumno(alumnos, criterio);
 
-                for (int i = 0; i < cantidad; i++)
+                for (int i = 0; i < alumnos.Count; i++)
                 {
-                    if (alumnos[i].apellidos.ToUpper().Equals(busquedaApellido))
+                    if (alumnos[i].NombreApellido.ToUpper().Equals(busquedaApellido))
                     {
-                        Console.WriteLine("{0}. {1} {2}. {3}. {4}", i + 1,
-                            alumnos[i].nombre, alumnos[i].apellidos,
-                            alumnos[i].ciudad, alumnos[i].dni);
+                        Console.WriteLine("{0}. {1} {2}. {3}", i + 1,
+                            alumnos[i].NombreApellido, alumnos[i].Ciudad, alumnos[i].Dni);
                         encontrado = true;
                     }
                 }
@@ -418,56 +422,52 @@ namespace AlumnosFunciones
         }
 
         //no sé cómo se emplea
-        static int BusquedaRecursiva(alumno[] alumnos, int cantidad,
+        /*static int BusquedaRecursiva(List<Alumno> alumnos,
             string textoBuscar)
         {
-            if (cantidad == 0)
+            if (alumnos.Count == 0)
                 return -1;
-            else if (alumnos[cantidad].apellidos.Equals(textoBuscar) ||
-                alumnos[cantidad].dni.Equals(textoBuscar))
+            else if (alumnos.NombreApellido.Equals(textoBuscar) ||
+                alumnos.Dni.Equals(textoBuscar))
                 return cantidad;
             else
                 return BusquedaRecursiva(alumnos, cantidad - 1, textoBuscar);
-        }
+        }*/
 
-        static void CalcularPorcentajes(alumno[] alumnos, byte cantidad,
-            byte PRACTICAS, byte EXAMENES)
+        static void CalcularPorcentajes(List<Alumno> alumnos)
         {
             byte contadorAprobados = 0;
             float porcentaje;
 
-            for (int i = 0; i < PRACTICAS; i++)
+            for (int i = 0; i < 6; i++)
             {
                 contadorAprobados = 0;
 
-                for (int j = 0; j < cantidad; j++)
-                {
-                    if (alumnos[j].notasParciales.practicas[i] >= 5)
-                        contadorAprobados++;
-                }
-                porcentaje = (contadorAprobados * 100) / cantidad;
+                if (alumnos[i].GetParcial1() >= 5)
+                    contadorAprobados++;
+                porcentaje = (contadorAprobados * 100) / alumnos.Count;
                 Console.WriteLine("El porcentaje de aprobados de la" +
                     " práctica {0} es del {1}%, de {2} alumnos", i + 1,
-                    porcentaje, cantidad);
+                    porcentaje, alumnos.Count);
             }
             
-            for (int i = 0; i < EXAMENES; i++)
+            for (int i = 0; i < 3; i++)
             {
                 contadorAprobados = 0;
 
-                for (int j = 0; j < cantidad; j++)
+                for (int j = 0; j < alumnos.Count; j++)
                 {
-                    if (alumnos[j].notasParciales.examenes[i] >= 5)
+                    if (alumnos[j].GetExamen1() >= 5)
                         contadorAprobados++;
                 }
-                porcentaje = (contadorAprobados * 100) / cantidad;
+                porcentaje = (contadorAprobados * 100) / alumnos.Count;
                 Console.WriteLine("El porcentaje de aprobados del exámen" +
                    "de la {0}ª evaluación es del {1}%, de {2} alumnos", i + 1,
-                   porcentaje, cantidad);
+                   porcentaje, alumnos.Count);
             }
         }
 
-        static void MostrarGrafica(alumno[] alumnos, float cantidad)
+        static void MostrarGrafica(List<Alumno> alumnos)
         {
             string[,] porcentajeNotaFinal = new string[20,2];
             float contadorAprobados = 0;
@@ -476,12 +476,12 @@ namespace AlumnosFunciones
             byte numeroAsteriscosAprobados;
             byte numeroAsteriscosSuspensos;
 
-            for (int i = 0; i < cantidad; i++)
+            for (int i = 0; i < alumnos.Count; i++)
             {
-                if (alumnos[i].notasParciales.notaFinal >= 5)
+                if (alumnos[i].GetNotaFinal() >= 5)
                     contadorAprobados++;
             }
-            resultadoAprobados = Convert.ToByte((contadorAprobados / cantidad) * 100);
+            resultadoAprobados = Convert.ToByte((contadorAprobados / alumnos.Count) * 100);
             numeroAsteriscosAprobados = 
                 Convert.ToByte(resultadoAprobados * auxiliarNumeroAsteriscos);
             numeroAsteriscosSuspensos = 
@@ -577,20 +577,20 @@ namespace AlumnosFunciones
                         break;
 
                     case 4:
-                        OrdenarAlumno(alumnos);
+                        OrdenarAlumno(alumnos, 3);
                         MostrarAlumnos(alumnos);
                         Pausa();
                         break;
 
                     case 5:
-                        OrdenarAlumno(alumnos);
+                        OrdenarAlumno(alumnos, 3);
                         MostrarAlumnos(alumnos);
                         Pausa();
                         
                         break;
 
                     case 6:
-                        OrdenarAlumno(alumnos);
+                        OrdenarAlumno(alumnos, 4);
                         MostrarAlumnos(alumnos);
                         Pausa();
                         break;
