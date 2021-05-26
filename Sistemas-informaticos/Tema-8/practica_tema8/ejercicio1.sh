@@ -10,7 +10,7 @@ opcion=11
 
 while ! [[ $opcion -eq 0 ]]
 do
-   clear
+  clear
 
   cat<<END
  - Menu de mantenimiento de usuarios -

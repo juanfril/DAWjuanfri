@@ -1,0 +1,3 @@
+chmod;modifica permisos de archivos y directorios
+egrep;busqueda avanzada
+ls;lista contenido directorios

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+factorial(){
+  let n=$1
+  if (( "$n" <= "1" ))
+  then 
+     return 1
+  else
+     factorial n-1
+     return $n*$?
+  fi
+  return 0
+}
+
+factorial 5
+
+echo "factorial 5 = $?"
