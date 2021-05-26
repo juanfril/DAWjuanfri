@@ -1,0 +1,51 @@
+create table coches(
+    modelo varchar(20),
+    potencia varchar(6),
+    precio number
+);
+
+create table ventas(
+    matricula varchar(20),
+    cliente varchar(6),
+    nombre varchar(20)
+);
+
+create table VENTAS_TOTALES(
+    nombre varchar(20),
+    cantidad number,
+    total number
+);
+
+
+INSERT INTO COCHES VALUES ('LEON 1.8', '115 CV', 23000);
+INSERT INTO COCHES VALUES ('BMW SERIE 1', '150 CV', 30000);
+INSERT INTO COCHES VALUES ('RENAULT MEGANE', '130 CV', 20000);
+INSERT INTO COCHES VALUES ('VOLKSWAGEN GOLF', '150 CV', 25000);
+
+INSERT INTO VENTAS VALUES ('1234-GHJ', '445678', 'LEON 1.8');
+INSERT INTO VENTAS VALUES ('1235-GHJ', '225678', 'LEON 1.8');
+INSERT INTO VENTAS VALUES ('9999-FBK', '555678', 'BMW SERIE 1');
+INSERT INTO VENTAS VALUES ('4567-ABC', '775678', 'VOLKSWAGEN GOLF');
+INSERT INTO VENTAS VALUES ('4567-ABC', '775678', 'VOLKSWAGEN GOLF');
+
+CREATE OR REPLACE PROCEDURE calc_ventas as
+    cursor c_coches is
+    select * from coches;
+    
+    cursor c_ventas is
+    select count(*) as contador, nombre as v_nombre
+    from ventas
+    group by nombre;
+    
+begin
+    delete from ventas_totales;
+    for reg_coches in c_coches
+    loop
+        for reg_ventas in c_ventas
+        loop
+            if reg_coches.modelo = reg_ventas.v_nombre then
+                insert into ventas_totales values(reg_ventas.v_nombre, reg_ventas.contador, (reg_coches.precio*reg_ventas.contador));
+            end if;
+        end loop;
+    end loop;
+end;
