@@ -1,17 +1,11 @@
 #!/bin/bash
 
-factorial(){
-  let n=$1
-  if (( "$n" <= "1" ))
-  then 
-     return 1
-  else
-     factorial n-1
-     return $n*$?
-  fi
-  return 0
-}
-
-factorial 5
-
-echo "factorial 5 = $?"
+num=5
+factor=1
+echo "Resultado factorial:"
+while [ $num -gt 1 ]
+do
+  factor=$((factor * num))  #factor = factor * num
+  num=$((num - 1))  #num = num - 1
+done
+echo $factor
