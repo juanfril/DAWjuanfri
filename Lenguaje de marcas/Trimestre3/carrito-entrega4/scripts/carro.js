@@ -1,37 +1,37 @@
 'use strict';
 
 (function(){
-    let carrito = document.getElementById('cart_items');
-    let style = window.getComputedStyle(carrito, '')
-    let rectArticulo = 120;
-    let desplazamiento = 50;
-    let ancho = parseInt(style.width);
-    let articulosCarrito = carrito.children.length;
-    let rectCarritoInicial = carrito.getBoundingClientRect();
-    let colores = setInterval(timer, 1000);
+    let carrito = document.getElementById('cart_items'),
+        style = window.getComputedStyle(carrito, ''),
+        rectArticulo = 120,
+        desplazamiento = 50,
+        ancho = parseInt(style.width),
+        articulosCarrito = carrito.children.length,
+        rectCarritoInicial = carrito.getBoundingClientRect(),
+        colores = setInterval(timer, 1000);
 
-    function timer(){
-        carrito.style.background = 
-            carrito.style.background == 'yellow' ? 'red' : 'yellow';
-    }
-    function comprobarCarritoVacio(){
+    const timer = () =>
+        carrito.style.background = (carrito.style.background == 'yellow')
+             ? 'red' 
+             : 'yellow';
+    
+    const comprobarCarritoVacio = () => {
         if(!carrito.firstChild)
             colores = setInterval(timer, 1000);
         else
             clearInterval(colores);
     }    
     //copiar artículo seleccionado
-    function getCopia (articulo){
+    const getCopia = articulo => {
         let copia = articulo.cloneNode(true);
         copia.id = 'c' + copia.id;
         copia.lastElementChild.style.display = 'none';
         copia.style.cursor = 'default';
-        insertarEnlaceBorrado(copia)
+        insertarEnlaceBorrado(copia);
         return copia;
     }
     //insertar el botón para sacar del carro
-    function insertarEnlaceBorrado(copia){
-        copia.id = 'c' + copia.id;
+    const insertarEnlaceBorrado = copia => {
         let enlaceBorrado = document.createElement('a');
         enlaceBorrado.href = '#';
         enlaceBorrado.setAttribute( 'class', 'delete');
@@ -39,7 +39,7 @@
         copia.insertBefore(enlaceBorrado, copia.children[0]);
     }
     //Sacar del carrito los artículos
-    function borrarArticuloCarro(event){
+    const borrarArticuloCarro = event => {
         //borrar artículo
         let hijo = this.parentNode;
         carrito.removeChild(hijo);
@@ -59,7 +59,7 @@
         controlCarrito();
     }
     //añadir articulos al carrito
-    function insertarCarrito (articulo){
+    const insertarCarrito = articulo => {
         let copia = getCopia(articulo);
         carrito.insertBefore(copia, carrito.children[0]);
         setStock(articulo, -1);
@@ -68,13 +68,13 @@
         comprobarCarritoVacio();
     }
     //conseguir stock
-    function getStock(articulo){
+    const getStock = articulo => {
         let precioArticulo = articulo.lastElementChild;
         let arrayStock = precioArticulo.textContent.split(' ');
         return arrayStock;
     }
     //Selecciona el stock del artículo lo convierte a entero y cambia el valor
-    function setStock(articulo, valor){  
+    const setStock = (articulo, valor) => {  
         let precioArticulo = articulo.lastElementChild;
         let arrayStock = getStock(articulo);
         arrayStock[1] = parseInt(arrayStock[1]) + valor;
@@ -86,35 +86,34 @@
             articulo.lastElementChild.setAttribute('class', 'stock')
     }
     //añade la clase agotado
-    function agotadoStock(articulo){
-        articulo.setAttribute('class', 'agotado');
-    }
+    const agotadoStock = articulo => articulo.setAttribute('class', 'agotado');
+
     //modificar cantidad artículos según valor dado
-    function setCantidadArticulos(valor){
+    const setCantidadArticulos = valor => {
         let cantidad = document.querySelector('#citem')
         cantidad.value = parseInt(cantidad.value) + valor;
     }
     //conseguir precio producto
-    function getPrecio(articulo){
+    const getPrecio = articulo => {
         let precioArticulo = articulo.querySelector('.price');
         let arrayPrecio = precioArticulo.textContent.split(' ');
         //console.log(arrayPrecio);
         return parseInt(arrayPrecio[0]);
     }
     //agregar precio del carrito
-    function setAgregarPrecioTotal(articulo){
+    const setAgregarPrecioTotal = articulo => {
         let precioArticulo = getPrecio(articulo);
         let costePedido = document.querySelector('#cprice');
         costePedido.value = parseInt(costePedido.value) + precioArticulo + ' €';
     }
     //descontar precio del carrito
-    function setDescontarPrecioTotal(articulo){
+    const setDescontarPrecioTotal = articulo => {
         let precioArticulo = getPrecio(articulo);
         let costePedido = document.querySelector('#cprice');
         costePedido.value = parseInt(costePedido.value) - precioArticulo + ' €';
     }
     //añadir al carrito con escucha
-    function articuloDbClick(event){
+    const articuloDbClick = event => {
         let articulo = event.currentTarget;
         let stock = getStock(articulo);
         if(parseInt(stock[1]) > 0)
@@ -124,15 +123,13 @@
         aumentarAncho();
     }
     //Vaciar el carrito
-    function vaciarOnClick(event){
+    const vaciarOnClick = event => {
         let enlaces = document.querySelectorAll('#cart_items .delete');
-        enlaces.forEach(element => {
-           element.onclick();
-        });
+        enlaces.forEach(element => element.onclick());
         controlCarrito();
     }
     //Comprobar si hay más de 4 artículos
-    function aumentarAncho() {
+    const aumentarAncho = () => {
         articulosCarrito = carrito.children.length;
         if(articulosCarrito > 4){
             ancho = ancho + rectArticulo;
@@ -140,7 +137,7 @@
         }
     }
     //Disminuir tamaño carrito
-    function disminuirAncho() {
+    const disminuirAncho = () => {
         articulosCarrito = carrito.children.length;
         let style = window.getComputedStyle(carrito, '');
         let ancho = parseInt(style.width);
@@ -150,7 +147,7 @@
         controlCarrito();
     }
     //Función para que el carrito se mueva hacia la izquierda
-    function mueveIzquierda(event) {
+    const mueveIzquierda = event => {
         articulosCarrito = carrito.children.length;
         if(articulosCarrito > 4){
             let style = window.getComputedStyle(carrito, '');
@@ -160,7 +157,7 @@
         controlCarrito();
     }
     //Función para que el carrito se mueva hacia la derecha
-    function mueveDerecha(event) {
+    const mueveDerecha = event => {
         articulosCarrito = carrito.children.length;
         if(articulosCarrito > 4){
             let style = window.getComputedStyle(carrito, '');
@@ -176,12 +173,10 @@
         if(rectCarrito.right < rectCarritoInicial.right)
             carrito.style.left = -(rectCarrito.width - rectCarritoInicial.width) + 'px';
     }
-    window.onload = function (){
+    window.onload = () => {
         //añadir a todos los artículos dbclick
         let articulos = document.getElementsByClassName('item');
-        for (let i = 0; i < articulos.length; i++){
-            articulos[i].ondblclick = articuloDbClick; 
-        }
+        articulos.forEach(art => art.ondblclick = articuloDbClick);
         //Añadir click a vaciar carrito
         let vaciar = document.getElementById('btn_clear');
         vaciar.onclick = vaciarOnClick;
